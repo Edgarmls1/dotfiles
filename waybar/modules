@@ -1,0 +1,111 @@
+{
+  "hyprland/workspaces": {
+    "format": "{}",
+    "on-click": "activate",
+    "sort-by-number": true
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "{:%H:%M} ",
+    "format-alt": " {:%H:%M  %d %B %Y} ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "days": "<span color='#ebdbb2'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ebdbb2'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+
+  "cpu": {
+    "format": " {usage}%  ",
+    "interval": 1,
+    "on-click-right": "gnome-system-monitor"
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 100,
+    "separate-outputs": true,
+    "rewrite": {
+      "Mozilla Firefox": " $1",
+      "fish": " [$1]",
+      "zsh": " [$1]",
+      "kitty": " [$1]",
+      "Code": " $1",
+      "Terminal": " $1",
+      "Spotify": " $1"
+    }
+  },
+
+  "memory": {
+    "interval": 10,
+    "format": " {percentage}%  ",
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
+    "on-click-right": "kitty -c ~/.config/dotfiles/kitty/kitty.conf --title btop sh -c 'btop'"
+  },
+
+  "mpris": {
+    "interval": 10,
+    "format": " {title} ",
+    "format-paused": " {title} {status_icon} ",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "status-icons": {
+      "paused": "󰐎",
+      "playing": "🎶",
+      "stopped": ""
+    },
+    "max-length": 30
+  },
+
+  "pulseaudio": {
+    "format": " {volume}% {icon}",
+    "format-bluetooth": " 󰂰 {volume}%",
+    "format-muted": "🔇",
+    "scroll-step": 5.0,
+    "on-click": "pavucontrol -t 3",
+    "tooltip-format": "{icon} {desc} | {volume}%"
+  },
+	
+  "custom/exit": {
+    "format": "   ",
+    "on-click": "wlogout",
+    "on-click-right": "hyprlock",
+    "tooltip-format": "Left: Power menu\nRight: Lock screen"
+  },
+  
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "network": {
+    "exec": "~/.config/waybar/scripts/network.sh",
+    "interface": "wlo1",
+    "format": "{ifname}",
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "max-length": 50,
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "on-click": "bash ~/Downloads/rofi-wifi-menu.sh"
+    }
+}
+
