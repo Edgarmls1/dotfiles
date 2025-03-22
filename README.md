@@ -1,5 +1,5 @@
 # dotfiles
 
-## meus dotfiles
+## meus dotfiles Arch Linux e Hyprland
 
-! [screenshot] (https://github.com/Edgarmls1/dotfiles/blob/main/20250321_23h00m20s_grim.png?raw=true)
+![App Screenshot](20250321_23h00m20s_grim.png)
