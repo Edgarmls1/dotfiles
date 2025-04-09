@@ -106,6 +106,13 @@
     "max-length": 50,
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "on-click": "bash ~/Downloads/rofi-wifi-menu.sh"
+    },
+
+    "custom/launch_rofi": {
+        "format": " ",
+        "on-click": "rofi -show drun || pkill rofi",
+        "tooltip": true,
+        "tooltip-format": "Left Click: Launch Rofi\nRight Click: Launch yazi"
     }
 }
 
