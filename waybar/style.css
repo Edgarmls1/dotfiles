@@ -34,7 +34,7 @@ window#waybar {
 #backlight,
 #cpu,
 #memory,
-#custom-weather {
+#custom-launch_rofi {
   color: @color5; /* color5 */
   background-color: @background; /* background */
   margin: 0 5px 0 0px;
