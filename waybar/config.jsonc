@@ -83,7 +83,6 @@
   
   "network": {
     "exec": "~/network.sh",
-    "interface": "wlo1",
     "format": "{ifname}",
     "format-wifi": "{icon} {essid}",
     "format-ethernet": "󰈀",
