@@ -6,7 +6,7 @@ rm -rf ~/.config/i3 && mv i3 ~/.config/i3
 rm -rf ~/.config/neofetch && mv neofetch ~/.config/neofetch
 rm -rf ~/.config/rofi && mv rofi ~/.config/rofi
 rm -rf ~/.config/waybar && mv waybar ~/.config/waybar
-rm -rf ~/.config/yazi && mv nvim ~/.config/yazi
+rm -rf ~/.config/yazi && mv yazi ~/.config/yazi
 
 chmod +x appname.sh full_screen.sh network.sh rofi-wifi-menu.sh sys_update.sh
 
