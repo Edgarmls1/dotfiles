@@ -107,7 +107,7 @@ move_config() {
 move_all_configs() {
     echo "Instalando todas as configurações..."
 
-    local all_configs=("nvim" "hypr" "i3" "neofetch" "rofi" "waybar" "yazi" "zsh")
+    local all_configs=("nvim" "hypr" "i3" "fastfetch" "rofi" "waybar" "yazi" "zsh")
     for config in "${all_configs[@]}"; do
         check_specific_dependencies "$config"
     done
