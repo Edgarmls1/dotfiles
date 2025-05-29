@@ -10,11 +10,6 @@ Programas utilizados:
 
  - terminal: `kitty`
  - editor de codigo: `neovim`
- - status bar: `waybar`
- - window manager: `hyprland`
- - wallpaper: `hyprpaper`
+ - status bar: `waybar` ou `bumblebee-status`
+ - window manager: `hyprland` ou `i3`
  - lançador de aplicativos: `rofi`
-
-`full_screen.sh`: shell script para deixar uma das janelas abertas em tela cheia
-
-`rofi-wifi-menu.sh`: shell script para utilizar o rofi como menu de wifi
