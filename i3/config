@@ -91,6 +91,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym Ctrl+Right exec playerctl next
+bindsym Ctrl+Left exec playerctl previous
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
