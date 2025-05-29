@@ -33,7 +33,7 @@ check_dependencies() {
             done
             ;;
         "nvim") sudo pacman -S neovim ;;
-        "neofetch") sudo pacman -S neofetch ;;
+        "fastfetch") sudo pacman -S fastfetch ;;
         "yazi") sudo pacman -S yazi ;;
         "zsh") sudo pacman -S zsh ;;
         *) return ;;
@@ -54,7 +54,7 @@ show_menu() {
     echo "1) Neovim (nvim)"
     echo "2) Hyprland (hypr)"
     echo "3) i3 WM"
-    echo "4) Neofetch"
+    echo "4) Fastfetch"
     echo "5) Rofi"
     echo "6) Waybar"
     echo "7) Yazi"
@@ -68,7 +68,7 @@ show_menu() {
         1) move_config "nvim" ;;
         2) move_config "hypr" ;;
         3) move_config "i3" ;;
-        4) move_config "neofetch" ;;
+        4) move_config "fastfetch" ;;
         5) move_config "rofi" ;;
         6) move_config "waybar" ;;
         7) move_config "yazi" ;;
