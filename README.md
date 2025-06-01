@@ -25,5 +25,3 @@ chmod +x install.sh
 
  - ter `Arch linux` instalado
  - caso já esteja utilizando o `i3wm`, que sua `mod key` seja a tecla `SUPER`, caso o contrario você tera que modificar o arquivo de configuração, pois ele está configurado para dois monitores
-
----
