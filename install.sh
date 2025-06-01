@@ -2,9 +2,9 @@
 
 show_menu() {
     clear
-    echo "===================================="
-    echo "  INSTALADOR DE CONFIGURAÇÕES DOTFILES  "
-    echo "===================================="
+    echo "++========================++"
+    echo "|| INSTALADOR DE DOTFILES ||"
+    echo "++========================++"
     echo ""
     echo "Selecione quais configurações deseja instalar:"
     echo ""
@@ -22,6 +22,8 @@ show_menu() {
         1) 
             sudo pacman -S --noconfirm neovim
             rm -rf ~/.config/nvim && mv nvim ~/.config/nvim 
+
+            ask_to_continue
         ;;
         2) move_hypr ;;
         3) move_i3 ;;
@@ -29,6 +31,8 @@ show_menu() {
             sudo pacman -S --noconfirm fastfetch
             rm -rf ~/.config/fastfetch && mv fastfetch ~/.config/fastfetch
             mv archlogo.txt ~/archlogo.txt
+
+            ask_to_continue
         ;;
         5) move_all_configs ;;
         6) 
@@ -41,6 +45,8 @@ show_menu() {
             mv wallpapers ~/Imagens/wallpapers
             mv .zshrc ~/.zshrc
             mv sys_update.sh ~/sys_update.sh
+
+            ask_to_continue
         ;;
         0) exit 0 ;;
         *) echo "Opção inválida. Tente novamente." ; sleep 1 ; show_menu ;;
@@ -101,6 +107,8 @@ move_hypr() {
     mv full_screen.sh ~/full_screen.sh
     mv network.sh ~/network.sh
     mv rofi-wifi-menu.sh ~/rofi-wifi-menu.sh
+
+    ask_to_continue
 }
 
 move_i3() {
@@ -109,6 +117,18 @@ move_i3() {
     yay -S --noconfirm bumblebee-status-git
 
     rm -rf ~/.config/i3 && mv i3 ~/.config/i3
+
+    ask_to_continue
+}
+
+ask_to_continue() {
+    echo ""
+    read -p "Deseja realizar outra operação? (s/n) " resp
+    
+    case $resp in
+        [Ss]*) show_menu                        ;;
+        *) echo "instalaçao concluida" ; exit 0 ;;
+    esac
 }
 
 show_menu
