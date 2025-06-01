@@ -15,7 +15,7 @@ if [[ ! -d "$ZINIT_HOME" ]]; then
 fi
 
 source "${ZINIT_HOME}/zinit.zsh"
-source ~/anaconda3/bin/activate
+#source ~/anaconda3/bin/activate
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -46,9 +46,7 @@ zstyle ':completion:*' menu no
 
 
 alias ls='lsd'
-alias nrs='nvim ~/dev/rust/'
-alias nc='nvim ~/dev/C/'
-alias gcs='google-chrome-stable'
+alias update='~/sys_update.sh' 
 
 eval "$(fzf --zsh)"
 

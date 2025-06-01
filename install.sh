@@ -1,61 +1,53 @@
 #! /usr/bin/bash
 
-show_menu() {
+menu() {
     clear
-    echo "++========================++"
-    echo "|| INSTALADOR DE DOTFILES ||"
-    echo "++========================++"
-    echo ""
-    echo "Selecione quais configurações deseja instalar:"
-    echo ""
-    echo "1) Neovim (nvim)"
-    echo "2) Hyprland (hypr)"
-    echo "3) i3 WM"
-    echo "4) Fastfetch"
-    echo "5) Todos os itens acima"
-    echo "6) Apenas scripts e wallpapers"
-    echo "0) Sair"
-    echo ""
-    read -p "Digite sua escolha (0-9): " choice
+    echo "++======================================================++"
+    echo "||                                                      ||"
+    echo "||              +------------------------+              ||"
+    echo "||              | INSTALADOR DE DOTFILES |              ||"
+    echo "||              +------------------------+              ||"
+    echo "||                                                      ||"
+    echo "|| Selecione qual configuração deseja instalar (0-9):   ||"
+    echo "||                                                      ||"
+    echo "|| 1) Neovim (nvim)                                     ||"
+    echo "|| 2) Hyprland (hypr)                                   ||"
+    echo "|| 3) i3 WM                                             ||"
+    echo "|| 4) Fastfetch                                         ||"
+    echo "|| 5) Todos os itens acima                              ||"
+    echo "|| 6) Apenas scripts e wallpapers                       ||"
+    echo "|| 0) Sair                                              ||"
+    echo "||                                                      ||"
+    echo "++======================================================++"
+    read -p " " choice
 
     case $choice in
-        1) 
-            sudo pacman -S --noconfirm neovim
-            rm -rf ~/.config/nvim && mv nvim ~/.config/nvim 
-
-            ask_to_continue
-        ;;
-        2) move_hypr ;;
-        3) move_i3 ;;
-        4) 
-            sudo pacman -S --noconfirm fastfetch
-            rm -rf ~/.config/fastfetch && mv fastfetch ~/.config/fastfetch
-            mv archlogo.txt ~/archlogo.txt
-
-            ask_to_continue
-        ;;
-        5) move_all_configs ;;
-        6) 
-            sudo pacman -S --noconfirm zsh
-            command -v zsh | sudo tee -a /etc/shells
-            chsh -s $(which zsh)
-            
-            chmod +x sys_update.sh
-            
-            mv wallpapers ~/Imagens/wallpapers
-            mv .zshrc ~/.zshrc
-            mv sys_update.sh ~/sys_update.sh
-
-            ask_to_continue
-        ;;
-        0) exit 0 ;;
+        1) nvim                                                          ;;
+        2) hypr                                                          ;;
+        3) i3                                                            ;;
+        4) fastfetch                                                     ;;
+        5) all                                                           ;;
+        6) wallpapers_scripts                                            ;;
+        0) exit 0                                                        ;;
         *) echo "Opção inválida. Tente novamente." ; sleep 1 ; show_menu ;;
     esac
 }
 
-move_all_configs() {
+AUR() {
+    if ! command -v yay &> /dev/null; then
+        echo "Instalando o gerenciador de pacotes yay..."
+        git clone https://aur.archlinux.org/yay.git || { echo "Falha ao clonar yay!"; exit 1; }
+        cd yay || exit 1
+        makepkg -si --noconfirm || { echo "Falha ao instalar yay!"; exit 1; }
+        cd || exit 1
+    else
+        echo "yay já está instalado."
+    fi
+}
 
-    install_yay
+all() {
+
+    AUR
 
     sudo pacman -S --noconfirm hyprland hyprpaper rofi waybar i3 feh yazi picom autotiling kitty dolphin
     yay -S --noconfirm hyprsome-git bumblebee-status-git
@@ -80,21 +72,17 @@ move_all_configs() {
     mv archlogo.txt ~/archlogo.txt
 }
 
-install_yay() {
-    if ! command -v yay &> /dev/null; then
-        echo "Instalando o gerenciador de pacotes yay..."
-        git clone https://aur.archlinux.org/yay.git || { echo "Falha ao clonar yay!"; exit 1; }
-        cd yay || exit 1
-        makepkg -si --noconfirm || { echo "Falha ao instalar yay!"; exit 1; }
-        cd || exit 1
-    else
-        echo "yay já está instalado."
-    fi
+nvim() {
+    sudo pacman -S --noconfirm neovim
+    rm -rf ~/.config/nvim && mv nvim ~/.config/nvim
+    
+    ask_to_continue
 }
 
-move_hypr() {
+hypr() {
+    AUR
+
     sudo pacman -S --noconfirm git hyprland hyprpaper kitty dolphin rofi waybar
-    install_yay
     yay -S --noconfirm hyprsome-git
 
     rm -rf ~/.config/hypr && mv hypr ~/.config/hypr
@@ -111,13 +99,36 @@ move_hypr() {
     ask_to_continue
 }
 
-move_i3() {
+i3() {
+    AUR
+    
     sudo pacman -S --noconfirm git i3 picom feh autotiling kitty dolphin
-    install_yay
     yay -S --noconfirm bumblebee-status-git
 
     rm -rf ~/.config/i3 && mv i3 ~/.config/i3
 
+    ask_to_continue
+}
+
+fastfetch() {
+    sudo pacman -S --noconfirm fastfetch
+    rm -rf ~/.config/fastfetch && mv fastfetch ~/.config/fastfetch
+    mv archlogo.txt ~/archlogo.txt
+    
+    ask_to_continue
+}
+
+wallpapers_scripts() {
+    sudo pacman -S --noconfirm zsh
+    command -v zsh | sudo tee -a /etc/shells
+    chsh -s $(which zsh)
+    
+    chmod +x sys_update.sh
+    
+    mv wallpapers ~/Imagens/wallpapers
+    mv .zshrc ~/.zshrc
+    mv sys_update.sh ~/sys_update.sh
+    
     ask_to_continue
 }
 
@@ -126,9 +137,9 @@ ask_to_continue() {
     read -p "Deseja realizar outra operação? (s/n) " resp
     
     case $resp in
-        [Ss]*) show_menu                        ;;
+        [Ss]*) menu                             ;;
         *) echo "instalaçao concluida" ; exit 0 ;;
     esac
 }
 
-show_menu
+menu
