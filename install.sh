@@ -52,13 +52,13 @@ all() {
     sudo pacman -S --noconfirm hyprland hyprpaper rofi waybar i3 feh yazi picom autotiling kitty dolphin
     yay -S --noconfirm hyprsome-git bumblebee-status-git
     
-    rm -rf ~/.config/nvim && mv nvim ~/.config/nvim
-    rm -rf ~/.config/hypr && mv hypr ~/.config/hypr
-    rm -rf ~/.config/i3 && mv i3 ~/.config/i3
-    rm -rf ~/.config/fastfetch && mv fastfetch ~/.config/fastfetch
-    rm -rf ~/.config/rofi && mv rofi ~/.config/rofi
-    rm -rf ~/.config/waybar && mv waybar ~/.config/waybar
-    rm -rf ~/.config/yazi && mv nvim ~/.config/yazi
+    rm -rf ~/.config/nvim 2> /dev/null && mv nvim ~/.config/nvim
+    rm -rf ~/.config/hypr 2> /dev/null && mv hypr ~/.config/hypr
+    rm -rf ~/.config/i3 2> /dev/null && mv i3 ~/.config/i3
+    rm -rf ~/.config/fastfetch 2> /dev/null && mv fastfetch ~/.config/fastfetch
+    rm -rf ~/.config/rofi 2> /dev/null && mv rofi ~/.config/rofi
+    rm -rf ~/.config/waybar 2> /dev/null && mv waybar ~/.config/waybar
+    rm -rf ~/.config/yazi 2> /dev/null && mv nvim ~/.config/yazi
 
     chmod +x appname.sh full_screen.sh network.sh rofi-wifi-menu.sh sys_update.sh
 
@@ -74,7 +74,7 @@ all() {
 
 nvim() {
     sudo pacman -S --noconfirm neovim
-    rm -rf ~/.config/nvim && mv nvim ~/.config/nvim
+    rm -rf ~/.config/nvim 2> /dev/null && mv nvim ~/.config/nvim
     
     ask_to_continue
 }
@@ -85,9 +85,9 @@ hypr() {
     sudo pacman -S --noconfirm git hyprland hyprpaper kitty dolphin rofi waybar
     yay -S --noconfirm hyprsome-git
 
-    rm -rf ~/.config/hypr && mv hypr ~/.config/hypr
-    rm -rf ~/.config/rofi && mv rofi ~/.config/rofi
-    rm -rf ~/.config/waybar && mv waybar ~/.config/waybar
+    rm -rf ~/.config/hypr 2> /dev/null && mv hypr ~/.config/hypr
+    rm -rf ~/.config/rofi 2> /dev/null && mv rofi ~/.config/rofi
+    rm -rf ~/.config/waybar 2> /dev/null && mv waybar ~/.config/waybar
 
     chmod +x appname.sh full_screen.sh network.sh rofi-wifi-menu.sh
 
@@ -105,14 +105,14 @@ i3() {
     sudo pacman -S --noconfirm git i3 picom feh autotiling kitty dolphin
     yay -S --noconfirm bumblebee-status-git
 
-    rm -rf ~/.config/i3 && mv i3 ~/.config/i3
+    rm -rf ~/.config/i3 2> /dev/null && mv i3 ~/.config/i3
 
     ask_to_continue
 }
 
 fastfetch() {
     sudo pacman -S --noconfirm fastfetch
-    rm -rf ~/.config/fastfetch && mv fastfetch ~/.config/fastfetch
+    rm -rf ~/.config/fastfetch 2> /dev/null && mv fastfetch ~/.config/fastfetch
     mv archlogo.txt ~/archlogo.txt
     
     ask_to_continue

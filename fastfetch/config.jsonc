@@ -33,7 +33,8 @@
     "disk",
     "battery",
     "poweradapter",
-    "locale"
+    "locale",
+    "colors"
   ],
   "display": {
         "separator": ": ",     // Separator between keys and values
