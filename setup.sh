@@ -94,15 +94,23 @@ dev() {
 
     AUR
     bluetooth
-    conda_config
 
     sudo pacman -S neovim
     yay -S warp-terminal-bin visual-studio-code-bin
     flatpak install flathub md.obsidian.Obsidian
 
-    read -p "Deseja instaler postgres? " choice
+    read -p "Deseja instalar conda (python)? " choice1
 
-    case $choice in 
+    case $choice1 in 
+        [Ss]*) 
+            conda_config
+        ;;
+        *) "" ;;
+    esac
+
+    read -p "Deseja instalar postgres? " choice2
+
+    case $choice2 in 
         [Ss]*) 
             sudo pacman -S postgres
             yay -S pgadmin4-desktop
@@ -153,4 +161,3 @@ ask_to_continue() {
 }
 
 menu
-
