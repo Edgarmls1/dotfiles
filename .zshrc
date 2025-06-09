@@ -47,6 +47,7 @@ zstyle ':completion:*' menu no
 
 alias ls='lsd'
 alias update='~/sys_update.sh' 
+alias reconfig='p10k configure'
 
 eval "$(fzf --zsh)"
 
