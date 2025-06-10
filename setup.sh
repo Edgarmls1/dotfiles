@@ -38,7 +38,6 @@ clean() {
     echo "+-------------------------+"
 
     AUR
-    bluetooth
 
     yay -S spotify
     echo ""
@@ -46,7 +45,8 @@ clean() {
     echo "1 - zen"
     echo "2 - chrome"
     echo "3 - firefox"
-    echo "4 - todos"
+    echo "4 - brave"
+    echo "5 - todos"
     echo "0 - nenhum"
     read -p " " choice
 
@@ -54,12 +54,13 @@ clean() {
         1) flatpak install flathub app.zen_browser.zen ;;
         2) yay -S google-chrome                        ;;
         3) sudo pacman -S firefox                      ;;
-        4) 
+        4) yay -S brave-bin
+        5) 
             flatpak install flathub app.zen_browser.zen 
-            yay -S google-chrome                        
+            yay -S google-chrome brave-bin
             sudo pacman -S firefox
         ;;
-        0) ""                                          ;;
+        0) " "                                         ;;
         *) "opcao invalida"                            ;;
     esac
 
@@ -74,7 +75,6 @@ games() {
     echo "+----------------------------+"
 
     AUR
-    bluetooth
 
     yay -S steam heroic-games-launcher-bin lutris
     flatpak install flathub org.libretro.RetroArch com.discordapp.Discordcom.discordapp.Discord
@@ -93,7 +93,6 @@ dev() {
     echo "+--------------------------+"
 
     AUR
-    bluetooth
 
     sudo pacman -S neovim
     yay -S warp-terminal-bin visual-studio-code-bin
@@ -131,7 +130,6 @@ dev() {
 }
 
 bluetooth() {
-    echo "Configurando Bluetooth..."
     sudo pacman -S --noconfirm bluez bluez-utils
     sudo systemctl enable bluetooth
     sudo sed -i 's/^#AutoEnable=true/AutoEnable=true/' /etc/bluetooth/main.conf
@@ -160,4 +158,5 @@ ask_to_continue() {
     esac
 }
 
+bluetooth
 menu
