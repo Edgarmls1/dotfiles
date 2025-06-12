@@ -54,7 +54,7 @@ clean() {
         1) flatpak install flathub app.zen_browser.zen ;;
         2) yay -S google-chrome                        ;;
         3) sudo pacman -S firefox                      ;;
-        4) yay -S brave-bin
+        4) yay -S brave-bin                            ;;
         5) 
             flatpak install flathub app.zen_browser.zen 
             yay -S google-chrome brave-bin

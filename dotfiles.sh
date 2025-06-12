@@ -22,14 +22,14 @@ menu() {
     read -p " " choice
 
     case $choice in
-        1) nvim                                                          ;;
-        2) hypr                                                          ;;
-        3) i3                                                            ;;
-        4) fastfetch                                                     ;;
-        5) all                                                           ;;
-        6) wallpapers_scripts                                            ;;
-        0) exit 0                                                        ;;
-        *) echo "Opção inválida. Tente novamente." ; sleep 1 ; show_menu ;;
+        1) nvim                                                     ;;
+        2) hypr                                                     ;;
+        3) i3                                                       ;;
+        4) fastfetch                                                ;;
+        5) all                                                      ;;
+        6) wallpapers_scripts                                       ;;
+        0) exit 0                                                   ;;
+        *) echo "Opção inválida. Tente novamente." ; sleep 1 ; menu ;;
     esac
 }
 
@@ -82,12 +82,19 @@ nvim() {
 hypr() {
     AUR
 
-    sudo pacman -S --noconfirm git hyprland hyprpaper kitty dolphin rofi waybar
-    yay -S --noconfirm hyprsome-git
+    if ! pacman -Qi hyprland &>/dev/null; then
+        echo "hyprland e outros programas nao estao instalados..."
+        sudo pacman -S --noconfirm git hyprland hyprpaper kitty dolphin rofi waybar
+        yay -S --noconfirm hyprsome-git
 
-    rm -rf ~/.config/hypr 2> /dev/null && mv hypr ~/.config/hypr
-    rm -rf ~/.config/rofi 2> /dev/null && mv rofi ~/.config/rofi
-    rm -rf ~/.config/waybar 2> /dev/null && mv waybar ~/.config/waybar
+        mv hypr ~/.config/hypr
+        mv rofi ~/.config/rofi
+        mv waybar ~/.config/waybar
+    else 
+        rm -rf ~/.config/hypr 2> /dev/null && mv hypr ~/.config/hypr
+        rm -rf ~/.config/rofi 2> /dev/null && mv rofi ~/.config/rofi
+        rm -rf ~/.config/waybar 2> /dev/null && mv waybar ~/.config/waybar
+    fi
 
     chmod +x appname.sh full_screen.sh network.sh rofi-wifi-menu.sh
 
@@ -101,18 +108,29 @@ hypr() {
 
 i3() {
     AUR
+
+    if ! pacman -Qi i3 &>/dev/null; then
+        echo "i3 e outros programas nao estao instalados..."
+        sudo pacman -S --noconfirm git i3 picom feh autotiling kitty dolphin
+        yay -S --noconfirm bumblebee-status-git
+
+        mv i3 ~/.config/i3
+    else 
+        rm -rf ~/.config/i3 2> /dev/null && mv i3 ~/.config/i3
+    fi
     
-    sudo pacman -S --noconfirm git i3 picom feh autotiling kitty dolphin
-    yay -S --noconfirm bumblebee-status-git
-
-    rm -rf ~/.config/i3 2> /dev/null && mv i3 ~/.config/i3
-
     ask_to_continue
 }
 
 fastfetch() {
-    sudo pacman -S --noconfirm fastfetch
-    rm -rf ~/.config/fastfetch 2> /dev/null && mv fastfetch ~/.config/fastfetch
+
+    if ! command -v fastfetch &> /dev/null; then
+        sudo pacman -S --noconfirm fastfetch
+        mv fastfetch ~/.config/fastfetch
+    else
+        rm -rf ~/.config/fastfetch 2> /dev/null && mv fastfetch ~/.config/fastfetch
+    fi
+
     mv archlogo.txt ~/archlogo.txt
     
     ask_to_continue
