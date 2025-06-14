@@ -58,7 +58,7 @@ all() {
     rm -rf ~/.config/fastfetch 2> /dev/null && mv fastfetch ~/.config/fastfetch
     rm -rf ~/.config/rofi 2> /dev/null && mv rofi ~/.config/rofi
     rm -rf ~/.config/waybar 2> /dev/null && mv waybar ~/.config/waybar
-    rm -rf ~/.config/yazi 2> /dev/null && mv nvim ~/.config/yazi
+    rm -rf ~/.config/yazi 2> /dev/null && mv yazi ~/.config/yazi
 
     chmod +x appname.sh full_screen.sh network.sh rofi-wifi-menu.sh sys_update.sh
 
@@ -137,7 +137,7 @@ fastfetch() {
 }
 
 wallpapers_scripts() {
-    sudo pacman -S --noconfirm zsh
+    sudo pacman -S --noconfirm zsh yazi
     command -v zsh | sudo tee -a /etc/shells
     chsh -s $(which zsh)
     
@@ -146,6 +146,7 @@ wallpapers_scripts() {
     mv wallpapers ~/Imagens/wallpapers
     mv .zshrc ~/.zshrc
     mv sys_update.sh ~/sys_update.sh
+    rm -rf ~/.config/yazi 2> /dev/null && mv yazi ~/.config/yazi
     
     ask_to_continue
 }
