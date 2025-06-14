@@ -8,7 +8,7 @@ menu() {
     echo "||              | INSTALADOR DE DOTFILES |              ||"
     echo "||              +------------------------+              ||"
     echo "||                                                      ||"
-    echo "|| Selecione qual configuração deseja instalar (0-9):   ||"
+    echo "|| Selecione qual configuração deseja instalar (0-6):   ||"
     echo "||                                                      ||"
     echo "|| 1) Neovim (nvim)                                     ||"
     echo "|| 2) Hyprland (hypr)                                   ||"
@@ -111,7 +111,7 @@ i3() {
 
     if ! pacman -Qi i3 &>/dev/null; then
         echo "i3 e outros programas nao estao instalados..."
-        sudo pacman -S --noconfirm git i3 picom feh autotiling kitty dolphin
+        sudo pacman -S --noconfirm git i3 picom feh autotiling kitty dolphin dmenu
         yay -S --noconfirm bumblebee-status-git
 
         mv i3 ~/.config/i3
