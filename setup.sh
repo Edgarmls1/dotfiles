@@ -95,7 +95,7 @@ dev() {
     AUR
 
     sudo pacman -S neovim
-    yay -S warp-terminal-bin visual-studio-code-bin
+    yay -S visual-studio-code-bin
     flatpak install flathub md.obsidian.Obsidian
 
     read -p "Deseja instalar conda (python)? " choice1
