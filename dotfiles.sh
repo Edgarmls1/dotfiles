@@ -145,6 +145,7 @@ wallpapers_scripts() {
     
     mv wallpapers ~/Imagens/wallpapers
     mv .zshrc ~/.zshrc
+    mv .bashrc ~/.bashrc
     mv sys_update.sh ~/sys_update.sh
     rm -rf ~/.config/yazi 2> /dev/null && mv yazi ~/.config/yazi
     
