@@ -138,8 +138,8 @@ fastfetch() {
 
 wallpapers_scripts() {
     sudo pacman -S --noconfirm zsh yazi
-    command -v zsh | sudo tee -a /etc/shells
-    chsh -s $(which zsh)
+    # command -v zsh | sudo tee -a /etc/shells
+    # chsh -s $(which zsh)
     
     chmod +x sys_update.sh
     
