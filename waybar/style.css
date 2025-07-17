@@ -255,6 +255,24 @@ tooltip label {
     margin-right: 7px
 }
 
+#custom-appname {
+    background: @background;
+    color: @foreground;
+    font-weight: bold;
+    padding: 0px 20px;
+    border-radius: 10px 24px 10px 24px;
+    margin: 5px 0;
+}
+
+#custom-mini_cava {
+    background: @background;
+    color: @foreground;
+    font-weight: bold;
+    padding: 0px 20px;
+    border-radius: 10px 24px 10px 24px;
+    margin: 5px 0;
+}
+
 /*---------------Expand---------------*/
 #custom-expand {
     background: transparent;

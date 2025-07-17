@@ -37,9 +37,7 @@ clean() {
     echo "| instalando config clean |"
     echo "+-------------------------+"
 
-    AUR
-
-    yay -S spotify
+    sudo pacman -S spotify-launcher
     echo ""
     echo "qual navegador deseja instalar?"
     echo "1 - zen"
@@ -74,10 +72,8 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    AUR
-
-    yay -S steam heroic-games-launcher-bin lutris
-    flatpak install flathub org.libretro.RetroArch com.discordapp.Discordcom.discordapp.Discord
+    yay -S heroic-games-launcher-bin lutris
+    flatpak install flathub com.valvesoftware.Steam org.libretro.RetroArch com.discordapp.Discordcom.discordapp.Discord
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
@@ -91,8 +87,6 @@ dev() {
     echo "+--------------------------+"
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
-
-    AUR
 
     sudo pacman -S neovim
     yay -S visual-studio-code-bin
@@ -111,7 +105,7 @@ dev() {
 
     case $choice2 in 
         [Ss]*) 
-            sudo pacman -S postgres
+            sudo pacman -S postgresql
             yay -S pgadmin4-desktop
 
             cd /usr/pgadmin4/venv/bin
@@ -159,4 +153,5 @@ ask_to_continue() {
 }
 
 bluetooth
+AUR
 menu

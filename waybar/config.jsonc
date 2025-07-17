@@ -21,7 +21,9 @@
 	"modules-left": [
 		"custom/launcher",
 		"group/utility",
-		"custom/playerlabel"
+		"custom/appname",
+		"custom/playerlabel",
+        "custom/mini_cava"
 	],
 	/*----------Modules Center--------------*/
 	"modules-center": [
@@ -261,6 +263,20 @@
 			"on-click-right": "shift_down",
 			"on-click": "shift_up"
 		}
-	}
+	},
+
+    /*------------AppName------------------*/
+    "custom/appname": {
+        "format": {},
+        "exec": "~/appname.sh",
+        "interval": 1,
+        "tooltip": false
+    },
+
+    /*------------Cava------------------*/
+    "custom/mini_cava": {
+        "format": {},
+        "exec": "~/mini_cava.sh"
+    }
 
  }
