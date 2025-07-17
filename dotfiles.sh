@@ -84,7 +84,7 @@ hypr() {
 
     if ! pacman -Qi hyprland &>/dev/null; then
         echo "hyprland e outros programas nao estao instalados..."
-        sudo pacman -S --noconfirm git hyprland hyprpaper kitty dolphin rofi waybar
+        sudo pacman -S --noconfirm git hyprland hyprpaper kitty nemo rofi waybar swaync
         yay -S --noconfirm hyprsome-git
 
         mv hypr ~/.config/hypr
@@ -111,7 +111,7 @@ i3() {
 
     if ! pacman -Qi i3 &>/dev/null; then
         echo "i3 e outros programas nao estao instalados..."
-        sudo pacman -S --noconfirm git i3 picom feh autotiling kitty dolphin dmenu
+        sudo pacman -S --noconfirm git i3 picom feh autotiling kitty nemo dmenu
         yay -S --noconfirm bumblebee-status-git
 
         mv i3 ~/.config/i3
