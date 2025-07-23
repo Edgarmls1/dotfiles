@@ -50,7 +50,7 @@ nvim() {
 
 hypr() {
 
-    sudo pacman -S --noconfirm git hyprland hyprpaper kitty nemo rofi waybar swaync
+    sudo pacman -S --noconfirm git hyprland hyprpaper hyprshot kitty nemo rofi waybar swaync
     yay -S --noconfirm hyprsome-git
 
     rm -rf ~/.config/hypr 2> /dev/null && mv hypr ~/.config/hypr
