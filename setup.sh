@@ -72,8 +72,8 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S heroic-games-launcher-bin lutris
-    flatpak install flathub com.valvesoftware.Steam org.libretro.RetroArch com.discordapp.Discordcom.discordapp.Discord
+    yay -S heroic-games-launcher-bin
+    flatpak install flathub com.valvesoftware.Steam net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discordcom.discordapp.Discord
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
