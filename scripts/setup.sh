@@ -80,15 +80,6 @@ dev() {
     yay -S visual-studio-code-bin
     flatpak install flathub md.obsidian.Obsidian
 
-    read -p "Deseja instalar conda (python)? " choice1
-
-    case $choice1 in 
-        [Ss]*) 
-            conda_config
-        ;;
-        *) "" ;;
-    esac
-
     read -p "Deseja instalar postgres? " choice2
 
     case $choice2 in 
