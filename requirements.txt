@@ -1,0 +1,43 @@
+setup {
+    pacman { 
+        spotify-launcher
+        firefox
+        neovim
+        posgresql 
+    }
+    aur {
+        google-chrome
+        brave-bin
+        heroic-games-launcher-bin
+        visual-studio-code-bin
+        pgadmin4-desktop
+    }
+    flatpak {
+        app.zen_browser.zen
+        com.valvesoftware.Steam 
+        net.lutris.Lutris 
+        org.libretro.RetroArch 
+        com.discordapp.Discordcom.discordapp.Discord
+        md.obsidian.Obsidian
+    }
+}
+
+dotfiles {
+    pacman {
+        hyprland 
+        hyprpaper 
+        hyprshot 
+        kitty 
+        nemo 
+        rofi 
+        waybar 
+        swaync
+        fastfetch
+        fish
+        yazi
+    }
+    aur {
+        hyprsome-git 
+        mpvpape
+    }
+}

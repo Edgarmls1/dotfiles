@@ -66,8 +66,8 @@
 		"format": "{}",
 		"return-type": "json",
 		"interval": "once",
-		"exec": "~/.config/waybar/scripts/Colorpicker.sh -j",
-		"on-click": "~/.config/waybar/scripts/Colorpicker.sh",
+		"exec": "~/dotfiles/scripts/Colorpicker.sh -j",
+		"on-click": "~/dotfiles/scripts/Colorpicker.sh",
 		"signal": 1
 	},
 
@@ -116,9 +116,7 @@
 			"critical": 15,
 			"good": 95,
 			"warning": 30
-		},
-		"on-scroll-up": "~/.config/hypr/scripts/backlight.sh --inc",
-		"on-scroll-down": "~/.config/hypr/scripts/backlight.sh --dec"
+		}
 	},
 
 	/*---------------Pulseaudio------------*/
@@ -143,7 +141,7 @@
 		"format-linked": "{ifname} (No IP)",
 		"format-wifi": "  {essid}",
 		"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
-		"on-click": "~/rofi-wifi-menu.sh"
+		"on-click": "~/dotfiles/scripts/rofi-wifi-menu.sh"
 	},
 
 	/*------------Clock------------------*/
@@ -165,7 +163,7 @@
     /*------------AppName------------------*/
     "custom/appname": {
         "format": {},
-        "exec": "~/appname.sh",
+        "exec": "~/dotfiles/scripts/appname.sh",
         "interval": 1,
         "tooltip": false
     },
@@ -173,7 +171,7 @@
     /*------------Spotify------------------*/
     "custom/spotify": {
         "format": "{}",
-        "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+        "exec": "~/dotfiles/scripts/mediaplayer.py --player spotify",
         "return-type": "json",
         "on-click": "playerctl -p spotify play-pause",
         "on-scroll-up": "playerctl -p spotify next",
