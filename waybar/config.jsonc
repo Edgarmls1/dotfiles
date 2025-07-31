@@ -130,7 +130,7 @@
 			]
 		},
 		"format-muted": "󰝟",
-		"on-click": "pavucontrol",
+		"on-click": "exec blueberry",
 		"scroll-step": 5
 	},
 
