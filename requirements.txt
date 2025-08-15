@@ -27,13 +27,13 @@ dotfiles {
         hyprland 
         hyprpaper 
         hyprshot 
-        kitty 
+        ghostty 
         nemo 
         rofi 
         waybar 
         swaync
         fastfetch
-        fish
+        zsh
         yazi
         blueberry
     }
