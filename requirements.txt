@@ -33,4 +33,5 @@ flatpak {
     org.libretro.RetroArch 
     com.discordapp.Discordcom.discordapp.Discord
     md.obsidian.Obsidian
+    com.bitwarden.desktop
 }
