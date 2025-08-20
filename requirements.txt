@@ -6,6 +6,7 @@ setup {
     }
     aur {
         spotify        
+        spicetify-cli
         google-chrome
         brave-bin
         heroic-games-launcher-bin
