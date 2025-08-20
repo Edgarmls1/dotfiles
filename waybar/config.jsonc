@@ -28,7 +28,6 @@
 	],
 	/*----------Modules Center--------------*/
 	"modules-right": [
-		"custom/colorpicker",
 		"battery",
 		"pulseaudio",
 		"network",
@@ -124,12 +123,12 @@
 		"format": "{icon} {volume}%",
 		"format-icons": {
 			"default": [
-				"󰕿",
-				"󰖀",
-				"󰕾"
+				">ᛒ / 󰕿",
+				">ᛒ / 󰖀",
+				">ᛒ / 󰕾"
 			]
 		},
-		"format-muted": "󰝟",
+		"format-muted": ">ᛒ / 󰝟",
 		"on-click": "exec blueberry",
 		"scroll-step": 5
 	},
