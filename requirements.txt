@@ -1,11 +1,11 @@
 setup {
     pacman { 
-        spotify-launcher
         firefox
         neovim
         posgresql 
     }
     aur {
+        spotify        
         google-chrome
         brave-bin
         heroic-games-launcher-bin
