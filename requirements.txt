@@ -1,45 +1,36 @@
-setup {
-    pacman { 
-        firefox
-        neovim
-        posgresql 
-    }
-    aur {
-        spotify        
-        spicetify-cli
-        google-chrome
-        brave-bin
-        heroic-games-launcher-bin
-        visual-studio-code-bin
-        pgadmin4-desktop
-    }
-    flatpak {
-        app.zen_browser.zen
-        com.valvesoftware.Steam 
-        net.lutris.Lutris 
-        org.libretro.RetroArch 
-        com.discordapp.Discordcom.discordapp.Discord
-        md.obsidian.Obsidian
-    }
+pacman { 
+    firefox
+    neovim
+    posgresql 
+    hyprland 
+    hyprpaper 
+    hyprshot 
+    ghostty 
+    nemo 
+    rofi 
+    waybar 
+    swaync
+    fastfetch
+    zsh
+    yazi
+    blueberry
 }
-
-dotfiles {
-    pacman {
-        hyprland 
-        hyprpaper 
-        hyprshot 
-        ghostty 
-        nemo 
-        rofi 
-        waybar 
-        swaync
-        fastfetch
-        zsh
-        yazi
-        blueberry
-    }
-    aur {
-        hyprsome-git 
-        mpvpape
-    }
+aur {
+    spotify        
+    spicetify-cli
+    google-chrome
+    brave-bin
+    heroic-games-launcher-bin
+    visual-studio-code-bin
+    pgadmin4-desktop
+    hyprsome-git 
+    mpvpape
+}
+flatpak {
+    app.zen_browser.zen
+    com.valvesoftware.Steam 
+    net.lutris.Lutris 
+    org.libretro.RetroArch 
+    com.discordapp.Discordcom.discordapp.Discord
+    md.obsidian.Obsidian
 }
