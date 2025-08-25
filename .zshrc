@@ -25,8 +25,19 @@ setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
 
+PROMPT_COLOR="green"
+
+prompt_color(){
+    if [[ $? -eq 0 ]]; then
+        PROMPT_COLOR="green"
+    else
+        PROMPT_COLOR="red"
+    fi
+}
+
 autoload -U colors && colors
-PS1=$'%F{green}%~%f \n%F{green}%n@%m > %f'
+setopt PROMPT_SUBST
+PS1=$'%F{$PROMPT_COLOR}%~%f \n%F{$PROMPT_COLOR}%n@%m > %f'
 
 alias ls='lsd'
 alias lsa='lsd -a'
