@@ -25,7 +25,7 @@ clean() {
     echo "| instalando config clean |"
     echo "+-------------------------+"
 
-    sudo pacman -S spotify-launcher
+    yay -S spotify
     echo ""
     echo "qual navegador deseja instalar?"
     echo "1 - zen"
@@ -60,8 +60,8 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S heroic-games-launcher-bin
-    flatpak install flathub com.valvesoftware.Steam net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discordcom.discordapp.Discord
+    yay -S heroic-games-launcher-bin hydra-launcher-bin
+    flatpak install flathub com.valvesoftware.Steam net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discord
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
@@ -76,11 +76,13 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    sudo pacman -S neovim
+    sudo pacman -S neovim zsh
     yay -S visual-studio-code-bin
     flatpak install flathub md.obsidian.Obsidian
 
-    read -p "Deseja instalar postgres? " choice2
+    usermod -s $(which zsh) $(whoami)
+
+    read -p "Deseja instalar postgres? (s/N)" choice2
 
     case $choice2 in 
         [Ss]*) 
@@ -104,7 +106,7 @@ dev() {
 
 ask_to_continue() {
     echo ""
-    read -p "Deseja realizar outra operação? (s/n) " resp
+    read -p "Deseja realizar outra operação? (s/N) " resp
     
     case $resp in
         [Ss]*) menu                             ;;
