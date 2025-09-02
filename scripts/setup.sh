@@ -76,7 +76,7 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    sudo pacman -S neovim zsh
+    sudo pacman -S neovim zsh ttf-jetbrains-mono-nerd
     yay -S visual-studio-code-bin
     flatpak install flathub md.obsidian.Obsidian
 
