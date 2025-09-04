@@ -61,4 +61,5 @@ function y() {
 }
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/anaconda3/bin/activate
