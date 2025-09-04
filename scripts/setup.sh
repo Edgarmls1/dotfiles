@@ -80,7 +80,16 @@ dev() {
     yay -S visual-studio-code-bin
     flatpak install flathub md.obsidian.Obsidian
 
-    usermod -s $(which zsh) $(whoami)
+    sudo usermod -s $(which zsh) $(whoami)
+
+    read -p "Deseja instalar o java? (s/N)" java
+
+    case $java in
+        [Ss]*)
+            sudo pacman -S jdk-openjdk
+        ;;
+        *) "" ;;
+    esac
 
     read -p "Deseja instalar postgres? (s/N)" choice2
 
