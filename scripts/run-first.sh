@@ -23,10 +23,10 @@ conda_config () {
     echo "Configurando o Anaconda..."
     cd /home/$USER/
     sudo pacman -Sy --noconfirm libxau libxi libxss libxtst libxcursor libxcomposite libxdamage libxfixes libxrandr libxrender mesa-libgl alsa-lib libglvnd
-    if [ ! -f ~/Anaconda3-2024.10-1-Linux-x86_64.sh ]; then
+    if [ ! -f ~/Anaconda3-2025.06-1-Linux-x86_64.sh ]; then
         curl -O https://repo.anaconda.com/archive/Anaconda3-2025.06-1-Linux-x86_64.sh || { echo "Falha ao baixar o Anaconda!"; exit 1; }
     fi
-    bash ~/Anaconda3-2024.10-1-Linux-x86_64.sh || { echo "Falha ao instalar o Anaconda!"; exit 1; }
+    bash ~/Anaconda3-2025.06-1-Linux-x86_64.sh || { echo "Falha ao instalar o Anaconda!"; exit 1; }
     source ~/anaconda3/bin/activate
     conda init
 }
