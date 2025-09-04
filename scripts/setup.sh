@@ -100,7 +100,7 @@ dev() {
 
             cd /usr/pgadmin4/venv/bin
             sudo rm python3
-            sudo ln ~/anaconda3/bin/python3.12 python3
+            sudo ln ~/anaconda3/bin/python3.13 python3
             cd
         ;;
         *) "" ;;
