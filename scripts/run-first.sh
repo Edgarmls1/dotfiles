@@ -12,13 +12,6 @@ AUR() {
     fi
 }
 
-bluetooth() {
-    sudo pacman -S --noconfirm bluez bluez-utils
-    sudo systemctl enable bluetooth
-    sudo sed -i 's/^#AutoEnable=true/AutoEnable=true/' /etc/bluetooth/main.conf
-    sudo systemctl restart bluetooth
-}
-
 conda_config () {
     echo "Configurando o Anaconda..."
     cd /home/$USER/
@@ -31,9 +24,8 @@ conda_config () {
     conda init
 }
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh install PREFIX=~/.local
 
 AUR
-bluetooth
 conda_config
