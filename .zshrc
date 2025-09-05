@@ -42,7 +42,6 @@ PS1=$'%F{$PROMPT_COLOR}%~%f \n%F{$PROMPT_COLOR}%n@%m > %f'
 alias ls='lsd'
 alias lsa='lsd -a'
 alias update='~/sys_update.sh'
-alias reconfig='p10k configure'
 alias ..="cd .."
 alias :q="exit"
 alias cc="cd ~ && clear"
