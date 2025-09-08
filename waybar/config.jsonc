@@ -1,6 +1,3 @@
-// Author: Eduardo de Sá Coêlho Ribeiro Costa
-// Github: https://github.com/edudscrc
-// Waybar v0.12.0
 {
   "spacing": 0,
   "reload_style_on_change": true,
