@@ -134,7 +134,7 @@
 /*-----NETWORK-----*/
 /*-----------------*/
 
-#network, #pulseaudio {
+#network, #pulseaudio, #battery {
   color: @network_idle;
   padding: 2px;
   transition: all 0.3s ease;
