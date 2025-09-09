@@ -27,7 +27,11 @@
     "orientation": "horizontal",
     "modules": [
         "network",
+        "custom/separator",
         "pulseaudio",
+        "custom/separator",
+        "battery",
+        "custom/separator",
         "group/group-power"
     ]
   },
@@ -45,7 +49,7 @@
   },
   "clock": {
     "format": "{:%H:%M}",
-	"format-alt": "{:%d %B %Y}"
+	"format-alt": "{:%d %B %Y}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "year",
@@ -111,5 +115,27 @@
     "format": "",
     "tooltip": false,
     "on-click": "systemctl poweroff"
+  },
+  "custom/separator": {
+    "format": " | "
+  },
+  "battery": {
+	"format": "{icon}  {capacity}%",
+	"format-alt": "{icon} {time}",
+	"format-charging": " {capacity}%",
+	"format-icons": [
+		"",
+		"",
+		"",
+		"",
+		""
+	],
+	"format-plugged": " {capacity}% ",
+	"format-time": "{H} h {m} min",
+	"states": {
+	    "critical": 15,
+		"good": 95,
+		"warning": 30
+	}
   }
 }
