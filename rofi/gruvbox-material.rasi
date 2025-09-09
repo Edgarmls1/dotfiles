@@ -21,9 +21,9 @@
 
 window {
     height: 130;
-    width: 600;
+    width: 400;
 
-    border: 1;
+    border: 2;
     border-radius: 10;
     border-color: @bgStatusline3;
 }
