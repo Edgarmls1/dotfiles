@@ -14,7 +14,8 @@
     "orientation": "horizontal",
     "modules": [
       "hyprland/workspaces",
-      "custom/spotify"
+      "custom/spotify",
+	  "tray"
     ]
   },
   "group/group-center": {
