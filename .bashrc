@@ -86,6 +86,7 @@ source -- ~/.local/share/blesh/ble.sh
 
 # ---------------------
 # .bash_profile
-export PATH=$PATH:/home/edgar/.spicetify
-export QT_QPA_PLATFORM=wayland
+
+# export PATH=$PATH:/home/edgar/.spicetify
+# export QT_QPA_PLATFORM=wayland
 
