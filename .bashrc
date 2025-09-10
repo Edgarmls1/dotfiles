@@ -45,7 +45,7 @@ prompt_color(){
 
 # Set up the prompt (equivalent to PS1 in zsh)
 PROMPT_COMMAND="prompt_color; $PROMPT_COMMAND"
-PS1='\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]\u@\h > \[\e[0m\]'
+PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]\u@\h > \[\e[0m\]'
 
 # Aliases
 alias ls='lsd'
