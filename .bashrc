@@ -81,5 +81,11 @@ function y() {
 # - Consider using bash-preexec + bash-git-prompt for enhanced prompts
 
 # Conda activation
-source ~/anaconda3/bin/activate
+# source ~/anaconda3/bin/activate
 source -- ~/.local/share/blesh/ble.sh
+
+# ---------------------
+# .bash_profile
+export PATH=$PATH:/home/edgar/.spicetify
+export QT_QPA_PLATFORM=wayland
+
