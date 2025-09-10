@@ -54,6 +54,10 @@ alias update='~/sys_update.sh'
 alias ..="cd .."
 alias :q="exit"
 alias cc="cd ~ && clear"
+alias yays="yay -S"
+alias yayr="yay -R"
+alias pacmans="sudo pacman -S" 
+alias pacmanr="sudo pacman -R"
 
 # FZF integration for bash
 eval "$(fzf --bash)"
