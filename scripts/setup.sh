@@ -75,7 +75,7 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S heroic-games-launcher-bin hydra-launcher-bin
+    yay -S heroic-games-launcher-bin hydra-launcher-bin protonup-qt
     sudo pacman -S steam
     flatpak install flathub net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discord
 
