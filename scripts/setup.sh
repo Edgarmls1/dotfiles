@@ -26,6 +26,21 @@ clean() {
     echo "+-------------------------+"
 
     yay -S spotify
+
+    echo ""
+    read -p "deseja instalar o spicetify? (s/N)" choice
+
+    case $choice in 
+        [Ss]*) 
+            yay -S spicetify-cli
+            sudo chmod a+wr /opt/spotify
+            sudo chmod a+wr /opt/spotify/Apps -R
+            spicetify backup apply
+            curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+        ;;
+        *) ""                            ;;
+    esac
+    
     echo ""
     echo "qual navegador deseja instalar?"
     echo "1 - zen"
@@ -61,7 +76,8 @@ games() {
     echo "+----------------------------+"
 
     yay -S heroic-games-launcher-bin hydra-launcher-bin
-    flatpak install flathub com.valvesoftware.Steam net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discord
+    sudo pacman -S steam
+    flatpak install flathub net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discord
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
@@ -76,11 +92,9 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    sudo pacman -S neovim zsh ttf-jetbrains-mono-nerd
+    sudo pacman -S neovim ttf-jetbrains-mono-nerd
     yay -S visual-studio-code-bin
     flatpak install flathub md.obsidian.Obsidian
-
-    sudo usermod -s $(which zsh) $(whoami)
 
     read -p "Deseja instalar o java? (s/N)" java
 
@@ -91,20 +105,24 @@ dev() {
         *) "" ;;
     esac
 
-    read -p "Deseja instalar postgres? (s/N)" choice2
+    read -p "Deseja instalar postgres? (s/N)" pgsql
 
-    case $choice2 in 
+    case $pgsql in 
         [Ss]*) 
             sudo pacman -S postgresql
             yay -S pgadmin4-desktop
 
             cd /usr/pgadmin4/venv/bin
             sudo rm python3
-            sudo ln ~/anaconda3/bin/python3.13 python3
+            sudo ln /usr/sbin/python python3
             cd
         ;;
         *) "" ;;
     esac
+
+    echo " "
+    echo "para instalar bibliotecas python basta digitar por exemplo 'sudo pacman -S pyhton-pandas'"
+    echo " "
 
     echo "+-------------------------------------+"
     echo "| config p/ dev instalada com sucesso |"
