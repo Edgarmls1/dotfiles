@@ -23,4 +23,4 @@ git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyo
 make -C ble.sh install PREFIX=~/.local
 
 AUR
-bluetooth
+# bluetooth
