@@ -14,7 +14,7 @@ rm ~/.bashrc && mv ~/dotfiles/.bashrc ~/.bashrc
 mv ~/dotfiles/scripts/sys_update.sh ~/sys_update.sh
 
 clear 
-echo """
+cat << EOF
   installed packages:
     # lockscreen
       - ly (run 'systemctl enable ly.service' and reboot)
@@ -54,4 +54,4 @@ echo """
       - lsd
       - fzf
       - JetBrains nerd font
-"""
+EOF
