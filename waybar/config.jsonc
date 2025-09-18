@@ -87,7 +87,7 @@
 	"format-linked": "{ifname} (No IP)",
 	"format-wifi": "  {essid}",
 	"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
-	"on-click": "~/dotfiles/scripts/rofi-wifi-menu.sh"
+	"on-click": "exec nm-applet"
   },
   "group/group-power": {
     "orientation": "inherit",
