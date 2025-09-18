@@ -1,15 +1,30 @@
 #! /bin/bash
-sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus rofi waybar swaync fastfetch yazi blueberry network-manager-applet neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox lsd fzf
+sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus rofi waybar swaync fastfetch yazi blueberry network-manager-applet neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox flatpak lsd fzf htop btop cava xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
 yay -S hyprsome-git mpvpaper-git wlogout
 
+# PopOs icons
 git clone https://github.com/mjkim0727/Pop-Extended.git
 mkdir -p ~/.icons
 cd Pop-Extended
-mv Pop-Extended ~/.icons/pop
+mv Pop-Extended ~/.icons/PopOs
 cd
+
+# grub customization
 git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes.git
 
+# enable dark mode in hyprland
+mkdir -p ~/.config/xdg-desktop-portal/
+cd ~/.config/xdg-desktop-portal/
+
+CONFIG_CONTENT="[preferred]
+default=hyprland;gtk"
+
+CONFIG_FILE="hyprland-portals.conf"
+
+echo "$CONFIG_CONTENT" >> "$CONFIG_FILE"
+
+# config bash
 rm ~/.bashrc && mv ~/dotfiles/.bashrc ~/.bashrc
 mv ~/dotfiles/scripts/sys_update.sh ~/sys_update.sh
 
@@ -52,8 +67,4 @@ cat << EOF
       - wlogout
     # animated wallpaper
       - mpvpaper
-    # others
-      - lsd
-      - fzf
-      - JetBrains nerd font
 EOF

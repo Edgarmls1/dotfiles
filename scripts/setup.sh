@@ -38,7 +38,7 @@ clean() {
             spicetify backup apply
             curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
         ;;
-        *) ""                            ;;
+        *) "" ;;
     esac
     
     echo ""
@@ -75,7 +75,7 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S heroic-games-launcher-bin hydra-launcher-bin protonup-qt
+    yay -S heroic-games-launcher-bin hydra-launcher-bin
     sudo pacman -S steam
     flatpak install flathub net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discord
 
@@ -114,7 +114,7 @@ dev() {
 
             cd /usr/pgadmin4/venv/bin
             sudo rm python3
-            sudo ln /usr/sbin/python python3
+            sudo ln $(which python3) python3
             cd
         ;;
         *) "" ;;
