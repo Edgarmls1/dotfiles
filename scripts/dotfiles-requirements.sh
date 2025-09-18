@@ -1,5 +1,5 @@
 #! /bin/bash
-sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus rofi waybar swaync fastfetch yazi blueberry neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox lsd fzf
+sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus rofi waybar swaync fastfetch yazi blueberry network-manager-applet neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox lsd fzf
 
 yay -S hyprsome-git mpvpaper-git wlogout
 
@@ -41,6 +41,8 @@ cat << EOF
     # text editor
       - neovim -> TUI
       - gedit -> GUI
+    # network manager
+      - network-manager-applet
     # bluetooth manager
       - blueberry
     # theme switcher
