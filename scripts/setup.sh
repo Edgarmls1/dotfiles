@@ -52,13 +52,12 @@ clean() {
     read -p " " choice
 
     case $choice in 
-        1) flatpak install flathub app.zen_browser.zen ;;
+        1) yay -S zen-browser-bin ;;
         2) yay -S google-chrome                        ;;
         3) sudo pacman -S firefox                      ;;
         4) yay -S brave-bin                            ;;
         5) 
-            flatpak install flathub app.zen_browser.zen 
-            yay -S google-chrome brave-bin
+            yay -S google-chrome brave-bin zen-browser-bin
             sudo pacman -S firefox
         ;;
         0) " "                                         ;;
@@ -76,8 +75,7 @@ games() {
     echo "+----------------------------+"
 
     yay -S heroic-games-launcher-bin hydra-launcher-bin
-    sudo pacman -S steam
-    flatpak install flathub net.lutris.Lutris org.libretro.RetroArch com.discordapp.Discord
+    sudo pacman -S steam lutris retroarch discord
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
@@ -92,9 +90,8 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    sudo pacman -S neovim ttf-jetbrains-mono-nerd
+    sudo pacman -S neovim ttf-jetbrains-mono-nerd obsidian
     yay -S visual-studio-code-bin
-    flatpak install flathub md.obsidian.Obsidian
 
     read -p "Deseja instalar o java? (s/N)" java
 
