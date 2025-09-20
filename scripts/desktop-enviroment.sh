@@ -1,7 +1,7 @@
 #! /bin/bash
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox flatpak lsd fzf htop btop cava xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
-yay -S hyprsome-git mpvpaper-git wlogout
+yay -S hyprsome-git mpvpaper-git wlogout qimgv
 
 # PopOs icons
 git clone https://github.com/mjkim0727/Pop-Extended.git
