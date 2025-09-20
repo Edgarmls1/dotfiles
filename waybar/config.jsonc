@@ -28,11 +28,11 @@
     "orientation": "horizontal",
     "modules": [
         "network",
-        "custom/separator",
+        "custom/sep",
         "pulseaudio",
-        "custom/separator",
+        "custom/sep",
         "battery",
-        "custom/separator",
+        "custom/sep",
         "group/group-power"
     ]
   },
@@ -118,7 +118,7 @@
     "tooltip": false,
     "on-click": "systemctl poweroff"
   },
-  "custom/separator": {
+  "custom/sep": {
     "format": " | "
   },
   "battery": {
