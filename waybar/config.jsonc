@@ -79,6 +79,7 @@
 	},
 	"format-muted": ">ᛒ / 󰝟",
 	"on-click": "exec blueberry",
+	"on-click-right": "exec pavucontrol"
 	"scroll-step": 5
   },
   "network": {
