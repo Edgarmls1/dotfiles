@@ -28,6 +28,9 @@ echo "$CONFIG_CONTENT" >> "$CONFIG_FILE"
 rm ~/.bashrc && mv ~/dotfiles/.bashrc ~/.bashrc
 mv ~/dotfiles/scripts/sys_update.sh ~/sys_update.sh
 
+# moving dotfiles
+mv ~/dotfiles/yazi ~/.config/yazi
+
 clear 
 cat << EOF
   installed packages:
