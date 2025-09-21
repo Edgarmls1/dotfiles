@@ -33,27 +33,6 @@ if command -v yay &> /dev/null; then
     yay -Syu --noconfirm 2>/dev/null
 fi
 
-if command -v apt &> /dev/null; then
-    echo " "
-    echo "++===============================++"
-    echo "|| fazendo update de pacotes apt ||"
-    echo "++===============================++"
-    echo " "
-    
-    sudo apt update 2> /dev/null
-    sudo apt upgrade 2> /dev/null
-fi
-
-if command -v dnf &> /dev/null; then
-    echo " "
-    echo "++===============================++"
-    echo "|| fazendo update de pacotes dnf ||"
-    echo "++===============================++"
-    echo " "
-
-    sudo dnf upgrade --refresh 2> /dev/null
-fi
-
 if command -v flatpak &> /dev/null; then
     echo " "
     echo "++===================================++"
