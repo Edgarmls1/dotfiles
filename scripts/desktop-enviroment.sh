@@ -1,10 +1,10 @@
 #! /bin/bash
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus \
 rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet \
-neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly gdm firefox lsd fzf htop \
+neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop \
 btop cava evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
-yay -S hyprsome-git mpvpaper-git wlogout qimgv gdm-settings
+yay -S hyprsome-git mpvpaper-git wlogout qimgv
 
 # PopOs icons
 git clone https://github.com/mjkim0727/Pop-Extended.git
