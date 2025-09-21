@@ -90,7 +90,7 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    sudo pacman -S neovim ttf-jetbrains-mono-nerd obsidian bitwarden
+    sudo pacman -S neovim ttf-jetbrains-mono-nerd obsidian bitwarden gnome-boxes
     yay -S visual-studio-code-bin
 
     read -p "Deseja instalar o java? (s/N)" java
