@@ -33,7 +33,6 @@ mv ~/dotfiles/scripts/sys_update.sh ~/sys_update.sh
 
 # moving dotfiles
 mv ~/dotfiles/yazi ~/.config/yazi
-sudo rm /var/lib/gdm/.config/monitors.xml 2> /dev/null && mv ~/dotfiles/monitors.xml /var/lib/gdm/.config/monitors.xml
 
 clear 
 cat << EOF
