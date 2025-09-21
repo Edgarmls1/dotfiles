@@ -1,10 +1,10 @@
 #! /bin/bash
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus \
 rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet \
-neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop \
+neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly gdm firefox lsd fzf htop \
 btop cava evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
-yay -S hyprsome-git mpvpaper-git wlogout qimgv
+yay -S hyprsome-git mpvpaper-git wlogout qimgv gdm-settings
 
 # PopOs icons
 git clone https://github.com/mjkim0727/Pop-Extended.git
@@ -33,12 +33,14 @@ mv ~/dotfiles/scripts/sys_update.sh ~/sys_update.sh
 
 # moving dotfiles
 mv ~/dotfiles/yazi ~/.config/yazi
+sudo rm /var/lib/gdm/.config/monitors.xml 2> /dev/null && mv ~/dotfiles/monitors.xml /var/lib/gdm/.config/monitors.xml
 
 clear 
 cat << EOF
   installed packages:
     # lockscreen
-      - ly (run 'systemctl enable ly.service' and reboot)
+      - ly
+      - gdm
     # hyprland
       - hyprland -> window manager
       - hyprpaper -> wallpaper
