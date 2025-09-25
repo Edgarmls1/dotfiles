@@ -79,7 +79,7 @@
 	},
 	"format-muted": ">ᛒ / 󰝟",
 	"on-click": "exec blueberry",
-	"on-click-right": "exec pavucontrol"
+	"on-click-right": "exec pavucontrol",
 	"scroll-step": 5
   },
   "network": {
@@ -132,7 +132,7 @@
 		"",
 		""
 	],
-	"format-plugged": " {capacity}% ",
+	"format-plugged": " {capacity}%",
 	"format-time": "{H} h {m} min",
 	"states": {
 	    "critical": 15,
