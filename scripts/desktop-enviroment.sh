@@ -7,10 +7,10 @@ btop cava evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 yay -S hyprsome-git mpvpaper-git wlogout qimgv
 
 # PopOs icons
-git clone https://github.com/mjkim0727/Pop-Extended.git
+git clone https://github.com/SylEleuth/gruvbox-plus-icon-pack.git
 mkdir -p ~/.icons
-cd Pop-Extended
-mv Pop-Extended ~/.icons/PopOs
+cd gruvbox-plus-icon-pack
+mv Gruvbox-Plus-Dark ~/.icons/gruvbox
 cd
 
 # grub customization
