@@ -1,7 +1,7 @@
 configuration {
     show-icons: true;
     font: "JetBrains Mono Nerd 12";
-    icon-theme: "PopOs";
+    icon-theme: "gruvbox";
 
     display-drun:   "";
 
