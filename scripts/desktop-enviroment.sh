@@ -39,7 +39,6 @@ cat << EOF
   installed packages:
     # lockscreen
       - ly
-      - gdm
     # hyprland
       - hyprland -> window manager
       - hyprpaper -> wallpaper
