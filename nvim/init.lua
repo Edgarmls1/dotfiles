@@ -182,6 +182,16 @@ require("lazy").setup({
   		opts_extend = { "sources.default" }
   },
   {
+	'romgrk/barbar.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      insert_at_start = false,
+    },
+  },
+  {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     ---@module 'render-markdown'
@@ -201,4 +211,5 @@ vim.lsp.enable({
   "rust_analyzer",
 })
 
+vim.keymap.set('n', '<TAB>', '<Cmd>BufferNext<CR>', opts)
 vim.keymap.set('n', '<leader>e', ":Oil<CR>")
