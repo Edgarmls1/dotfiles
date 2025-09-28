@@ -60,8 +60,7 @@ function y() {
 }
 
 function f() {
-	fzf --style full --preview "bat --color=always {}" 1> temp
-	nvim "$(cat temp)"
+	nvim "$(fzf --style full --preview "bat --color=always {}")"
 }
 
 source -- ~/.local/share/blesh/ble.sh
