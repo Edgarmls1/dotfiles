@@ -60,7 +60,7 @@ function y() {
 }
 
 function f() {
-	fzf --style full --preview "~/dotfiles/scripts/fzf-preview.sh {}" 1> temp
+	fzf --style full --preview "bat --color=always {}" 1> temp
 	nvim "$(cat temp)"
 }
 
