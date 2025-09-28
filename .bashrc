@@ -48,8 +48,6 @@ alias pacmans="sudo pacman -S"
 alias pacmanr="sudo pacman -R"
 alias search="yay -s"
 
-eval "$(fzf --bash)"
-
 export EDITOR="nvim"
 
 function y() {
@@ -59,6 +57,11 @@ function y() {
         builtin cd -- "$cwd"
     fi
     rm -f -- "$tmp"
+}
+
+function f() {
+	fzf --style full --preview "~/dotfiles/scripts/fzf-preview.sh {}" 1> temp
+	nvim "$(cat temp)"
 }
 
 source -- ~/.local/share/blesh/ble.sh
