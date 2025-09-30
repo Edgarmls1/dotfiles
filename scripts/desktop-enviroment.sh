@@ -1,12 +1,13 @@
 #! /bin/bash
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus \
 rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet \
-neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop \
+neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly sddm firefox lsd fzf htop \
 btop cava evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
 yay -S hyprsome-git mpvpaper-git wlogout qimgv
 
 # PopOs icons
+cd
 git clone https://github.com/SylEleuth/gruvbox-plus-icon-pack.git
 mkdir -p ~/.icons
 cd gruvbox-plus-icon-pack
@@ -15,6 +16,9 @@ cd
 
 # grub customization
 git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes.git
+
+# sddm customization
+git clone https://github.com/stepanzubkov/where-is-my-sddm-theme.git
 
 # enable dark mode in hyprland
 mkdir -p ~/.config/xdg-desktop-portal/
@@ -26,6 +30,7 @@ default=hyprland;gtk"
 CONFIG_FILE="hyprland-portals.conf"
 
 echo "$CONFIG_CONTENT" >> "$CONFIG_FILE"
+cd
 
 # config bash
 rm ~/.bashrc && mv ~/dotfiles/.bashrc ~/.bashrc
@@ -39,6 +44,7 @@ cat << EOF
   installed packages:
     # lockscreen
       - ly
+      - sddm
     # hyprland
       - hyprland -> window manager
       - hyprpaper -> wallpaper
