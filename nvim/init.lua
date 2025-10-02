@@ -197,11 +197,28 @@ require("lazy").setup({
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
+  },
+  {
+  	'VonHeikemen/fine-cmdline.nvim',
+  	dependencies = { 'MunifTanjim/nui.nvim' }
   }
 })
 
 require "oil".setup({ view_options = { show_hidden = true } })
 require "render-markdown".enable()
+require "fine-cmdline".setup({
+	popup = {
+		size = {
+			width = "30%"
+		},
+		border = {
+			style = "rounded"
+		}
+	},
+	cmdline = {
+		prompt = ""
+	}
+})
 
 vim.lsp.enable({
   "lua_ls",
@@ -213,3 +230,4 @@ vim.lsp.enable({
 
 vim.keymap.set('n', '<TAB>', '<Cmd>BufferNext<CR>', opts)
 vim.keymap.set('n', '<leader>e', ":Oil<CR>")
+vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
