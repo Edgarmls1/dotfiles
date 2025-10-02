@@ -2,11 +2,11 @@
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus \
 rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet \
 neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly sddm firefox lsd fzf htop \
-btop cava evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+btop cava bat npm evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
 yay -S hyprsome-git mpvpaper-git wlogout qimgv
 
-# PopOs icons
+# gruvbox icons
 cd
 git clone https://github.com/SylEleuth/gruvbox-plus-icon-pack.git
 mkdir -p ~/.icons
