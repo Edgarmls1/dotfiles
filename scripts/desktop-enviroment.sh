@@ -1,7 +1,7 @@
 #! /bin/bash
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus \
 rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet \
-neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly sddm firefox lsd fzf htop \
+neovim gedit ttf-jetbrains-mono-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop \
 btop cava bat npm evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
 
 yay -S hyprsome-git mpvpaper-git wlogout qimgv
@@ -17,8 +17,8 @@ cd
 # grub customization
 git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes.git
 
-# sddm customization
-git clone https://github.com/stepanzubkov/where-is-my-sddm-theme.git
+# enable ly
+systemctl enable ly.service
 
 # enable dark mode in hyprland
 mkdir -p ~/.config/xdg-desktop-portal/
@@ -44,7 +44,6 @@ cat << EOF
   installed packages:
     # lockscreen
       - ly
-      - sddm
     # hyprland
       - hyprland -> window manager
       - hyprpaper -> wallpaper
