@@ -10,6 +10,7 @@ vim.o.scrolloff = 10
 vim.g.mapleader = " "
 vim.o.winborder = "rounded"
 vim.o.list = true
+vim.opt.listchars = { tab = "| ", trail = "·", nbsp = "␣" }
 
 vim.schedule(function()
     vim.o.clipboard = "unnamedplus"
@@ -384,16 +385,8 @@ require("lazy").setup({
         "VonHeikemen/fine-cmdline.nvim",
         dependencies = { "MunifTanjim/nui.nvim" },
     },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
-        opts = {},
-    },
 })
 
-require("ibl").setup {}
 require("oil").setup({ view_options = { show_hidden = true } })
 require("render-markdown").enable()
 require("fine-cmdline").setup({
