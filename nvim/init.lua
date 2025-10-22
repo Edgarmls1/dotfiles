@@ -48,12 +48,20 @@ require("lazy").setup({
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
+    --    {
+    --        "ellisonleao/gruvbox.nvim",
+    --        priority = 1000,
+    --        config = function()
+    --            vim.opt.background = "dark"
+    --            vim.cmd("colorscheme gruvbox")
+    --        end,
+    --    },
     {
-        "ellisonleao/gruvbox.nvim",
+        "slugbyte/lackluster.nvim",
+        lazy = false,
         priority = 1000,
-        config = function()
-            vim.opt.background = "dark"
-            vim.cmd("colorscheme gruvbox")
+        init = function()
+            vim.cmd.colorscheme("lackluster-mint")
         end,
     },
     { "stevearc/oil.nvim" },
