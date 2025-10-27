@@ -41,11 +41,7 @@ alias update='~/sys_update.sh'
 alias ..="cd .."
 alias :q="exit"
 alias cc="cd ~ && clear"
-alias cl="clear"
-alias yays="yay -S"
-alias yayr="yay -R"
-alias pacmans="sudo pacman -S" 
-alias pacmanr="sudo pacman -R"
+alias pacmans="sudo pacman"
 alias search="yay -s"
 
 export EDITOR="nvim"
