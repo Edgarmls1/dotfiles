@@ -7,4 +7,6 @@ window-decoration = true
 cursor-style = block
 cursor-style-blink = true
 shell-integration-features = no-cursor
-cursor-color = #f2d5cf
+cursor-color = #ffffff
+foreground = #ffffff
+background = #000000
