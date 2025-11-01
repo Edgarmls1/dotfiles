@@ -206,7 +206,7 @@ bar {
     font pango:Hack Nerd Font 10
     
     colors {
-        background #2c2f32
+        background #282828
         statusline #ebdbb2
         separator  #928374
         
