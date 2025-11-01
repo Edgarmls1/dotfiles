@@ -1,6 +1,6 @@
 #! /bin/bash
-sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus \
-rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet \
+sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty dolphin nemo \
+rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet ghostty alacritty \
 neovim gedit ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop i3 picom feh autotiling \
 btop cava bat npm evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober
 
