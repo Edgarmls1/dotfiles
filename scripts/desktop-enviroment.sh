@@ -1,7 +1,7 @@
 #! /bin/bash
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot kitty nautilus \
 rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet \
-neovim gedit ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop \
+neovim gedit ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop i3 picom feh autotiling \
 btop cava bat npm evince xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober
 
 yay -S hyprsome-git mpvpaper-git wlogout qimgv
@@ -31,13 +31,6 @@ CONFIG_FILE="hyprland-portals.conf"
 
 echo "$CONFIG_CONTENT" >> "$CONFIG_FILE"
 cd
-
-# config bash
-rm ~/.bashrc && mv ~/dotfiles/.bashrc ~/.bashrc
-mv ~/dotfiles/scripts/sys_update.sh ~/sys_update.sh
-
-# moving dotfiles
-mv ~/dotfiles/yazi ~/.config/yazi
 
 clear 
 cat << EOF
