@@ -1,13 +1,15 @@
 #!/bin/bash
 if playerctl -p spotify status &> /dev/null; then
     status=$(playerctl -p spotify status)
+	artist=$(playerctl -p spotify metadata artist)
+    title=$(playerctl -p spotify metadata title)
     if [ "$status" = "Playing" ]; then
-        artist=$(playerctl -p spotify metadata artist)
-        title=$(playerctl -p spotify metadata title)
         echo " $artist - $title"
 	else
-		echo " 404 - not found"
+		echo " $artist - $title"
     fi
+else
+	echo " 404 - not found"
 fi
 
 case $BLOCK_BUTTON in
