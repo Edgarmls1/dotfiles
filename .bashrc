@@ -66,3 +66,5 @@ source -- ~/.local/share/blesh/ble.sh
 
 # export QT_QPA_PLATFORM=wayland
 
+
+export PATH=$PATH:/home/edgar/.spicetify
