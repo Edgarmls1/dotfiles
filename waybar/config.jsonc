@@ -25,8 +25,8 @@
   "group/group-right": {
     "orientation": "horizontal",
     "modules": [
-		"tray",
 		"custom/spotify",
+		"tray",
 		"custom/sep",
         "network",
         "custom/sep",
@@ -39,8 +39,8 @@
   },
   "custom/spotify": {
     "format": "{}",
-    "exec": "/usr/bin/python3 ~/dotfiles/scripts/mediaplayer.py --player spotify",
-    "return-type": "json",
+    "exec": "~/dotfiles/scripts/spotify.sh",
+    "interval": 1,
     "on-click": "playerctl -p spotify play-pause",
     "on-scroll-up": "playerctl -p spotify next",
     "on-scroll-down": "playerctl -p spotify previous"
@@ -120,7 +120,7 @@
     "on-click": "systemctl poweroff"
   },
   "custom/sep": {
-    "format": "| "
+    "format": " | "
   },
   "battery": {
 	"format": "{icon}  {capacity}%",

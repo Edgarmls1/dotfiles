@@ -9,7 +9,7 @@ if playerctl -p spotify status &> /dev/null; then
 		echo " $artist - $title"
     fi
 else
-	echo " 404 - not found"
+	echo ""
 fi
 
 case $BLOCK_BUTTON in
