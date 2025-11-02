@@ -1,4 +1,5 @@
 {
+  "position": "bottom",
   "spacing": 0,
   "reload_style_on_change": true,
   "modules-left": [
@@ -13,27 +14,27 @@
   "group/group-left": {
     "orientation": "horizontal",
     "modules": [
-      "hyprland/workspaces",
-      "custom/spotify",
-	  "tray"
+      "hyprland/workspaces"
     ]
   },
   "group/group-center": {
     "orientation": "horizontal",
     "modules": [
-      "clock"
     ]
   },
   "group/group-right": {
     "orientation": "horizontal",
     "modules": [
+		"tray",
+		"custom/spotify",
+		"custom/sep",
         "network",
         "custom/sep",
         "pulseaudio",
         "custom/sep",
         "battery",
         "custom/sep",
-        "group/group-power"
+        "clock"
     ]
   },
   "custom/spotify": {
@@ -72,12 +73,12 @@
 	"format": "{icon} {volume}%",
 	"format-icons": {
 		"default": [
-			">ᛒ / 󰕿",
-			">ᛒ / 󰖀",
-			">ᛒ / 󰕾"
+			"󰕿",
+			"󰖀",
+			"󰕾"
 		]
 	},
-	"format-muted": ">ᛒ / 󰝟",
+	"format-muted": "󰝟",
 	"on-click": "exec blueberry",
 	"on-click-right": "exec pavucontrol",
 	"scroll-step": 5
@@ -119,7 +120,7 @@
     "on-click": "systemctl poweroff"
   },
   "custom/sep": {
-    "format": " | "
+    "format": "| "
   },
   "battery": {
 	"format": "{icon}  {capacity}%",
