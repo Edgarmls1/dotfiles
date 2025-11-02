@@ -14,9 +14,6 @@ cd gruvbox-plus-icon-pack
 mv Gruvbox-Plus-Dark ~/.icons/gruvbox
 cd
 
-# grub customization
-git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes.git
-
 # enable ly
 systemctl enable ly.service
 
