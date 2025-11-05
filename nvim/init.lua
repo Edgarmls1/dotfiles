@@ -48,22 +48,22 @@ require("lazy").setup({
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
-    --    {
-    --        "ellisonleao/gruvbox.nvim",
-    --        priority = 1000,
-    --        config = function()
-    --            vim.opt.background = "dark"
-    --            vim.cmd("colorscheme gruvbox")
-    --        end,
-    --    },
     {
-        "slugbyte/lackluster.nvim",
-        lazy = false,
+        "ellisonleao/gruvbox.nvim",
         priority = 1000,
-        init = function()
-            vim.cmd.colorscheme("lackluster-mint")
+        config = function()
+            vim.opt.background = "dark"
+            vim.cmd("colorscheme gruvbox")
         end,
     },
+    -- {
+    --     "slugbyte/lackluster.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     init = function()
+    --         vim.cmd.colorscheme("lackluster-mint")
+    --     end,
+    -- },
     { "stevearc/oil.nvim" },
     {
         "windwp/nvim-autopairs",
@@ -393,6 +393,20 @@ require("lazy").setup({
         "VonHeikemen/fine-cmdline.nvim",
         dependencies = { "MunifTanjim/nui.nvim" },
     },
+    {
+        "luxvim/nvim-luxterm",
+        config = function()
+            require("luxterm").setup({
+                manager_width = 0.8,
+                manager_height = 0.8,
+                preview_enabled = true,
+                auto_hide = true,
+                keymaps = {
+                    toggle_manager = "<C-/>",
+                }
+            })
+        end
+    }
 })
 
 require("oil").setup({ view_options = { show_hidden = true } })
@@ -417,3 +431,5 @@ vim.lsp.config("gopls", {})
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>t", ":LuxtermNew<CR>", { desc = "New terminal" })
+vim.keymap.set("n", "<leader>k", ":LuxtermKill<CR>", { desc = "Kill terminal" })

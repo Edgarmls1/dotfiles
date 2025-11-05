@@ -120,7 +120,7 @@
     "on-click": "systemctl poweroff"
   },
   "custom/sep": {
-    "format": " | "
+    "format": "  "
   },
   "battery": {
 	"format": "{icon}  {capacity}%",
