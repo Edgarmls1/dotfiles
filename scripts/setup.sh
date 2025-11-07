@@ -25,22 +25,8 @@ clean() {
     echo "| instalando config clean |"
     echo "+-------------------------+"
 
-    yay -S spotify
+    yay -S spotify spicetify-cli
 
-    echo ""
-    read -p "deseja instalar o spicetify? (s/N)" choice
-
-    case $choice in 
-        [Ss]*) 
-            yay -S spicetify-cli
-            sudo chmod a+wr /opt/spotify
-            sudo chmod a+wr /opt/spotify/Apps -R
-            spicetify backup apply
-            curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
-        ;;
-        *) "" ;;
-    esac
-    
     echo ""
     echo "qual navegador deseja instalar?"
     echo "1 - zen"
@@ -74,8 +60,8 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S heroic-games-launcher-bin hydra-launcher-bin
-    sudo pacman -S steam lutris retroarch discord
+    yay -S hydra-launcher-bin faugus-launcher
+    sudo pacman -S steam retroarch discord
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
@@ -91,7 +77,7 @@ dev() {
     echo "+--------------------------+"
 
     sudo pacman -S neovim obsidian bitwarden gnome-boxes rclone
-    yay -S visual-studio-code-bin
+    yay -S cursor-bin visual-studio-code-bin
 
     read -p "Deseja instalar o java? (s/N)" java
 

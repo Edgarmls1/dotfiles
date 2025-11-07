@@ -62,4 +62,3 @@ function f() {
 source -- ~/.local/share/blesh/ble.sh
 
 export PATH=$PATH:/home/edgar/.spicetify
-export PATH="$HOME/.local/bin:$PATH"
