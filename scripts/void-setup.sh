@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 menu() {
     clear
@@ -25,7 +25,7 @@ clean() {
     echo "| instalando config clean |"
     echo "+-------------------------+"
 
-    yay -S spotify spicetify-cli
+    flatpak install flathub com.spotify.Client
 
     echo ""
     echo "qual navegador deseja instalar?"
@@ -38,13 +38,13 @@ clean() {
     read -p " " choice
 
     case $choice in 
-        1) yay -S zen-browser-bin ;;
-        2) yay -S google-chrome                        ;;
-        3) sudo pacman -S firefox                      ;;
-        4) yay -S brave-bin                            ;;
+        1) flatpak install flathub app.zen_browser.zen ;;
+        2) flatpak install flathub com.google.Chrome   ;;
+        3) sudo xbps-install firefox                   ;;
+        4) flatpak install flathub com.brave.Browser   ;;
         5) 
-            yay -S google-chrome brave-bin zen-browser-bin
-            sudo pacman -S firefox
+            flatpak install flathub brave chrome zen
+            sudo xbps-install firefox
         ;;
         0) " "                                         ;;
         *) "opcao invalida"                            ;;
@@ -60,8 +60,8 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S hydra-launcher-bin faugus-launcher
-    sudo pacman -S steam retroarch discord
+    sudo xbps-install steam retroarch
+	flatpak install flathub com.discordapp.Discord io.github.Faugus.faugus-launcher
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
@@ -76,35 +76,20 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    sudo pacman -S neovim obsidian bitwarden gnome-boxes rclone
-    yay -S cursor-bin visual-studio-code-bin
+	flatpak install flathub md.obsidian.Obsidian com.visualstudio.code com.bitwarden.desktop
+    sudo xbps-install neovim
 
     read -p "Deseja instalar o java? (s/N)" java
 
     case $java in
         [Ss]*)
-            sudo pacman -S jdk-openjdk
-        ;;
-        *) "" ;;
-    esac
-
-    read -p "Deseja instalar postgres? (s/N)" pgsql
-
-    case $pgsql in 
-        [Ss]*) 
-            sudo pacman -S postgresql
-            yay -S pgadmin4-desktop
-
-            cd /usr/pgadmin4/venv/bin
-            sudo rm python3
-            sudo ln $(which python3) python3
-            cd
+            sudo xbps-install openjdk
         ;;
         *) "" ;;
     esac
 
     echo " "
-    echo "para instalar bibliotecas python basta digitar por exemplo 'sudo pacman -S pyhton-pandas'"
+    echo "para instalar bibliotecas python basta digitar por exemplo 'sudo xbps-install python3-pandas'"
     echo " "
 
     echo "+-------------------------------------+"
@@ -123,5 +108,8 @@ ask_to_continue() {
         *) echo "instalaçao concluida" ; exit 0 ;;
     esac
 }
+
+sudo xbps-install -S flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 menu

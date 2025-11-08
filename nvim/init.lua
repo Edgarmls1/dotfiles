@@ -406,7 +406,8 @@ require("lazy").setup({
                 }
             })
         end
-    }
+    },
+    { "norcalli/nvim-colorizer.lua" }
 })
 
 require("oil").setup({ view_options = { show_hidden = true } })

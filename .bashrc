@@ -37,12 +37,19 @@ PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]\u@\h > \
 
 alias ls='lsd'
 alias lsa='lsd -a'
-alias update='~/sys_update.sh'
 alias ..="cd .."
 alias :q="exit"
 alias cc="cd ~ && clear"
+# arch
+alias update="/home/edgar/dotfiles/scripts/arch_update.sh"
 alias pacman="sudo pacman"
 alias search="yay -s"
+# void 
+# alias update="/home/edgar/dotfiles/scripts/void-update.sh"
+# alias install="sudo xbps-install"
+# alias remove="sudo xbps-remove"
+# alias search="sudo xbps-query -Rs"
+
 
 export EDITOR="nvim"
 

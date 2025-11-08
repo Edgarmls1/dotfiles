@@ -33,17 +33,6 @@ if command -v yay &> /dev/null; then
     yay -Syu --noconfirm 2>/dev/null
 fi
 
-if command -v flatpak &> /dev/null; then
-    echo " "
-    echo "++===================================++"
-    echo "|| fazendo update de pacotes flatpak ||"
-    echo "++===================================++"
-    echo " "
-
-    flatpak update -y 2>/dev/null
-fi
-
-
 echo "++===================================++"
 echo "|| sistema atualizado com sucesso ;) ||"
 echo "++===================================++"
