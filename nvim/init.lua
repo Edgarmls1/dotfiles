@@ -407,7 +407,11 @@ require("lazy").setup({
             })
         end
     },
-    { "norcalli/nvim-colorizer.lua" }
+    { "norcalli/nvim-colorizer.lua" },
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {},
+    }
 })
 
 require("oil").setup({ view_options = { show_hidden = true } })
