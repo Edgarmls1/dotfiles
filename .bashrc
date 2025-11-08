@@ -39,17 +39,10 @@ alias ls='lsd'
 alias lsa='lsd -a'
 alias ..="cd .."
 alias :q="exit"
-alias cc="cd ~ && clear"
-# arch
-alias update="/home/edgar/dotfiles/scripts/arch_update.sh"
+alias cc="cd /home/$USER && clear"
+alias update="/home/$USER/dotfiles/scripts/update.sh"
 alias pacman="sudo pacman"
 alias search="yay -s"
-# void 
-# alias update="/home/edgar/dotfiles/scripts/void-update.sh"
-# alias install="sudo xbps-install"
-# alias remove="sudo xbps-remove"
-# alias search="sudo xbps-query -Rs"
-
 
 export EDITOR="nvim"
 
