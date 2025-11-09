@@ -1,7 +1,7 @@
 #! /bin/bash
 sudo pacman -S hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus \
 rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet ghostty \
-neovim notepadqq ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop \
+neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop \
 btop cava bat npm okular vlc xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober
 
 yay -S hyprsome-git mpvpaper-git qimgv
