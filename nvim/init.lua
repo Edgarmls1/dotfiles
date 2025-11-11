@@ -411,6 +411,33 @@ require("lazy").setup({
     {
         "sphamba/smear-cursor.nvim",
         opts = {},
+    },
+    {
+        "Vigemus/iron.nvim",
+        config = function()
+            local iron = require("iron.core")
+
+            iron.setup({
+                config = {
+                    scratch_repl = true,
+                    repl_definition = {
+                        python = {
+                            command = { "ipython", "--no-autoindent" },
+                            format = require("iron.fts.common").bracketed_paste,
+                        },
+                    },
+                    repl_open_cmd = require("iron.view").bottom(15),
+                },
+                keymaps = {
+                    send_motion = "<leader>sc",
+                    visual_send = "<leader>r",
+                },
+                highlight = {
+                    italic = true,
+                },
+            })
+        end,
+        ft = { "python" },
     }
 })
 
