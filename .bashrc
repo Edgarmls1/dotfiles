@@ -63,5 +63,5 @@ function f() {
 }
 
 source -- ~/.local/share/blesh/ble.sh
-
+source ~/pyarchenv/bin/activate
 export PATH=$PATH:/home/edgar/.spicetify

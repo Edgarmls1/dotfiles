@@ -413,31 +413,10 @@ require("lazy").setup({
         opts = {},
     },
     {
-        "Vigemus/iron.nvim",
-        config = function()
-            local iron = require("iron.core")
-
-            iron.setup({
-                config = {
-                    scratch_repl = true,
-                    repl_definition = {
-                        python = {
-                            command = { "ipython", "--no-autoindent" },
-                            format = require("iron.fts.common").bracketed_paste,
-                        },
-                    },
-                    repl_open_cmd = require("iron.view").bottom(15),
-                },
-                keymaps = {
-                    send_motion = "<leader>sc",
-                    visual_send = "<leader>r",
-                },
-                highlight = {
-                    italic = true,
-                },
-            })
-        end,
-        ft = { "python" },
+        "kiyoon/jupynium.nvim",
+        build = "pip install .",
+        -- build = "uv pip install . --python=$HOME/.virtualenvs/jupynium/bin/python",
+        -- build = "conda run --no-capture-output -n jupynium pip install .",
     }
 })
 
@@ -465,3 +444,5 @@ vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>t", ":LuxtermNew<CR>", { desc = "New terminal" })
 vim.keymap.set("n", "<leader>k", ":LuxtermKill<CR>", { desc = "Kill terminal" })
+vim.keymap.set("n", "<leader>o", ":JupyniumStartAndAttachToServer<CR>")
+vim.keymap.set("n", "<leader>s", ":JupyniumStartSync<CR>")
