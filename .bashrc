@@ -42,10 +42,10 @@ alias :q="exit"
 alias cc="cd /home/$USER && clear"
 alias update="/home/$USER/dotfiles/scripts/update.sh"
 alias pacmans="sudo pacman -S"
-alias pacmanr="sudo pacman -R"
+alias pacmanr="sudo pacman -Rs"
 alias yays="yay -S"
-alias yayr="yay -R"
-alias search="yay -s"
+alias yayr="yay -Rs"
+alias search="yay -Ss"
 
 export EDITOR="nvim"
 
