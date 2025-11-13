@@ -20,6 +20,9 @@
 # v1.2 13/11/2025, edgar:
 #   - suporte para Linux e macOS
 #
+# v1.3 13/11/2025, edgar:
+# 	- instalação do brew e setup em mac os
+#
 #-------variaveis-------#
 
 MENSAGEM_HELP="
@@ -179,6 +182,7 @@ links () {
 
     rm -f ~/.bashrc
     ln -sf ~/dotfiles/.bashrc ~/.bashrc
+	ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
     
     echo "Links simbólicos criados com sucesso!"
     cd ~ || exit
