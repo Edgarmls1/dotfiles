@@ -17,6 +17,9 @@
 #   - adição de modo silencioso com barra de progresso
 #   - completação da função instala
 #
+# v1.2 13/11/2025, edgar:
+#   - suporte para Linux e macOS
+#
 #-------variaveis-------#
 
 MENSAGEM_HELP="
@@ -28,32 +31,39 @@ MENSAGEM_HELP="
     -q - modo silencioso (com barra de progresso)
     
 "
-VERSAO="v1.1"
+VERSAO="v1.2"
 DEFAULT=0
 SILENCIOSO=0
+OS_TYPE=$(uname -s)
 
 #---------------------#
 
 #-------testes--------#
 
-if ! command -v yay &> /dev/null; then
-    echo "yay não encontrado, instalando..."
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si --noconfirm
-    cd ..
-    rm -rf yay
+# Instalar yay apenas no Linux
+if [[ "$OS_TYPE" == "Linux" ]]; then
+    if ! command -v yay &> /dev/null; then
+        echo "yay não encontrado, instalando..."
+        git clone https://aur.archlinux.org/yay.git
+        cd yay
+        makepkg -si --noconfirm
+        cd ..
+        rm -rf yay
+    fi
+    
+    # Instalar ble.sh
+    if [[ ! -d ~/.local/share/blesh ]]; then
+        echo "Instalando ble.sh..."
+        git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+        make -C ble.sh install PREFIX=~/.local
+        rm -rf ble.sh
+    fi
 fi
-
-git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-make -C ble.sh install PREFIX=~/.local
-rm -rf ble.sh
 
 #--------------------#
 
 #-----funções-------#
 
-# Função para mostrar barra de progresso
 show_progress() {
     local msg="$1"
     local pid=$2
@@ -78,12 +88,10 @@ hyprde () {
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
         
-        # Instalar pacotes oficiais
         echo -ne "Instalando pacotes oficiais..."
         sudo pacman -S --noconfirm $de_list > /dev/null 2>&1 &
         show_progress "Instalando pacotes oficiais" $!
         
-        # Instalar pacotes AUR
         echo -ne "Instalando pacotes AUR..."
         yay -S --noconfirm $aur_list > /dev/null 2>&1 &
         show_progress "Instalando pacotes AUR" $!
@@ -93,7 +101,6 @@ hyprde () {
         yay -S --noconfirm $aur_list
     fi
 
-    # Gruvbox icons
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo -ne "Instalando ícones Gruvbox..."
         (
@@ -117,7 +124,6 @@ hyprde () {
         rm -rf gruvbox-plus-icon-pack
     fi
 
-    # Orchis theme
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo -ne "Instalando tema Orchis..."
         (
@@ -139,11 +145,9 @@ hyprde () {
         rm -rf Orchis-theme
     fi
 
-    # Enable ly
     echo "Habilitando ly.service..."
     sudo systemctl enable ly.service
 
-    # Enable dark mode in hyprland
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/
     
@@ -158,17 +162,23 @@ EOF
 links () {
     echo "Criando links simbólicos..."
     
+    mkdir -p ~/.config
     cd ~/.config/ || exit
 
+    if [[ "$OS_TYPE" == "Linux" ]]; then
+        ln -sf ~/dotfiles/hypr/ hypr
+        ln -sf ~/dotfiles/rofi/ rofi
+        ln -sf ~/dotfiles/waybar/ waybar
+        ln -sf ~/dotfiles/scripts/update.sh ~/update.sh
+    fi
+    
     ln -sf ~/dotfiles/nvim/ nvim
-    rm -f ~/.bashrc && ln -s ~/dotfiles/.bashrc ~/.bashrc
-    ln -sf ~/dotfiles/rofi/ rofi
-    ln -sf ~/dotfiles/waybar/ waybar
-    ln -sf ~/dotfiles/hypr/ hypr
-    ln -sf ~/dotfiles/fastfetch/ fastfetch
     ln -sf ~/dotfiles/kitty/ kitty
     ln -sf ~/dotfiles/yazi/ yazi
-    ln -sf ~/dotfiles/scripts/update.sh ~/update.sh
+    ln -sf ~/dotfiles/fastfetch/ fastfetch
+
+    rm -f ~/.bashrc
+    ln -sf ~/dotfiles/.bashrc ~/.bashrc
     
     echo "Links simbólicos criados com sucesso!"
     cd ~ || exit
@@ -185,16 +195,37 @@ instala () {
         echo ""
     fi
     
-    hyprde
-    links
+    case "$OS_TYPE" in
+        Linux)
+            echo "Sistema detectado: Linux"
+            hyprde
+            links
+            ;;
+        Darwin)
+            echo "Sistema detectado: macOS"
+            links
+            ;;
+        *)
+            echo "Sistema operacional não suportado: $OS_TYPE"
+            exit 1
+            ;;
+    esac
     
     echo ""
     echo "✓ Instalação concluída com sucesso!"
     echo ""
-    echo "Reinicie o sistema para aplicar todas as configurações."
+    
+    if [[ "$OS_TYPE" == "Linux" ]]; then
+        echo "Reinicie o sistema para aplicar todas as configurações."
+    fi
 }
 
 #---------------------#
+
+if [[ ! -d ~/pyenv ]]; then
+    echo "Criando ambiente virtual Python..."
+    python3 -m venv ~/pyenv
+fi
 
 #-------execução-------#
 
