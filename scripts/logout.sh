@@ -6,7 +6,7 @@ case "$chosen" in
 	"Power Off") systemctl poweroff ;;
 	"Restart") systemctl reboot     ;;
 	"Hibernate")
-		hyprlock &
+		# hyprlock &
 		systemctl hybrid-sleep 
 	;;
 	*) exit 1                       ;;
