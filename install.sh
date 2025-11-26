@@ -173,7 +173,7 @@ links () {
     fi
     
     ln -sf ~/dotfiles/nvim/ nvim
-    ln -sf ~/dotfiles/kitty/ kitty
+	ln -sf ~/dotfiles/alacritty/ alacritty
     ln -sf ~/dotfiles/yazi/ yazi
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 

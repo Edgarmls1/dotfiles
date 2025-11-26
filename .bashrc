@@ -39,13 +39,14 @@ alias ls='lsd'
 alias lsa='lsd -a'
 alias ..="cd .."
 alias :q="exit"
-alias cc="cd /home/$USER && clear"
-alias update="/home/$USER/dotfiles/scripts/update.sh"
+alias cc="cd ~ && clear"
+alias update="~/dotfiles/scripts/update.sh"
 alias pacmans="sudo pacman -S"
 alias pacmanr="sudo pacman -Rs"
 alias yays="yay -S"
 alias yayr="yay -Rs"
 alias search="yay -Ss"
+alias vim="nvim"
 
 export EDITOR="nvim"
 
