@@ -46,6 +46,7 @@ alias pacmanr="sudo pacman -Rs"
 alias yays="yay -S"
 alias yayr="yay -Rs"
 alias search="yay -Ss"
+alias fsearch="flatpak search"
 alias vim="nvim"
 
 export EDITOR="nvim"
@@ -64,5 +65,5 @@ function f() {
 }
 
 source -- ~/.local/share/blesh/ble.sh
-source ~/pyarchenv/bin/activate
+source ~/pyenv/bin/activate
 export PATH=$PATH:/home/edgar/.spicetify

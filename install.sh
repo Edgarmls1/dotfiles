@@ -199,13 +199,20 @@ instala () {
     case "$OS_TYPE" in
         Linux)
             echo "Sistema detectado: Linux"
-            hyprde
-            links
-            ;;
+            read -p "deseja instalar somente o dotfiles? s/N" choice
+
+			case "$choice" in
+				[Ss]*) links ;;
+				*) 
+					hyprde
+					links
+				;;
+			esac
+        ;;
         Darwin)
             echo "Sistema detectado: macOS"
             links
-            ;;
+        ;;
         *)
             echo "Sistema operacional não suportado: $OS_TYPE"
             exit 1
