@@ -48,22 +48,15 @@ require("lazy").setup({
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
-    {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        config = function()
-            vim.opt.background = "dark"
-            vim.cmd("colorscheme gruvbox")
-        end,
-    },
-    -- {
-    --     "slugbyte/lackluster.nvim",
-    --     lazy = false,
-    --     priority = 1000,
-    --     init = function()
-    --         vim.cmd.colorscheme("lackluster-mint")
-    --     end,
-    -- },
+	{
+  		"nlkli/ashki.nvim",
+  		lazy = false,
+  		priority = 1000,
+  		config = function()
+    		require("ashki").setup()
+    		require("ashki").load()
+  		end,
+	},
     { "stevearc/oil.nvim" },
     {
         "windwp/nvim-autopairs",
@@ -438,6 +431,8 @@ require("fine-cmdline").setup({
 
 vim.lsp.config("pyright", {})
 vim.lsp.config("gopls", {})
+
+vim.cmd("colorscheme ashki")
 
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")

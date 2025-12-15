@@ -47,7 +47,7 @@ alias yays="yay -S"
 alias yayr="yay -Rs"
 alias search="yay -Ss"
 alias fsearch="flatpak search"
-alias vim="nvim"
+alias python="/home/edgar/pyenv/bin/python"
 
 export EDITOR="nvim"
 
