@@ -82,8 +82,8 @@ show_progress() {
 }
 
 hyprde () {
-    local de_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus rofi waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet kitty alacritty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm okular vlc xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober"
-    local aur_list="hyprsome-git mpvpaper-git qimgv hyprlight"
+    local de_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm okular vlc xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober"
+    local aur_list="hyprsome-git mpvpaper-git qimgv hyprlight anyrun"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -173,7 +173,7 @@ links () {
     fi
     
     ln -sf ~/dotfiles/nvim/ nvim
-	ln -sf ~/dotfiles/alacritty/ alacritty
+	ln -sf ~/dotfiles/kitty/ kitty
     ln -sf ~/dotfiles/yazi/ yazi
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 
