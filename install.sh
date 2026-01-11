@@ -146,7 +146,7 @@ hyprde () {
     fi
 
     echo "Habilitando ly.service..."
-    sudo systemctl enable ly.service
+    sudo systemctl enable ly@tty2
 
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/
@@ -167,7 +167,6 @@ links () {
 
     if [[ "$OS_TYPE" == "Linux" ]]; then
         ln -sf ~/dotfiles/hypr/ hypr
-        ln -sf ~/dotfiles/rofi/ rofi
         ln -sf ~/dotfiles/waybar/ waybar
         ln -sf ~/dotfiles/scripts/update.sh ~/update.sh
     fi
