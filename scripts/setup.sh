@@ -60,7 +60,7 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S hydra-launcher-bin faugus-launcher
+    yay -S hydra-launcher-bin faugus-launcher heoric-games-launcher-bin
     sudo pacman -S steam retroarch discord
 
     echo "+---------------------------------------+"
@@ -77,7 +77,7 @@ dev() {
     echo "+--------------------------+"
 
     sudo pacman -S neovim obsidian bitwarden
-    yay -S cursor-bin visual-studio-code-bin
+    yay -S visual-studio-code-bin
 
     read -p "Deseja instalar o java? (s/N)" java
 
