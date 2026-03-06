@@ -55,7 +55,9 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     if [[ ! -d ~/.local/share/blesh ]]; then
         echo "Instalando ble.sh..."
         git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-        make -C ble.sh install PREFIX=~/.local
+		cd ble.sh
+        make -C install PREFIX=~/.local
+		cd ..
         rm -rf ble.sh
     fi
 fi
@@ -82,7 +84,7 @@ show_progress() {
 }
 
 hyprde () {
-    local de_list="hyprland hyprpaper hyprsunset hyprlock hyprshot dolphin waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm okular vlc xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober"
+    local de_list="hyprland hyprpaper hyprsunset hyprlock hyprshot dolphin waybar swaync fastfetch yazi bluetui pavucontrol network-manager-applet kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm okular vlc xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober"
     local aur_list="hyprsome-git mpvpaper-git qimgv hyprlight anyrun"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
