@@ -48,15 +48,12 @@ require("lazy").setup({
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
-	{
-  		"nlkli/ashki.nvim",
-  		lazy = false,
-  		priority = 1000,
-  		config = function()
-    		require("ashki").setup()
-    		require("ashki").load()
-  		end,
-	},
+    --[[    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = true,
+        opts = ...
+    }, ]]
     { "stevearc/oil.nvim" },
     {
         "windwp/nvim-autopairs",
@@ -406,13 +403,12 @@ require("lazy").setup({
         opts = {},
     },
     {
-        "kiyoon/jupynium.nvim",
-        build = "pip install .",
-        -- build = "uv pip install . --python=$HOME/.virtualenvs/jupynium/bin/python",
-        -- build = "conda run --no-capture-output -n jupynium pip install .",
+        'brenoprata10/nvim-highlight-colors',
+        opts = {},
     }
 })
 
+require("nvim-highlight-colors").setup({ render = "virtual" })
 require("oil").setup({ view_options = { show_hidden = true } })
 require("render-markdown").enable()
 require("fine-cmdline").setup({
@@ -432,12 +428,12 @@ require("fine-cmdline").setup({
 vim.lsp.config("pyright", {})
 vim.lsp.config("gopls", {})
 
-vim.cmd("colorscheme ashki")
+vim.o.background = "dark"
+vim.cmd("colorscheme oldTerm")
 
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
+vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 vim.api.nvim_set_keymap("n", ":", "<cmd>FineCmdline<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>t", ":LuxtermNew<CR>", { desc = "New terminal" })
 vim.keymap.set("n", "<leader>k", ":LuxtermKill<CR>", { desc = "Kill terminal" })
-vim.keymap.set("n", "<leader>o", ":JupyniumStartAndAttachToServer<CR>")
-vim.keymap.set("n", "<leader>s", ":JupyniumStartSync<CR>")

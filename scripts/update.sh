@@ -35,7 +35,7 @@ BANNER= cat << "EOF"
    ___/ / /_/ (__  ) /_/  __/ / / / / /  / /_/ / /_/ / /_/ / /_/ / /_/  __/
   /____/\__, /____/\__/\___/_/ /_/ /_/   \____/ .___/\__,_/\__,_/\__/\___/ 
        /____/                                /_/                           
- 
+
 EOF
 
 MENSAGEM_USO="
@@ -55,7 +55,6 @@ SILENCIOSO=0
 
 #-------testes-------#
 
-# Instala o yay (se não estiver instalado)
 if ! command -v yay &> /dev/null; then
     echo "yay não encontrado, instalando..."
     git clone https://aur.archlinux.org/yay.git

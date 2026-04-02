@@ -25,7 +25,6 @@
   "group/group-right": {
     "orientation": "horizontal",
     "modules": [
-		"custom/spotify",
 		"tray",
 		"custom/sep",
         "network",
@@ -36,14 +35,6 @@
         "custom/sep",
         "clock"
     ]
-  },
-  "custom/spotify": {
-    "format": "{}",
-    "exec": "~/dotfiles/scripts/spotify.sh",
-    "interval": 1,
-    "on-click": "playerctl -p spotify play-pause",
-    "on-scroll-up": "playerctl -p spotify next",
-    "on-scroll-down": "playerctl -p spotify previous"
   },
   "tray": {
     "icon-size": 18,
@@ -79,7 +70,7 @@
 		]
 	},
 	"format-muted": "󰝟",
-	"on-click": "exec blueberry",
+	"on-click": "exec alacritty -e bluetui",
 	"on-click-right": "exec pavucontrol",
 	"scroll-step": 5
   },
@@ -90,34 +81,6 @@
 	"format-wifi": "  {essid}",
 	"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
 	"on-click": "exec nm-applet"
-  },
-  "group/group-power": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "not-power",
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "custom/power", // First element is the "group leader" and won't ever be hidden
-      "custom/lock",
-      "custom/reboot"
-    ]
-  },
-  "custom/lock": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "hyprlock"
-  },
-  "custom/reboot": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "systemctl reboot"
-  },
-  "custom/power": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "systemctl poweroff"
   },
   "custom/sep": {
     "format": "  "

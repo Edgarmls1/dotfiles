@@ -35,19 +35,23 @@ prompt_color(){
 PROMPT_COMMAND="prompt_color; $PROMPT_COMMAND"
 PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]\u@\h > \[\e[0m\]'
 
-alias ls='lsd'
-alias lsa='lsd -a'
-alias ..="cd .."
+alias l='lsd'
+alias la='lsd -a'
 alias :q="exit"
 alias cc="cd ~ && clear"
-alias update="~/dotfiles/scripts/update.sh"
-alias pacmans="sudo pacman -S"
-alias pacmanr="sudo pacman -Rs"
-alias yays="yay -S"
-alias yayr="yay -Rs"
-alias search="yay -Ss"
-alias fsearch="flatpak search"
-alias python="/home/edgar/pyenv/bin/python"
+alias up="~/dotfiles/scripts/update.sh"
+alias pi="sudo pacman -S"
+alias pr="sudo pacman -Rs"
+alias yi="yay -S"
+alias yr="yay -Rs"
+alias s="yay -Ss"
+alias n="nvim"
+alias py="~/pyenv/bin/python"
+alias hypr="nvim ~/.config/hypr/hyprland.conf"
+alias faci="cd ~/dev/faci/"
+alias notes="nvim ~/dev/cofre/"
+alias docker="sudo docker"
+alias c="cd"
 
 export EDITOR="nvim"
 
@@ -67,3 +71,4 @@ function f() {
 source -- ~/.local/share/blesh/ble.sh
 source ~/pyenv/bin/activate
 export PATH=$PATH:/home/edgar/.spicetify
+fastfetch

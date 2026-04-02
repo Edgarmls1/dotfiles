@@ -1,10 +1,7 @@
-@define-color modules_background #282828;
+@define-color modules_background #000000; /* #3d3834; */
 
 @define-color workspaces_button_off #928374;
 @define-color workspaces_button_on #fbf1c7;
-
-@define-color spotify_idle #b8bb26;
-@define-color spotify_hover #98971a;
 
 @define-color tray_menu #1D2021;
 @define-color tray_menu_border #3c3836;
@@ -12,20 +9,10 @@
 @define-color tray_menu_item_hover #ebdbb2;
 @define-color tray_menu_item_hover_background #504945;
 
-@define-color clock_idle #ebdbb2;
+@define-color clock_idle #FFFFFF;
 @define-color clock_hover #a89984;
 
-@define-color sound_idle #fabd2f;
-@define-color sound_hover #d79921;
-
-@define-color bluetooth_idle #458488;
-@define-color bluetooth_hover #83a598;
-
-@define-color network_idle #458488;
-@define-color network_hover #83a598;
-
-@define-color power_idle #fb4934;
-@define-color power_hover #cc241d;
+@define-color network_idle #409343;
 
 @define-color tooltip_background #282828;
 @define-color tooltip_text #ebdbb2;
@@ -81,24 +68,6 @@
   transition: all 0.3s ease;
 }
 
-/*-----------------*/
-/*-----SPOTIFY-----*/
-/*-----------------*/
-
-#custom-spotify {
-  color: @spotify_idle;
-
-  margin-right: 16px;
-
-  transition: all 0.3s ease;
-}
-
-#custom-spotify:hover {
-  color: @spotify_hover;
-
-  transition: all 0.3s ease;
-}
-
 #tray menu {
   background-color: @tray_menu;
   border: 2px solid @tray_menu_border;
@@ -125,11 +94,6 @@
   transition: all 0.3s ease;
 }
 
-#clock:hover {
-  color: @clock_hover;
-
-  transition: all 0.3s ease;
-}
 /*-----------------*/
 /*-----NETWORK-----*/
 /*-----------------*/
@@ -137,44 +101,6 @@
 #network, #pulseaudio, #battery {
   color: @network_idle;
   padding: 2px;
-  transition: all 0.3s ease;
-}
-
-#network:hover, #pulseaudio:hover {
-  color: @network_hover;
-
-  transition: all 0.3s ease;
-}
-
-/*---------------*/
-/*-----POWER-----*/
-/*---------------*/
-
-#custom-power,
-#custom-lock,
-#custom-reboot {
-  color: @power_idle;
-  padding: 3px;
-  transition: all 0.3s ease;
-}
-
-#custom-power {
-  padding-right: 12px;
-}
-
-#custom-reboot {
-  padding-right: 12px;
-}
-
-#custom-lock {
-  padding-right: 12px;
-}
-
-#custom-power:hover,
-#custom-lock:hover,
-#custom-reboot:hover {
-  color: @power_hover;
-
   transition: all 0.3s ease;
 }
 
