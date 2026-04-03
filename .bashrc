@@ -50,7 +50,6 @@ alias py="~/pyenv/bin/python"
 alias hypr="nvim ~/.config/hypr/hyprland.conf"
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/dev/cofre/"
-alias docker="sudo docker"
 alias c="cd"
 
 export EDITOR="nvim"

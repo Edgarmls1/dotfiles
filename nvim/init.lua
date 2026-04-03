@@ -48,12 +48,12 @@ require("lazy").setup({
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
     },
-    --[[    {
+    {
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
         config = true,
         opts = ...
-    }, ]]
+    },
     { "stevearc/oil.nvim" },
     {
         "windwp/nvim-autopairs",
@@ -429,7 +429,8 @@ vim.lsp.config("pyright", {})
 vim.lsp.config("gopls", {})
 
 vim.o.background = "dark"
-vim.cmd("colorscheme oldTerm")
+vim.cmd("colorscheme oldTerm") --theme:lain
+--vim.cmd("colorscheme gruvbox") --theme:gruvbox
 
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
