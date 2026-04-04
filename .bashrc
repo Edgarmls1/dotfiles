@@ -35,8 +35,9 @@ prompt_color(){
 PROMPT_COMMAND="prompt_color; $PROMPT_COMMAND"
 PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]\u@\h > \[\e[0m\]'
 
-alias l='lsd'
-alias la='lsd -a'
+alias l="lsd"
+alias la="lsd -a"
+alias cat="bat"
 alias :q="exit"
 alias cc="cd ~ && clear"
 alias up="~/dotfiles/scripts/update.sh"
