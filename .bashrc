@@ -35,23 +35,21 @@ prompt_color(){
 PROMPT_COMMAND="prompt_color; $PROMPT_COMMAND"
 PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]\u@\h > \[\e[0m\]'
 
-alias l="lsd"
-alias la="lsd -a"
+alias ls="lsd"
+alias lsa="lsd -a"
 alias cat="bat"
 alias :q="exit"
 alias cc="cd ~ && clear"
-alias up="~/dotfiles/scripts/update.sh"
-alias pi="sudo pacman -S"
-alias pr="sudo pacman -Rs"
-alias yi="yay -S"
-alias yr="yay -Rs"
-alias s="yay -Ss"
-alias n="nvim"
+alias update="~/dotfiles/scripts/update.sh"
+alias install="yay -S"
+alias remove="yay -Rs"
+alias search="yay -Ss"
 alias py="~/pyenv/bin/python"
 alias hypr="nvim ~/.config/hypr/hyprland.conf"
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/dev/cofre/"
-alias c="cd"
+
+eval "$(fzf --bash)"
 
 export EDITOR="nvim"
 

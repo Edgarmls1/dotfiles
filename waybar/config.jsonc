@@ -30,6 +30,8 @@
         "network",
         "custom/sep",
         "pulseaudio",
+		"custom/sep",
+		"bluetooth",
         "custom/sep",
         "battery",
         "custom/sep",
@@ -70,9 +72,10 @@
 		]
 	},
 	"format-muted": "󰝟",
-	"on-click": "exec alacritty -e bluetui",
-	"on-click-right": "exec pavucontrol",
-	"scroll-step": 5
+	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
   "network": {
 	"format-disconnected": "󰖪 disconnected ",
@@ -80,7 +83,13 @@
 	"format-linked": "{ifname} (No IP)",
 	"format-wifi": "  {essid}",
 	"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
-	"on-click": "exec nm-applet"
+	"on-click": "alacritty -e gazelle"
+  },
+  "bluetooth": {
+	"format-disconnected": ">ᛒ",
+	"format-connected": "🎧",
+	"on-click": "alacritty -e bluetui",
+	"tooltip-format-connected": "{device_alias}" 
   },
   "custom/sep": {
     "format": "  "

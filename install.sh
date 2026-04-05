@@ -82,23 +82,17 @@ show_progress() {
 }
 
 hyprde () {
-    local de_list="hyprland hyprpaper hyprsunset hyprlock hyprshot dolphin waybar swaync fastfetch yazi blueberry pavucontrol network-manager-applet kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm okular vlc xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober"
-    local aur_list="hyprsome-git mpvpaper-git qimgv hyprlight anyrun"
+    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui alacritty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
         
-        echo -ne "Instalando pacotes oficiais..."
-        sudo pacman -S --noconfirm $de_list > /dev/null 2>&1 &
-        show_progress "Instalando pacotes oficiais" $!
+        yay -S --noconfirm $pkg_list > /dev/null 2>&1 &
+        show_progress "Instalando pacotes" $!
         
-        echo -ne "Instalando pacotes AUR..."
-        yay -S --noconfirm $aur_list > /dev/null 2>&1 &
-        show_progress "Instalando pacotes AUR" $!
     else
         echo "Instalando pacotes do Hyprland DE..."
-        sudo pacman -S --noconfirm $de_list
-        yay -S --noconfirm $aur_list
+        yay -S --noconfirm $pkg_list
     fi
 
     if [[ $SILENCIOSO -eq 1 ]]; then
@@ -172,8 +166,7 @@ links () {
     fi
     
     ln -sf ~/dotfiles/nvim/ nvim
-	ln -sf ~/dotfiles/kitty/ kitty
-    ln -sf ~/dotfiles/yazi/ yazi
+	ln -sf ~/dotfiles/kitty/ alacritty
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 
     rm -f ~/.bashrc
