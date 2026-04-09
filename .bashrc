@@ -33,7 +33,7 @@ prompt_color(){
 }
 
 PROMPT_COMMAND="prompt_color; $PROMPT_COMMAND"
-PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]\u@\h > \[\e[0m\]'
+PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]> \[\e[0m\]'
 
 alias ls="lsd"
 alias lsa="lsd -a"
@@ -47,7 +47,7 @@ alias search="yay -Ss"
 alias py="~/pyenv/bin/python"
 alias hypr="nvim ~/.config/hypr/hyprland.conf"
 alias faci="cd ~/dev/faci/"
-alias notes="nvim ~/dev/cofre/"
+alias notes="cd ~/dev/cofre/ && nvim ."
 
 eval "$(fzf --bash)"
 

@@ -54,6 +54,7 @@ require("lazy").setup({
         config = true,
         opts = ...
     },
+    { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
     { "stevearc/oil.nvim" },
     {
         "windwp/nvim-autopairs",
@@ -411,6 +412,7 @@ require("lazy").setup({
 require("nvim-highlight-colors").setup({ render = "virtual" })
 require("oil").setup({ view_options = { show_hidden = true } })
 require("render-markdown").enable()
+require("catppuccin").setup({ flavor = "mocha", transparent_background = true }) --theme:cats
 require("fine-cmdline").setup({
     popup = {
         size = {
@@ -429,8 +431,9 @@ vim.lsp.config("pyright", {})
 vim.lsp.config("gopls", {})
 
 vim.o.background = "dark"
-vim.cmd("colorscheme oldTerm") --theme:lain
+--vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme gruvbox") --theme:gruvbox
+vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)

@@ -6,7 +6,7 @@ NVIM=$HOME/dotfiles/nvim/init.lua
 WAYBAR=$HOME/dotfiles/waybar/style.css
 
 # available themes
-THEMES=("lain", "gruvbox")
+THEMES=("lain", "gruvbox", "cats")
 THEME_FILE=$HOME/.cache/current_theme
 
 # functions
@@ -14,7 +14,7 @@ get_current_theme() {
 	if [ -f "$THEME_FILE" ]; then
 		cat "$THEME_FILE"
 	else
-		echo "lain"
+		echo "cats"
 	fi
 }
 
@@ -73,15 +73,27 @@ apply_gruvbox() {
 	pkill waybar && waybar
 }
 
+apply_cats() {
+	apply_theme_block "$HYPRPAPER" "theme" "cats" "hash"
+	apply_theme_block "$WAYBAR" "theme" "cats" "slash"
+	apply_theme_block "$NVIM" "theme" "cats" "dash"
+
+	pkill hyprpaper && hyprpaper &
+	pkill waybar && waybar &
+}
+
 toggle_theme() {
 	local current=$(get_current_theme)
 
 	if [ "$current" = "lain" ]; then
 		apply_gruvbox
 		set_theme "gruvbox"
-	else
+	elif [ "$current" = "cats" ]; then
 		apply_lain
 		set_theme "lain"
+	else
+		apply_cats
+		set_theme "cats"
 	fi
 }
 

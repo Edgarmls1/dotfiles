@@ -1,8 +1,11 @@
-@define-color modules_background #000000; /*theme:lain*/
+/*@define-color modules_background #000000;*/ /*theme:lain*/
 /*@define-color modules_background #3d3834;*/ /*theme:gruvbox*/
+@define-color modules_background #10293f; /*theme:cats*/
 
 @define-color workspaces_button_off #928374;
-@define-color workspaces_button_on #fbf1c7;
+/*@define-color workspaces_button_on #ffffff;*/ /*theme:lain*/
+/*@define-color workspaces_button_on #ebdbb2;*/ /*theme:gruvbox*/
+@define-color workspaces_button_on #bc7186; /*theme:cats*/
 
 @define-color tray_menu #1D2021;
 @define-color tray_menu_border #3c3836;
@@ -10,11 +13,13 @@
 @define-color tray_menu_item_hover #ebdbb2;
 @define-color tray_menu_item_hover_background #504945;
 
-@define-color clock_idle #FFFFFF;
-@define-color clock_hover #a89984;
+/*@define-color clock_idle #ffffff;*/ /*theme:lain*/
+/*@define-color clock_idle #ebdbb2;*/ /*theme:gruvbox*/
+@define-color clock_idle #bc7186; /*theme:cats*/
 
-@define-color network_idle #409343; /*theme:lain*/
+/*@define-color network_idle #409343;*/ /*theme:lain*/
 /*@define-color network_idle #458488;*/ /*theme:gruvbox*/
+@define-color network_idle #82e0a4; /*theme:cats*/
 
 @define-color tooltip_background #282828;
 @define-color tooltip_text #ebdbb2;

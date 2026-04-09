@@ -40,11 +40,10 @@ clean() {
     case $choice in 
         1) yay -S zen-browser-bin ;;
         2) yay -S google-chrome                        ;;
-        3) sudo pacman -S firefox                      ;;
+        3) yay -S firefox                              ;;
         4) yay -S brave-bin                            ;;
         5) 
-            yay -S google-chrome brave-bin zen-browser-bin
-            sudo pacman -S firefox
+            yay -S google-chrome brave-bin zen-browser-bin firefox
         ;;
         0) " "                                         ;;
         *) "opcao invalida"                            ;;
@@ -60,8 +59,7 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S hydra-launcher-bin faugus-launcher heoric-games-launcher-bin
-    sudo pacman -S steam retroarch discord
+    yay -S hydra-launcher-bin faugus-launcher heoric-games-launcher-bin steam retroarch discord
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"
@@ -76,21 +74,16 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    sudo pacman -S neovim obsidian bitwarden
-    yay -S visual-studio-code-bin
+    yay -S neovim obsidian bitwarden visual-studio-code-bin
 
     read -p "Deseja instalar o java? (s/N)" java
 
     case $java in
         [Ss]*)
-            sudo pacman -S jdk-openjdk
+            yay -S jdk-openjdk
         ;;
         *) "" ;;
     esac
-
-    echo " "
-    echo "para instalar bibliotecas python basta digitar por exemplo 'sudo pacman -S pyhton-pandas'"
-    echo " "
 
     echo "+-------------------------------------+"
     echo "| config p/ dev instalada com sucesso |"

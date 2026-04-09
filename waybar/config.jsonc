@@ -83,13 +83,12 @@
 	"format-linked": "{ifname} (No IP)",
 	"format-wifi": "  {essid}",
 	"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
-	"on-click": "alacritty -e gazelle"
+	"on-click": "kitty gazelle"
   },
   "bluetooth": {
 	"format-disconnected": ">ᛒ",
-	"format-connected": "🎧",
-	"on-click": "alacritty -e bluetui",
-	"tooltip-format-connected": "{device_alias}" 
+	"format-connected": "{device_alias}",
+	"on-click": "kitty bluetui"
   },
   "custom/sep": {
     "format": "  "
