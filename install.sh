@@ -82,7 +82,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf"
+    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -140,7 +140,7 @@ hyprde () {
     fi
 
     echo "Habilitando ly.service..."
-    sudo systemctl enable ly@tty2
+    sudo systemctl enable ly
 
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/
@@ -166,7 +166,7 @@ links () {
     fi
     
     ln -sf ~/dotfiles/nvim/ nvim
-	ln -sf ~/dotfiles/kitty/ alacritty
+    ln -sf ~/dotfiles/kitty/ kitty
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 
     rm -f ~/.bashrc

@@ -1,9 +1,9 @@
 #! /bin/bash
 
 # config files
-HYPRPAPER=$HOME/dotfiles/hypr/hyprpaper.conf
-NVIM=$HOME/dotfiles/nvim/init.lua
-WAYBAR=$HOME/dotfiles/waybar/style.css
+HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
+NVIM=$HOME/.config/nvim/init.lua
+WAYBAR=$HOME/.config/waybar/style.css
 
 # available themes
 THEMES=("lain", "gruvbox", "cats")

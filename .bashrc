@@ -1,3 +1,6 @@
+# fastfetch
+~/dotfiles/scripts/pokemon.sh & disown
+
 export BASH_COMPLETION_COMPAT_DIR="/usr/share/bash-completion/completions"
 
 HISTFILE=~/.bash_history
@@ -45,7 +48,7 @@ alias install="yay -S"
 alias remove="yay -Rs"
 alias search="yay -Ss"
 alias py="~/pyenv/bin/python"
-alias hypr="nvim ~/.config/hypr/hyprland.conf"
+alias hyprc="nvim ~/.config/hypr/hyprland.conf"
 alias faci="cd ~/dev/faci/"
 alias notes="cd ~/dev/cofre/ && nvim ."
 
@@ -69,4 +72,3 @@ function f() {
 source -- ~/.local/share/blesh/ble.sh
 source ~/pyenv/bin/activate
 export PATH=$PATH:/home/edgar/.spicetify
-fastfetch
