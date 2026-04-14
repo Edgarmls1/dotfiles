@@ -1,3 +1,4 @@
+echo ""
 # fastfetch
 ~/dotfiles/scripts/pokemon.sh & disown
 

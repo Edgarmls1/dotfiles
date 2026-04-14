@@ -31,6 +31,7 @@ vim.pack.add {
 	"https://github.com/brenoprata10/nvim-highlight-colors",
 	"https://github.com/sphamba/smear-cursor.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/hrsh7th/nvim-cmp",
 	"https://github.com/hrsh7th/cmp-buffer",
 	"https://github.com/hrsh7th/cmp-path",
@@ -42,7 +43,7 @@ require("lualine").setup()
 require("smear_cursor").setup({ opts = {} })
 require("gruvbox").setup({ priority = 1000 })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
-require("alpha").setup(require("alpha.themes.startify").config)
+require("alpha").setup(require("alpha.themes.theta").config)
 require("oil").setup({ view_options = { show_hidden = true } })
 require("catppuccin").setup({ priority = 1000, flavor = "mocha", transparent_background = true })
 require("fine-cmdline").setup({
@@ -51,7 +52,7 @@ require("fine-cmdline").setup({
 				width = "30%",
 		},
 		border = {
-				style = "solid",
+				style = "rounded",
 		},
 	},
 	cmdline = {
@@ -66,11 +67,20 @@ vim.lsp.config("pyright", {})
 vim.lsp.config("rust-analyzer", {})
 vim.lsp.config("bash-language-server", {})
 
+vim.cmd("lsp enable gopls")
+vim.cmd("lsp enable jdtls")
+vim.cmd("lsp enable clangd")
+vim.cmd("lsp enable pyright")
+vim.cmd("lsp enable rust-analyzer")
+vim.cmd("lsp enable bash-language-server")
+
 vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme gruvbox") --theme:gruvbox
 
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", opts)
+vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
 vim.keymap.set("n", ":", "<Cmd>FineCmdline<CR>", { noremap = true })
@@ -109,21 +119,6 @@ cmp.setup({
 		{ name = "buffer",  keyword_length = 3 },
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<Tab>"] = cmp.mapping(
-			function(fallback)
-				local col = vim.fn.col('.') - 1
-
-				if cmp.visible() then
-					cmp.select_next_item({ behavior = 'select' })
-				elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-					fallback()
-				else
-					cmp.complete()
-				end
-			end,
-			{ "i", "s" }
-		),
-
 		["<ENTER>"] = cmp.mapping.confirm({ select = true })
 	})	
 })

@@ -38,8 +38,8 @@
   "display": {
         "separator": ": ",     // Separator between keys and values
         "color": {
-            "keys": "white",    // Key color
-            "title": "white"
+            "keys": "green",    // Key color
+            "title": "green"
         }
     }
 }

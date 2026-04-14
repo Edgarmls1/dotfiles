@@ -237,5 +237,12 @@ case $1 in
 esac
 
 [ $DEFAULT -eq 1 ] && instala
+clear
+echo "Deseja Reiniciar? [s/N]"
+read -p "" reboot
+
+case "$reboot" in
+	[Ss]*) reboot ;;
+esac
 
 #----------------------#

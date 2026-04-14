@@ -20,6 +20,10 @@
       "rev": "c642487086dbd9a93160e1679a1327be111cbc25",
       "src": "https://github.com/hrsh7th/cmp-path"
     },
+    "dashboard-nvim": {
+      "rev": "62a10d9d55132b338dd742afc3c8a2683f3dd426",
+      "src": "https://github.com/nvimdev/dashboard-nvim"
+    },
     "fine-cmdline.nvim": {
       "rev": "6e646f4da6afe856e36f3d952489b723d1475638",
       "src": "https://github.com/VonHeikemen/fine-cmdline.nvim"
@@ -75,6 +79,10 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
       "rev": "54d4b5431e9634ee3d8d30784e017239b5b89d41",
