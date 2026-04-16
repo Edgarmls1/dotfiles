@@ -67,6 +67,9 @@ apply_lain() {
 	apply_theme_block "$WAYBAR" "theme" "lain" "slash"
 	apply_theme_block "$NVIM" "theme" "lain" "dash"
 
+	rm ~/.config/kitty/kitty.conf
+	ln -sf ~/dotfiles/kitty/kitty-lain.conf ~/.config/kitty/kitty.conf
+
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
 }
@@ -77,6 +80,9 @@ apply_gruvbox() {
 	apply_theme_block "$WAYBAR" "theme" "gruvbox" "slash"
 	apply_theme_block "$NVIM" "theme" "gruvbox" "dash"
 
+	rm ~/.config/kitty/kitty.conf
+	ln -sf ~/dotfiles/kitty/kitty-gruvbox.conf ~/.config/kitty/kitty.conf
+
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar
 }
@@ -86,6 +92,9 @@ apply_cats() {
 	apply_theme_block "$HYPRPAPER" "theme" "cats" "hash"
 	apply_theme_block "$WAYBAR" "theme" "cats" "slash"
 	apply_theme_block "$NVIM" "theme" "cats" "dash"
+
+	rm ~/.config/kitty/kitty.conf
+	ln -sf ~/dotfiles/kitty/kitty-cats.conf ~/.config/kitty/kitty.conf
 
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &

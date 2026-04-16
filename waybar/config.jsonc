@@ -13,9 +13,10 @@
   ],
   "group/group-left": {
     "orientation": "horizontal",
-    "modules": [
-      "hyprland/workspaces"
-    ]
+	"modules": [
+		"custom/launcher",
+		"hyprland/workspaces"
+	]
   },
   "group/group-center": {
     "orientation": "horizontal",
@@ -34,9 +35,12 @@
 		"bluetooth",
         "custom/sep",
         "battery",
-        "custom/sep",
-        "clock"
+		"custom/sep",
+		"clock"
     ]
+  },
+  "hyprland/workspaces": {
+	  "format": ""
   },
   "tray": {
     "icon-size": 18,
@@ -44,23 +48,14 @@
   },
   "clock": {
     "format": "{:%H:%M}",
-	"format-alt": "{:%d %B %Y}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "format": {
-        "months": "<span color='#d79921'><b>{}</b></span>",
-        "days": "<span color='#ebdbb2'><b>{}</b></span>",
-        "weekdays": "<span color='#98971a'><b>{}</b></span>",
-        "today": "<span color='#cc241d'><b><u>{}</u></b></span>"
-      }
-    },
-    "actions": {
-      "on-click": "shift_reset",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
+	"tooltip-format": "<tt>{calendar}</tt>",
+	"calendar": {
+		"mode": "mounth",
+		"format": {
+			"days": "<span><b>{}</b></span>",
+			"today": "<span><b><u>{}</u></b></span>"
+		}
+	}
   },
   "pulseaudio": {
 	"format": "{icon} {volume}%",
@@ -111,5 +106,10 @@
 		"good": 95,
 		"warning": 30
 	}
+  },
+  "custom/launcher": {
+	  "format": "󰣇",
+	  "tooltip": false,
+	  "on-click": "anyrun"
   }
 }

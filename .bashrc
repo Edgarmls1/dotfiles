@@ -1,6 +1,8 @@
 echo ""
 # fastfetch
 ~/dotfiles/scripts/pokemon.sh & disown
+# wallpaper=$(grep "^preload" ~/dotfiles/hypr/hyprpaper.conf | awk '{print $3}')
+# wal -i $wallpaper > /dev/null
 
 export BASH_COMPLETION_COMPAT_DIR="/usr/share/bash-completion/completions"
 
@@ -57,18 +59,14 @@ eval "$(fzf --bash)"
 
 export EDITOR="nvim"
 
-function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        builtin cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-}
-
-function f() {
-	nvim "$(fzf --style full --preview "bat --color=always {}")"
-}
+# function y() {
+#     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+#     yazi "$@" --cwd-file="$tmp"
+#     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+#         builtin cd -- "$cwd"
+#     fi
+#     rm -f -- "$tmp"
+# }
 
 source -- ~/.local/share/blesh/ble.sh
 source ~/pyenv/bin/activate

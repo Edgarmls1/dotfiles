@@ -46,32 +46,44 @@
   margin-left: 6px;
   margin-right: 16px;
 }
-
+ 
 #workspaces button {
-  color: @workspaces_button_off;
-
-  margin: 0px;
-  padding: 2px;
-
-  transition: all 0.3s ease;
-}
-
-#workspaces button.active {
-  color: @workspaces_button_on;
-
-  transition: all 0.3s ease;
-}
-
-#workspaces button:hover {
-  background: none;
-
-  color: @workspaces_button_on;
-
+  color: transparent;
+  background: alpha(@workspaces_button_off, 0.5);
+  border-radius: 999px;
+ 
+  min-width: 24px;
+  min-height: 6px;
+  margin: 3px 3px;
+  padding: 0px 0px;
+ 
+  border: none;
   box-shadow: none;
   text-shadow: none;
-  transition: none;
+ 
+  transition: all 0.3s ease;
+}
+ 
+#workspaces button.active {
+  color: transparent;
+  background-color: @workspaces_button_on;
+  border-radius: 999px;
+ 
+  min-width: 32px;
+  padding: 0px 8px;
+ 
+  transition: all 0.3s ease;
+}
+ 
+#workspaces button:hover {
+  color: transparent;
+  background-color: alpha(@workspaces_button_on, 0.5);
+  border-radius: 999px;
+ 
+  box-shadow: none;
+  text-shadow: none;
   border-color: transparent;
-
+ 
   transition: all 0.3s ease;
 }
 
@@ -101,6 +113,15 @@
   transition: all 0.3s ease;
 }
 
+#clock calendar {
+	background: @modules_background;
+	color: @clock_idle;
+}
+
+#clock calendar.today {
+	color: @clock_idle;
+}
+
 /*-----------------*/
 /*-----NETWORK-----*/
 /*-----------------*/
@@ -121,4 +142,11 @@ tooltip {
 
 tooltip label {
   color: @tooltip_text;
+}
+
+#custom-launcher {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 5px 0px 5px;
+    border-radius: 0px 0px 10px 0px;
+    font-size: 18px;
 }

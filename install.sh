@@ -166,7 +166,8 @@ links () {
     fi
     
     ln -sf ~/dotfiles/nvim/ nvim
-    ln -sf ~/dotfiles/kitty/ kitty
+	mkdir kitty
+    ln -sf ~/dotfiles/kitty/kitty-cats.conf kitty/kitty.conf
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 
     rm -f ~/.bashrc

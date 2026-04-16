@@ -36,6 +36,7 @@ vim.pack.add {
 	"https://github.com/hrsh7th/cmp-buffer",
 	"https://github.com/hrsh7th/cmp-path",
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
+	"https://github.com/norcalli/nvim-colorizer.lua",
 }
 
 require("render-markdown").enable()
@@ -44,6 +45,7 @@ require("smear_cursor").setup({ opts = {} })
 require("gruvbox").setup({ priority = 1000 })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
 require("alpha").setup(require("alpha.themes.theta").config)
+require("nvim-highlight-colors").setup({ render = "virtual" })
 require("oil").setup({ view_options = { show_hidden = true } })
 require("catppuccin").setup({ priority = 1000, flavor = "mocha", transparent_background = true })
 require("fine-cmdline").setup({
