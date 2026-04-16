@@ -82,7 +82,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server"
+    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server ninja meson"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -169,10 +169,12 @@ links () {
 	mkdir kitty
     ln -sf ~/dotfiles/kitty/kitty-cats.conf kitty/kitty.conf
     ln -sf ~/dotfiles/fastfetch/ fastfetch
+	ln -sf ~/dotfiles/yazi/ yazi
 
     rm -f ~/.bashrc
     ln -sf ~/dotfiles/.bashrc ~/.bashrc
 	ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+	cd ~/dotfiles/wmenu/; ninja -C build install; cd ~
     
     echo "Links simbólicos criados com sucesso!"
     cd ~ || exit

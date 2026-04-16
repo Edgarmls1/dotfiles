@@ -1,6 +1,7 @@
 #! /bin/bash
 
 # config files
+ANYRUN=$HOME/.config/anyrun/style.css
 CODE=$HOME/.config/Code/User/settings.json
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 NVIM=$HOME/.config/nvim/init.lua
@@ -62,6 +63,7 @@ apply_theme_block() {
 }
 
 apply_lain() {
+	apply_theme_block "$ANYRUN" "theme" "lain" "slash"
 	apply_theme_block "$CODE" "theme" "lain" "twiceSlash"
 	apply_theme_block "$HYPRPAPER" "theme" "lain" "hash"
 	apply_theme_block "$WAYBAR" "theme" "lain" "slash"
@@ -75,6 +77,7 @@ apply_lain() {
 }
 
 apply_gruvbox() {
+	apply_theme_block "$ANYRUN" "theme" "gruvbox" "slash"
 	apply_theme_block "$CODE" "theme" "gruvbox" "twiceSlash"
 	apply_theme_block "$HYPRPAPER" "theme" "gruvbox" "hash"
 	apply_theme_block "$WAYBAR" "theme" "gruvbox" "slash"
@@ -88,6 +91,7 @@ apply_gruvbox() {
 }
 
 apply_cats() {
+	apply_theme_block "$ANYRUN" "theme" "cats" "slash"
 	apply_theme_block "$CODE" "theme" "cats" "twiceSlash"
 	apply_theme_block "$HYPRPAPER" "theme" "cats" "hash"
 	apply_theme_block "$WAYBAR" "theme" "cats" "slash"

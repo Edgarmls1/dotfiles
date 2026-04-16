@@ -1,5 +1,11 @@
-@define-color accent #ffffff;
-@define-color bg-color #000000;
+/*@define-color bg-color #000000;*/ /*theme:lain*/
+/*@define-color bg-color #3d3834;*/ /*theme:gruvbox*/
+@define-color bg-color #10293f; /*theme:cats*/
+
+/*@define-color accent #ffffff;*/ /*theme:lain*/
+/*@define-color accent #ebdbb2;*/ /*theme:gruvbox*/
+@define-color accent #82e0a4; /*theme:cats*/
+
 @define-color fg-color #eeeeee;
 @define-color desc-color #cccccc;
 
@@ -10,8 +16,8 @@ window {
 box.main {
   padding: 5px;
   margin: 10px;
-  border-radius: 10px;
-  border: 1px solid @accent;
+  border-radius: 1px;
+  border: 2px solid @accent;
   background-color: @bg-color;
   box-shadow: 0 0 5px black;
 }

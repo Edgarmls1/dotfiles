@@ -14,7 +14,6 @@
   "group/group-left": {
     "orientation": "horizontal",
 	"modules": [
-		"custom/launcher",
 		"hyprland/workspaces"
 	]
   },
@@ -40,7 +39,7 @@
     ]
   },
   "hyprland/workspaces": {
-	  "format": ""
+	  "format": "{}"
   },
   "tray": {
     "icon-size": 18,
@@ -106,10 +105,5 @@
 		"good": 95,
 		"warning": 30
 	}
-  },
-  "custom/launcher": {
-	  "format": "󰣇",
-	  "tooltip": false,
-	  "on-click": "anyrun"
   }
 }

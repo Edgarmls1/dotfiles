@@ -39,7 +39,7 @@ prompt_color(){
 }
 
 PROMPT_COMMAND="prompt_color; $PROMPT_COMMAND"
-PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\] \n\[\e[0;${PROMPT_COLOR}m\]> \[\e[0m\]'
+PS1='\n\[\e[0;${PROMPT_COLOR}m\]\w\[\e[0m\]\n\[\e[0;${PROMPT_COLOR}m\]󰣇 > \[\e[0m\]'
 
 alias ls="lsd"
 alias lsa="lsd -a"
