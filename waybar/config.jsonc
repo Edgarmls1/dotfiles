@@ -1,5 +1,5 @@
 {
-  "position": "bottom",
+  "position": "top",
   "spacing": 0,
   "reload_style_on_change": true,
   "modules-left": [
@@ -14,6 +14,7 @@
   "group/group-left": {
     "orientation": "horizontal",
 	"modules": [
+		"custom/arch",
 		"hyprland/workspaces"
 	]
   },
@@ -47,12 +48,15 @@
   },
   "clock": {
     "format": "{:%H:%M}",
+	"format-alt": "{:%d/%m/%y}",
 	"tooltip-format": "<tt>{calendar}</tt>",
 	"calendar": {
 		"mode": "mounth",
 		"format": {
+			"mounth": "<span><b>{}</b></span>",
+			"weekdays": "<span><b>{}</b></span>",
 			"days": "<span><b>{}</b></span>",
-			"today": "<span><b><u>{}</u></b></span>"
+			"today": "<span color='#dd0700'><b><u>{}</u></b></span>"
 		}
 	}
   },
@@ -105,5 +109,10 @@
 		"good": 95,
 		"warning": 30
 	}
+  },
+  "custom/arch": {
+	  "format": "󰣇",
+	  "tooltip-format": "I use Arch BTW",
+	  "on-click": "wleave"
   }
 }

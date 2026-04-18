@@ -50,14 +50,6 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
         cd ..
         rm -rf yay
     fi
-    
-    # Instalar ble.sh
-    if [[ ! -d ~/.local/share/blesh ]]; then
-        echo "Instalando ble.sh..."
-        git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-        make -C ble.sh install PREFIX=~/.local
-        rm -rf ble.sh
-    fi
 fi
 
 #--------------------#
@@ -82,7 +74,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server ninja meson"
+    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server zsh"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -170,11 +162,11 @@ links () {
     ln -sf ~/dotfiles/kitty/kitty-cats.conf kitty/kitty.conf
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 	ln -sf ~/dotfiles/yazi/ yazi
+	ln -sf ~/dotfiles/swaync/ swaync
 
-    rm -f ~/.bashrc
-    ln -sf ~/dotfiles/.bashrc ~/.bashrc
+    ln -sf ~/dotfiles/.zshrc ~/.zshrc
 	ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-	cd ~/dotfiles/wmenu/; ninja -C build install; cd ~
+	chsh -s /bin/zsh
     
     echo "Links simbólicos criados com sucesso!"
     cd ~ || exit

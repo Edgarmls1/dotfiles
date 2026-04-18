@@ -4,6 +4,7 @@
 # Sprites are drawn from here
 POKEMON_LIST=(
   mudkip
+  swampert
   "mimikyu -s"
   haunter
   absol

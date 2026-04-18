@@ -32,8 +32,7 @@
     "battery",
     "poweradapter",
     "locale",
-    "break",
-    "colors"
+    "break"
   ],
   "display": {
         "separator": ": ",     // Separator between keys and values

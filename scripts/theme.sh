@@ -5,6 +5,7 @@ ANYRUN=$HOME/.config/anyrun/style.css
 CODE=$HOME/.config/Code/User/settings.json
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 NVIM=$HOME/.config/nvim/init.lua
+SWAYNC=$HOME/.config/swaync/style.css
 WAYBAR=$HOME/.config/waybar/style.css
 
 # available themes
@@ -68,12 +69,14 @@ apply_lain() {
 	apply_theme_block "$HYPRPAPER" "theme" "lain" "hash"
 	apply_theme_block "$WAYBAR" "theme" "lain" "slash"
 	apply_theme_block "$NVIM" "theme" "lain" "dash"
+	apply_theme_block "$SWAYNC" "theme" "lain" "slash"
 
 	rm ~/.config/kitty/kitty.conf
 	ln -sf ~/dotfiles/kitty/kitty-lain.conf ~/.config/kitty/kitty.conf
 
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
+	pkill swaync && swaync &
 }
 
 apply_gruvbox() {
@@ -82,12 +85,14 @@ apply_gruvbox() {
 	apply_theme_block "$HYPRPAPER" "theme" "gruvbox" "hash"
 	apply_theme_block "$WAYBAR" "theme" "gruvbox" "slash"
 	apply_theme_block "$NVIM" "theme" "gruvbox" "dash"
+	apply_theme_block "$SWAYNC" "theme" "gruvbox" "slash"
 
 	rm ~/.config/kitty/kitty.conf
 	ln -sf ~/dotfiles/kitty/kitty-gruvbox.conf ~/.config/kitty/kitty.conf
 
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar
+	pkill swaync && swaync &
 }
 
 apply_cats() {
@@ -96,12 +101,14 @@ apply_cats() {
 	apply_theme_block "$HYPRPAPER" "theme" "cats" "hash"
 	apply_theme_block "$WAYBAR" "theme" "cats" "slash"
 	apply_theme_block "$NVIM" "theme" "cats" "dash"
+	apply_theme_block "$SWAYNC" "theme" "cats" "slash"
 
 	rm ~/.config/kitty/kitty.conf
 	ln -sf ~/dotfiles/kitty/kitty-cats.conf ~/.config/kitty/kitty.conf
 
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
+	pkill swaync && swaync &
 }
 
 toggle_theme() {

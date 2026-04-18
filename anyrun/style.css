@@ -1,82 +1,94 @@
+@define-color fg-color  #eeeeee;
+@define-color sel-fg    #000000;
+
 /*@define-color bg-color #000000;*/ /*theme:lain*/
 /*@define-color bg-color #3d3834;*/ /*theme:gruvbox*/
 @define-color bg-color #10293f; /*theme:cats*/
 
-/*@define-color accent #ffffff;*/ /*theme:lain*/
-/*@define-color accent #ebdbb2;*/ /*theme:gruvbox*/
-@define-color accent #82e0a4; /*theme:cats*/
+/*@define-color sel-bg #ffffff;*/ /*theme:lain*/
+/*@define-color sel-bg #ebdbb2;*/ /*theme:gruvbox*/
+@define-color sel-bg #82e0a4; /*theme:cats*/
 
-@define-color fg-color #eeeeee;
-@define-color desc-color #cccccc;
+/*@define-color prompt #ffffff;*/ /*theme:lain*/
+/*@define-color prompt #ebdbb2;*/ /*theme:gruvbox*/
+@define-color prompt #82e0a4; /*theme:cats*/
 
 window {
   background: transparent;
 }
 
 box.main {
-  padding: 5px;
-  margin: 10px;
-  border-radius: 1px;
-  border: 2px solid @accent;
+  padding: 0 6px;
+  margin: 0;
+  border-radius: 0;
+  border: none;
   background-color: @bg-color;
-  box-shadow: 0 0 5px black;
+  box-shadow: none;
+
+  orientation: horizontal;
 }
 
-
 text {
-  min-height: 30px;
-  padding: 5px;
-  border-radius: 5px;
+  min-height: 18px;
+  min-width: 180px;
+  padding: 2px 8px;
+  border-radius: 0;
   color: @fg-color;
+  background: transparent;
+
+  border-right: 2px solid @prompt;
+  margin-right: 4px;
 }
 
 .matches {
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 10px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+box.plugin {
+  margin: 0;
+  padding: 0;
 }
 
 box.plugin:first-child {
-  margin-top: 5px;
-}
-
-box.plugin.info {
-  min-width: 200px;
+  margin-top: 0;
 }
 
 list.plugin {
-  background-color: rgba(0, 0, 0, 0);
-}
+  background-color: transparent;
 
-label.match {
-  color: @fg-color;
-}
-
-label.match.description {
-  font-size: 10px;
-  color: @desc-color;
-}
-
-label.plugin.info {
-  font-size: 14px;
-  color: @fg-color;
+  orientation: horizontal;
 }
 
 .match {
   background: transparent;
+  padding: 2px 10px;
+  border-radius: 0;
+}
+
+label.match {
+  color: @fg-color;
+  font-size: 13px;
+}
+
+label.match.description {
+  font-size: 0px;
+  opacity: 0;
 }
 
 .match:selected {
-  border-left: 4px solid @accent;
-  background: transparent;
-  animation: fade 0.1s linear;
+  border-left: none;
+  background-color: @sel-bg;
+  animation: none;
 }
 
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
+.match:selected label.match {
+  color: @sel-fg;
+}
 
-  100% {
-    opacity: 1;
-  }
+box.plugin.info,
+label.plugin.info {
+  font-size: 0px;
+  opacity: 0;
+  min-width: 0;
 }
