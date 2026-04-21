@@ -163,6 +163,7 @@ links () {
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 	ln -sf ~/dotfiles/yazi/ yazi
 	ln -sf ~/dotfiles/swaync/ swaync
+	ln -sf ~/dotfiles/wleave/ wleave
 
     ln -sf ~/dotfiles/.zshrc ~/.zshrc
 	ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf

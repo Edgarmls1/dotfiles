@@ -68,6 +68,7 @@ vim.lsp.config("clangd", {})
 vim.lsp.config("pyright", {})
 vim.lsp.config("rust-analyzer", {})
 vim.lsp.config("bash-language-server", {})
+vim.lsp.config("vscode-html-language-server", {})
 
 vim.cmd("lsp enable gopls")
 vim.cmd("lsp enable jdtls")
@@ -75,6 +76,7 @@ vim.cmd("lsp enable clangd")
 vim.cmd("lsp enable pyright")
 vim.cmd("lsp enable rust-analyzer")
 vim.cmd("lsp enable bash-language-server")
+vim.cmd("lsp enable vscode-html-language-server")
 
 vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain

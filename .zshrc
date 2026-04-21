@@ -65,5 +65,4 @@ alias hyprc="nvim ~/.config/hypr/hyprland.conf"
 alias faci="cd ~/dev/faci/"
 alias notes="cd ~/dev/cofre/ && nvim ."
 
-
 emulate bash -c "source ~/pyenv/bin/activate"
