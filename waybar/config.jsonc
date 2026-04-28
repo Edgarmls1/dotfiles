@@ -14,7 +14,6 @@
   "group/group-left": {
     "orientation": "horizontal",
 	"modules": [
-		"custom/arch",
 		"hyprland/workspaces"
 	]
   },
@@ -61,22 +60,15 @@
 	}
   },
   "pulseaudio": {
-	"format": "{icon} {volume}%",
-	"format-icons": {
-		"default": [
-			"󰕿",
-			"󰖀",
-			"󰕾"
-		]
-	},
-	"format-muted": "󰝟",
+	"format": "vol: {volume}%",
+	"format-muted": "muted",
 	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
   "network": {
-	"format-disconnected": "󰖪 disconnected ",
+	"format-disconnected": "disconnected ",
 	"format-ethernet": " ",
 	"format-linked": "{ifname} (No IP)",
 	"format-wifi": "  {essid}",
@@ -109,10 +101,5 @@
 		"good": 95,
 		"warning": 30
 	}
-  },
-  "custom/arch": {
-	  "format": "󰣇",
-	  "tooltip-format": "I use Arch BTW",
-	  "on-click": "wleave"
   }
 }

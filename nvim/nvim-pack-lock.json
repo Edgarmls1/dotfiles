@@ -36,9 +36,17 @@
       "rev": "f5d2a8570f8b736ddb9bb4be504355bcd6e15ec8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mini.files": {
+      "rev": "e8db416c9f5dbce70f5501da28263d45c0a4df6b",
+      "src": "https://github.com/nvim-mini/mini.files"
+    },
     "mini.icons": {
       "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
       "src": "https://github.com/echasnovski/mini.icons"
+    },
+    "neo-tree.nvim": {
+      "rev": "4d0828d95adaf4250c1373d2cd9318d3509712b7",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
     },
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
@@ -72,6 +80,10 @@
       "rev": "fbcca5be3967d485c5f319b3fbd47b56e16e9451",
       "src": "https://github.com/luxvim/nvim-luxterm"
     },
+    "nvim-tree.lua": {
+      "rev": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
+      "src": "https://github.com/nvim-tree/nvim-tree.lua"
+    },
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -95,6 +107,10 @@
     "smear-cursor.nvim": {
       "rev": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
+    },
+    "visimatch.nvim": {
+      "rev": "4334be61a9d3a6b268179144c6354349e445eb89",
+      "src": "https://github.com/wurli/visimatch.nvim"
     }
   }
 }

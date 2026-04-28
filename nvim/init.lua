@@ -31,16 +31,18 @@ vim.pack.add {
 	"https://github.com/brenoprata10/nvim-highlight-colors",
 	"https://github.com/sphamba/smear-cursor.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
-	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/hrsh7th/nvim-cmp",
 	"https://github.com/hrsh7th/cmp-buffer",
 	"https://github.com/hrsh7th/cmp-path",
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
 	"https://github.com/norcalli/nvim-colorizer.lua",
+	"https://github.com/nvim-tree/nvim-tree.lua",
+	"https://github.com/nvim-lua/plenary.nvim",
 }
 
 require("render-markdown").enable()
 require("lualine").setup()
+require("nvim-tree").setup()
 require("smear_cursor").setup({ opts = {} })
 require("gruvbox").setup({ priority = 1000 })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
@@ -68,7 +70,6 @@ vim.lsp.config("clangd", {})
 vim.lsp.config("pyright", {})
 vim.lsp.config("rust-analyzer", {})
 vim.lsp.config("bash-language-server", {})
-vim.lsp.config("vscode-html-language-server", {})
 
 vim.cmd("lsp enable gopls")
 vim.cmd("lsp enable jdtls")
@@ -76,13 +77,13 @@ vim.cmd("lsp enable clangd")
 vim.cmd("lsp enable pyright")
 vim.cmd("lsp enable rust-analyzer")
 vim.cmd("lsp enable bash-language-server")
-vim.cmd("lsp enable vscode-html-language-server")
 
 vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme gruvbox") --theme:gruvbox
 
-vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>")
+vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", opts)
 vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)

@@ -43,7 +43,10 @@ clean() {
         3) yay -S firefox                              ;;
         4) yay -S brave-bin                            ;;
         5) 
-            yay -S google-chrome brave-bin zen-browser-bin firefox
+            yay -S google-chrome \
+			       brave-bin \
+				   zen-browser-bin \
+				   firefox
         ;;
         0) " "                                         ;;
         *) "opcao invalida"                            ;;

@@ -26,17 +26,8 @@ rm /var/lib/pacman/db.lck 2> /dev/null # gambiarra
 # v2.1 12/11/2025, edgar:
 #   - adiçao de spinner animado no modo silencioso
 #
+# v3.0 27/04/2026, edgar:
 #-------variaveis-------#
-
-BANNER= cat << "EOF"
-     _____            __                    __  __          __      __     
-    / ___/__  _______/ /____  ____ ___     / / / /___  ____/ /___ _/ /____ 
-    \__ \/ / / / ___/ __/ _ \/ __ `__ \   / / / / __ \/ __  / __ `/ __/ _ \ 
-   ___/ / /_/ (__  ) /_/  __/ / / / / /  / /_/ / /_/ / /_/ / /_/ / /_/  __/
-  /____/\__, /____/\__/\___/_/ /_/ /_/   \____/ .___/\__,_/\__,_/\__/\___/ 
-       /____/                                /_/                           
-
-EOF
 
 MENSAGEM_USO="
 
@@ -47,7 +38,7 @@ MENSAGEM_USO="
     -q - modo silencioso
     
 "
-VERSAO="v2.1"
+VERSAO="v3.0"
 DEFAULT=0
 SILENCIOSO=0
 
@@ -95,14 +86,23 @@ executar () {
 
 atualiza () {
     if [[ $SILENCIOSO -eq 1 ]]; then
-    	executar "sudo pacman -Syu --noconfirm && sudo pacman -Sc --noconfirm" "[1/2] Atualizando pacotes pacman"
-		executar "yay -Syu --noconfirm && yay -Sc --noconfirm" "[2/2] Atualizando pacotes do AUR"
+		executar "sudo pacman -Syu --noconfirm && sudo pacman -Sc --noconfirm" "[1/2] Atualizando pacotes do sistema"
+		executar "yay -Syu --noconfirm && yay -Sc --noconfirm" "[2/2] Atualizando pacotes do sistema"
 	
 	else
-		echo $BANNER
-        sudo pacman -Syu --noconfirm
-        sudo pacman -Sc --noconfirm
-        yay -Syu --noconfirm
+		cat << "EOF"
+     _____            __                    __  __          __      __     
+    / ___/__  _______/ /____  ____ ___     / / / /___  ____/ /___ _/ /____ 
+    \__ \/ / / / ___/ __/ _ \/ __ `__ \   / / / / __ \/ __  / __ `/ __/ _ \ 
+   ___/ / /_/ (__  ) /_/  __/ / / / / /  / /_/ / /_/ / /_/ / /_/ / /_/  __/
+  /____/\__, /____/\__/\___/_/ /_/ /_/   \____/ .___/\__,_/\__,_/\__/\___/ 
+       /____/                                /_/                           
+
+EOF
+		sudo pacman -Syu --noconfirm
+		sudo pacman -Sc --noconfirm
+	    yay -Syu --noconfirm
+		yay -Sc --noconfirm
     fi
 }
 

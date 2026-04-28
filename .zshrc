@@ -27,7 +27,7 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 
-echo ""
+date
 (~/dotfiles/scripts/pokemon.sh)
 
 autoload -U colors && colors
@@ -53,13 +53,12 @@ alias ls="lsd"
 alias cat="bat"
 alias :q="exit"
 alias cc="cd ~ && clear"
-alias up="~/dotfiles/scripts/update.sh"
-alias i="yay -S"
-alias r="yay -Rs"
-alias s="yay -Ss"
-alias fi="flatpak install"
-alias fr="flatpak uninstall"
-alias fs="flatpak search"
+alias update="~/dotfiles/scripts/update.sh"
+alias install="yay -S"
+alias remove="yay -Rs"
+alias search="yay -Ss"
+alias flatinst="flatpak install"
+alias rmflat="flatpak uninstall"
 alias py="~/pyenv/bin/python"
 alias hyprc="nvim ~/.config/hypr/hyprland.conf"
 alias faci="cd ~/dev/faci/"
