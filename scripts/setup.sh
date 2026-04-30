@@ -32,7 +32,7 @@ clean() {
     echo "1 - zen"
     echo "2 - chrome"
     echo "3 - firefox"
-    echo "4 - brave"
+    echo "4 - helium"
     echo "5 - todos"
     echo "0 - nenhum"
     read -p " " choice
@@ -41,10 +41,10 @@ clean() {
         1) yay -S zen-browser-bin ;;
         2) yay -S google-chrome                        ;;
         3) yay -S firefox                              ;;
-        4) yay -S brave-bin                            ;;
+        4) yay -S helium-browser-bin                            ;;
         5) 
             yay -S google-chrome \
-			       brave-bin \
+			       helium-browser-bin \
 				   zen-browser-bin \
 				   firefox
         ;;

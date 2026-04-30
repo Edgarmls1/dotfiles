@@ -34,24 +34,20 @@ MENSAGEM_HELP="
 VERSAO="v1.2"
 DEFAULT=0
 SILENCIOSO=0
-OS_TYPE=$(uname -s)
 
 #---------------------#
 
 #-------testes--------#
 
 # Instalar yay apenas no Linux
-if [[ "$OS_TYPE" == "Linux" ]]; then
-    if ! command -v yay &> /dev/null; then
-        echo "yay não encontrado, instalando..."
-        git clone https://aur.archlinux.org/yay.git
-        cd yay
-        makepkg -si --noconfirm
-        cd ..
-        rm -rf yay
-    fi
+if ! command -v yay &> /dev/null; then
+	echo "yay não encontrado, instalando..."
+	git clone https://aur.archlinux.org/yay.git
+	cd yay
+	makepkg -si --noconfirm
+	cd ..
+	rm -rf yay	
 fi
-
 #--------------------#
 
 #-----funções-------#
@@ -74,7 +70,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nautilus waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server zsh bibata-cursor-theme-bin"
+    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot thunar waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server zsh bibata-cursor-theme-bin"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -151,12 +147,10 @@ links () {
     mkdir -p ~/.config
     cd ~/.config/ || exit
 
-    if [[ "$OS_TYPE" == "Linux" ]]; then
-        ln -sf ~/dotfiles/hypr/ hypr
-        ln -sf ~/dotfiles/waybar/ waybar
-        ln -sf ~/dotfiles/scripts/update.sh ~/update.sh
-    fi
-    
+	ln -sf ~/dotfiles/hypr/ hypr
+	ln -sf ~/dotfiles/waybar/ waybar
+	ln -sf ~/dotfiles/scripts/update.sh ~/update.sh
+
     ln -sf ~/dotfiles/nvim/ nvim
 	mkdir kitty
     ln -sf ~/dotfiles/kitty/kitty-cats.conf kitty/kitty.conf
@@ -165,6 +159,8 @@ links () {
 	ln -sf ~/dotfiles/swaync/ swaync
 	ln -sf ~/dotfiles/wleave/ wleave
 
+	rm ~/.bashrc 
+	ln -sf ~/dotfiles/.bashrc ~/.bashrc
     ln -sf ~/dotfiles/.zshrc ~/.zshrc
 	ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 	chsh -s /bin/zsh
@@ -183,37 +179,19 @@ instala () {
         echo "=== Iniciando instalação ==="
         echo ""
     fi
-    
-    case "$OS_TYPE" in
-        Linux)
-            echo "Sistema detectado: Linux"
-            read -p "deseja instalar somente o dotfiles? s/N" choice
+    read -p "deseja instalar somente o dotfiles? s/N" choice
 
-			case "$choice" in
-				[Ss]*) links ;;
-				*) 
-					hyprde
-					links
-				;;
-			esac
-        ;;
-        Darwin)
-            echo "Sistema detectado: macOS"
-            links
-        ;;
-        *)
-            echo "Sistema operacional não suportado: $OS_TYPE"
-            exit 1
-            ;;
-    esac
-    
+	case "$choice" in
+		[Ss]*) links ;;
+			*) 
+				hyprde
+				links
+			;;
+	esac
+        
     echo ""
     echo "✓ Instalação concluída com sucesso!"
     echo ""
-    
-    if [[ "$OS_TYPE" == "Linux" ]]; then
-        echo "Reinicie o sistema para aplicar todas as configurações."
-    fi
 }
 
 #---------------------#
@@ -233,12 +211,15 @@ case $1 in
 esac
 
 [ $DEFAULT -eq 1 ] && instala
-clear
-echo "Deseja Reiniciar? [s/N]"
-read -p "" reboot
 
-case "$reboot" in
-	[Ss]*) reboot ;;
-esac
+clear
+echo "em 10 segundos voce sera redirecionado para o programa de instalação dos seus pacotes (navegador, steam, spotify, vs code)"
+slep 10
+exec ./scripts/setup.sh
+
+clear
+echo "sistema reiniciando em 5 segundos..."
+sleep 5
+shutdown -r now
 
 #----------------------#

@@ -28,7 +28,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 
 date
-(~/dotfiles/scripts/pokemon.sh)
+~/dotfiles/scripts/pokemon.sh
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
