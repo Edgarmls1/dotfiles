@@ -41,6 +41,7 @@ SILENCIOSO=0
 
 # Instalar yay apenas no Linux
 if ! command -v yay &> /dev/null; then
+	sudo pacman -S git base-devel
 	echo "yay não encontrado, instalando..."
 	git clone https://aur.archlinux.org/yay.git
 	cd yay
