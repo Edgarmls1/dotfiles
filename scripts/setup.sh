@@ -77,7 +77,10 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    yay -S neovim obsidian bitwarden visual-studio-code-bin
+    yay -S neovim obsidian bitwarden visual-studio-code-bin virtualbox
+
+	sudo modprobe vboxdrv
+	sudo usermod -aG vboxusers $USER
 
     read -p "Deseja instalar o java? (s/N)" java
 
