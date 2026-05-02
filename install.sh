@@ -70,6 +70,9 @@ show_progress() {
 }
 
 hyprde () {
+	sudo sed -i "s/#VerbosePkgLists/VerbosePkgLists/g" /etc/pacman.conf
+	sudo sed -i "s/ParallelDownloads = 5/ParallelDownloads = 10/g" /etc/pacman.conf
+
     local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot thunar waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server zsh bibata-cursor-theme-bin yaru-icon-theme"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
@@ -106,6 +109,7 @@ hyprde () {
 
     echo "Habilitando ly.service..."
     sudo systemctl enable ly@tty2
+	sudo sed -i "s/animation = none/animation = /home/edgar/dotfiles/blackhole.dur/g" /etc/ly/config.ini
 
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/
