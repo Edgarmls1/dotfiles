@@ -38,18 +38,18 @@ clean() {
     read -p " " choice
 
     case $choice in 
-        1) yay -S zen-browser-bin ;;
-        2) yay -S google-chrome                        ;;
-        3) yay -S firefox                              ;;
-        4) yay -S helium-browser-bin                            ;;
+        1) yay -S zen-browser-bin        ;;
+        2) yay -S google-chrome          ;;
+        3) yay -S firefox                ;;
+        4) yay -S helium-browser-bin     ;;
         5) 
             yay -S google-chrome \
 			       helium-browser-bin \
 				   zen-browser-bin \
 				   firefox
         ;;
-        0) " "                                         ;;
-        *) "opcao invalida"                            ;;
+        0) " "                           ;;
+        *) "opcao invalida"              ;;
     esac
 
 
@@ -62,7 +62,7 @@ games() {
     echo "| instalando config p/ games |"
     echo "+----------------------------+"
 
-    yay -S hydra-launcher-bin faugus-launcher heoric-games-launcher-bin steam retroarch discord
+    yay -S hydra-launcher-bin faugus-launcher heoric-games-launcher-bin steam retroarch discord element-desktop
 
     echo "+---------------------------------------+"
     echo "| config p/ games instalada com sucesso |"

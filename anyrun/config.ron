@@ -1,11 +1,11 @@
 Config(
   x: Fraction(0.5),
-  y: Absolute(0),
+  y: Absolute(300),
 
-  width: Fraction(1.0),
-  height: Absolute(1),
+  width: Absolute(600),
+  hight: Absolute(1),
 
-  hide_icons: true,
+  hide_icons: false,
 
   ignore_exclusive_zones: true,
 

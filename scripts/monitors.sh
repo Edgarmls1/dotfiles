@@ -21,5 +21,4 @@ else
 	hyprctl keyword monitor "DP-1,disable"
 fi
 
-killall waybar
-waybar &
+pkill waybar && waybar &

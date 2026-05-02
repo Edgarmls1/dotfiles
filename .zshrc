@@ -52,16 +52,16 @@ export PATH=$PATH:/home/edgar/.spicetify
 alias ls="lsd"
 alias cat="bat"
 alias :q="exit"
-alias cc="cd ~ && clear"
-alias update="~/dotfiles/scripts/update.sh"
-alias install="yay -S"
-alias remove="yay -Rs"
-alias search="yay -Ss"
-alias flatinst="flatpak install"
-alias rmflat="flatpak uninstall"
-alias py="~/pyenv/bin/python"
-alias hyprc="nvim ~/.config/hypr/hyprland.conf"
-alias faci="cd ~/dev/faci/"
-alias notes="cd ~/dev/cofre/ && nvim ."
+alias :wq="exit"
+alias cc="cd $HOME && clear"
 
-emulate bash -c "source ~/pyenv/bin/activate"
+alias update="$HOME/dotfiles/scripts/update.sh"
+
+alias python="$HOME/pyenv/bin/python"
+
+alias hyprc="nvim $HOME/.config/hypr/hyprland.conf"
+
+alias faci="cd $HOME/dev/faci/"
+alias notes="nvim $HOME/dev/notes/"
+
+emulate bash -c "source $HOME/pyenv/bin/activate"

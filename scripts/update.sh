@@ -103,6 +103,7 @@ EOF
 		sudo pacman -Sc --noconfirm
 	    yay -Syu --noconfirm
 		yay -Sc --noconfirm
+		flatpak update -y
     fi
 }
 

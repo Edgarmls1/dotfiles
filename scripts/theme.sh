@@ -74,6 +74,8 @@ apply_lain() {
 
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
+
+	notify-send "Theme switched to Lain Theme (old terminal)"
 }
 
 apply_gruvbox() {
@@ -87,7 +89,9 @@ apply_gruvbox() {
 	ln -sf ~/dotfiles/kitty/kitty-gruvbox.conf ~/.config/kitty/kitty.conf
 
 	pkill hyprpaper && hyprpaper &
-	pkill waybar && waybar
+	pkill waybar && waybar &
+
+	notify-send "Theme switched to Gruvbox Theme"
 }
 
 apply_cats() {
@@ -102,6 +106,8 @@ apply_cats() {
 
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
+
+	notify-send "Theme switched to Cats Theme" 
 }
 
 toggle_theme() {

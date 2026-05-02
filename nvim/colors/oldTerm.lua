@@ -4,6 +4,7 @@ vim.g.colors_name = "oldTerm"
 vim.opt.background = "dark"
 
 local hl = vim.api.nvim_set_hl
+local transparent = true
 
 local c = {
     bg       = "#0D0D0D",
@@ -37,25 +38,40 @@ local c = {
     sand     = "#BBAA88",
 }
 
-hl(0, "Normal", { fg = c.fg, bg = c.bg })
-hl(0, "NormalFloat", { fg = c.fg, bg = c.bg2 })
-hl(0, "NormalNC", { fg = c.dim, bg = c.bg })
+if transparent then
+    local clear = { bg = "NONE" }
+    hl(0, "Normal",      { fg = c.fg,     bg = "NONE" })
+    hl(0, "NormalNC",    { fg = c.fg_dim, bg = "NONE" })
+    hl(0, "NormalFloat", { fg = c.fg,     bg = "NONE" })
+    hl(0, "SignColumn",  clear)
+    hl(0, "FoldColumn",  clear)
+    hl(0, "Folded",      { fg = c.fg_dim, bg = "NONE" })
+    hl(0, "StatusLine",  { fg = c.green,  bg = "NONE" })
+    hl(0, "TabLineFill", clear)
+    hl(0, "CursorLine",  clear)
+    hl(0, "WinBar",      { fg = c.fg,     bg = "NONE" })
+else
+	hl(0, "Normal", { fg = c.fg, bg = c.bg })
+	hl(0, "NormalFloat", { fg = c.fg, bg = c.bg2 })
+	hl(0, "NormalNC", { fg = c.dim, bg = c.bg })
+	hl(0, "SignColumn", { fg = c.dim, bg = c.bg })
+	hl(0, "FoldColumn", { fg = c.dim, bg = c.bg })
+	hl(0, "Folded", { fg = c.dim, bg = c.bg2 })
+	hl(0, "StatusLine", { fg = c.fg, bg = c.bg2 })
+	hl(0, "TabLineFill", { bg = c.bg2 })
+	hl(0, "CursorLine", { bg = c.green_d })
+	hl(0, "WinBar", { fg = c.fg, bg = c.bg2 })
+end
 
 hl(0, "Cursor", { fg = c.bg, bg = c.cursor })
-hl(0, "CursorLine", { bg = c.green_d })
 hl(0, "CursorColumn", { bg = "#33FF00" })
 hl(0, "Visual", { bg = c.fg_dim })
 hl(0, "VisualNOS", { bg = c.fg_dim })
 
 hl(0, "LineNr", { fg = c.dim })
 hl(0, "CursorLineNr", { fg = c.bright, bold = true })
-hl(0, "SignColumn", { fg = c.dim, bg = c.bg })
-hl(0, "FoldColumn", { fg = c.dim, bg = c.bg })
-hl(0, "Folded", { fg = c.dim, bg = c.bg2 })
 
-hl(0, "StatusLine", { fg = c.fg, bg = c.bg2 })
 hl(0, "StatusLineNC", { fg = c.dim, bg = c.bg2 })
-hl(0, "WinBar", { fg = c.fg, bg = c.bg2 })
 
 hl(0, "Search", { fg = c.bg, bg = c.bright })
 hl(0, "IncSearch", { fg = c.bg, bg = c.cursor, bold = true })
@@ -81,7 +97,6 @@ hl(0, "VertSplit", { fg = c.dim })
 hl(0, "WinSeparator", { fg = c.dim })
 hl(0, "TabLine", { fg = c.dim, bg = c.bg2 })
 hl(0, "TabLineSel", { fg = c.fg, bg = c.bg, bold = true })
-hl(0, "TabLineFill", { bg = c.bg2 })
 
 hl(0, "DiffAdd", { bg = "#003300" })
 hl(0, "DiffChange", { bg = "#002200" })

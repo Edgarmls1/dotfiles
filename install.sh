@@ -70,7 +70,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot thunar waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server zsh bibata-cursor-theme-bin"
+    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot thunar waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv hyprlight anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server zsh bibata-cursor-theme-bin yaru-icon-theme"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -81,29 +81,6 @@ hyprde () {
     else
         echo "Instalando pacotes do Hyprland DE..."
         yay -S --noconfirm $pkg_list
-    fi
-
-    if [[ $SILENCIOSO -eq 1 ]]; then
-        echo -ne "Instalando ícones Gruvbox..."
-        (
-            cd ~ || exit
-            git clone https://github.com/SylEleuth/gruvbox-plus-icon-pack.git > /dev/null 2>&1
-            mkdir -p ~/.icons
-            cd gruvbox-plus-icon-pack || exit
-            mv Gruvbox-Plus-Dark ~/.icons/gruvbox
-            cd ~ || exit
-            rm -rf gruvbox-plus-icon-pack
-        ) &
-        show_progress "Instalando ícones Gruvbox" $!
-    else
-        echo "Instalando ícones Gruvbox..."
-        cd ~ || exit
-        git clone https://github.com/SylEleuth/gruvbox-plus-icon-pack.git
-        mkdir -p ~/.icons
-        cd gruvbox-plus-icon-pack || exit
-        mv Gruvbox-Plus-Dark ~/.icons/gruvbox
-        cd ~ || exit
-        rm -rf gruvbox-plus-icon-pack
     fi
 
     if [[ $SILENCIOSO -eq 1 ]]; then
@@ -128,7 +105,7 @@ hyprde () {
     fi
 
     echo "Habilitando ly.service..."
-    sudo systemctl enable ly
+    sudo systemctl enable ly@tty2
 
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/
@@ -156,13 +133,11 @@ links () {
     ln -sf ~/dotfiles/kitty/kitty-cats.conf kitty/kitty.conf
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 	ln -sf ~/dotfiles/yazi/ yazi
-	ln -sf ~/dotfiles/swaync/ swaync
 	ln -sf ~/dotfiles/wleave/ wleave
 
 	rm ~/.bashrc 
 	ln -sf ~/dotfiles/.bashrc ~/.bashrc
     ln -sf ~/dotfiles/.zshrc ~/.zshrc
-	ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 	chsh -s /bin/zsh
     
     echo "Links simbólicos criados com sucesso!"
@@ -214,8 +189,8 @@ esac
 
 clear
 echo "em 10 segundos voce sera redirecionado para o programa de instalação dos seus pacotes (navegador, steam, spotify, vs code)"
-slep 10
-exec ./scripts/setup.sh
+sleep 10
+exec ~/dotfiles/scripts/setup.sh
 
 clear
 echo "sistema reiniciando em 5 segundos..."

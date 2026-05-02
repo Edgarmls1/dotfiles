@@ -18,10 +18,10 @@ window {
 }
 
 box.main {
-  padding: 0 6px;
-  margin: 0;
+  padding: 6px;
+  margin: 10px;
   border-radius: 0;
-  border: none;
+  border: 1px solid @sel-bg;
   background-color: @bg-color;
   box-shadow: none;
 
