@@ -34,6 +34,8 @@ MENSAGEM_HELP="
 VERSAO="v1.2"
 DEFAULT=0
 SILENCIOSO=0
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(dirname "$DOTFILES_DIR")"
 
 #---------------------#
 
@@ -110,7 +112,6 @@ hyprde () {
 
     echo "Habilitando ly.service..."
     sudo systemctl enable ly@tty2
-	sudo sed -i "s/animation = none/animation = /home/edgar/dotfiles/blackhole.dur/g" /etc/ly/config.ini
 
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/
@@ -126,7 +127,6 @@ EOF
 links () {
     echo "Criando links simbólicos..."
     
-    mkdir -p ~/.config
     cd ~/.config/ || exit
 
 	ln -sf ~/dotfiles/hypr/ hypr
@@ -193,9 +193,9 @@ esac
 [ $DEFAULT -eq 1 ] && instala
 
 clear
-echo "em 10 segundos voce sera redirecionado para o programa de instalação dos seus pacotes (navegador, steam, spotify, vs code)"
-sleep 10
-exec ~/dotfiles/scripts/setup.sh
+echo "em 5 segundos voce sera redirecionado para o programa de instalação dos seus pacotes (navegador, steam, spotify, vs code)"
+sleep 5
+exec "$DOTFILES_DIR/dotfiles/scripts/setup.sh"
 
 clear
 echo "sistema reiniciando em 5 segundos..."
