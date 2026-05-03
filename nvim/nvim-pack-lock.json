@@ -8,6 +8,10 @@
       "rev": "539d73def39c9172b4d4d769f14090e08f37b29d",
       "src": "https://github.com/romgrk/barbar.nvim"
     },
+    "candle-grey": {
+      "rev": "660f7a7eb650e8ffb73f167d9a7d9bc5da9d74a8",
+      "src": "https://github.com/aditya-azad/candle-grey.git"
+    },
     "cmp-buffer": {
       "rev": "b74fab3656eea9de20a9b8116afa3cfc4ec09657",
       "src": "https://github.com/hrsh7th/cmp-buffer"
@@ -43,6 +47,14 @@
     "mini.icons": {
       "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
       "src": "https://github.com/echasnovski/mini.icons"
+    },
+    "monochrome.nvim": {
+      "rev": "2de78d9688ea4a177bcd9be554ab9192337d35ff",
+      "src": "https://github.com/kdheepak/monochrome.nvim"
+    },
+    "monoglow.nvim": {
+      "rev": "a249b1f55bfe9171e2f8aff7acf140f78ca4b2bb",
+      "src": "https://github.com/wnkz/monoglow.nvim"
     },
     "neo-tree.nvim": {
       "rev": "4d0828d95adaf4250c1373d2cd9318d3509712b7",
@@ -107,6 +119,18 @@
     "smear-cursor.nvim": {
       "rev": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
+    },
+    "vim-256noir": {
+      "rev": "e8668a18a4a90272c1cae87e655f8bddc5ac3665",
+      "src": "https://github.com/andreasvc/vim-256noir.git"
+    },
+    "vim-boring": {
+      "rev": "1090b4bde142fbb2f5c9c5cfa08238c5eaeceb2f",
+      "src": "https://github.com/t184256/vim-boring.git"
+    },
+    "vim-monochrome": {
+      "rev": "c4f18812bbdbe640ffddf69e0c5734ec87d6b5e7",
+      "src": "https://github.com/fxn/vim-monochrome.git"
     },
     "visimatch.nvim": {
       "rev": "4334be61a9d3a6b268179144c6354349e445eb89",

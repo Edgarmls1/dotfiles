@@ -109,6 +109,11 @@ hyprde () {
 
     echo "Habilitando ly.service..."
     sudo systemctl enable ly@tty2
+	cd $DOTFILES_DIR/dotfiles/ly/
+	sudo cp blackhole-smooth-240x67.dur /etc/ly/
+	sudo rm /etc/ly/config.ini
+	sudo cp config.ini /etc/ly/
+	cd ~ || exit
 
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/

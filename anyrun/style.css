@@ -3,15 +3,18 @@
 
 /*@define-color bg-color #000000;*/ /*theme:lain*/
 /*@define-color bg-color #3d3834;*/ /*theme:gruvbox*/
-@define-color bg-color #10293f; /*theme:cats*/
+/*@define-color bg-color #10293f;*/ /*theme:cats*/
+@define-color bg-color #000000; /*theme:mono*/
 
 /*@define-color sel-bg #ffffff;*/ /*theme:lain*/
 /*@define-color sel-bg #ebdbb2;*/ /*theme:gruvbox*/
-@define-color sel-bg #82e0a4; /*theme:cats*/
+/*@define-color sel-bg #82e0a4;*/ /*theme:cats*/
+@define-color sel-bg #ffffff; /*theme:mono*/
 
 /*@define-color prompt #ffffff;*/ /*theme:lain*/
 /*@define-color prompt #ebdbb2;*/ /*theme:gruvbox*/
-@define-color prompt #82e0a4; /*theme:cats*/
+/*@define-color prompt #82e0a4;*/ /*theme:cats*/
+@define-color prompt #ffffff; /*theme:mono*/
 
 window {
   background: transparent;

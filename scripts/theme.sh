@@ -2,13 +2,12 @@
 
 # config files
 ANYRUN=$HOME/.config/anyrun/style.css
-CODE=$HOME/.config/Code/User/settings.json
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 NVIM=$HOME/.config/nvim/init.lua
 WAYBAR=$HOME/.config/waybar/style.css
 
 # available themes
-THEMES=("lain", "gruvbox", "cats")
+THEMES=("lain", "gruvbox", "cats", "mono")
 THEME_FILE=$HOME/.cache/current_theme
 
 # functions
@@ -16,7 +15,7 @@ get_current_theme() {
 	if [ -f "$THEME_FILE" ]; then
 		cat "$THEME_FILE"
 	else
-		echo "cats"
+		echo "mono"
 	fi
 }
 
@@ -50,11 +49,6 @@ apply_theme_block() {
             local pattern_comment="s|^\([^-]\)|--\1|"
             local pattern_uncomment="s|^--\(.*$tag:$theme\)|\1|"
 		;;
-		twiceSlash )
-			local open="//"
-			local close=""
-			local pattern_comment="s|^\([^/]\)|//\1|"
-    		local pattern_uncomment="s|^//\(.*$tag:$theme\)|\1|"
 	esac
 	
 
@@ -64,7 +58,6 @@ apply_theme_block() {
 
 apply_lain() {
 	apply_theme_block "$ANYRUN" "theme" "lain" "slash"
-	apply_theme_block "$CODE" "theme" "lain" "twiceSlash"
 	apply_theme_block "$HYPRPAPER" "theme" "lain" "hash"
 	apply_theme_block "$WAYBAR" "theme" "lain" "slash"
 	apply_theme_block "$NVIM" "theme" "lain" "dash"
@@ -80,7 +73,6 @@ apply_lain() {
 
 apply_gruvbox() {
 	apply_theme_block "$ANYRUN" "theme" "gruvbox" "slash"
-	apply_theme_block "$CODE" "theme" "gruvbox" "twiceSlash"
 	apply_theme_block "$HYPRPAPER" "theme" "gruvbox" "hash"
 	apply_theme_block "$WAYBAR" "theme" "gruvbox" "slash"
 	apply_theme_block "$NVIM" "theme" "gruvbox" "dash"
@@ -96,7 +88,6 @@ apply_gruvbox() {
 
 apply_cats() {
 	apply_theme_block "$ANYRUN" "theme" "cats" "slash"
-	apply_theme_block "$CODE" "theme" "cats" "twiceSlash"
 	apply_theme_block "$HYPRPAPER" "theme" "cats" "hash"
 	apply_theme_block "$WAYBAR" "theme" "cats" "slash"
 	apply_theme_block "$NVIM" "theme" "cats" "dash"
@@ -110,6 +101,21 @@ apply_cats() {
 	notify-send "Theme switched to Cats Theme" 
 }
 
+apply_mono() {
+	apply_theme_block "$ANYRUN" "theme" "mono" "slash"
+	apply_theme_block "$HYPRPAPER" "theme" "mono" "hash"
+	apply_theme_block "$WAYBAR" "theme" "mono" "slash"
+	apply_theme_block "$NVIM" "theme" "mono" "dash"
+
+	rm ~/.config/kitty/kitty.conf
+	ln -sf ~/dotfiles/kitty/kitty-mono.conf ~/.config/kitty/kitty.conf
+
+	pkill hyprpaper && hyprpaper &
+	pkill waybar && waybar &
+
+	notify-send "Theme switched to Monochrome Theme" 
+}
+
 toggle_theme() {
 	local current=$(get_current_theme)
 
@@ -119,6 +125,9 @@ toggle_theme() {
 	elif [ "$current" = "cats" ]; then
 		apply_lain
 		set_theme "lain"
+	elif [ "$current" = "gruvbox" ]; then
+		apply_mono
+		set_theme "mono"
 	else
 		apply_cats
 		set_theme "cats"

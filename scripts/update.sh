@@ -86,8 +86,9 @@ executar () {
 
 atualiza () {
     if [[ $SILENCIOSO -eq 1 ]]; then
-		executar "sudo pacman -Syu --noconfirm && sudo pacman -Sc --noconfirm" "[1/2] Atualizando pacotes do sistema"
-		executar "yay -Syu --noconfirm && yay -Sc --noconfirm" "[2/2] Atualizando pacotes do sistema"
+		executar "sudo pacman -Syu --noconfirm && sudo pacman -Sc --noconfirm" "[1/3] Atualizando pacotes do sistema"
+		executar "yay -Syu --noconfirm && yay -Sc --noconfirm" "[2/3] Atualizando pacotes do sistema"
+		executar "flatpak update -y" "[3/3] Atualizando pacotes do sistema"
 	
 	else
 		cat << "EOF"

@@ -17,7 +17,6 @@ vim.opt.listchars = { tab = "| ", trail = "·", nbsp = "␣" }
 vim.pack.add { 
 	"https://github.com/goolord/alpha-nvim",
 	"https://github.com/echasnovski/mini.icons",
-	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/ellisonleao/gruvbox.nvim",
 	"https://github.com/catppuccin/nvim",
@@ -38,6 +37,7 @@ vim.pack.add {
 	"https://github.com/norcalli/nvim-colorizer.lua",
 	"https://github.com/nvim-tree/nvim-tree.lua",
 	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/aditya-azad/candle-grey.git",
 }
 
 require("render-markdown").enable()
@@ -48,7 +48,6 @@ require("gruvbox").setup({ priority = 1000 })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
 require("alpha").setup(require("alpha.themes.theta").config)
 require("nvim-highlight-colors").setup({ render = "virtual" })
-require("oil").setup({ view_options = { show_hidden = true } })
 require("catppuccin").setup({ priority = 1000, flavor = "mocha", transparent_background = true })
 require("fine-cmdline").setup({
 	popup = {
@@ -78,9 +77,10 @@ vim.cmd("lsp enable pyright")
 vim.cmd("lsp enable rust-analyzer")
 vim.cmd("lsp enable bash-language-server")
 
-vim.cmd("colorscheme catppuccin-nvim") --theme:cats
+--vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme gruvbox") --theme:gruvbox
+ vim.cmd("colorscheme candle-grey-transparent") --theme:mono
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>")
 vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")
