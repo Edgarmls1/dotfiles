@@ -77,7 +77,7 @@ dev() {
     echo "| instalando config p/ dev |"
     echo "+--------------------------+"
 
-    yay -S neovim obsidian bitwarden visual-studio-code-bin virtualbox
+    yay -S neovim obsidian bitwarden vscodium virtualbox
 
 	sudo modprobe vboxdrv
 	sudo usermod -aG vboxusers $USER

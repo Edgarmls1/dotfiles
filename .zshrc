@@ -51,6 +51,7 @@ export PATH=$PATH:/home/edgar/.spicetify
 
 alias ls="lsd"
 alias cat="bat"
+alias code="codium"
 alias :q="exit"
 alias :wq="exit"
 alias cc="cd $HOME && clear"
