@@ -44,9 +44,9 @@ pacman-key --init
 pacman-key --populate archlinux
 pacman-key --refresh-keys
 
-sudo reflactor --country Brazil --age 24 --protocol https --sort rate --latest 20 --save /etc/pacman.d/mirrorlist
+sudo reflector --country Brazil --age 24 --protocol https --sort rate --latest 20 --save /etc/pacman.d/mirrorlist
 
-pacstrap -K /mnt base base-devel git linux linu-firmware vim openssh reflactor btrfs-progs grub efibootmgr grub-btrfs inotify-tools networkmanager pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber man sudo intel-ucode amd-ucode
+pacstrap -K /mnt base base-devel git linux linux-firmware vim openssh reflector btrfs-progs grub efibootmgr grub-btrfs inotify-tools networkmanager pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber man sudo intel-ucode amd-ucode
 
 #########
 # fstab #
@@ -56,4 +56,4 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ######################
 # entrando como root #
 ######################
-arch-chroot /mnt curl -fsSL https://raw.githubusercontent.com/Edgarmls1/dotfiles/refs/heads/main/archinstall/config.sh
+arch-chroot /mnt curl -fsSL https://raw.githubusercontent.com/Edgarmls1/dotfiles/refs/heads/main/archinstall/config.sh | sh
