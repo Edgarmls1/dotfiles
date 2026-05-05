@@ -53,7 +53,15 @@ pacstrap -K /mnt base base-devel git linux linux-firmware vim openssh reflector 
 #########
 genfstab -U /mnt >> /mnt/etc/fstab
 
+########################
+# instalando config.sh #
+########################
+
+mkdir /mnt/archinstall
+curl -fsSL https://raw.githubusercontent.com/Edgarmls1/dotfiles/refs/heads/main/archinstall/config.sh -o archinstall/config.sh
+chmod +x archinstall/config.sh
+
 ######################
 # entrando como root #
 ######################
-arch-chroot /mnt curl -fsSL https://raw.githubusercontent.com/Edgarmls1/dotfiles/refs/heads/main/archinstall/config.sh | sh
+arch-chroot /mnt ./archinstall/config.sh
