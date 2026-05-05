@@ -1,16 +1,5 @@
 #!/bin/bash
 
-clear
-echo "##########################################################"
-echo "##########################################################"
-echo "##    _             _       ___           _        _ _  ##"
-echo "##   / \   _ __ ___| |__   |_ _|_ __  ___| |_ __ _| | | ##"
-echo "##  / _ \ | '__/ __| '_ \   | || '_ \/ __| __/ _' | | | ##"
-echo "## / ___ \| | | (__| | | |  | || | | \__ \ || (_| | | | ##"
-echo "##/_/   \_\_|  \___|_| |_| |___|_| |_|___/\__\__,_|_|_| ##"
-echo "##########################################################"
-echo "##########################################################"
-
 #############
 # variaveis #
 #############
@@ -21,59 +10,10 @@ hostname="arch"
 username="edgar"
 
 #####################
-# partição do disco #
-#####################
-lsblk
-read -p "Insira o nome da partição EFI (ex. sda1): " sda1
-read -p "Insira o nome da partição ROOT (ex. sda2): " sda2
-
-#########################
-# sincronizando relogio #
-#########################
-timedatectl set-ntp true
-
-#######################
-# formatação do disco #
-#######################
-mkfs.fat -F 32 /dev/$sda1
-mkfs.btrfs /dev/$sda2
-
-####################
-# montando o disco #
-####################
-mount /dev/$sda2 /mnt
-mkdir -p /mnt/efi
-mount /dev/$sda1 /mnt/efi
-
-#########################
-# instalação de pacotes #
-#########################
-pacman -Sy archlinux-keyring
-pacman-key --init
-pacman-key --populate archlinux
-pacman-key --refresh-keys
-
-sudo reflactor --country Brazil --age 24 --protocol https --sort rate --latest 20 --save /etc/pacman.d/mirrorlist
-
-pacstrap -K /mnt base base-devel git linux linu-firmware vim openssh reflactor btrfs-progs grub efibootmgr grub-btrfs inotify-tools networkmanager pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber man sudo intel-ucode amd-ucode
-
-
-
-#########
-# fstab #
-#########
-genfstab -U /mnt >> /mnt/etc/fstab
-
-######################
-# entrando como root #
-######################
-arch-chroot /mnt
-
-#####################
 # instalndo pacotes #
 #####################
 
-pcaman -Syy
+pacman -Syy
 
 pacman --noconfirm -S xdg-desktop-portal-wlr dialog linux-headers avahi xdg-user-dirs xdg-utils bluez bluez-utils cups alsa-utils bash-completion rsync acpi acpi_call dnsmasq ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g exa xorg xorg-xinit xclip grub-btrfs xf86-video-amdgpu xf86-video-nouveau xf86-video-intel xf86-video-qxl brightnessctl pacman-contrib inxi
 
