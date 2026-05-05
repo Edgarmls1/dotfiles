@@ -54,15 +54,16 @@ alias cat="bat"
 alias code="codium"
 alias :q="exit"
 alias :wq="exit"
-alias cc="cd $HOME && clear"
+alias cc="cd && clear"
 
-alias update="$HOME/dotfiles/scripts/update.sh"
+alias update="~/dotfiles/scripts/update.sh"
 
-alias python="$HOME/pyenv/bin/python"
+alias python="~/pyenv/bin/python"
 
-alias hyprc="nvim $HOME/.config/hypr/hyprland.conf"
+alias hyprc="nvim ~/.config/hypr/hyprland.conf"
 
-alias faci="cd $HOME/dev/faci/"
-alias notes="nvim $HOME/dev/notes/"
+alias faci="cd ~/dev/faci/"
+alias notes="nvim ~/dev/notes/"
+alias update-notes="cd ~/dev/notes/ && git add . && git commit -m 'notes update' && git push && cd -"
 
 emulate bash -c "source $HOME/pyenv/bin/activate"

@@ -73,7 +73,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="hyprland hyprpaper hyprsunset hyprlock hyprshot nemo waybar swaync fastfetch yazi bluetui pavucontrol gazelle-tui kitty neovim ttf-hack-nerd qt6ct gnome-tweaks ly firefox lsd fzf htop btop cava bat npm zathura xdg-desktop-portal-gtk xdg-desktop-portal-hyprland syncthing os-prober hyprsome-git mpv qimgv anyrun zathura-pdf-mupdf pokeget lnch pyright gopls jdtls rust-analyzer bash-language-server zsh bibata-cursor-theme-bin yaru-icon-theme"
+    local pkg_list="anyrun bash-language-server bat bluetui btop cava fastfetch firefox fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsome-git hyprsunset jdtls kitty lsd ly mpv nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt6ct ttf-hack-nerd rust-analyzer swaync xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wleave zathura zathura-pdf-mupdf zsh"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -114,6 +114,8 @@ hyprde () {
 	sudo rm /etc/ly/config.ini
 	sudo cp config.ini /etc/ly/
 	cd ~ || exit
+
+	papirus-folders -C black --theme Papirus-Dark
 
     echo "Configurando dark mode..."
     mkdir -p ~/.config/xdg-desktop-portal/
@@ -195,13 +197,11 @@ esac
 [ $DEFAULT -eq 1 ] && instala
 
 clear
-echo "em 5 segundos voce sera redirecionado para o programa de instalação dos seus pacotes (navegador, steam, spotify, vs code)"
-sleep 5
+echo "em 5 segundos voce sera redirecionado para o programa de instalação dos seus pacotes (navegador, steam, spotify, vs code)\n"
+for i in $(seq 5 -1 1); do
+	printf "$i..."
+	sleep 1
+done
 exec "$DOTFILES_DIR/dotfiles/scripts/setup.sh"
-
-clear
-echo "sistema reiniciando em 5 segundos..."
-sleep 5
-shutdown -r now
 
 #----------------------#

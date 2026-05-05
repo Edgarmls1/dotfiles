@@ -14,8 +14,19 @@ menu() {
         1) clean                                                    ;;
         2) games                                                    ;;
         3) dev                                                      ;;
-        0) exit 0                                                   ;;
-        *) echo "Opção inválida. Tente novamente." ; sleep 1 ; menu ;;
+        0) 
+			echo "Seu sitema sera reiniciado em 5 segundos\n"
+			for i in $(seq 5 -1 1); do
+				printf "$i..."
+				sleep 1
+			done
+			shutdown -r now 
+		;;
+        *) 
+			echo "Opção inválida. Tente novamente."
+			sleep 1
+			menu 
+		;;
     esac
 }
 
