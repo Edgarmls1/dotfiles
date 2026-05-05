@@ -17,9 +17,16 @@ menu() {
         0) 
 			echo "Seu sitema sera reiniciado em 5 segundos\n"
 			for i in $(seq 5 -1 1); do
-				printf "$i..."
-				sleep 1
+				printf "$i"
+				sleep 0.3
+				printf "."
+				sleep 0.3
+				printf "."
+				sleep 0.3
+				printf "."
+				sleep 0.1
 			done
+			printf "\n"
 			shutdown -r now 
 		;;
         *) 

@@ -73,7 +73,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="anyrun bash-language-server bat bluetui btop cava fastfetch firefox fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsome-git hyprsunset jdtls kitty lsd ly mpv nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt6ct ttf-hack-nerd rust-analyzer swaync xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wleave zathura zathura-pdf-mupdf zsh"
+    local pkg_list="7zip anyrun bash-language-server bat bluetui btop cava dunst fastfetch firefox fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsome-git hyprsunset jdtls kitty lsd ly mpv mpvpaper nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt6ct rust-analyzer ttf-hack-nerd unzip xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wget wleave zathura zathura-pdf-mupdf zsh"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."
@@ -199,9 +199,16 @@ esac
 clear
 echo "em 5 segundos voce sera redirecionado para o programa de instalação dos seus pacotes (navegador, steam, spotify, vs code)\n"
 for i in $(seq 5 -1 1); do
-	printf "$i..."
-	sleep 1
+    printf "$i"
+	sleep 0.3
+	printf "."
+	sleep 0.3
+	printf "."
+	sleep 0.3
+	printf "."
+    sleep 0.1
 done
+printf "\n"
 exec "$DOTFILES_DIR/dotfiles/scripts/setup.sh"
 
 #----------------------#

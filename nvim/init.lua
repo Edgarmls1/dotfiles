@@ -77,10 +77,10 @@ vim.cmd("lsp enable pyright")
 vim.cmd("lsp enable rust-analyzer")
 vim.cmd("lsp enable bash-language-server")
 
---vim.cmd("colorscheme catppuccin-nvim") --theme:cats
+vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme gruvbox") --theme:gruvbox
- vim.cmd("colorscheme candle-grey-transparent") --theme:mono
+-- vim.cmd("colorscheme candle-grey-transparent") --theme:mono
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>")
 vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")

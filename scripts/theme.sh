@@ -2,6 +2,7 @@
 
 # config files
 ANYRUN=$HOME/.config/anyrun/style.css
+DUNST=$HOME/.config/dunst/dunstrc
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 NVIM=$HOME/.config/nvim/init.lua
 WAYBAR=$HOME/.config/waybar/style.css
@@ -58,6 +59,7 @@ apply_theme_block() {
 
 apply_lain() {
 	apply_theme_block "$ANYRUN" "theme" "lain" "slash"
+	apply_theme_block "$DUNST" "theme" "lain" "hash"
 	apply_theme_block "$HYPRPAPER" "theme" "lain" "hash"
 	apply_theme_block "$WAYBAR" "theme" "lain" "slash"
 	apply_theme_block "$NVIM" "theme" "lain" "dash"
@@ -65,14 +67,14 @@ apply_lain() {
 	rm ~/.config/kitty/kitty.conf
 	ln -sf ~/dotfiles/kitty/kitty-lain.conf ~/.config/kitty/kitty.conf
 
+	pkill dunst && dunst &
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
-
-	notify-send "Theme switched to Lain Theme (old terminal)"
 }
 
 apply_gruvbox() {
 	apply_theme_block "$ANYRUN" "theme" "gruvbox" "slash"
+	apply_theme_block "$DUNST" "theme" "gruvbox" "hash"
 	apply_theme_block "$HYPRPAPER" "theme" "gruvbox" "hash"
 	apply_theme_block "$WAYBAR" "theme" "gruvbox" "slash"
 	apply_theme_block "$NVIM" "theme" "gruvbox" "dash"
@@ -80,14 +82,14 @@ apply_gruvbox() {
 	rm ~/.config/kitty/kitty.conf
 	ln -sf ~/dotfiles/kitty/kitty-gruvbox.conf ~/.config/kitty/kitty.conf
 
+	pkill dunst && dunst &
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
-
-	notify-send "Theme switched to Gruvbox Theme"
 }
 
 apply_cats() {
 	apply_theme_block "$ANYRUN" "theme" "cats" "slash"
+	apply_theme_block "$DUNST" "theme" "cats" "hash"
 	apply_theme_block "$HYPRPAPER" "theme" "cats" "hash"
 	apply_theme_block "$WAYBAR" "theme" "cats" "slash"
 	apply_theme_block "$NVIM" "theme" "cats" "dash"
@@ -95,14 +97,14 @@ apply_cats() {
 	rm ~/.config/kitty/kitty.conf
 	ln -sf ~/dotfiles/kitty/kitty-cats.conf ~/.config/kitty/kitty.conf
 
+	pkill dunst && dunst &
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
-
-	notify-send "Theme switched to Cats Theme" 
 }
 
 apply_mono() {
 	apply_theme_block "$ANYRUN" "theme" "mono" "slash"
+	apply_theme_block "$DUNST" "theme" "mono" "hash"
 	apply_theme_block "$HYPRPAPER" "theme" "mono" "hash"
 	apply_theme_block "$WAYBAR" "theme" "mono" "slash"
 	apply_theme_block "$NVIM" "theme" "mono" "dash"
@@ -110,10 +112,9 @@ apply_mono() {
 	rm ~/.config/kitty/kitty.conf
 	ln -sf ~/dotfiles/kitty/kitty-mono.conf ~/.config/kitty/kitty.conf
 
+	pkill dunst && dunst &
 	pkill hyprpaper && hyprpaper &
 	pkill waybar && waybar &
-
-	notify-send "Theme switched to Monochrome Theme" 
 }
 
 toggle_theme() {

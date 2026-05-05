@@ -64,6 +64,6 @@ alias hyprc="nvim ~/.config/hypr/hyprland.conf"
 
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/dev/notes/"
-alias update-notes="cd ~/dev/notes/ && git add . && git commit -m 'notes update' && git push && cd -"
+alias update-notes="cd ~/dev/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
 
 emulate bash -c "source $HOME/pyenv/bin/activate"
