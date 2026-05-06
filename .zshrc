@@ -34,6 +34,10 @@ autoload -U colors && colors
 setopt PROMPT_SUBST
 
 PROMPT_COLOR="green"
+KERNEL="$(uname -s)"
+OS=$(source /etc/os-release && echo "$ID")
+LOGO=""
+PORJECT=" "
 
 precmd() {
     if [[ $? -eq 0 ]]; then
@@ -41,17 +45,81 @@ precmd() {
     else
         PROMPT_COLOR="red"
     fi
+
+	project
 }
 
-PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}󰣇 > %f'
+logo() {
+	case "$KERNEL" in
+		"Darwin") 
+			LOGO="󰀵"
+		;;
+
+		"FreeBSD")
+			LOGO="󰣠"
+		;;
+
+		"Linux")
+			case "$OS" in
+				arch)      LOGO="󰣇" ;;
+				ubuntu)    LOGO="" ;;
+				debian)    LOGO="󰣚" ;;
+				fedora)    LOGO="󰣛" ;;
+				nix|nixos) LOGO="󱄅" ;;
+				linuxmint) LOGO="󰣭" ;;
+			esac
+		;;	
+	esac
+}
+
+project() {
+    PROJECT=""
+
+    if [[ -d ".git" ]]; then
+        PROJECT+=" "
+    fi
+    
+    if ls -A | grep -iq "docker"; then
+        PROJECT+=" 󰡨"
+    fi
+    
+    if [[ "${(L)PWD}" == *"python"* ]] || ls -A | grep -q '\.py$'; then
+        PROJECT+=" 󰌠"
+    fi    
+    
+    if [[ "${(L)PWD}" == *"java"* ]] || ls -A | grep -q '\.java$'; then
+        PROJECT+=" "
+    fi
+
+    if [[ "${(L)PWD}" == *"go"* ]] || ls -A | grep -q '\.go$'; then
+        PROJECT+=" "
+    fi
+
+    if [[ "${(L)PWD}" == *"rust"* ]] || ls -A | grep -q '\.rs$'; then
+        PROJECT+=" "
+    fi
+}
+
+logo
+
+PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}${LOGO}${PROJECT} > %f' # somente com a logo do os
+# PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST${PROJECT} > %f' # com user e host
 
 export EDITOR="nvim"
 
 export PATH=$PATH:/home/edgar/.spicetify
 
-alias ls="lsd"
-alias cat="bat"
+alias l="lsd"
+alias c="cd"
+alias y="yay"
+alias n="nvim"
 alias code="codium"
+
+alias ga="git add ."
+alias gc="git commit -m"
+alias gp="git push"
+
+alias ..="cd .."
 alias :q="exit"
 alias :wq="exit"
 alias cc="cd && clear"
@@ -66,4 +134,11 @@ alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/dev/notes/"
 alias update-notes="cd ~/dev/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
 
-emulate bash -c "source $HOME/pyenv/bin/activate"
+alias -g fastfetchc="~/.config/fastfetch/"
+alias -g nvimc="~/.config/nvim/"
+alias -g hyprconf="~/.config/hypr/"
+alias -g kittyc="~/dotfiles/kitty/"
+alias -g waybarc="~/.config/waybar/"
+alias -g scripts="~/dotfiles/scripts/"
+
+emulate bash -c "source ~/pyenv/bin/activate"

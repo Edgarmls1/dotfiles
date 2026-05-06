@@ -73,7 +73,7 @@ show_progress() {
 }
 
 hyprde () {
-    local pkg_list="7zip anyrun bash-language-server bat bluetui btop cava dunst fastfetch firefox fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsome-git hyprsunset jdtls kitty lsd ly mpv mpvpaper nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt6ct rust-analyzer ttf-hack-nerd unzip xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wget wleave zathura zathura-pdf-mupdf zsh"
+    local pkg_list="7zip anyrun bash-language-server bat bluetui btop cava dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsome-git hyprsunset jdtls kitty lsd ly mpv mpvpaper nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt6ct rust-analyzer ttf-hack-nerd unzip xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wget wleave zathura zathura-pdf-mupdf zsh"
 
     if [[ $SILENCIOSO -eq 1 ]]; then
         echo "Instalando pacotes do Hyprland DE..."

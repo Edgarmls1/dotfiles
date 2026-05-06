@@ -2,6 +2,7 @@
 
 notification_timeout=10000
 download_album_art=true
+show_album_art=true
 
 function get_album_art {
     url=$(playerctl -p spotify -f "{{mpris:artUrl}}" metadata)
@@ -23,11 +24,40 @@ function show_music_notif {
     song_title=$(playerctl -p spotify -f "{{title}}" metadata)
     song_artist=$(playerctl -p spotify -f "{{artist}}" metadata)
 
-	get_album_art
+    if [[ $show_album_art == "true" ]]; then
+        get_album_art
+    fi
 
     notify-send -t $notification_timeout -h string:x-dunst-stack-tag:music_notif -i "$album_art" "$song_title - $song_artist" 
 }
 
-while true; do
-    show_music_notif
-done
+function monitor_loop {
+    while IFS="|||" read -r title artist; do
+        get_album_art
+        notify-send -t $notification_timeout \
+            -h string:x-dunst-stack-tag:music_notif \
+            -i "$album_art" \
+            "$title - $artist"
+    done < <(playerctl --player=spotify --follow metadata --format "{{title}}|{{artist}}")
+}
+
+case $1 in
+	next_track)
+		playerctl -p spotify next
+		sleep 0.5 && show_music_notif
+	;;
+
+	prev_track)
+		playerctl -p spotify previous
+		sleep 0.5 && show_music_notif
+	;;
+
+    play_pause)
+	    playerctl -p spotify play-pause
+    	show_music_notif
+    ;;
+
+	*)
+		monitor_loop
+	;;
+esac
