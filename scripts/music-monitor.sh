@@ -1,6 +1,6 @@
 #!/bin/bash
 
-notification_timeout=10000
+notification_timeout=5000
 download_album_art=true
 show_album_art=true
 

@@ -46,6 +46,7 @@
 #   frame_color = "#458488" #theme:gruvbox
 #   frame_color = "#409343" #theme:lain
    frame_color = "#ffffff" #theme:mono
+#   frame_color = "#770bf5" #theme:purple
 
 
     gap_size = 2
@@ -142,6 +143,8 @@
 #   foreground = "#ffffff" #theme:lain
    background = "#000000" #theme:mono
    foreground = "#888888" #theme:mono
+#   background = "#0c0123" #theme:purple
+#   foreground = "#854bc9" #theme:purple
     timeout = 10
     default_icon = dialog-information
 
@@ -154,6 +157,8 @@
 #   foreground = "#ffffff" #theme:lain
    background = "#000000" #theme:mono
    foreground = "#888888" #theme:mono
+#   background = "#0c0123" #theme:purple
+#   foreground = "#854bc9" #theme:purple
     timeout = 10
     override_pause_level = 30
     default_icon = dialog-information

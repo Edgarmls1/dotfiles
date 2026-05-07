@@ -1,58 +1,69 @@
 /*@define-color modules_background #000000;*/ /*theme:lain*/
 /*@define-color modules_background #3d3834;*/ /*theme:gruvbox*/
-@define-color modules_background #10293f; /*theme:cats*/
+/*@define-color modules_background #10293f;*/ /*theme:cats*/
 /*@define-color modules_background #000000;*/ /*theme:mono*/
+@define-color modules_background #0c0123; /*theme:purple*/
 
 @define-color workspaces_button_off #928374;
 /*@define-color workspaces_button_on #ffffff;*/ /*theme:lain*/
 /*@define-color workspaces_button_on #ebdbb2;*/ /*theme:gruvbox*/
-@define-color workspaces_button_on #e18e6e; /*theme:cats*/
+/*@define-color workspaces_button_on #e18e6e;*/ /*theme:cats*/
 /*@define-color workspaces_button_on #ffffff;*/ /*theme:mono*/
+@define-color workspaces_button_on #770bf5; /*theme:purple*/
 
 /*@define-color clock_idle #ffffff;*/ /*theme:lain*/
 /*@define-color clock_idle #ebdbb2;*/ /*theme:gruvbox*/
-@define-color clock_idle #bc7186; /*theme:cats*/
+/*@define-color clock_idle #bc7186;*/ /*theme:cats*/
 /*@define-color clock_idle #ffffff;*/ /*theme:mono*/
+@define-color clock_idle #8d00f4; /*theme:purple*/
 
 /*@define-color network_idle #409343;*/ /*theme:lain*/
 /*@define-color network_idle #458488;*/ /*theme:gruvbox*/
-@define-color network_idle #82e0a4; /*theme:cats*/
+/*@define-color network_idle #82e0a4;*/ /*theme:cats*/
 /*@define-color network_idle #888888;*/ /*theme:mono*/
+@define-color network_idle #854bc9; /*theme:purple*/
 
 /*@define-color tray_menu #000000;*/ /*theme:lain*/
 /*@define-color tray_menu #3d3834;*/ /*theme:gruvbox*/
-@define-color tray_menu #10293f; /*theme:cats*/
+/*@define-color tray_menu #10293f;*/ /*theme:cats*/
 /*@define-color tray_menu #000000;*/ /*theme:mono*/
+@define-color tray_menu #0c0123; /*theme:purple*/
 
 /*@define-color tray_menu_border #409343;*/ /*theme:lain*/
 /*@define-color tray_menu_border #458488;*/ /*theme:gruvbox*/
-@define-color tray_menu_border #82e0a4; /*theme:cats*/
+/*@define-color tray_menu_border #82e0a4;*/ /*theme:cats*/
 /*@define-color tray_menu_border #ffffff;*/ /*theme:mono*/
+@define-color tray_menu_border #8d00f4; /*theme:purple*/
 
 /*@define-color tray_menu_item #ffffff;*/ /*theme:lain*/
 /*@define-color tray_menu_item #ebdbb2;*/ /*theme:gruvbox*/
-@define-color tray_menu_item #b0dfdd; /*theme:cats*/
+/*@define-color tray_menu_item #b0dfdd;*/ /*theme:cats*/
 /*@define-color tray_menu_item #ffffff;*/ /*theme:mono*/
+@define-color tray_menu_item #854bc9; /*theme:purple*/
 
 /*@define-color tray_menu_item_hover #ffffff;*/ /*theme:lain*/
 /*@define-color tray_menu_item_hover #ebdbb2;*/ /*theme:gruvbox*/
-@define-color tray_menu_item_hover #b0dfdd; /*theme:cats*/
+/*@define-color tray_menu_item_hover #b0dfdd;*/ /*theme:cats*/
 /*@define-color tray_menu_item_hover #ffffff;*/ /*theme:mono*/
+@define-color tray_menu_item_hover #854bc9; /*theme:purple*/
 
 /*@define-color tray_menu_item_hover_background #28365d;*/ /*theme:lain*/
 /*@define-color tray_menu_item_hover_background #504945;*/ /*theme:gruvbox*/
-@define-color tray_menu_item_hover_background #325d8a; /*theme:cats*/
+/*@define-color tray_menu_item_hover_background #325d8a;*/ /*theme:cats*/
 /*@define-color tray_menu_item_hover_background #2d2e2f;*/ /*theme:mono*/
+@define-color tray_menu_item_hover_background #2d2e2f; /*theme:purple*/
 
 /*@define-color tooltip_background #000000;*/ /*theme:lain*/
 /*@define-color tooltip_background #3d3834;*/ /*theme:gruvbox*/
-@define-color tooltip_background #10293f; /*theme:cats*/
+/*@define-color tooltip_background #10293f;*/ /*theme:cats*/
 /*@define-color tooltip_background #000000;*/ /*theme:mono*/
+@define-color tooltip_background #0c0123; /*theme:purple*/
 
 /*@define-color tooltip_text #ffffff;*/ /*theme:lain*/
 /*@define-color tooltip_text #ebdbb2;*/ /*theme:gruvbox*/
-@define-color tooltip_text #b0dfdd; /*theme:cats*/
+/*@define-color tooltip_text #b0dfdd;*/ /*theme:cats*/
 /*@define-color tooltip_text #ffffff;*/ /*theme:mono*/
+@define-color tooltip_text #854bc9; /*theme:purple*/
 
 /*----------------*/
 /*-----GLOBAL-----*/
@@ -143,20 +154,11 @@
   transition: all 0.3s ease;
 }
 
-/* #clock.calendar { */
-/* 	background: @modules_background; */
-/* 	color: @clock_idle; */
-/* } */
-/**/
-/* #clock.calendar.today { */
-/* 	color: @clock_idle; */
-/* } */
-
 /*-----------------*/
 /*-----NETWORK-----*/
 /*-----------------*/
 
-#network, #pulseaudio, #battery, #bluetooth, #custom-notification {
+#network, #pulseaudio, #battery, #bluetooth {
   color: @network_idle;
   padding: 2px;
   transition: all 0.3s ease;
@@ -172,11 +174,4 @@ tooltip {
 
 tooltip label {
   color: @tooltip_text;
-}
-
-#custom-arch {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 5px 0px 5px;
-    border-radius: 0px 0px 10px 0px;
-    font-size: 18px;
 }

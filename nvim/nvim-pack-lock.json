@@ -60,6 +60,10 @@
       "rev": "4d0828d95adaf4250c1373d2cd9318d3509712b7",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim"
     },
+    "neopywal.nvim": {
+      "rev": "95425eea6411eebc17c2fcdc46d1c45e57d99205",
+      "src": "https://github.com/RedsXDD/neopywal.nvim"
+    },
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
       "src": "https://github.com/MunifTanjim/nui.nvim"

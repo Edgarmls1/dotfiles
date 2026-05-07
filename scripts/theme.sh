@@ -8,7 +8,7 @@ NVIM=$HOME/.config/nvim/init.lua
 WAYBAR=$HOME/.config/waybar/style.css
 
 # available themes
-THEMES=("lain", "gruvbox", "cats", "mono")
+THEMES=("lain", "gruvbox", "cats", "mono", "purple")
 THEME_FILE=$HOME/.cache/current_theme
 
 # functions
@@ -117,6 +117,21 @@ apply_mono() {
 	pkill waybar && waybar &
 }
 
+apply_purple() {
+	apply_theme_block "$ANYRUN" "theme" "purple" "slash"
+	apply_theme_block "$DUNST" "theme" "purple" "hash"
+	apply_theme_block "$HYPRPAPER" "theme" "purple" "hash"
+	apply_theme_block "$WAYBAR" "theme" "purple" "slash"
+	apply_theme_block "$NVIM" "theme" "purple" "dash"
+
+	rm ~/.config/kitty/kitty.conf
+	ln -sf ~/dotfiles/kitty/kitty-purple.conf ~/.config/kitty/kitty.conf
+
+	pkill dunst && dunst &
+	pkill hyprpaper && hyprpaper &
+	pkill waybar && waybar &
+}
+
 toggle_theme() {
 	local current=$(get_current_theme)
 
@@ -129,6 +144,9 @@ toggle_theme() {
 	elif [ "$current" = "gruvbox" ]; then
 		apply_mono
 		set_theme "mono"
+	elif [ "$current" = "mono" ]; then
+		apply_purple
+		set_theme "purple"
 	else
 		apply_cats
 		set_theme "cats"

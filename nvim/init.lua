@@ -38,10 +38,12 @@ vim.pack.add {
 	"https://github.com/nvim-tree/nvim-tree.lua",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/aditya-azad/candle-grey.git",
+	"https://github.com/RedsXDD/neopywal.nvim",
 }
 
 require("render-markdown").enable()
 require("lualine").setup()
+require("neopywal").setup()
 require("nvim-tree").setup()
 require("smear_cursor").setup({ opts = {} })
 require("gruvbox").setup({ priority = 1000 })
@@ -77,10 +79,11 @@ vim.cmd("lsp enable pyright")
 vim.cmd("lsp enable rust-analyzer")
 vim.cmd("lsp enable bash-language-server")
 
-vim.cmd("colorscheme catppuccin-nvim") --theme:cats
+--vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme gruvbox") --theme:gruvbox
--- vim.cmd("colorscheme candle-grey-transparent") --theme:mono
+--vim.cmd("colorscheme candle-grey-transparent") --theme:mono
+vim.cmd("colorscheme neopywal-dark") --theme:purple 
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>")
 vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")
