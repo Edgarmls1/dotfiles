@@ -1,0 +1,4 @@
+Github    -> @gh:  https://github.com/search?q=%s&type=repositories
+Youtube   -> @yt:  https://www.youtube.com/results?search_query=%s
+Google    -> @ggl: https://www.google.com/search?q=%s
+Arch Wiki -> @aw:  https://wiki.archlinux.org/index.php?search=%s

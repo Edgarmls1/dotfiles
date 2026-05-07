@@ -143,6 +143,7 @@ links () {
     ln -sf ~/dotfiles/fastfetch/ fastfetch
 	ln -sf ~/dotfiles/yazi/ yazi
 	ln -sf ~/dotfiles/wleave/ wleave
+	ln -sf ~/dotfiles/qutebrowser/ qutebrowser
 
 	rm ~/.bashrc 
 	ln -sf ~/dotfiles/.bashrc ~/.bashrc

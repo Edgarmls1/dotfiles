@@ -120,6 +120,14 @@
       "rev": "54d4b5431e9634ee3d8d30784e017239b5b89d41",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
+    "searchbox.nvim": {
+      "rev": "ed230583c78795526b3d4585ac1460c108e26213",
+      "src": "https://github.com/VonHeikemen/searchbox.nvim"
+    },
+    "shades-of-purple.vim": {
+      "rev": "e806d38190a6a2e8b9244824c2953d6567f141f3",
+      "src": "https://github.com/Rigellute/shades-of-purple.vim"
+    },
     "smear-cursor.nvim": {
       "rev": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199",
       "src": "https://github.com/sphamba/smear-cursor.nvim"

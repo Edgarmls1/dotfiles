@@ -1,0 +1,5 @@
+dark reader
+ublock origin
+vimiun
+youtube no translation
+yt tweaks -> dotfiles/zen-browser/yt-tweaks.json

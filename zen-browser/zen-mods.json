@@ -94,24 +94,6 @@
     "preferences": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/e122b5d9-d385-4bf8-9971-e137809097d0/preferences.json",
     "enabled": true
   },
-  "81fcd6b3-f014-4796-988f-6c3cb3874db8": {
-    "id": "81fcd6b3-f014-4796-988f-6c3cb3874db8",
-    "name": "Zen Context Menu",
-    "description": "Declutter your right click menu, hide options you don't need",
-    "homepage": "https://github.com/KiKaraage/ZenMods/",
-    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/81fcd6b3-f014-4796-988f-6c3cb3874db8/chrome.css",
-    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/81fcd6b3-f014-4796-988f-6c3cb3874db8/readme.md",
-    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/81fcd6b3-f014-4796-988f-6c3cb3874db8/image.png",
-    "author": "KiKaraage",
-    "version": "3.1",
-    "preferences": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/81fcd6b3-f014-4796-988f-6c3cb3874db8/preferences.json",
-    "tags": [
-      "context menu"
-    ],
-    "createdAt": "2024-10-06",
-    "updatedAt": "2025-08-26",
-    "enabled": false
-  },
   "fd24f832-a2e6-4ce9-8b19-7aa888eb7f8e": {
     "id": "fd24f832-a2e6-4ce9-8b19-7aa888eb7f8e",
     "name": "Quietify",
@@ -125,6 +107,22 @@
     "tags": [],
     "createdAt": "2024-12-17",
     "updatedAt": "2025-02-09",
+    "enabled": true
+  },
+  "642854b5-88b4-4c40-b256-e035532109df": {
+    "id": "642854b5-88b4-4c40-b256-e035532109df",
+    "name": "Transparent Zen",
+    "description": "Make the Zen Browser's tab background transparent, get smooth animations and more. Enable  features in mod settings and visit the homepage below to learn more about the features. 👇",
+    "homepage": "https://www.sameerasw.com/zen",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/642854b5-88b4-4c40-b256-e035532109df/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/642854b5-88b4-4c40-b256-e035532109df/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/642854b5-88b4-4c40-b256-e035532109df/image.png",
+    "author": "sameerasw",
+    "version": "1.17.16",
+    "tags": [],
+    "createdAt": "2025-02-04",
+    "updatedAt": "2026-03-11",
+    "preferences": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/642854b5-88b4-4c40-b256-e035532109df/preferences.json",
     "enabled": true
   }
 }

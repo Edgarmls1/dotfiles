@@ -38,12 +38,13 @@ vim.pack.add {
 	"https://github.com/nvim-tree/nvim-tree.lua",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/aditya-azad/candle-grey.git",
-	"https://github.com/RedsXDD/neopywal.nvim",
+	"https://github.com/Rigellute/shades-of-purple.vim",
+	"https://github.com/VonHeikemen/searchbox.nvim",
 }
 
+require("searchbox")
 require("render-markdown").enable()
 require("lualine").setup()
-require("neopywal").setup()
 require("nvim-tree").setup()
 require("smear_cursor").setup({ opts = {} })
 require("gruvbox").setup({ priority = 1000 })
@@ -83,7 +84,7 @@ vim.cmd("lsp enable bash-language-server")
 --vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme gruvbox") --theme:gruvbox
 --vim.cmd("colorscheme candle-grey-transparent") --theme:mono
-vim.cmd("colorscheme neopywal-dark") --theme:purple 
+vim.cmd("colorscheme shades_of_purple") --theme:purple 
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>")
 vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")
@@ -92,6 +93,8 @@ vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
 vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
 vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
 vim.keymap.set("n", ":", "<Cmd>FineCmdline<CR>", { noremap = true })
+vim.keymap.set("n", "/", "<Cmd>SearchBoxMatchAll title=Match<CR>")
+vim.keymap.set("n", "<S-R>", "<Cmd>SearchBoxReplace title='Replace Patern' confirm=menu<CR>")
 
 vim.diagnostic.config({
 	virtual_text = true,
