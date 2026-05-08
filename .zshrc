@@ -84,6 +84,7 @@ alias code="codium"
 
 alias ga="git add ."
 alias gc="git commit -m"
+alias gs="git status"
 alias gp="git push"
 
 alias ls="lsd"

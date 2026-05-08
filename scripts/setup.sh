@@ -2,12 +2,12 @@
 
 menu() {
     clear
-    echo "++================================++"
-    echo "|| 1) clean (navegador e spotify) ||"
-    echo "|| 2) games                       ||"
-    echo "|| 3) dev                         ||"
-    echo "|| 0) sair                        ||"
-    echo "++================================++"
+    echo "++===========++"
+    echo "|| 1) clean  ||"
+    echo "|| 2) games  ||"
+    echo "|| 3) dev    ||"
+    echo "|| 0) exit   ||"
+    echo "++===========++"
     read -p " " choice
 
     case $choice in
@@ -15,7 +15,7 @@ menu() {
         2) games                                                    ;;
         3) dev                                                      ;;
         0) 
-			echo "Seu sitema sera reiniciado em 5 segundos\n"
+			echo "Your system will reboot in 5 seconds...\n"
 			for i in $(seq 5 -1 1); do
 				printf "$i"
 				sleep 0.3
@@ -30,7 +30,7 @@ menu() {
 			shutdown -r now 
 		;;
         *) 
-			echo "Opção inválida. Tente novamente."
+			echo "Invalid option."
 			sleep 1
 			menu 
 		;;
@@ -39,20 +39,20 @@ menu() {
 
 clean() {
     clear
-    echo "+-------------------------+"
-    echo "| instalando config clean |"
-    echo "+-------------------------+"
+    echo "+------------------------+"
+    echo "| instaling clean config |"
+    echo "+------------------------+"
 
     yay -S spotify spicetify-cli
 
     echo ""
-    echo "qual navegador deseja instalar?"
+    echo "which web browser do you want?"
     echo "1 - zen"
     echo "2 - chrome"
     echo "3 - firefox"
     echo "4 - helium"
-    echo "5 - todos"
-    echo "0 - nenhum"
+    echo "5 - all"
+    echo "0 - none"
     read -p " " choice
 
     case $choice in 
@@ -67,7 +67,7 @@ clean() {
 				   firefox
         ;;
         0) " "                           ;;
-        *) "opcao invalida"              ;;
+        *) "invalid option"              ;;
     esac
 
 
@@ -76,53 +76,45 @@ clean() {
 
 games() {
     clear
-    echo "+----------------------------+"
-    echo "| instalando config p/ games |"
-    echo "+----------------------------+"
+    echo "+-------------------------+"
+    echo "| instaling gaming config |"
+    echo "+-------------------------+"
 
     yay -S hydra-launcher-bin faugus-launcher heoric-games-launcher-bin steam retroarch discord element-desktop
-
-    echo "+---------------------------------------+"
-    echo "| config p/ games instalada com sucesso |"
-    echo "+---------------------------------------+"
 
     ask_to_continue
 }
 
 dev() {
     clear
-    echo "+--------------------------+"
-    echo "| instalando config p/ dev |"
-    echo "+--------------------------+"
+    echo "+----------------------------+"
+    echo "| instaling developer config |"
+    echo "+----------------------------+"
 
     yay -S neovim obsidian bitwarden vscodium virtualbox
 
 	sudo modprobe vboxdrv
 	sudo usermod -aG vboxusers $USER
 
-    read -p "Deseja instalar o java? (s/N)" java
+    read -p "Do you want to install java? (y/N)" java
 
     case $java in
-        [Ss]*)
+        [Yy]*)
             yay -S jdk-openjdk
         ;;
         *) "" ;;
     esac
-
-    echo "+-------------------------------------+"
-    echo "| config p/ dev instalada com sucesso |"
-    echo "+-------------------------------------+"
 
     ask_to_continue
 }
 
 ask_to_continue() {
     echo ""
-    read -p "Deseja realizar outra operação? (s/N) " resp
+	read -p "Do you want to install another config? (y/N)" choice
     
-    case $resp in
-        [Ss]*) menu                             ;;
-        *) echo "instalaçao concluida" ; exit 0 ;;
+    case $choice in
+        [Yy]*) menu                              ;;
+        *) echo "instalation completed" ; exit 0 ;;
     esac
 }
 

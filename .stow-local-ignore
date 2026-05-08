@@ -1,0 +1,11 @@
+\.git
+node_modules
+^/README.*
+^/LICENSE.*
+
+kitty
+ly
+scripts
+wallpapers
+zen-browser
+

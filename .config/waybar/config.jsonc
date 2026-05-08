@@ -15,7 +15,6 @@
     "orientation": "horizontal",
 	"modules": [
 		"hyprland/workspaces",
-		"custom/sep",
 		"cpu",
 		"custom/sep",
 		"memory",
