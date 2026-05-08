@@ -147,7 +147,7 @@
 /*-----NETWORK-----*/
 /*-----------------*/
 
-#network, #pulseaudio, #battery, #bluetooth {
+#network, #pulseaudio, #battery, #bluetooth, #cpu, #memory, #temperature, #custom-weather {
   color: @network_idle;
   padding: 2px;
   transition: all 0.3s ease;

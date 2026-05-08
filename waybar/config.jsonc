@@ -14,7 +14,15 @@
   "group/group-left": {
     "orientation": "horizontal",
 	"modules": [
-		"hyprland/workspaces"
+		"hyprland/workspaces",
+		"custom/sep",
+		"cpu",
+		"custom/sep",
+		"memory",
+		"custom/sep",
+		"temperature",
+		"custom/sep",
+		"custom/weather"
 	]
   },
   "group/group-center": {
@@ -75,6 +83,22 @@
 	"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
 	"on-click": "kitty gazelle"
   },
+  "cpu": {
+	  "format": "{usage}% ",
+	  "interval": 1,
+	  "on-click": "kitty btop"
+  },
+  "memory": {
+	  "format": "{percentage}% ",
+	  "interval": 10,
+	  "tooltip": true,
+	  "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
+	  "on-click": "kitty btop"
+  },
+  "temperature": {
+	  "critical-threshold": 80,
+	  "format": ""
+  },
   "bluetooth": {
 	"format-disconnected": ">ᛒ",
 	"format-connected": "{device_alias}",
@@ -101,5 +125,12 @@
 		"good": 95,
 		"warning": 30
 	}
+  },
+  "custom/weather": {
+	  "format": "{text}",
+	  "interval": 3600,
+	  "return-type": "json",
+	  "exec": "wayweather --get",
+	  "tooltip": true
   }
 }

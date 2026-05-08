@@ -37,7 +37,6 @@ vim.pack.add {
 	"https://github.com/nvim-tree/nvim-tree.lua",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/aditya-azad/candle-grey.git",
-	"https://github.com/Rigellute/shades-of-purple.vim",
 	"https://github.com/VonHeikemen/searchbox.nvim",
 }
 
@@ -81,7 +80,7 @@ vim.cmd("lsp enable bash-language-server")
 --vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
 --vim.cmd("colorscheme candle-grey-transparent") --theme:mono
-vim.cmd("colorscheme shades_of_purple") --theme:purple 
+vim.cmd("colorscheme shades-of-purple") --theme:purple 
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>")
 vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")

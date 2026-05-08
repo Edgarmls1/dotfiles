@@ -78,7 +78,7 @@ PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST${PROJECT} > %f'
 
 export EDITOR="nvim"
 
-export PATH=$PATH:/home/edgar/.spicetify
+export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
 
 alias code="codium"
 
@@ -98,6 +98,8 @@ alias python="~/pyenv/bin/python"
 
 alias hyprc="nvim ~/.config/hypr/hyprland.conf"
 
+alias weather="curl wttr.in"
+
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/dev/notes/"
 alias update-notes="cd ~/dev/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
@@ -110,5 +112,6 @@ alias -g waybarc="~/.config/waybar/"
 alias -g scripts="~/dotfiles/scripts/"
 
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 emulate bash -c "source ~/pyenv/bin/activate"

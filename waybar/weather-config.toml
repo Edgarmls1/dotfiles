@@ -1,0 +1,12 @@
+# WayWeather config
+# ip_loc enables/disables autolocation through ip address
+# latitide, longitude, city and country must be set when ip_loc is false
+# units can be either "imp" or "met" (imperial and metric)
+
+[wayweather]
+ip_loc = true
+latitude = -1.4529046007339377 
+longitude = -48.47248161663458
+city = "Belem"
+country = "Brasil"
+units = "met"
