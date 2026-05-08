@@ -1,5 +1,5 @@
 dark reader
 ublock origin
-vimiun
+vimiun -> dotfiles/zen-browser/vimiun.txt
 youtube no translation
 yt tweaks -> dotfiles/zen-browser/yt-tweaks.json

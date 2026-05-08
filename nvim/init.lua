@@ -18,7 +18,6 @@ vim.pack.add {
 	"https://github.com/goolord/alpha-nvim",
 	"https://github.com/echasnovski/mini.icons",
 	"https://github.com/windwp/nvim-autopairs",
-	"https://github.com/ellisonleao/gruvbox.nvim",
 	"https://github.com/catppuccin/nvim",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
@@ -47,7 +46,6 @@ require("render-markdown").enable()
 require("lualine").setup()
 require("nvim-tree").setup()
 require("smear_cursor").setup({ opts = {} })
-require("gruvbox").setup({ priority = 1000 })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
 require("alpha").setup(require("alpha.themes.theta").config)
 require("nvim-highlight-colors").setup({ render = "virtual" })
@@ -82,7 +80,6 @@ vim.cmd("lsp enable bash-language-server")
 
 --vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
---vim.cmd("colorscheme gruvbox") --theme:gruvbox
 --vim.cmd("colorscheme candle-grey-transparent") --theme:mono
 vim.cmd("colorscheme shades_of_purple") --theme:purple 
 

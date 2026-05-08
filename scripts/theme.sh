@@ -1,22 +1,19 @@
 #! /bin/bash
 
-# config files
 ANYRUN=$HOME/.config/anyrun/style.css
 DUNST=$HOME/.config/dunst/dunstrc
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 NVIM=$HOME/.config/nvim/init.lua
 WAYBAR=$HOME/.config/waybar/style.css
 
-# available themes
-THEMES=("lain", "gruvbox", "cats", "mono", "purple")
+THEMES=("lain" "cats" "mono" "purple")
 THEME_FILE=$HOME/.cache/current_theme
 
-# functions
 get_current_theme() {
 	if [ -f "$THEME_FILE" ]; then
 		cat "$THEME_FILE"
 	else
-		echo "mono"
+		echo "purple"
 	fi
 }
 
@@ -72,21 +69,6 @@ apply_lain() {
 	pkill waybar && waybar &
 }
 
-apply_gruvbox() {
-	apply_theme_block "$ANYRUN" "theme" "gruvbox" "slash"
-	apply_theme_block "$DUNST" "theme" "gruvbox" "hash"
-	apply_theme_block "$HYPRPAPER" "theme" "gruvbox" "hash"
-	apply_theme_block "$WAYBAR" "theme" "gruvbox" "slash"
-	apply_theme_block "$NVIM" "theme" "gruvbox" "dash"
-
-	rm ~/.config/kitty/kitty.conf
-	ln -sf ~/dotfiles/kitty/kitty-gruvbox.conf ~/.config/kitty/kitty.conf
-
-	pkill dunst && dunst &
-	pkill hyprpaper && hyprpaper &
-	pkill waybar && waybar &
-}
-
 apply_cats() {
 	apply_theme_block "$ANYRUN" "theme" "cats" "slash"
 	apply_theme_block "$DUNST" "theme" "cats" "hash"
@@ -135,23 +117,19 @@ apply_purple() {
 toggle_theme() {
 	local current=$(get_current_theme)
 
-	if [ "$current" = "lain" ]; then
-		apply_gruvbox
-		set_theme "gruvbox"
-	elif [ "$current" = "cats" ]; then
-		apply_lain
-		set_theme "lain"
-	elif [ "$current" = "gruvbox" ]; then
-		apply_mono
-		set_theme "mono"
-	elif [ "$current" = "mono" ]; then
-		apply_purple
-		set_theme "purple"
-	else
+	if [ "$current" = "${THEMES[1]}" ]; then
 		apply_cats
-		set_theme "cats"
+		set_theme "${THEMES[2]}"
+	elif [ "$current" = "${THEMES[2]}" ]; then
+		apply_mono
+		set_theme "${THEMES[3]}"
+	elif [ "$current" = "${THEMES[3]}" ]; then
+		apply_purple
+		set_theme "${THEMES[4]}"
+	else
+		apply_lain
+		set_theme "${THEMES[1]}"
 	fi
 }
 
-# execution
 toggle_theme
