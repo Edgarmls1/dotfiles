@@ -34,7 +34,6 @@ autoload -U colors && colors
 setopt PROMPT_SUBST
 
 PROMPT_COLOR="green"
-PORJECT=" "
 
 precmd() {
     if [[ $? -eq 0 ]]; then
@@ -42,39 +41,9 @@ precmd() {
     else
         PROMPT_COLOR="red"
     fi
-
-	project
 }
 
-project() {
-    PROJECT=""
-
-    if [[ -d ".git" ]]; then
-        PROJECT+=" "
-    fi
-    
-    if ls -A | grep -iq "docker"; then
-        PROJECT+=" 󰡨"
-    fi
-    
-    if [[ "${(L)PWD}" == *"py"* ]] || ls -A | grep -q '\.py$'; then
-        PROJECT+=" 󰌠"
-    fi    
-    
-    if [[ "${(L)PWD}" == *"java"* ]] || ls -A | grep -q '\.java$'; then
-        PROJECT+=" "
-    fi
-
-    if [[ "${(L)PWD}" == *"go"* ]] || ls -A | grep -q '\.go$'; then
-        PROJECT+=" "
-    fi
-
-    if [[ "${(L)PWD}" == *"rust"* ]] || ls -A | grep -q '\.rs$'; then
-        PROJECT+=" "
-    fi
-}
-
-PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST${PROJECT} > %f'
+PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
 
 export EDITOR="nvim"
 
@@ -83,8 +52,8 @@ export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
 alias code="codium"
 
 alias ga="git add ."
-alias gc="git commit -m"
 alias gs="git status"
+alias gc="git commit -m"
 alias gp="git push"
 
 alias ls="lsd"
@@ -97,7 +66,7 @@ alias update="~/dotfiles/scripts/update.sh"
 
 alias python="~/pyenv/bin/python"
 
-alias hyprc="nvim ~/.config/hypr/hyprland.conf"
+alias hyprc="nvim ~/.config/hypr/hyprland.lua"
 
 alias weather="curl wttr.in"
 

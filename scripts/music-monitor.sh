@@ -42,17 +42,17 @@ function monitor_loop {
 }
 
 case $1 in
-	next_track)
+	next)
 		playerctl -p spotify next
 		sleep 0.5 && show_music_notif
 	;;
 
-	prev_track)
+	prev)
 		playerctl -p spotify previous
 		sleep 0.5 && show_music_notif
 	;;
 
-    play_pause)
+    play)
 	    playerctl -p spotify play-pause
     	show_music_notif
     ;;

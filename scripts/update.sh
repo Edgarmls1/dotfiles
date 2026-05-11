@@ -2,47 +2,10 @@
 
 rm /var/lib/pacman/db.lck 2> /dev/null # gambiarra
 #
-# sys_update.sh - faz update do sistema
+# update.sh - faz update do sistema
 # 
 # Autor: edgar
 #---------------------------------------#
-# script para atualizar o sistema e pacotes de distribuiçoes linux baseadas em Arch
-# 
-# exemplo de uso:
-#   ./sys_update.sh -q
-#     neste exemplo ficará em modo silecioso
-#---------------------------------------#
-# Historico: 
-#
-# v1.0 11/11/2024, edgar:
-#   - criaçao do script
-#
-# v1.1 04/03/2025, edgar:
-#   - adiçao de update para pacotes em flatpak
-#
-# v2.0 05/03/2025, edgar:
-#   - refatoraçao completa do codigo: add de cabeçalho, funçoes, ajuda, verificaçao de comandos, etc
-#   - implementaçao de modo silencioso e listagem de pacotes atualizados
-# v2.1 12/11/2025, edgar:
-#   - adiçao de spinner animado no modo silencioso
-#
-# v3.0 27/04/2026, edgar:
-#-------variaveis-------#
-
-MENSAGEM_USO="
-
-    $(basename $0) - [OPÇOES]
-    
-    -h - ajuda
-    -v - versao
-    -q - modo silencioso
-    
-"
-VERSAO="v3.0"
-DEFAULT=0
-SILENCIOSO=0
-
-#----------------------#
 
 #-------testes-------#
 

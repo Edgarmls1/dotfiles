@@ -1,21 +1,13 @@
 #! /bin/bash
 
-menu() {
-    clear
-    echo "++===========++"
-    echo "|| 1) clean  ||"
-    echo "|| 2) games  ||"
-    echo "|| 3) dev    ||"
-    echo "|| 0) exit   ||"
-    echo "++===========++"
-    read -p " " choice
-
-    case $choice in
-        1) clean                                                    ;;
-        2) games                                                    ;;
-        3) dev                                                      ;;
-        0) 
-			echo "Your system will reboot in 5 seconds...\n"
+reboot() {
+	clear
+	read -p "Do you want to reboot your system? [y/N] " reboot
+	
+	
+	case $reboot in
+		[Yy]*)
+			echo "Your system will reboot in 5 seconds..."
 			for i in $(seq 5 -1 1); do
 				printf "$i"
 				sleep 0.3
@@ -28,7 +20,25 @@ menu() {
 			done
 			printf "\n"
 			shutdown -r now 
-		;;
+			;;
+	esac
+}
+
+menu() {
+    clear
+    echo "++===========++"
+    echo "|| 1) clean  ||"
+    echo "|| 2) games  ||"
+    echo "|| 3) dev    ||"
+    echo "|| 0) exit   ||"
+    echo "++===========++"
+    read -p " " choice
+
+    case $choice in
+        1) clean  ;;
+        2) games  ;;
+        3) dev    ;;
+        0) reboot ;;
         *) 
 			echo "Invalid option."
 			sleep 1
@@ -43,34 +53,46 @@ clean() {
     echo "| instaling clean config |"
     echo "+------------------------+"
 
-    yay -S spotify spicetify-cli
+	echo ""
+    echo "+------------------------------------------+"
+	echo "| This option will install in your system: |"
+	echo "| a web browser                            |"
+	echo "| spotify                                  |"
+	echo "| spicetify (spotify customization)        |"
+    echo "+------------------------------------------+"
+	echo ""
+	read -p "Do you want to continue? [y/N] " agree
 
-    echo ""
-    echo "which web browser do you want?"
-    echo "1 - zen"
-    echo "2 - chrome"
-    echo "3 - firefox"
-    echo "4 - helium"
-    echo "5 - all"
-    echo "0 - none"
-    read -p " " choice
+	
+	case $agree in
+		[Yy]*)
+			echo ""
+			echo "which web browser do you want?"
+			echo "1 - zen"
+			echo "2 - chrome"
+			echo "3 - firefox"
+			echo "4 - all"
+			echo "0 - none"
+			read -p " " choice
 
-    case $choice in 
-        1) yay -S zen-browser-bin        ;;
-        2) yay -S google-chrome          ;;
-        3) yay -S firefox                ;;
-        4) yay -S helium-browser-bin     ;;
-        5) 
-            yay -S google-chrome \
-			       helium-browser-bin \
-				   zen-browser-bin \
-				   firefox
-        ;;
-        0) " "                           ;;
-        *) "invalid option"              ;;
-    esac
+			install_pkgs "spotify"
+			case $choice in 
+				1) install_pkgs zen-browser-bin ;;
+				2) install_pkgs google-chrome   ;;
+				3) install_pkgs firefox         ;;
+				4) 
+					install_pkgs zen-browser-bin \
+					   	google-chrome \
+					   	firefox
+					;;
+				0) " "                           ;;
+				*) "invalid option"              ;;
+			esac
+			sudo chmod a+wr /opt/spotify
+			sudo chmod a+wr /opt/spotify/Apps -R
 
-
+			curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+	esac
     ask_to_continue
 }
 
@@ -80,7 +102,28 @@ games() {
     echo "| instaling gaming config |"
     echo "+-------------------------+"
 
-    yay -S hydra-launcher-bin faugus-launcher heoric-games-launcher-bin steam retroarch discord element-desktop
+	echo ""
+    echo "+------------------------------------------+"
+	echo "| This option will install in your system: |"
+	echo "| - steam                                  |"
+	echo "| - retroarch                              |"
+	echo "| - discord                                |"
+	echo "| - heroic (epic client)                   |"
+	echo "| - faugus                                 |"
+	echo "| - trinity launcher (minecraft)           |"
+    echo "+------------------------------------------+"
+	echo ""
+	read -p "Do you want to continue? [y/N] " agree
+
+	
+	case $agree in
+		[Yy]*)
+			echo ""
+			yay -S faugus-launcher heoric-games-launcher-bin steam retroarch discord
+			flatpak remote-delete trinity
+			flatpak remote-add trinity https://github.com/Trinity-LA/Trinity-Launcher/releases/download/flatpak/com.trench.trinity.launcher.flatpakrepo
+			flatpak install com.trench.trinity.launcher
+	esac
 
     ask_to_continue
 }
@@ -91,19 +134,36 @@ dev() {
     echo "| instaling developer config |"
     echo "+----------------------------+"
 
-    yay -S neovim obsidian bitwarden vscodium virtualbox
+	echo ""
+    echo "+------------------------------------------+"
+	echo "| This option will install in your system: |"
+	echo "| - neovim                                 |"
+	echo "| - obsidian                               |"
+	echo "| - bitwarden                              |"
+	echo "| - vscodium                               |"
+	echo "| - virtualbox                             |"
+	echo "| - java                                   |"
+    echo "+------------------------------------------+"
+	echo ""
+	read -p "Do you want to continue? [y/N] " agree
 
-	sudo modprobe vboxdrv
-	sudo usermod -aG vboxusers $USER
+	case $agree in
+		[Yy]*)
+			echo ""
+			yay -S --noconfirm neovim obsidian bitwarden vscodium virtualbox
 
-    read -p "Do you want to install java? (y/N)" java
+			sudo modprobe vboxdrv
+			sudo usermod -aG vboxusers $USER
 
-    case $java in
-        [Yy]*)
-            yay -S jdk-openjdk
-        ;;
-        *) "" ;;
-    esac
+			read -p "Do you want to install java? (y/N)" java
+
+			case $java in
+				[Yy]*)
+					yay -S --noconfirm jdk-openjdk
+					;;
+				*) "" ;;
+			esac
+	esac
 
     ask_to_continue
 }

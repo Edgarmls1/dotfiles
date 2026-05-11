@@ -1,6 +1,10 @@
 /* cosmetic and focus tweaks for yt */
 /* credit to various userstyles makers for some pieces of this */
 
+* {
+    border-radius: 0px !important;
+}
+
 /* grid view */
 #items.ytd-grid-renderer>ytd-grid-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
   display: none;

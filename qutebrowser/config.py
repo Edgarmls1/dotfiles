@@ -25,8 +25,8 @@ c.colors.tabs.selected.even.bg = "#d0d0d0"
 c.colors.tabs.selected.odd.bg = "#d0d0d0"
 c.colors.tabs.selected.even.fg = "#121212"
 c.colors.tabs.selected.odd.fg = "#121212"
-c.colors.hints.bg = "#121212"
-c.colors.hints.fg = "#d0d0d0"
+c.colors.hints.bg = "#ffffff"
+c.colors.hints.fg = "#000000"
 c.tabs.show = "multiple"
 
 c.colors.completion.item.selected.match.fg = "#5f8787"
@@ -81,6 +81,7 @@ c.auto_save.session = True # save tabs on quit/restart
 
 # keybinding changes
 config.bind('=', 'cmd-set-text -s :open')
+config.bind('n', 'cmd-set-text -s :open -t')
 config.bind('h', 'history')
 config.bind('cc', 'hint images spawn sh -c "cliphist link {hint-url}"')
 config.bind('cs', 'cmd-set-text -s :config-source')

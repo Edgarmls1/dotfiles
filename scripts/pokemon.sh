@@ -55,6 +55,8 @@ POKEMON_LIST=(
   lucario                    #448 *
   gallade                    #475
   dusknoir                   #477
+  rotom                      #479
+  "rotom -s"
   uxie						 #480
   mesprit                    #481
   azelf                      #482

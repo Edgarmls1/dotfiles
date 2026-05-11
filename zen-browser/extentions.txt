@@ -1,4 +1,5 @@
 dark reader
+Live editor for CSS -> * { border-radius: 0px !important; }
 ublock origin
 vimiun -> dotfiles/zen-browser/vimiun.txt
 youtube no translation
