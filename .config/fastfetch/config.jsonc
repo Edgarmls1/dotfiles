@@ -20,8 +20,8 @@
 	"separator",
 	{
 		"type": "os",
-	   	"key": "{icon} BTW      ",
-		"format": "{pretty-name}"	
+	   	"key": "{icon} OS       ",
+		"format": "{pretty-name} (BTW)"	
 	},
 	{
 		"type": "kernel",

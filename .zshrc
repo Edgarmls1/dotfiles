@@ -71,8 +71,13 @@ alias hyprc="nvim ~/.config/hypr/hyprland.lua"
 alias weather="curl wttr.in"
 
 alias faci="cd ~/dev/faci/"
-alias notes="nvim ~/dev/notes/"
-alias update-notes="cd ~/dev/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
+alias notes="nvim ~/notes/"
+
+alias update-notes="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
+alias update-dev="cd ~/dev/ ; git add . ; git commit -m 'projects update' ; git push ; cd -"
+alias pull-notes="cd ~/notes/ ; git pull"
+alias pull-dots="cd ~/dotfiles/ ; git pull"
+alias pull-dev="cd ~/dev/ ; git pull"
 
 alias -g fastfetchc="~/.config/fastfetch/"
 alias -g nvimc="~/.config/nvim/"

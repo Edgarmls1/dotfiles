@@ -1,0 +1,8 @@
+code runner
+java pack
+jupyter pack
+material icon theme
+prettier
+python pack
+rainbow csv
+shades of purple

@@ -1,0 +1,9 @@
+{
+  "editor.fontFamily": "Hack Nerd Font",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.commandCenter": false,
+  "workbench.browser.showInTitleBar": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.colorTheme": "Shades of Purple (Super Dark)"
+}

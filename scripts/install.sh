@@ -58,11 +58,11 @@ enable_ly() {
 
 themes() {
 	echo "Instaling Orchis theme..."
-	cd ~ || exit
+	cd
 	git clone https://github.com/vinceliuice/Orchis-theme.git
-	cd Orchis-theme || exit
+	cd Orchis-theme
 	./install.sh
-	cd ~ || exit
+	cd ..
 	rm -rf Orchis-theme
 
 	papirus-folders -C black --theme Papirus-Dark 2> /dev/null
@@ -83,20 +83,23 @@ install () {
 	echo "=== Instaling ==="
 	echo ""
 
-    local pkg_list="7zip anyrun bash-language-server bat bluetui btop cava dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsome-git hyprsunset jdtls kitty lsd mpv mpvpaper nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt6ct qutebrowser rust-analyzer stow ttf-hack-nerd unzip xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wayweather wget wleave zathura zathura-pdf-mupdf zsh"
+    local pkg_list="7zip anyrun bash-language-server bat bluetui btop cava dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsunset jdtls kitty lsd mpv mpvpaper nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt6ct qutebrowser rust-analyzer stow ttf-hack-nerd unzip xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wayweather wget wleave zathura zathura-pdf-mupdf zoxide zsh"
 
+	aur
 	yay -S --noconfirm $pkg_list
 	enable_ly
 	themes
 	dark_mode
 
     mkdir -p ~/.config/kitty
-    ln -sf kitty/kitty-purple.conf ~/.config/kitty/kitty.conf
+    ln -sf $DOTFILES_DIR/kitty/kitty-purple.conf ~/.config/kitty/kitty.conf
 
-    mkdir -p ~/.config/qutebrowser ~/.config/qutebrowser/yt-style/
-    ln -sf qutebrowser/config.py ~/.config/qutebrowser/config.py
-    ln -sf qutebrowser/yt-style/youtube-tweaks.css ~/.config/qutebrowser/yt-style/youtube-tweaks.css
+    mkdir -p ~/.config/qutebrowser/yt-style/
+    ln -sf $DOTFILES_DIR/qutebrowser/config.py ~/.config/qutebrowser/config.py
+    ln -sf $DOTFILES_DIR/qutebrowser/yt-style/youtube-tweaks.css ~/.config/qutebrowser/yt-style/youtube-tweaks.css
 
+	hyprpm add https://github.com/zjeffer/split-monitor-workspaces
+	hyprpm enable split-monitor-workspaces
 
 	if [ "$(echo $SHELL)" == "/bin/bash" ]; then
     	chsh -s /bin/zsh
@@ -144,7 +147,7 @@ fi
 
 read -p "Do you want to add swap? [y/N] " choice
 
-case $reboot in
+case $choice in
 	[Yy]*)
 		sudo fallocate -l 16G /swapfile -v
 		sudo chmod 600 /swapfile

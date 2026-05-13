@@ -56,8 +56,6 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hyprpm reload -n")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
-	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/organize-monitors.sh")
---  hl.exec_cmd("mpvpaper ALL -o "no-audio loop" /home/edgar/dotfiles/wallpapers/pokemon-emerald.mp4")	
 	
     hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Dark'")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
@@ -215,59 +213,60 @@ smw.max_workspaces({ monitor = "DP-1",     max = 10 })
 --- KEYBINDINGS ---
 -------------------
 
-local SUPER = "SUPER"
+local super = "SUPER"
 
 local exec = hl.dsp.exec_cmd
 
-hl.bind(SUPER .. " + Q",         exec(terminal))
-hl.bind(SUPER .. " + E",         exec(tuiFileMgr))
-hl.bind(SUPER .. " + SHIFT + E", exec(guiFileMgr))
-hl.bind(SUPER .. " + SPACE",     exec(menu))
-hl.bind(SUPER .. " + B",         exec(browser))
-hl.bind(SUPER .. " + SHIFT + B", exec(nerdBrowser))
-hl.bind(SUPER .. " + S",         exec(music))
+hl.bind(super .. " + Q",         exec(terminal))
+hl.bind(super .. " + E",         exec(tuiFileMgr))
+hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
+hl.bind(super .. " + SPACE",     exec(menu))
+hl.bind(super .. " + B",         exec(browser))
+hl.bind(super .. " + SHIFT + B", exec(nerdBrowser))
+hl.bind(super .. " + S",         exec(music))
 
 hl.bind("CTRL + right", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
 hl.bind("CTRL + left",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
 
-hl.bind(SUPER .. " + M", exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
-hl.bind(SUPER .. " + T", exec(os.getenv("HOME") .. "/dotfiles/scripts/theme.sh"))
+hl.bind(super .. " + M", exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
+hl.bind(super .. " + T", exec(os.getenv("HOME") .. "/dotfiles/scripts/theme.sh"))
 
-hl.bind(SUPER .. " + Escape", exec("killall waybar || waybar"))
-hl.bind(SUPER .. " + W",   exec("wleave"))
-hl.bind(SUPER .. " + L",   exec("hyprlock"))
+hl.bind(super .. " + Escape", exec("killall waybar || waybar"))
+hl.bind(super .. " + W",   exec("wleave"))
+hl.bind(super .. " + L",   exec("hyprlock"))
 
 hl.bind("Print",         exec("hyprshot -m region -m active -o ~/Pictures/"))
 hl.bind("SHIFT + Print", exec("hyprshot -m region -m output -o ~/Pictures/"))
 
-local closeWindowBind = hl.bind(SUPER .. " + C",         hl.dsp.window.close())
-hl.bind(SUPER .. " + V",         hl.dsp.window.float({ action = "toggle" }))
-hl.bind(SUPER .. " + F",         hl.dsp.window.fullscreen({ mode = "maximized" }))
-hl.bind(SUPER .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+local closeWindowBind = hl.bind(super .. " + C",         hl.dsp.window.close())
+hl.bind(super .. " + V",         hl.dsp.window.float({ action = "toggle" }))
+hl.bind(super .. " + F",         hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(super .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+hl.bind(super .. " + SHIFT + S", hl.dsp.layout("togglesplit"))
 
-hl.bind(SUPER .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(SUPER .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(SUPER .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(SUPER .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(super .. " + left",  hl.dsp.focus({ direction = "left" }))
+hl.bind(super .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(super .. " + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind(super .. " + down",  hl.dsp.focus({ direction = "down" }))
 
-hl.bind(SUPER .. " + SHIFT + left", function() hl.dispatch(hl.dsp.window.resize({ x = -10, y = 0, relative = true })) end)
-hl.bind(SUPER .. " + SHIFT + right", function() hl.dispatch(hl.dsp.window.resize({ x = 10, y = 0, relative = true })) end)
-hl.bind(SUPER .. " + SHIFT + up", function() hl.dispatch(hl.dsp.window.resize({ x = -0, y = -10, relative = true })) end)
-hl.bind(SUPER .. " + SHIFT + down", function() hl.dispatch(hl.dsp.window.resize({ x = -0, y = 10, relative = true })) end)
+hl.bind(super .. " + SHIFT + left", function() hl.dispatch(hl.dsp.window.resize({ x = -10, y = 0, relative = true })) end)
+hl.bind(super .. " + SHIFT + right", function() hl.dispatch(hl.dsp.window.resize({ x = 10, y = 0, relative = true })) end)
+hl.bind(super .. " + SHIFT + up", function() hl.dispatch(hl.dsp.window.resize({ x = -0, y = -10, relative = true })) end)
+hl.bind(super .. " + SHIFT + down", function() hl.dispatch(hl.dsp.window.resize({ x = -0, y = 10, relative = true })) end)
 
-hl.bind(SUPER .. " + CTRL + left",  hl.dsp.window.swap({ direction = "left" }))
-hl.bind(SUPER .. " + CTRL + right", hl.dsp.window.swap({ direction = "right" }))
-hl.bind(SUPER .. " + CTRL + up",    hl.dsp.window.swap({ direction = "up" }))
-hl.bind(SUPER .. " + CTRL + down",  hl.dsp.window.swap({ direction = "down" }))
+hl.bind(super .. " + CTRL + left",  hl.dsp.window.swap({ direction = "left" }))
+hl.bind(super .. " + CTRL + right", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(super .. " + CTRL + up",    hl.dsp.window.swap({ direction = "up" }))
+hl.bind(super .. " + CTRL + down",  hl.dsp.window.swap({ direction = "down" }))
 
 for i = 1, 9 do
     local key = tostring(i)
-    hl.bind(SUPER .. " + " .. key, function() return smw.workspace(i) end)
-    hl.bind(SUPER .. " + SHIFT + " .. key, function() return smw.move_to_workspace(i) end)
+    hl.bind(super .. " + " .. key, function() return smw.workspace(i) end)
+    hl.bind(super .. " + SHIFT + " .. key, function() return smw.move_to_workspace(i) end)
 end
 
-hl.bind(SUPER .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-hl.bind(SUPER .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(super .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(super .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 hl.bind("XF86AudioRaiseVolume", exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && notify-send \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true, repeating = true })
@@ -291,12 +290,12 @@ hl.bind("XF86AudioPrev",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-mon
 -- hl.window_rule({
 --     name  = "no-gaps-wtv1",
 --     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
+--     border_size = 1,
 --     rounding    = 0,
 -- })
 -- hl.window_rule({
 --     name  = "no-gaps-f1",
 --     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
+--     border_size = 1,
 --     rounding    = 0,
 -- })
