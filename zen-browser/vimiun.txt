@@ -11,12 +11,6 @@ map u restoreTab
 map <s-down> nextTab
 map <s-up> previousTab
 
-# Search engines
-yt: https://www.youtube.com/results?search_query=%s Youtube
-ggl: https://www.google.com/search?q=%s Google
-gh:  https://github.com/search?q=%s&type=repositories Github
-aw:  https://wiki.archlinux.org/index.php?search=%s ArchWiki
-
 # CSS
 div > .vimiumHintMarker {
 /* linkhint boxes */

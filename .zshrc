@@ -43,6 +43,10 @@ precmd() {
     fi
 }
 
+f() {
+	nvim "$(fzf --style full --preview "bat --color=always {}")"
+}
+
 PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
 
 export EDITOR="nvim"
