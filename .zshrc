@@ -34,6 +34,17 @@ autoload -U colors && colors
 setopt PROMPT_SUBST
 
 PROMPT_COLOR="green"
+THEME="$(cat ~/.cache/current_theme)"
+
+pywall() {
+	if [[ "$THEME" == "lain" ]]; then
+		wal -i ~/dotfiles/wallpapers/lain.jpg &>/dev/null
+	elif [[ "$THEME" == "mono" ]]; then
+		wal -i ~/dotfiles/wallpapers/ascii-wave.png &>/dev/null
+	fi
+}
+
+pywall
 
 precmd() {
     if [[ $? -eq 0 ]]; then
@@ -52,13 +63,6 @@ PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
 export EDITOR="nvim"
 
 export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
-
-alias code="codium"
-
-alias ga="git add ."
-alias gs="git status"
-alias gc="git commit -m"
-alias gp="git push"
 
 alias ls="lsd"
 alias ..="cd .."

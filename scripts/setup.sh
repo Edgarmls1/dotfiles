@@ -150,7 +150,7 @@ dev() {
 	case $agree in
 		[Yy]*)
 			echo ""
-			yay -S --noconfirm neovim obsidian bitwarden vscodium virtualbox
+			yay -S --noconfirm neovim bitwarden vscodium virtualbox
 
 			sudo modprobe vboxdrv
 			sudo usermod -aG vboxusers $USER

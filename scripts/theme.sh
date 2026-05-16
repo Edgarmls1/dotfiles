@@ -117,18 +117,18 @@ apply_purple() {
 toggle_theme() {
 	local current=$(get_current_theme)
 
-	if [ "$current" = "${THEMES[1]}" ]; then
+	if [ "$current" = "lain" ]; then
 		apply_cats
-		set_theme "${THEMES[2]}"
-	elif [ "$current" = "${THEMES[2]}" ]; then
+		set_theme "cats"
+	elif [ "$current" = "cats" ]; then
 		apply_mono
-		set_theme "${THEMES[3]}"
-	elif [ "$current" = "${THEMES[3]}" ]; then
+		set_theme "mono"
+	elif [ "$current" = "mono" ]; then
 		apply_purple
-		set_theme "${THEMES[4]}"
+		set_theme "purple"
 	else
 		apply_lain
-		set_theme "${THEMES[1]}"
+		set_theme "lain"
 	fi
 }
 
