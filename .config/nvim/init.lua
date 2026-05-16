@@ -38,12 +38,15 @@ vim.pack.add {
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/aditya-azad/candle-grey.git",
 	"https://github.com/VonHeikemen/searchbox.nvim",
+	"https://github.com/nvim-telescope/telescope.nvim",
+	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 }
 
 require("searchbox")
 require("render-markdown").enable()
 require("lualine").setup()
 require("nvim-tree").setup()
+require("telescope").setup()
 require("smear_cursor").setup({ opts = {} })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
 require("alpha").setup(require("alpha.themes.theta").config)
@@ -79,18 +82,19 @@ vim.cmd("lsp enable bash-language-server")
 
 --vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
---vim.cmd("colorscheme candle-grey-transparent") --theme:mono
-vim.cmd("colorscheme shades-of-purple") --theme:purple 
+vim.cmd("colorscheme candle-grey-transparent") --theme:mono
+--vim.cmd("colorscheme shades-of-purple") --theme:purple 
 
-vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>")
+vim.keymap.set("n", "<leader>e",     ":Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>f",     ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")
-vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", opts)
-vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
-vim.keymap.set("n", "<TAB>", "<Cmd>BufferNext<CR>", opts)
-vim.keymap.set("n", "<S-TAB>", "<Cmd>BufferPrevious<CR>", opts)
-vim.keymap.set("n", ":", "<Cmd>FineCmdline<CR>", { noremap = true })
-vim.keymap.set("n", "/", "<Cmd>SearchBoxMatchAll title=Match<CR>")
-vim.keymap.set("n", "<S-R>", "<Cmd>SearchBoxReplace title='Replace Patern' confirm=menu<CR>")
+vim.keymap.set("t", "<ESC>",         "<C-\\><C-n>",             opts)
+vim.keymap.set("n", "<leader>t",     ":terminal<CR>",           opts)
+vim.keymap.set("n", "<TAB>",         "<Cmd>BufferNext<CR>",     opts)
+vim.keymap.set("n", "<S-TAB>",       "<Cmd>BufferPrevious<CR>", opts)
+vim.keymap.set("n", ":",             "<Cmd>FineCmdline<CR>",    { noremap = true })
+vim.keymap.set("n", "/",             "<Cmd>SearchBoxMatchAll title=Match<CR>")
+vim.keymap.set("n", "<S-R>",         "<Cmd>SearchBoxReplace title='Replace Patern' confirm=menu<CR>")
 
 vim.diagnostic.config({
 	virtual_text = true,
