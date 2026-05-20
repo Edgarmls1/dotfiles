@@ -2,137 +2,139 @@
 # for everyone — as code should be
 
 # Sprites are drawn from here
-POKEMON_LIST=(  
-  "beedrill -m"              #015
-  arbok                      #024
-  ninetales                  #038
-  "ninetales -s"           
-  venonat                    #048
-  venomoth                   #049
-  persian                    #053
-  psyduck                    #054
-  golduck                    #055
-  arcanine                   #059
-  alakazam                   #065
-  haunter                    #093 *
-  gengar                     #094
-  marowak                    #105
-  "marowak -a"           
-  snorlax                    #143
-  ampharos                   #181
-  espeon                     #196 *
-  umbreon                    #197 *
-  lugia                      #249
-  ho-oh                      #250
-  mudkip                     #258 *
-  swampert                   #260 *
-  poochyena                  #261 *
-  ludicolo                   #272
-  gardevoir                  #282
-  ninjask                    #291
-  shedinja                   #292
-  sableye                    #302 *
-  "camerupt -m"              #323
-  flygon                     #330 *
-  zangoose                   #335
-  seviper                    #336
-  lunatone                   #337
-  solrock                    #338
-  "banette -m"               #354 *
-  absol                      #359 *
-  regirock                   #377
-  regice                     #378
-  registeel                  #379
-  kyogre                     #382
-  groudon                    #383
-  rayquaza                   #384 *
-  deoxys                     #386
-  bidoof                     #399
-  luxray                     #405 *
-  mismagius                  #429 *
-  glasmeow                   #431
-  spiritomb                  #442 *
-  lucario                    #448 *
-  gallade                    #475
-  dusknoir                   #477
-  rotom                      #479
-  "rotom -s"
-  uxie						 #480
-  mesprit                    #481
-  azelf                      #482
-  dialga                     #483 *
-  palkia                     #484 *
-  regigigas                  #486
-  giratina                   #487 *
-  "giratina -f origin"            # *
-  cresselia                  #488
-  darkrai                    #491 *
-  victini                    #494 *
-  purrloin                   #509
-  liepard                    #510
-  sandile                    #551
-  krokorok                   #552 *
-  krookodile                 #553 *
-  cofagrigus                 #563 *
-  zoroark                    #571 *
-  joltik                     #595
-  galvantula                 #596 *
-  chandelure                 #609
-  haxorus                    #612
-  "haxorus -s"     
-  heatmor                    #631
-  durant                     #632
-  hydreigon                  #635
-  volcarona                  #637
-  cobalion                   #638
-  terrakion                  #639
-  virizion                   #640
-  reshiram                   #643 *
-  zekrom                     #644 *
-  kyurem                     #646
-  "kyurem -f black"               # *
-  "kyurem -f white"               # *
-  fennekin                   #653
-  froakie                    #656
-  pancham                    #674
-  pangoro                    #675
-  meowstic                   #678
-  "meowstic --female"     
-  phantump                   #708
-  noivern                    #715 *
-  xerneas                    #716
-  "xerneas -s"     
-  yveltal                    #717 *
-  "yveltal -s"     
-  zygarde                    #718
-  "zygarde -s"     
-  hoopa                      #720 *
-  "hoopa -f unbound"              # *
-  volcanion                  #721
-  rowlet                     #722 *
-  decidueye                  #724 *
-  litten                     #725
-  vikavolt                   #738
-  lycanroc                   #745
-  "lycanroc -f midnight"     
-  "lycanroc -f dusk"         
-  "wishiwashi -f school"     #746
-  golsopod                   #768 *
-  type-null                  #772 *
-  silvally                   #773 *
-  mimikyu                    #778 *
-  "mimikyu -s"                    # *
-  solgaleo                   #791
-  lunala                     #792 *
-  marshadow                  #802 *
-  zeraora                    #807 *
-  corviknight                #823 *
-  "corviknight --gmax"
-  nickit                     #827
-  thievul                    #828
-  toxtricity                 #849 *
-  "toxtricity -f low-key"         # *
-  dragapult                  #887
+POKEMON_LIST=(
+	unown
+	"unown -f g"
+	"unown -f y"
+	"015 -m"          #   mega beedrill
+	024               #   arbok
+	038               #   ninetales
+	"038 -s"          #   ninetales shiny
+	048               #   venonat
+	049               #   venomoth
+	053               #   persian
+	054               #   psyduck
+	055               #   golduck
+	059               #   arcanine
+	065               #   alakazam
+	093               # * haunter
+	094               #   gengar
+	105               #   marowak
+	"105 -a"          #   alolan marowak
+	143               #   snorlax
+	181               #   ampharos
+	196               # * espeon
+	197               # * umbreon
+	249               #   lugia
+	250               #   ho-oh
+	258               # * mudkip
+	260               # * swampert
+	261               # * poochyena
+	272               #   ludicolo
+	282               #   gardevoir
+	291               #   ninjask
+	292               #   shedinja
+	302               # * sableye
+	"323 -m"          #   mega camerupt
+	330               # * flygon
+	335               #   zangoose
+	336               #   seviper
+	337               #   lunatone
+	338               #   solrock
+	"354 -m"          # * mega benette
+	359               # * absol
+	377               #   regirock
+	378               #   regice
+	379               #   registeel
+	382               #   kyogre
+	383               #   groudon
+	384               # * rayquaza
+	386               #   deoxys
+	399               #   bidoof
+	405               # * luxray
+	429               # * mismagius
+	431               #   glasmeow
+	442               # * spiritomb
+	448               # * lucario
+	475               #   gallade
+	477               #   dusknoir
+	479               #   rotom
+	"479 -s"          #   rotom shiny
+	480               #   uxie
+	481               #   mesprit
+	482               #   azelf
+	483               # * dialga
+	484               # * palkia
+	486               #   regigigas
+	487               # * giratina
+	"487 -f origin"   # * origin giratina
+	488               #   cresselia
+	491               # * darkrai
+	494               # * victini
+	509               #   purrloin
+	510               #   liepard
+	551               #   sandile
+	552               # * krokorok
+	553               # * krookodile
+	563               # * cofagrigus
+	571               # * zoroark
+	595               #   joltik
+	596               # * galvantula
+	609               #   chandelure
+	612               #   haxorus
+	"612 -s"          #   haxorus shiny
+	631               #   heatmor
+	632               #   durant
+	635               #   hydreigon
+	637               #   volcarona
+	638               #   cobalion
+	639               #   terrakion
+	640               #   virizion
+	643               # * reshiram
+	644               # * zekrom
+	646               #   kyurem
+	"646 -f black"    # * black kyurem
+	"646 -f white"    # * white kyurem
+	653               #   fennekin
+	656               #   froakie
+	674               #   pancham
+	675               #   pangoro
+	678               #   meowstic
+	"678 --female"    #   meowstic femele
+	708               #   phantump
+	715               # * noivern
+	716               #   xerneas
+	"716 -s"          #   xerneas shiny
+	717               # * yveltal
+	"717 -s"          # * yveltal shiny
+	718               #   zygarde
+	"718 -s"          #   zygarde shiny
+	720               # * hoopa
+	"720 -f unbound"  # * hoopa unbound
+	721               #   volcanion
+	722               # * rowlet
+	724               # * decidueye
+	725               #   litten
+	738               #   vikavolt
+	745               #   lycanroc
+	"745 -f midnight" #   midnight lycanroc
+	"745 -f dusk"     #   dusk lycanroc
+	"746 -f school"   #   wishiwashi
+	768               # * golsopod
+	772               # * type-null
+	773               # * silvally
+	778               # * mimikyu
+	"778 -s"          # * mimikyu shiny
+	791               #   solgaleo
+	792               # * lunala
+	802               # * marshadow
+	807               # * zeraora
+	823               # * corviknight
+	827               #   nickit
+	828               #   thievul
+	849               # * toxtricity
+	"849 -f low-key"  # * toxtricity
+	887
 )
 
 # Change with your fetcher

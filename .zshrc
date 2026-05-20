@@ -36,16 +36,6 @@ setopt PROMPT_SUBST
 PROMPT_COLOR="green"
 THEME="$(cat ~/.cache/current_theme)"
 
-pywall() {
-	if [[ "$THEME" == "lain" ]]; then
-		wal -i ~/dotfiles/wallpapers/lain.jpg &>/dev/null
-	elif [[ "$THEME" == "mono" ]]; then
-		wal -i ~/dotfiles/wallpapers/ascii-wave.png &>/dev/null
-	fi
-}
-
-pywall
-
 precmd() {
     if [[ $? -eq 0 ]]; then
         PROMPT_COLOR="green"
@@ -59,6 +49,12 @@ f() {
 }
 
 PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
+
+if [[ "$THEME" == "lain" ]]; then
+	wal -i ~/dotfiles/wallpapers/lain.jpg &>/dev/null
+elif [[ "$THEME" == "mono" ]]; then
+	wal -i ~/dotfiles/wallpapers/ascii-wave.png &>/dev/null
+fi
 
 export EDITOR="nvim"
 
@@ -84,7 +80,6 @@ alias notes="nvim ~/notes/"
 alias update-notes="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
 alias update-dev="cd ~/dev/ ; git add . ; git commit -m 'projects update' ; git push ; cd -"
 alias pull-notes="cd ~/notes/ ; git pull"
-alias pull-dots="cd ~/dotfiles/ ; git pull"
 alias pull-dev="cd ~/dev/ ; git pull"
 
 alias -g fastfetchc="~/.config/fastfetch/"

@@ -34,23 +34,23 @@ vim.pack.add {
 	"https://github.com/hrsh7th/cmp-path",
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
 	"https://github.com/norcalli/nvim-colorizer.lua",
-	"https://github.com/nvim-tree/nvim-tree.lua",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/aditya-azad/candle-grey.git",
 	"https://github.com/VonHeikemen/searchbox.nvim",
 	"https://github.com/nvim-telescope/telescope.nvim",
 	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+	"https://github.com/stevearc/oil.nvim",
 }
 
 require("searchbox")
 require("render-markdown").enable()
 require("lualine").setup()
-require("nvim-tree").setup()
 require("telescope").setup()
 require("smear_cursor").setup({ opts = {} })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
 require("alpha").setup(require("alpha.themes.theta").config)
 require("nvim-highlight-colors").setup({ render = "virtual" })
+require("oil").setup({ view_options = { show_hidden = true } })
 require("catppuccin").setup({ priority = 1000, flavor = "mocha", transparent_background = true })
 require("fine-cmdline").setup({
 	popup = {
@@ -82,12 +82,11 @@ vim.cmd("lsp enable bash-language-server")
 
 --vim.cmd("colorscheme catppuccin-nvim") --theme:cats
 --vim.cmd("colorscheme oldTerm") --theme:lain
-vim.cmd("colorscheme candle-grey-transparent") --theme:mono
---vim.cmd("colorscheme shades-of-purple") --theme:purple 
+vim.cmd("colorscheme monochrome") --theme:mono
+--vim.cmd("colorscheme shadesOfPurple") --theme:purple 
 
 vim.keymap.set("n", "<leader>e",     ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>f",     ":Telescope live_grep<CR>")
-vim.keymap.set("n", "<leader><ESC>", ":NvimTreeClose<CR>")
 vim.keymap.set("t", "<ESC>",         "<C-\\><C-n>",             opts)
 vim.keymap.set("n", "<leader>t",     ":terminal<CR>",           opts)
 vim.keymap.set("n", "<TAB>",         "<Cmd>BufferNext<CR>",     opts)
