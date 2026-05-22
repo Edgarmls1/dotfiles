@@ -48,6 +48,10 @@
       "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
       "src": "https://github.com/echasnovski/mini.icons"
     },
+    "mini.nvim": {
+      "rev": "264b5c8fc6e82212af0dc5c345145cfa916efeb6",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "monochrome.nvim": {
       "rev": "2de78d9688ea4a177bcd9be554ab9192337d35ff",
       "src": "https://github.com/kdheepak/monochrome.nvim"

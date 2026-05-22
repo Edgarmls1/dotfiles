@@ -2,7 +2,6 @@ vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 vim.g.colors_name = "shades-of-purple"
 vim.opt.background = "dark"
-vim.o.termguicolors = true
 
 local hl = vim.api.nvim_set_hl
 local transparent = true

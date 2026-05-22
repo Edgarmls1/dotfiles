@@ -3,7 +3,7 @@
 ANYRUN=$HOME/.config/anyrun/style.css
 DUNST=$HOME/.config/dunst/dunstrc
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
-NVIM=$HOME/.config/nvim/init.lua
+NVIM=$HOME/.config/nvim/lua/colors.lua
 WAYBAR=$HOME/.config/waybar/style.css
 
 THEMES=("lain" "cats" "mono" "purple")
