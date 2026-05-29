@@ -50,11 +50,11 @@ f() {
 
 PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
 
-if [[ "$THEME" == "lain" ]]; then
-	wal -i ~/dotfiles/wallpapers/lain.jpg &>/dev/null
-elif [[ "$THEME" == "mono" ]]; then
-	wal -i ~/dotfiles/wallpapers/ascii-wave.png &>/dev/null
-fi
+# if [[ "$THEME" == "lain" ]]; then
+# 	wal -i ~/dotfiles/wallpapers/lain.jpg &>/dev/null
+# elif [[ "$THEME" == "mono" ]]; then
+# 	wal -i ~/dotfiles/wallpapers/ascii-wave.png &>/dev/null
+# fi
 
 export EDITOR="nvim"
 

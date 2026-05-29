@@ -58,7 +58,6 @@ clean() {
 	echo "| This option will install in your system: |"
 	echo "| a web browser                            |"
 	echo "| spotify                                  |"
-	echo "| spicetify (spotify customization)        |"
     echo "+------------------------------------------+"
 	echo ""
 	read -p "Do you want to continue? [y/N] " agree
@@ -75,23 +74,19 @@ clean() {
 			echo "0 - none"
 			read -p " " choice
 
-			install_pkgs "spotify"
+			yay -S --noconfirm "spotify"
 			case $choice in 
-				1) install_pkgs zen-browser-bin ;;
-				2) install_pkgs google-chrome   ;;
-				3) install_pkgs firefox         ;;
+				1) yay -S --noconfirm zen-browser-bin ;;
+				2) yay -S --noconfirm google-chrome   ;;
+				3) yay -S --noconfirm firefox         ;;
 				4) 
-					install_pkgs zen-browser-bin \
+					yay -S --noconfirm zen-browser-bin \
 					   	google-chrome \
 					   	firefox
 					;;
 				0) " "                           ;;
 				*) "invalid option"              ;;
 			esac
-			sudo chmod a+wr /opt/spotify
-			sudo chmod a+wr /opt/spotify/Apps -R
-
-			curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
 	esac
     ask_to_continue
 }

@@ -3,131 +3,111 @@
   "spacing": 0,
   "reload_style_on_change": true,
   "modules-left": [
-    "group/group-left"
+    "hyprland/workspaces",
+    "custom/spotify",
+    "custom/sep",
+    "custom/weather"
   ],
-  "modules-center": [
-    "group/group-center"
-  ],
+  "modules-center": [],
   "modules-right": [
-    "group/group-right"
+    "tray",
+    "custom/sep",
+    "network",
+    "custom/sep",
+    "pulseaudio",
+    "custom/sep",
+    "bluetooth",
+    "custom/sep",
+    "battery",
+    "custom/sep",
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
+    "clock"
   ],
-  "group/group-left": {
-    "orientation": "horizontal",
-	"modules": [
-		"hyprland/workspaces",
-		"cpu",
-		"custom/sep",
-		"memory",
-		"custom/sep",
-		"custom/weather"
-	]
-  },
-  "group/group-center": {
-    "orientation": "horizontal",
-    "modules": [
-    ]
-  },
-  "group/group-right": {
-    "orientation": "horizontal",
-    "modules": [
-		"tray",
-		"custom/sep",
-        "network",
-        "custom/sep",
-        "pulseaudio",
-		"custom/sep",
-		"bluetooth",
-        "custom/sep",
-        "battery",
-		"custom/sep",
-		"clock"
-    ]
-  },
-  "hyprland/workspaces": {
-	  "format": "{}"
-  },
   "tray": {
     "icon-size": 18,
     "spacing": 6
   },
   "clock": {
     "format": " {:%H:%M}",
-	"format-alt": " {:%d/%m/%y}",
-	"tooltip-format": "<tt>{calendar}</tt>",
-	"calendar": {
-		"mode": "mounth",
-		"format": {
-			"mounth": "<span><b>{}</b></span>",
-			"weekdays": "<span><b>{}</b></span>",
-			"days": "<span><b>{}</b></span>",
-			"today": "<span color='#dd0700'><b><u>{}</u></b></span>"
-		}
-	}
+    "format-alt": " {:%d/%m/%y}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "mounth",
+      "format": {
+        "mounth": "<span><b>{}</b></span>",
+        "weekdays": "<span><b>{}</b></span>",
+        "days": "<span><b>{}</b></span>",
+        "today": "<span color='#dd0700'><b><u>{}</u></b></span>"
+      }
+    }
   },
   "pulseaudio": {
-	"format": " vol:{volume}% ",
-	"format-muted": " muted ",
-	"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-  },
-  "network": {
-	"format-disconnected": "disconnected ",
-	"format-ethernet": "  ",
-	"format-linked": "{ifname} (No IP)",
-	"format-wifi": "   {essid} ",
-	"tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
-	"on-click": "kitty gazelle"
-  },
-  "cpu": {
-	  "format": "{usage}%  ",
-	  "interval": 1,
-	  "on-click": "kitty btop"
-  },
-  "memory": {
-	  "format": " {percentage}%  ",
-	  "interval": 10,
-	  "tooltip": true,
-	  "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
-	  "on-click": "kitty btop"
-  },
-  "temperature": {
-	  "critical-threshold": 80,
-	  "format": "  "
+      "format": "{icon} {volume}%",
+      "format-muted": "muted",
+      "format-icons": {
+          "default": ["", ""]
+      },
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "on-click-right": "pavucontrol",
+      "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
+      "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-" 
   },
   "bluetooth": {
-	"format-disconnected": " >ᛒ",
-	"format-connected": " {device_alias} ",
-	"on-click": "kitty bluetui"
+    "format": "",
+    "format-disabled": "",
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "exec kitty bluetui"
+  },
+  "battery": {
+    "interval": 60,
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "charging": ""
+    }
   },
   "custom/sep": {
     "format": "|"
   },
-  "battery": {
-	"format": " {icon}  {capacity}% ",
-	"format-alt": "{icon} {time}",
-	"format-charging": "  {capacity}% ",
-	"format-icons": [
-		"",
-		"",
-		"",
-		"",
-		""
-	],
-	"format-plugged": "  {capacity}% ",
-	"format-time": "{H} h {m} min",
-	"states": {
-	    "critical": 15,
-		"good": 95,
-		"warning": 30
-	}
-  },
   "custom/weather": {
-	  "format": " {text} ",
-	  "interval": 3600,
-	  "return-type": "json",
-	  "exec": "wayweather --get",
-	  "tooltip": true
+    "format": " {text} ",
+    "interval": 3600,
+    "return-type": "json",
+    "exec": "wayweather --get",
+    "tooltip": true
+  },
+  "custom/spotify": {
+    "format": "{}",
+    "exec": "~/dotfiles/scripts/spotify.sh",
+    "interval": 1,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous"
+  },
+  "network": {
+    "format-disconnected": "disconnected ",
+    "format-ethernet": " ",
+    "format-linked": "{ifname} (No IP)",
+    "format-wifi": "   {essid} ",
+    "tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
+    "on-click": "kitty gazelle"
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 1,
+    "on-click": "kitty btop"
+  },
+  "memory": {
+    "format": "  {percentage}%",
+    "interval": 10,
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
+    "on-click": "kitty btop"
   }
 }
