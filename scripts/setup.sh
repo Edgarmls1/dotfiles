@@ -136,6 +136,7 @@ dev() {
 	echo "| - obsidian                               |"
 	echo "| - bitwarden                              |"
 	echo "| - vscodium                               |"
+	echo "| - zed                                    |"
 	echo "| - virtualbox                             |"
 	echo "| - java                                   |"
     echo "+------------------------------------------+"
@@ -145,7 +146,7 @@ dev() {
 	case $agree in
 		[Yy]*)
 			echo ""
-			yay -S --noconfirm neovim bitwarden vscodium virtualbox
+			yay -S --noconfirm neovim bitwarden vscodium virtualbox zed
 
 			sudo modprobe vboxdrv
 			sudo usermod -aG vboxusers $USER

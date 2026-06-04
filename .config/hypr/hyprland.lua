@@ -55,8 +55,9 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
-	
+
     hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Dark'")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic")
@@ -86,7 +87,7 @@ hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencop
 
 hl.config({
 	general = {
-		gaps_in  = 0,
+		gaps_in  = 1,
 		gaps_out = 5,
 
 		border_size = 2,
@@ -203,7 +204,7 @@ hl.config({
 })
 
 local smw = hl.plugin.split_monitor_workspaces
-smw.monitor_priority({ "eDP-1", "HDMI-A-2", "DP-1" })
+smw.monitor_priority({ "HDMI-A-2", "DP-1", "eDP-1" })
 
 smw.max_workspaces({ monitor = "eDP-1",    max = 10 })
 smw.max_workspaces({ monitor = "HDMI-A-2", max = 10 })
@@ -229,7 +230,6 @@ hl.bind("CTRL + right", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monit
 hl.bind("CTRL + left",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
 
 hl.bind(super .. " + M", exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
-hl.bind(super .. " + T", exec(os.getenv("HOME") .. "/dotfiles/scripts/theme.sh"))
 
 hl.bind(super .. " + Escape", exec("killall waybar || waybar"))
 hl.bind(super .. " + W",   exec("wleave"))
@@ -265,6 +265,12 @@ for i = 1, 9 do
     hl.bind(super .. " + SHIFT + " .. key, function() return smw.move_to_workspace(i) end)
 end
 
+-- for i = 1, 10 do
+--     local key = i % 10
+--     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+--     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+-- end
+
 hl.bind(super .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(super .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
@@ -280,22 +286,3 @@ hl.bind("XF86AudioNext",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-mon
 hl.bind("XF86AudioPause", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPlay",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPrev",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"), { locked = true })
-
-------------------------------
---- WINDOWS AND WORKSPACES ---
-------------------------------
-
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 1,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 1,
---     rounding    = 0,
--- })

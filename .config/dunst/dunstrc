@@ -42,10 +42,7 @@
     text_icon_padding = 6
 
     frame_width = 2
-#    frame_color = "#82e0a4" #theme:cats
-#   frame_color = "#409343" #theme:lain
-   frame_color = "#ffffff" #theme:mono
-#   frame_color = "#770bf5" #theme:purple
+    frame_color = "#ffffff"
 
 
     gap_size = 2
@@ -134,26 +131,14 @@
 
 
 [urgency_low]
-#    background = "#10293f" #theme:cats
-#    foreground = "#b0dfdd" #theme:cats
-#   background = "#000000" #theme:lain
-#   foreground = "#ffffff" #theme:lain
-   background = "#000000" #theme:mono
-   foreground = "#888888" #theme:mono
-#   background = "#0c0123" #theme:purple
-#   foreground = "#854bc9" #theme:purple
+   background = "#000000"
+   foreground = "#888888"
     timeout = 10
     default_icon = dialog-information
 
 [urgency_normal]
-#    background = "#10293f" #theme:cats
-#    foreground = "#b0dfdd" #theme:cats
-#   background = "#000000" #theme:lain
-#   foreground = "#ffffff" #theme:lain
-   background = "#000000" #theme:mono
-   foreground = "#888888" #theme:mono
-#   background = "#0c0123" #theme:purple
-#   foreground = "#854bc9" #theme:purple
+   background = "#000000"
+   foreground = "#888888"
     timeout = 10
     override_pause_level = 30
     default_icon = dialog-information

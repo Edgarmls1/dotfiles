@@ -4,9 +4,7 @@
   "reload_style_on_change": true,
   "modules-left": [
     "hyprland/workspaces",
-    "custom/spotify",
-    "custom/sep",
-    "custom/weather"
+    "custom/spotify"
   ],
   "modules-center": [],
   "modules-right": [
@@ -73,19 +71,12 @@
     }
   },
   "custom/sep": {
-    "format": "|"
-  },
-  "custom/weather": {
-    "format": " {text} ",
-    "interval": 3600,
-    "return-type": "json",
-    "exec": "wayweather --get",
-    "tooltip": true
+    "format": " "
   },
   "custom/spotify": {
     "format": "{}",
     "exec": "~/dotfiles/scripts/spotify.sh",
-    "interval": 1,
+    "interval": 2,
     "on-click": "playerctl -p spotify play-pause",
     "on-scroll-up": "playerctl -p spotify next",
     "on-scroll-down": "playerctl -p spotify previous"
@@ -105,7 +96,7 @@
   },
   "memory": {
     "format": "  {percentage}%",
-    "interval": 10,
+    "interval": 1,
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
     "on-click": "kitty btop"

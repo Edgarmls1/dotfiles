@@ -83,7 +83,7 @@ install () {
 	echo "=== Instaling ==="
 	echo ""
 
-    local pkg_list="7zip anyrun bash-language-server bat bluetui btop cava dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsunset jdtls kitty lsd mpv mpvpaper nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt5-wayland qt6ct qt6-wayland qutebrowser rust-analyzer stow ttf-hack-nerd unrar unzip xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wayweather wget wleave zathura zathura-pdf-mupdf zellij zoxide zsh"
+    local pkg_list="7zip anyrun bash-language-server bat bluetui btop cava cmatrix dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-tweaks htop hyprland hyprlock hyprpaper hyprshot hyprsunset jdtls kitty lsd mpv mpvpaper nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget pyright qimgv qt5-wayland qt6ct qt6-wayland qutebrowser rust-analyzer stow ttf-hack-nerd unrar unzip xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wget wleave zathura zathura-pdf-mupdf zellij zsh"
 
 	aur
 	yay -S --noconfirm $pkg_list

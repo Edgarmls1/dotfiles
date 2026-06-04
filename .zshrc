@@ -50,12 +50,6 @@ f() {
 
 PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
 
-# if [[ "$THEME" == "lain" ]]; then
-# 	wal -i ~/dotfiles/wallpapers/lain.jpg &>/dev/null
-# elif [[ "$THEME" == "mono" ]]; then
-# 	wal -i ~/dotfiles/wallpapers/ascii-wave.png &>/dev/null
-# fi
-
 export EDITOR="nvim"
 
 export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
@@ -85,11 +79,10 @@ alias pull-dev="cd ~/dev/ ; git pull"
 alias -g fastfetchc="~/.config/fastfetch/"
 alias -g nvimc="~/.config/nvim/"
 alias -g hyprconf="~/.config/hypr/"
-alias -g kittyc="~/dotfiles/kitty/"
+alias -g kittyc="~/.config/kitty/"
 alias -g waybarc="~/.config/waybar/"
 alias -g scripts="~/dotfiles/scripts/"
 
 eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
 
 emulate bash -c "source ~/pyenv/bin/activate"

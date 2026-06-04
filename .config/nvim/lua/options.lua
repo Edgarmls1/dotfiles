@@ -32,6 +32,8 @@ vim.opt.cursorline = true
 vim.opt.mouse = "a"
 vim.opt.background = "dark"
 
+vim.cmd("colorscheme monochrome")
+
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.hl.on_yank()

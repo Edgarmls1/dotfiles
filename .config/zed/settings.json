@@ -1,0 +1,121 @@
+{
+  "active_pane_modifiers": {
+    "border_size": 0.0,
+  },
+  "use_system_window_tabs": false,
+  "bottom_dock_layout": "contained",
+  "tabs": {
+    "show_close_button": "hover",
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": false,
+  },
+  "tab_bar": {
+    "show": false,
+  },
+  "toolbar": {
+    "quick_actions": false,
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_user_picture": false,
+    "show_user_menu": false,
+    "show_sign_in": false,
+    "show_onboarding_banner": false,
+    "show_project_items": false,
+    "show_branch_name": false,
+    "show_branch_status_icon": false,
+  },
+  "debugger": {
+    "button": false,
+  },
+  "search": {
+    "button": false,
+  },
+  "diagnostics": {
+    "button": true,
+  },
+  "terminal": {
+    "button": true,
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "line_endings_button": false,
+    "cursor_position_button": true,
+    "active_language_button": true,
+  },
+  "scrollbar": {
+    "show": "never",
+  },
+  "project_panel": {
+    "dock": "left",
+    "button": true,
+    "hide_root": true,
+    "auto_fold_dirs": false,
+    "git_status": false,
+    "scrollbar": {
+      "show": "never",
+    },
+    "indent_guides": {
+      "show": "never",
+    },
+  },
+  "vim": {
+    "use_regex_search": false,
+  },
+  "minimap": {
+    "current_line_highlight": "line",
+    "show": "always",
+  },
+  "gutter": {
+    "bookmarks": false,
+    "breakpoints": false,
+    "runnables": false,
+    "min_line_number_digits": 0,
+    "folds": false,
+  },
+  "indent_guides": {
+    "enabled": false,
+  },
+  "relative_line_numbers": "enabled",
+  "cursor_shape": "bar",
+  "cursor_blink": false,
+  "text_rendering_mode": "grayscale",
+  "ui_font_family": "Hack Nerd Font",
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "format_on_save": "off",
+  "extend_coment_on_newline": false,
+  "close_on_file_delete": true,
+  "git": {
+    "git_gutter": "hide",
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_family": "Hack Nerd Font",
+  "icon_theme": "Monospace Icon Theme - Dark",
+  "ui_font_size": 16.0,
+  "buffer_font_size": 12.0,
+  "theme": "Quasi Monochrome Dark",
+  "theme_overrides": {
+    "Quasi Monochrome Dark": {
+      "border.variant": "#000000",
+      "border": "#000000",
+      "title_bar.background": "#000000",
+      "panel.background": "#000000",
+      "players": [
+        {
+          "cursor": "#ffffff",
+        },
+      ],
+    },
+  },
+  "language_servers": [
+    "gopls",
+    "pyright",
+    "clangd",
+    "jdtls",
+    "bash-language-server",
+  ],
+}
