@@ -91,9 +91,6 @@ install () {
 	themes
 	dark_mode
 
-    mkdir -p ~/.config/kitty
-    ln -sf $DOTFILES_DIR/kitty/kitty-purple.conf ~/.config/kitty/kitty.conf
-
     mkdir -p ~/.config/qutebrowser/yt-style/
     ln -sf $DOTFILES_DIR/qutebrowser/config.py ~/.config/qutebrowser/config.py
     ln -sf $DOTFILES_DIR/qutebrowser/yt-style/youtube-tweaks.css ~/.config/qutebrowser/yt-style/youtube-tweaks.css
