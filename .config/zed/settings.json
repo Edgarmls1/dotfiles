@@ -90,6 +90,14 @@
   "extend_coment_on_newline": false,
   "close_on_file_delete": true,
   "git": {
+    "enable_status": false,
+    "enable_diff": false,
+    "blame": {
+      "show_avatar": false
+    },
+    "inline_blame": {
+      "enabled": false
+    },
     "git_gutter": "hide",
   },
   "base_keymap": "VSCode",

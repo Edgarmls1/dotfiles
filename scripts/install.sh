@@ -27,7 +27,7 @@ aur() {
 enable_ly() {
 	read -p "Do you want to install & enable ly? [y/N] " choice
 
-	case $reboot in
+	case $choice in
 		[Yy]*)
 			yay -S ly
 

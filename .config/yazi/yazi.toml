@@ -51,13 +51,13 @@ image = [
 	{ run = 'qimgv "$@"', orphan = true }
 ]
 jupyter = [
-	{ run = 'codium "$@"', orphan = false }
+	{ run = 'code "$@"', orphan = false }
 ]
 
 [open]
 rules = [
 	# { name = "*/", use = [ "edit", "open", "reveal" ] },
-	{ mime = "text/*", use = [ "edit", "reveal" ] },
+	{ mime = "text/{.json,.jsonc,*}", use = [ "edit", "reveal" ] },
 	{ url = "*.pdf", use = "pdf" },
 	{ url = "*.ipynb", use = "jupyter" },
 	{ url = "*.rar", use = "extract_rar" },

@@ -135,7 +135,7 @@ dev() {
 	echo "| - neovim                                 |"
 	echo "| - obsidian                               |"
 	echo "| - bitwarden                              |"
-	echo "| - vscodium                               |"
+	echo "| - vscode                                 |"
 	echo "| - zed                                    |"
 	echo "| - virtualbox                             |"
 	echo "| - java                                   |"
@@ -146,7 +146,7 @@ dev() {
 	case $agree in
 		[Yy]*)
 			echo ""
-			yay -S --noconfirm neovim bitwarden vscodium virtualbox zed
+			yay -S --noconfirm neovim bitwarden visual-studio-code-bin virtualbox zed
 
 			sudo modprobe vboxdrv
 			sudo usermod -aG vboxusers $USER
@@ -170,7 +170,7 @@ ask_to_continue() {
     
     case $choice in
         [Yy]*) menu                              ;;
-        *) echo "instalation completed" ; exit 0 ;;
+        *) echo "instalation completed" ; reboot ;;
     esac
 }
 

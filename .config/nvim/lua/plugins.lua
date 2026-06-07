@@ -1,7 +1,6 @@
 vim.pack.add({ 
 	"https://github.com/aditya-azad/candle-grey.git",
 	"https://github.com/brenoprata10/nvim-highlight-colors",
-	"https://github.com/catppuccin/nvim",
 	"https://github.com/echasnovski/mini.icons",
 	"https://github.com/goolord/alpha-nvim",
 	"https://github.com/hrsh7th/cmp-buffer",
@@ -38,7 +37,6 @@ require("alpha").setup(require("alpha.themes.theta").config)
 require("nvim-highlight-colors").setup({ render = "virtual" })
 require("oil").setup({ view_options = { show_hidden = true } })
 require("mini.cmdline").setup({ autocorrect = { enable = false } })
-require("catppuccin").setup({ priority = 1000, flavor = "mocha", transparent_background = true })
 
 require("fine-cmdline").setup({
 	popup = {

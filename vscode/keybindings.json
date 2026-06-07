@@ -1,0 +1,14 @@
+[
+    {
+        "key": "ctrl+shift+;",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+space ctrl+e",
+        "command": "workbench.action.quickOpen"
+    }
+]

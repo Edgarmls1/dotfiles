@@ -1,9 +1,48 @@
 {
-  "editor.fontFamily": "Hack Nerd Font",
-  "security.workspace.trust.untrustedFiles": "open",
-  "workbench.iconTheme": "material-icon-theme",
-  "window.commandCenter": false,
-  "workbench.browser.showInTitleBar": false,
-  "workbench.layoutControl.enabled": false,
-  "workbench.colorTheme": "Shades of Purple (Super Dark)"
+    "breadcrumbs.enabled": false,
+    "chat.titleBar.openInAgentsWindow.enabled": false,
+    "chat.titleBar.signIn.enabled": false,
+    "customvscodeuicss.css": "* { border-radius: 0px !important }",
+    "editor.cursorBlinking": "solid",
+    "editor.fontFamily": "Hack Nerd Font",
+    "editor.guides.indentation": false,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.showFoldingControls": "never",
+    "editor.stickyScroll.enabled": false,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    },
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "afterDelay",
+    "git.blame.editorDecoration.enabled": false,
+    "git.decorations.enabled": false,
+    "git.untrackedChanges": "hidden",
+    "window.commandCenter": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.activityBar.location": "hidden",
+    "workbench.browser.showInTitleBar": false,
+    "workbench.colorTheme": "monochrome",
+    "workbench.editor.showTabs": "single",
+    "workbench.iconTheme": "onedark-zed-icons",
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.tree.indent": 12,
+    "workbench.tree.renderIndentGuides": "none",
+    "zenMode.showTabs": "single",
+    "zenMode.centerLayout": true,
+    "zenMode.hideLineNumbers": true
 }
