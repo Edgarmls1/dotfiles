@@ -74,7 +74,6 @@ clean() {
 			echo "0 - none"
 			read -p " " choice
 
-			yay -S --noconfirm "spotify"
 			case $choice in 
 				1) yay -S --noconfirm zen-browser-bin ;;
 				2) yay -S --noconfirm google-chrome   ;;
@@ -87,6 +86,7 @@ clean() {
 				0) " "                           ;;
 				*) "invalid option"              ;;
 			esac
+            yay -S --noconfirm spotify spotify-tray-wayland-bin
 	esac
     ask_to_continue
 }

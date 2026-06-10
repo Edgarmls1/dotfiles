@@ -34,7 +34,6 @@ autoload -U colors && colors
 setopt PROMPT_SUBST
 
 PROMPT_COLOR="green"
-THEME="$(cat ~/.cache/current_theme)"
 
 precmd() {
     if [[ $? -eq 0 ]]; then
@@ -59,8 +58,10 @@ alias ..="cd .."
 alias :q="exit"
 alias :wq="exit"
 alias cc="cd && clear"
+alias hist="history -100 | grep"
 
 alias update="~/dotfiles/scripts/update.sh"
+alias check-updates="~/dotfiles/scripts/update.sh -c"
 
 alias python="~/pyenv/bin/python"
 

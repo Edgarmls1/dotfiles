@@ -33,6 +33,14 @@ hl.monitor({
 	scale    = "1",
 })
 
+-- mobile pc
+-- hl.monitor({
+--     output   = "",
+--     mode     = "1920x1080",
+--     position = "0x0",
+--     scale    = "1",
+-- })
+
 -------------------
 --- MY PROGRAMS ---
 -------------------
@@ -55,6 +63,7 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd("spotify-tray-wayland")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
 
@@ -87,8 +96,8 @@ hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencop
 
 hl.config({
 	general = {
-		gaps_in  = 1,
-		gaps_out = 5,
+		gaps_in  = 0,
+		gaps_out = 0,
 
 		border_size = 2,
 
@@ -265,10 +274,11 @@ for i = 1, 9 do
     hl.bind(super .. " + SHIFT + " .. key, function() return smw.move_to_workspace(i) end)
 end
 
+-- mobile pc
 -- for i = 1, 10 do
 --     local key = i % 10
---     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
---     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+--     hl.bind(super .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+--     hl.bind(super .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 -- end
 
 hl.bind(super .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })

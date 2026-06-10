@@ -7,6 +7,8 @@ rm /var/lib/pacman/db.lck 2> /dev/null # gambiarra
 # Autor: edgar
 #---------------------------------------#
 
+UPDATES_FILE=$HOME/.cache/available_updates
+
 #-------testes-------#
 
 if ! command -v yay &> /dev/null; then
@@ -22,39 +24,8 @@ fi
 
 #-------funçoes-------#
 
-spinner () {
-	local pid=$1
-	local msg=$2
-	local spin='|/-\'
-
-	printf " "
-	while kill -0 $pid 2> /dev/null; do
-		i=$(( (i+1) %4 ))
-		printf "\r${msg} ${spin:$i:1}"
-		sleep 0.1
-	done
-	printf "\r${msg} ✓\n"
-}
-
-executar () {
-	local cmd=$1
-	local msg=$2
-
-	eval "$cmd" > /dev/null 2>&1 &
-	local pid=$!
-	spinner $pid "$msg"
-	wait $pid
-	return $?
-}
-
-atualiza () {
-    if [[ $SILENCIOSO -eq 1 ]]; then
-		executar "sudo pacman -Syu --noconfirm && sudo pacman -Sc --noconfirm" "[1/3] Atualizando pacotes do sistema"
-		executar "yay -Syu --noconfirm && yay -Sc --noconfirm" "[2/3] Atualizando pacotes do sistema"
-		executar "flatpak update -y" "[3/3] Atualizando pacotes do sistema"
-	
-	else
-		cat << "EOF"
+update() {
+    cat << "EOF"
      _____            __                    __  __          __      __     
     / ___/__  _______/ /____  ____ ___     / / / /___  ____/ /___ _/ /____ 
     \__ \/ / / / ___/ __/ _ \/ __ `__ \   / / / / __ \/ __  / __ `/ __/ _ \ 
@@ -63,11 +34,39 @@ atualiza () {
        /____/                                /_/                           
 
 EOF
-		sudo pacman -Syu --noconfirm
-		sudo pacman -Sc --noconfirm
-	    yay -Syu --noconfirm
-		yay -Sc --noconfirm
-		flatpak update -y
+    sudo pacman -Syu --noconfirm
+    sudo pacman -Sc --noconfirm
+    yay -Syu --noconfirm
+    yay -Sc --noconfirm
+    flatpak update -y
+
+    if plugin=$(cat "$UPDATES_FILE" | grep "hyprland" 2> /dev/null); then
+        hyprpm update
+    fi
+}
+
+check() {
+    echo " " > $UPDATES_FILE
+    if package=$(pacman -Qu 2> /dev/null); then
+        echo "Package:" >> $UPDATES_FILE
+        echo "$package\n" >> $UPDATES_FILE
+    fi
+
+    if aur=$(yay -Qua 2> /dev/null); then
+        echo "AUR:" >> $UPDATES_FILE
+        echo "$aur" >> $UPDATES_FILE
+    fi
+
+    if available=$(cat "$UPDATES_FILE" 2> /dev/null); then
+        echo "$available"
+        echo " "
+        read -p "Do you want to upgrade now? [y/N] " choice
+        case $choice in
+            [Yy]*) update ;;
+                *) exit 0 ;;
+        esac
+    else
+        echo "No packages available for update!!!"
     fi
 }
 
@@ -76,11 +75,7 @@ EOF
 #-------execuçao-------#
 
 case $1 in
-    -h) echo "$MENSAGEM_USO" && exit 0 ;;
-    -v) echo "$VERSAO" && exit 0       ;;
-    -q) SILENCIOSO=1; DEFAULT=1        ;;
-    *) DEFAULT=1                       ;;
+    -c) check  ;;
+     *) update ;;
 esac
-
-[ $DEFAULT -eq 1 ] && atualiza
 #----------------------#

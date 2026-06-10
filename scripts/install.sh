@@ -91,10 +91,6 @@ install () {
 	themes
 	dark_mode
 
-    mkdir -p ~/.config/qutebrowser/yt-style/
-    ln -sf $DOTFILES_DIR/qutebrowser/config.py ~/.config/qutebrowser/config.py
-    ln -sf $DOTFILES_DIR/qutebrowser/yt-style/youtube-tweaks.css ~/.config/qutebrowser/yt-style/youtube-tweaks.css
-
 	hyprpm add https://github.com/zjeffer/split-monitor-workspaces
 	hyprpm enable split-monitor-workspaces
 

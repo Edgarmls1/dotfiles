@@ -36,7 +36,7 @@ endfunction
 
 call s:ensure('LunarWatcher/auto-pairs')
 call s:ensure('WolfgangMehner/bash-support')
-call s:ensure('HenryNewcomer/vim-theme-papaya')
+call s:ensure('fxn/vim-monochrome')
 call s:ensure('Bakudankun/qline.vim')
 call s:ensure('vim-airline/vim-airline')
 call s:ensure('vim-airline/vim-airline-themes')
@@ -50,7 +50,7 @@ let g:fzf_vim = {}
 
 set termguicolors
 set hidden
-colorscheme papaya
+colorscheme monochrome
 
 let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)

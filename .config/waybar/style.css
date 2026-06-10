@@ -35,7 +35,7 @@
 /*--------------------*/
 
 #workspaces {
-	margin-left: 2px;
+	margin-left: 0px;
 	margin-right: 16px;
 }
  
@@ -82,6 +82,7 @@
 #tray menu {
   background-color: @tray_menu;
   border: 2px solid @tray_menu_border;
+  border-radius: 0px;
 }
 
 #tray menu menuitem {
@@ -109,7 +110,7 @@
 /*-----NETWORK-----*/
 /*-----------------*/
 
-#network, #pulseaudio, #battery, #bluetooth, #cpu, #memory, #temperature, #custom-appname, #custom-sep, #custom-spotify, #custom-cava {
+#network, #pulseaudio, #battery, #bluetooth, #cpu, #memory {
   color: @network_idle;
   padding: 2px;
   transition: all 0.3s ease;

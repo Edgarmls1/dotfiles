@@ -1,10 +1,9 @@
 {
-  "position": "top",
+  "position": "bottom",
   "spacing": 0,
   "reload_style_on_change": true,
   "modules-left": [
-    "hyprland/workspaces",
-    "custom/spotify"
+    "hyprland/workspaces"
   ],
   "modules-center": [],
   "modules-right": [
@@ -73,29 +72,21 @@
   "custom/sep": {
     "format": " "
   },
-  "custom/spotify": {
-    "format": "{}",
-    "exec": "~/dotfiles/scripts/spotify.sh",
-    "interval": 2,
-    "on-click": "playerctl -p spotify play-pause",
-    "on-scroll-up": "playerctl -p spotify next",
-    "on-scroll-down": "playerctl -p spotify previous"
-  },
   "network": {
     "format-disconnected": "disconnected ",
     "format-ethernet": " ",
     "format-linked": "{ifname} (No IP)",
-    "format-wifi": "   {essid} ",
+    "format-wifi": "  {essid} ",
     "tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
     "on-click": "kitty gazelle"
   },
   "cpu": {
-    "format": "  {usage}%",
+    "format": " {usage}%",
     "interval": 1,
     "on-click": "kitty btop"
   },
   "memory": {
-    "format": "  {percentage}%",
+    "format": " {percentage}%",
     "interval": 1,
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",

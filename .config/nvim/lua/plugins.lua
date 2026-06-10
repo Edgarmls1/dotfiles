@@ -18,7 +18,6 @@ vim.pack.add({
 	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/romgrk/barbar.nvim",
 	"https://github.com/sphamba/smear-cursor.nvim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/VonHeikemen/fine-cmdline.nvim",
