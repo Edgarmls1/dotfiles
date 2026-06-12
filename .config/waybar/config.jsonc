@@ -3,7 +3,8 @@
   "spacing": 0,
   "reload_style_on_change": true,
   "modules-left": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "custom/spotify"
   ],
   "modules-center": [],
   "modules-right": [
@@ -23,9 +24,40 @@
     "custom/sep",
     "clock"
   ],
-  "tray": {
-    "icon-size": 18,
-    "spacing": 6
+  "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+          "1": "一",
+          "2": "二",
+          "3": "三",
+          "4": "四",
+          "5": "五",
+          "6": "六",
+          "7": "七",
+          "8": "八",
+          "9": "九",
+          "10": "十",
+          "11": "一",
+          "12": "二",
+          "13": "三",
+          "14": "四",
+          "15": "五",
+          "16": "六",
+          "17": "七",
+          "18": "八",
+          "19": "九",
+          "110": "十",
+          "21": "一",
+          "22": "二",
+          "23": "三",
+          "24": "四",
+          "25": "五",
+          "26": "六",
+          "27": "七",
+          "28": "八",
+          "29": "九",
+          "210": "十"
+      }
   },
   "clock": {
     "format": " {:%H:%M}",
@@ -91,5 +123,13 @@
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
     "on-click": "kitty btop"
+  },
+  "custom/spotify": {
+    "format": "{}",
+    "exec": "~/dotfiles/scripts/spotify.sh",
+    "interval": 1,
+    "on-click": "~/dotfiles/scripts/music-monitor.sh play",
+    "on-scroll-up": "~/dotfiles/scripts/music-monitor.sh next",
+    "on-scroll-down": "~/dotfiles/scripts/music-monitor.sh previous"
   }
 }

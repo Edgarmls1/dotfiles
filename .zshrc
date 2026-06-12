@@ -58,7 +58,8 @@ alias ..="cd .."
 alias :q="exit"
 alias :wq="exit"
 alias cc="cd && clear"
-alias hist="history -100 | grep"
+alias hist="history -100 | grep --color=auto"
+alias grep="grep --color=auto"
 
 alias update="~/dotfiles/scripts/update.sh"
 alias check-updates="~/dotfiles/scripts/update.sh -c"
@@ -68,6 +69,9 @@ alias python="~/pyenv/bin/python"
 alias hyprc="nvim ~/.config/hypr/hyprland.lua"
 
 alias weather="curl wttr.in"
+
+alias video="yt-dlp -t mp4"
+alias music="yt-dlp -t mp3"
 
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/notes/"

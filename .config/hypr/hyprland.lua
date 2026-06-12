@@ -63,7 +63,6 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hyprpm reload -n")
-	hl.exec_cmd("spotify-tray-wayland")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
 
@@ -238,7 +237,8 @@ hl.bind(super .. " + S",         exec(music))
 hl.bind("CTRL + right", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
 hl.bind("CTRL + left",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
 
-hl.bind(super .. " + M", exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
+hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
+hl.bind(super .. " + CTRL + W", exec(os.getenv("HOME") .. "/dotfiles/scripts/wallpaper.sh"))
 
 hl.bind(super .. " + Escape", exec("killall waybar || waybar"))
 hl.bind(super .. " + W",   exec("wleave"))
