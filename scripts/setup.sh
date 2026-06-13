@@ -4,7 +4,6 @@ reboot() {
 	clear
 	read -p "Do you want to reboot your system? [y/N] " reboot
 	
-	
 	case $reboot in
 		[Yy]*)
 			echo "Your system will reboot in 5 seconds..."
@@ -61,7 +60,6 @@ clean() {
     echo "+------------------------------------------+"
 	echo ""
 	read -p "Do you want to continue? [y/N] " agree
-
 	
 	case $agree in
 		[Yy]*)
@@ -86,7 +84,7 @@ clean() {
 				0) " "                           ;;
 				*) "invalid option"              ;;
 			esac
-            yay -S --noconfirm spotify spotify-tray-wayland-bin
+            yay -S --noconfirm spotify
 	esac
     ask_to_continue
 }
@@ -109,7 +107,6 @@ games() {
     echo "+------------------------------------------+"
 	echo ""
 	read -p "Do you want to continue? [y/N] " agree
-
 	
 	case $agree in
 		[Yy]*)

@@ -47,10 +47,13 @@ EOF
 
 check() {
     echo " " > $UPDATES_FILE
+    sudo pacman -Sy &> /dev/null
     if package=$(pacman -Qu 2> /dev/null); then
         echo "Package:" >> $UPDATES_FILE
-        echo "$package\n" >> $UPDATES_FILE
+        echo "$package" >> $UPDATES_FILE
     fi
+
+    echo " " >> $UPDATES_FILE
 
     if aur=$(yay -Qua 2> /dev/null); then
         echo "AUR:" >> $UPDATES_FILE

@@ -16,8 +16,6 @@
     "custom/sep",
     "bluetooth",
     "custom/sep",
-    "battery",
-    "custom/sep",
     "cpu",
     "custom/sep",
     "memory",
@@ -92,14 +90,6 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "exec kitty bluetui"
-  },
-  "battery": {
-    "interval": 60,
-    "format": "{icon} {capacity}%",
-    "format-icons": {
-      "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-      "charging": ""
-    }
   },
   "custom/sep": {
     "format": " "

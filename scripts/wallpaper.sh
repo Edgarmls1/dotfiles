@@ -2,7 +2,7 @@
 
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 
-WALLPAPERS=("wave" "centiped" "eyes" "shinji" "touch")
+WALLPAPERS=("wave" "centiped" "eyes" "shinji")
 WALLPAPER_FILE=$HOME/.cache/current_wallpaper
 
 get_current_wallpaper() {
@@ -26,7 +26,7 @@ apply_wallpaper_block() {
     local open="#"
     local close=""
     local pattern_comment="s|^\([^#]\)|#\1|"
-    local pattern_uncomment="s|^#\(.*$tag:$wallpaper\)|\1|"
+    local pattern_uncomment="s|^#\(.*$tag:$theme\)|\1|"
 
 	sed -i "/$tag:/{ $pattern_comment }" "$file"
 	sed -i "/$tag:$wallpaper/{ $pattern_uncomment }" "$file"
@@ -52,11 +52,6 @@ apply_shinji() {
 	pkill hyprpaper && hyprpaper &
 }
 
-apply_touch() {
-	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "touch" "hash"
-	pkill hyprpaper && hyprpaper &
-}
-
 toggle_wallpaper() {
 	local current=$(get_current_wallpaper)
 
@@ -69,9 +64,6 @@ toggle_wallpaper() {
 	elif [ "$current" = "eyes" ]; then
 		apply_shinji
 		set_wallpaper "shinji"
-	elif [ "$current" = "shinji" ]; then
-		apply_touch
-		set_wallpaper "touch"
 	else
 		apply_wave
 		set_wallpaper "wave"

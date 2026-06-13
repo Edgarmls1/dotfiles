@@ -63,6 +63,7 @@ alias grep="grep --color=auto"
 
 alias update="~/dotfiles/scripts/update.sh"
 alias check-updates="~/dotfiles/scripts/update.sh -c"
+alias extract="~/dotfiles/scripts/extract.sh"
 
 alias python="~/pyenv/bin/python"
 
