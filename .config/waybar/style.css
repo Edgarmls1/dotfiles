@@ -110,7 +110,7 @@
 /*-----NETWORK-----*/
 /*-----------------*/
 
-#network, #pulseaudio, #bluetooth, #cpu, #memory, #custom-spotify {
+#network, #pulseaudio, #bluetooth, #cpu, #memory {
   color: @network_idle;
   padding: 2px;
   transition: all 0.3s ease;

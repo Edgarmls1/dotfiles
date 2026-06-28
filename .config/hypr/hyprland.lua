@@ -61,7 +61,6 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("dunst")
 	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hyprpm reload -n")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
@@ -69,15 +68,12 @@ hl.on("hyprland.start", function ()
 
     hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Dark'")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
-    hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic")
 end)
 
 -----------------------------
 --- ENVIRONMENT VARIABLES ---
 -----------------------------
 
-hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
-hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
@@ -153,13 +149,13 @@ hl.config({
 	},
 })
 
--- hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
+hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 
--- hl.animation({ leaf = "border",     enabled = true, speed = 10,  bezier = "default" })
--- hl.animation({ leaf = "windows",    enabled = true, speed = 7,   bezier = "myBezier" })
--- hl.animation({ leaf = "windowsOut", enabled = true, speed = 7,   bezier = "default", style = "popin 80%" })
--- hl.animation({ leaf = "fade",       enabled = true, speed = 7,   bezier = "default" })
--- hl.animation({ leaf = "workspaces", enabled = true, speed = 6,   bezier = "default" })
+hl.animation({ leaf = "border",     enabled = true, speed = 10,  bezier = "default" })
+hl.animation({ leaf = "windows",    enabled = true, speed = 7,   bezier = "myBezier" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 7,   bezier = "default", style = "popin 80%" })
+hl.animation({ leaf = "fade",       enabled = true, speed = 7,   bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 6,   bezier = "default" })
 
 -------------
 --- INPUT ---
@@ -183,15 +179,9 @@ hl.config({
 	},
 })
 
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
-})
-
 hl.device({
 	name        = "epic-mouse-v1",
-	sensitivity = -0.5,
+	sensitivity = 0.5,
 })
 
 ---------------
@@ -233,28 +223,28 @@ hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
 hl.bind(super .. " + SPACE",     exec(menu))
 hl.bind(super .. " + B",         exec(browser))
 hl.bind(super .. " + SHIFT + B", exec(nerdBrowser))
-hl.bind(super .. " + S",         exec(music))
 
-hl.bind("CTRL + right", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
-hl.bind("CTRL + left",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
+hl.bind("CTRL + N", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
+hl.bind("CTRL + P", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
 
 hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
 hl.bind(super .. " + T",        exec(os.getenv("HOME") .. "/dotfiles/scripts/wallpaper.sh"))
 hl.bind(super .. " + CTRL + B", exec(os.getenv("HOME") .. "/dotfiles/scripts/battery.sh notify"))
 hl.bind(super .. " + CTRL + W", exec(os.getenv("HOME") .. "/dotfiles/scripts/weather.sh notify"))
 
-hl.bind(super .. " + Escape", exec("killall waybar || waybar"))
-hl.bind(super .. " + W",   exec("wleave"))
-hl.bind(super .. " + L",   exec("hyprlock"))
+hl.bind(super .. " + Escape",    exec("killall waybar || waybar"))
+hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
+hl.bind(super .. " + W",         exec("wleave"))
+hl.bind(super .. " + L",         exec("hyprlock"))
 
 hl.bind("Print",         exec("hyprshot -m region -m active -o ~/Pictures/"))
 hl.bind("SHIFT + Print", exec("hyprshot -m region -m output -o ~/Pictures/"))
 
 local closeWindowBind = hl.bind(super .. " + C",         hl.dsp.window.close())
 hl.bind(super .. " + V",         hl.dsp.window.float({ action = "toggle" }))
+hl.bind(super .. " + S",         hl.dsp.layout("togglesplit"))
 hl.bind(super .. " + F",         hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(super .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-hl.bind(super .. " + SHIFT + S", hl.dsp.layout("togglesplit"))
 
 hl.bind(super .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(super .. " + right", hl.dsp.focus({ direction = "right" }))

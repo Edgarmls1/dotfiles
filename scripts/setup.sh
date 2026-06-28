@@ -114,7 +114,7 @@ games() {
 			yay -S faugus-launcher heoric-games-launcher-bin steam retroarch discord
 			flatpak remote-delete trinity
 			flatpak remote-add trinity https://github.com/Trinity-LA/Trinity-Launcher/releases/download/flatpak/com.trench.trinity.launcher.flatpakrepo
-			flatpak install com.trench.trinity.launcher
+			flatpak install com.trench.trinity.launcher org.vinegarhq.Sober
 	esac
 
     ask_to_continue

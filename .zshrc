@@ -71,9 +71,6 @@ alias hyprc="nvim ~/.config/hypr/hyprland.lua"
 
 alias weather="curl wttr.in"
 
-alias video="yt-dlp -t mp4"
-alias music="yt-dlp -t mp3"
-
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/notes/"
 

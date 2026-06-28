@@ -34,22 +34,26 @@ apply_wallpaper_block() {
 
 apply_wave() {
 	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "wave" "hash"
-	pkill hyprpaper && hyprpaper &
+	pkill hyprpaper 
+    hyprpaper &
 }
 
 apply_centiped() {
 	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "centiped" "hash"
-	pkill hyprpaper && hyprpaper &
+	pkill hyprpaper 
+    hyprpaper &
 }
 
 apply_eyes() {
 	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "eyes" "hash"
-	pkill hyprpaper && hyprpaper &
+	pkill hyprpaper 
+    hyprpaper &
 }
 
 apply_shinji() {
 	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "shinji" "hash"
-	pkill hyprpaper && hyprpaper &
+	pkill hyprpaper 
+    hyprpaper &
 }
 
 toggle_wallpaper() {
