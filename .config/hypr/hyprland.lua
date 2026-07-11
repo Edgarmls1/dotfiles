@@ -48,10 +48,6 @@ hl.monitor({
 local terminal    = "kitty"
 local tuiFileMgr  = "kitty yazi"
 local guiFileMgr  = "nemo"
-local menu        = "anyrun"
-local browser     = "zen-browser"
-local nerdBrowser = "qutebrowser"
-local music       = "spotify"
 
 -----------------
 --- AUTOSTART ---
@@ -220,12 +216,10 @@ local exec = hl.dsp.exec_cmd
 hl.bind(super .. " + Q",         exec(terminal))
 hl.bind(super .. " + E",         exec(tuiFileMgr))
 hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
-hl.bind(super .. " + SPACE",     exec(menu))
-hl.bind(super .. " + B",         exec(browser))
-hl.bind(super .. " + SHIFT + B", exec(nerdBrowser))
+hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/bemenu-run.sh")) 
 
-hl.bind("CTRL + N", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
-hl.bind("CTRL + P", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
+hl.bind(super .. " + N", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
+hl.bind(super .. " + P", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
 
 hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
 hl.bind(super .. " + T",        exec(os.getenv("HOME") .. "/dotfiles/scripts/wallpaper.sh"))

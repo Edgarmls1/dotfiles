@@ -29,7 +29,7 @@ vim.opt.showmode = false
 vim.opt.termguicolors = true
 
 vim.opt.cursorline = true
-vim.opt.mouse = "a"
+vim.opt.mouse = ""
 vim.opt.background = "dark"
 
 vim.cmd("colorscheme monochrome")

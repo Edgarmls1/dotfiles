@@ -1,5 +1,4 @@
 vim.pack.add({ 
-	"https://github.com/aditya-azad/candle-grey.git",
 	"https://github.com/brenoprata10/nvim-highlight-colors",
 	"https://github.com/echasnovski/mini.icons",
 	"https://github.com/goolord/alpha-nvim",
@@ -19,7 +18,6 @@ vim.pack.add({
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/sphamba/smear-cursor.nvim",
-	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/VonHeikemen/fine-cmdline.nvim",
 	"https://github.com/VonHeikemen/searchbox.nvim",
 	"https://github.com/windwp/nvim-autopairs",
@@ -34,7 +32,6 @@ require("smear_cursor").setup({ opts = {} })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
 require("alpha").setup(require("alpha.themes.theta").config)
 require("nvim-highlight-colors").setup({ render = "virtual" })
-require("oil").setup({ view_options = { show_hidden = true } })
 require("mini.cmdline").setup({ autocorrect = { enable = false } })
 
 require("fine-cmdline").setup({

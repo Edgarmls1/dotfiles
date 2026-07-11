@@ -68,43 +68,40 @@
     }
   },
   "pulseaudio": {
-      "format": "{icon} {volume}%",
-      "format-muted": "muted",
-      "format-icons": {
-          "default": ["", ""]
-      },
+      "format": "VOL:{volume}%",
+      "format-muted": "MUTED",
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
       "on-click-right": "pavucontrol",
       "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
       "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-" 
   },
   "bluetooth": {
-    "format": "",
+    "format": "BLUE",
     "format-disabled": "",
-    "format-connected": " {num_connections}",
+    "format-connected": "BLUE:{num_connections}",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "exec kitty bluetui"
   },
   "custom/sep": {
-    "format": " "
+    "format": "|"
   },
   "network": {
     "format-disconnected": "disconnected ",
-    "format-ethernet": " ",
+    "format-ethernet": "WIRED",
     "format-linked": "{ifname} (No IP)",
-    "format-wifi": "  {essid} ",
+    "format-wifi": "{essid}",
     "tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
     "on-click": "kitty gazelle"
   },
   "cpu": {
-    "format": " {usage}%",
+    "format": "CPU:{usage}%",
     "interval": 1,
     "on-click": "kitty btop"
   },
   "memory": {
-    "format": " {percentage}%",
+    "format": "MEM:{percentage}%",
     "interval": 1,
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",

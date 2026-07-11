@@ -10,6 +10,8 @@ unmap u
 map u restoreTab
 map <s-down> nextTab
 map <s-up> previousTab
+unmap b
+unmap B
 
 # CSS
 div > .vimiumHintMarker {

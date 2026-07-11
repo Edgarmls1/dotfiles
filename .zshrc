@@ -70,6 +70,7 @@ alias python="~/pyenv/bin/python"
 alias hyprc="nvim ~/.config/hypr/hyprland.lua"
 
 alias weather="curl wttr.in"
+alias sonin="shutdown +60"
 
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/notes/"

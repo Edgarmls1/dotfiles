@@ -2,7 +2,7 @@
 
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 
-WALLPAPERS=("wave" "centiped" "eyes" "shinji")
+WALLPAPERS=("wave" "centiped" "eyes")
 WALLPAPER_FILE=$HOME/.cache/current_wallpaper
 
 get_current_wallpaper() {
@@ -50,12 +50,6 @@ apply_eyes() {
     hyprpaper &
 }
 
-apply_shinji() {
-	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "shinji" "hash"
-	pkill hyprpaper 
-    hyprpaper &
-}
-
 toggle_wallpaper() {
 	local current=$(get_current_wallpaper)
 
@@ -65,9 +59,6 @@ toggle_wallpaper() {
 	elif [ "$current" = "centiped" ]; then
 		apply_eyes
 		set_wallpaper "eyes"
-	elif [ "$current" = "eyes" ]; then
-		apply_shinji
-		set_wallpaper "shinji"
 	else
 		apply_wave
 		set_wallpaper "wave"
