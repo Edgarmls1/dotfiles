@@ -1,6 +1,7 @@
+adaptative tab bar color
+arc like copy link
 dark reader
 Live editor for CSS -> * { border-radius: 0px !important; }
 ublock origin
-vimiun -> vimiun.txt
 youtube no translation
 yt tweaks -> yt-tweaks.json

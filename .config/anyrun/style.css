@@ -1,0 +1,88 @@
+@define-color fg-color  #eeeeee;
+@define-color sel-fg    #000000;
+
+@define-color bg-color #000000;
+
+@define-color sel-bg #ffffff;
+
+@define-color prompt #ffffff;
+
+window {
+  background: transparent;
+}
+
+box.main {
+  padding: 6px;
+  margin: 10px;
+  border-radius: 0;
+  border: 1px solid @sel-bg;
+  background-color: @bg-color;
+  box-shadow: none;
+
+  orientation: horizontal;
+}
+
+text {
+  min-height: 18px;
+  min-width: 180px;
+  padding: 2px 8px;
+  border-radius: 0;
+  color: @fg-color;
+  background: transparent;
+
+  border-right: 2px solid @prompt;
+  margin-right: 4px;
+}
+
+.matches {
+  background-color: transparent;
+  border-radius: 0;
+}
+
+box.plugin {
+  margin: 0;
+  padding: 0;
+}
+
+box.plugin:first-child {
+  margin-top: 0;
+}
+
+list.plugin {
+  background-color: transparent;
+
+  orientation: horizontal;
+}
+
+.match {
+  background: transparent;
+  padding: 2px 10px;
+  border-radius: 0;
+}
+
+label.match {
+  color: @fg-color;
+  font-size: 13px;
+}
+
+label.match.description {
+  font-size: 0px;
+  opacity: 0;
+}
+
+.match:selected {
+  border-left: none;
+  background-color: @sel-bg;
+  animation: none;
+}
+
+.match:selected label.match {
+  color: @sel-fg;
+}
+
+box.plugin.info,
+label.plugin.info {
+  font-size: 0px;
+  opacity: 0;
+  min-width: 0;
+}

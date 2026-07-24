@@ -101,7 +101,7 @@ games() {
 	echo "| - steam                                  |"
 	echo "| - retroarch                              |"
 	echo "| - discord                                |"
-	echo "| - heroic (epic client)                   |"
+	echo "| - hydra                                  |"
 	echo "| - faugus                                 |"
 	echo "| - trinity launcher (minecraft)           |"
     echo "+------------------------------------------+"
@@ -111,10 +111,11 @@ games() {
 	case $agree in
 		[Yy]*)
 			echo ""
-			yay -S faugus-launcher heoric-games-launcher-bin steam retroarch discord
+			yay -S faugus-launcher hydra-launcher-bin steam retroarch discord
 			flatpak remote-delete trinity
 			flatpak remote-add trinity https://github.com/Trinity-LA/Trinity-Launcher/releases/download/flatpak/com.trench.trinity.launcher.flatpakrepo
-			flatpak install com.trench.trinity.launcher org.vinegarhq.Sober
+			flatpak install com.trench.trinity.launcher
+            flatpak install org.vinegarhq.Sober
 	esac
 
     ask_to_continue
@@ -134,7 +135,6 @@ dev() {
 	echo "| - bitwarden                              |"
 	echo "| - vscode                                 |"
 	echo "| - zed                                    |"
-	echo "| - virtualbox                             |"
 	echo "| - java                                   |"
     echo "+------------------------------------------+"
 	echo ""
@@ -143,10 +143,7 @@ dev() {
 	case $agree in
 		[Yy]*)
 			echo ""
-			yay -S --noconfirm neovim bitwarden visual-studio-code-bin virtualbox zed
-
-			sudo modprobe vboxdrv
-			sudo usermod -aG vboxusers $USER
+			yay -S --noconfirm neovim bitwarden visual-studio-code-bin zed
 
 			read -p "Do you want to install java? (y/N)" java
 

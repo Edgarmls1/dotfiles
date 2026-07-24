@@ -32,7 +32,10 @@ vim.opt.cursorline = true
 vim.opt.mouse = ""
 vim.opt.background = "dark"
 
-vim.cmd("colorscheme monochrome")
+vim.cmd("colorscheme opac")
+
+vim.opt.textwidth = 79
+vim.opt.colorcolumn = "+1" 
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()

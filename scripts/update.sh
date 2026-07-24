@@ -12,12 +12,15 @@ UPDATES_FILE=$HOME/.cache/available_updates
 #-------testes-------#
 
 if ! command -v yay &> /dev/null; then
-    echo "yay não encontrado, instalando..."
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
     cd ..
     rm -rf yay
+fi
+
+if ! command -v paccache &> /dev/null; then
+    sudo pacman -S pacman-contrib --noconfirm
 fi
 
 #--------------------#
@@ -73,12 +76,21 @@ check() {
     fi
 }
 
+clean() {
+    sudo paccache -r -k0
+    sudo pacman -Rns $(pacman -Qdtq)
+    yay -Sc --noconfirm
+    sudo rm -rf /tmp/* /var/tmp/*
+    sudo journatctl --vacuum-time=2weeks
+}
+
 #---------------------#
 
 #-------execuçao-------#
 
 case $1 in
-    -c) check  ;;
-     *) update ;;
+    -cu) check  ;;
+    -cl) clean  ;;
+      *) update ;;
 esac
 #----------------------#

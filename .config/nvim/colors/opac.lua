@@ -1,6 +1,6 @@
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
-vim.g.colors_name = "monochrome"
+vim.g.colors_name = "opac"
 vim.opt.background = "dark"
 
 local hl = vim.api.nvim_set_hl
@@ -23,23 +23,23 @@ local c = {
     muted    = "#606060",
     cursor   = "#D0D0D0",
 
-    error    = "#CC6666",
-    warn     = "#CCAA66",
-    info     = "#8899AA",
-    hint     = "#667788",
+    error    = "#B06868",
+    warn     = "#C9A670",
+    info     = "#7096B0",
+    hint     = "#6F9898",
 
-    comment  = "#4A4A4A",
-    string   = "#AAAAAA",
-    number   = "#B8B8B8",
-    bool     = "#DDDDDD",
-    type     = "#D0D0D0",
-    keyword  = "#EEEEEE",
-    func     = "#E8E8E8",
+    comment  = "#5A6A78",
+    string   = "#8AAB8A",
+    number   = "#C2A878",
+    bool     = "#C08A70",
+    type     = "#7FB0B0",
+    keyword  = "#A97BA0",
+    func     = "#7C98C4",
     variable = "#C0C0C0",
     operator = "#888888",
-    special  = "#BBBBBB",
-    imports  = "#AAAACC",
-    constant = "#D8D8D8",
+    special  = "#B98AB0",
+    imports  = "#8F8FC0",
+    constant = "#CBB488",
 
     diff_add = "#1A2A1A",
     diff_chg = "#1A1A2A",
@@ -77,7 +77,7 @@ hl(0, "CursorColumn",  { bg = c.bg3 })
 hl(0, "Visual",        { bg = c.dim })
 hl(0, "VisualNOS",     { bg = c.dim })
 
-hl(0, "LineNr",        { fg = c.fg4 })
+hl(0, "LineNr",        { fg = c.bright })
 hl(0, "CursorLineNr",  { fg = c.bright, bold = true })
 
 hl(0, "StatusLineNC",  { fg = c.fg4,    bg = c.bg2 })
@@ -145,7 +145,7 @@ hl(0, "Typedef",       { fg = c.type })
 
 hl(0, "Special",       { fg = c.special })
 hl(0, "SpecialChar",   { fg = c.special })
-hl(0, "Delimiter",     { fg = c.muted })
+hl(0, "Delimiter",     { fg = c.hint })
 
 hl(0, "Underlined",    { underline = true })
 hl(0, "Error",         { fg = c.error,    bold = true })
@@ -170,7 +170,7 @@ hl(0, "@field",               { fg = c.fg })
 hl(0, "@property",            { fg = c.fg })
 hl(0, "@constructor",         { fg = c.func })
 hl(0, "@operator",            { fg = c.operator })
-hl(0, "@punctuation",         { fg = c.muted })
+hl(0, "@punctuation",         { fg = c.hint })
 hl(0, "@tag",                 { fg = c.bright })
 hl(0, "@tag.attribute",       { fg = c.mid })
 hl(0, "@namespace",           { fg = c.fg })

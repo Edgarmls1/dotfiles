@@ -32,14 +32,38 @@ date
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
+zmodload zsh/datetime
 
 PROMPT_COLOR="green"
+CMD_DURATION=""
+
+preexec() {
+    CMD_START=$EPOCHREALTIME
+}
 
 precmd() {
-    if [[ $? -eq 0 ]]; then
+    local exit_code=$?
+
+    if (( exit_code == 0 )); then
         PROMPT_COLOR="green"
     else
         PROMPT_COLOR="red"
+    fi
+
+    if [[ -n "$CMD_START" ]]; then
+        local elapsed=$(( EPOCHREALTIME - CMD_START ))
+        if (( elapsed >= 1 )); then
+            if (( elapsed >= 60 )); then
+                CMD_DURATION=$(printf " (%dm%.0fs)" $(( elapsed / 60 )) $(( elapsed % 60 )))
+            else
+                CMD_DURATION=$(printf " (%.2fs)" $elapsed)
+            fi
+        else
+            CMD_DURATION=""
+        fi
+        unset CMD_START
+    else
+        CMD_DURATION=""
     fi
 }
 
@@ -47,7 +71,7 @@ f() {
 	nvim "$(fzf --style full --preview "bat --color=always {}")"
 }
 
-PS1=$'\n%F{$PROMPT_COLOR}%~%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
+PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
 
 export EDITOR="nvim"
 
@@ -62,7 +86,8 @@ alias hist="history -100 | grep --color=auto"
 alias grep="grep --color=auto"
 
 alias update="~/dotfiles/scripts/update.sh"
-alias check-updates="~/dotfiles/scripts/update.sh -c"
+alias check-updates="~/dotfiles/scripts/update.sh -cu"
+alias clean-sys="~/dotfiles/scripts/update.sh -cl"
 alias extract="~/dotfiles/scripts/extract.sh"
 
 alias python="~/pyenv/bin/python"

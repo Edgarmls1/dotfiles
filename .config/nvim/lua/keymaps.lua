@@ -18,6 +18,8 @@ end)
 vim.keymap.set("n", "<leader>e", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>f", ":Telescope live_grep<CR>")
 
+vim.keymap.set("n", "<leader>x", vim.cmd.Ex)
+
 vim.keymap.set("t", "<ESC>",     "<C-\\><C-n>",   opts)
 vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
 
@@ -25,3 +27,8 @@ vim.keymap.set("n", ":", "<Cmd>FineCmdline<CR>", { noremap = true })
 
 vim.keymap.set("n", "/",     "<Cmd>SearchBoxMatchAll title=Match<CR>")
 vim.keymap.set("n", "<S-R>", "<Cmd>SearchBoxReplace title='Replace Patern' confirm=menu<CR>")
+
+vim.keymap.set("n", "<TAB>",     "<Cmd>BufferNext<CR>",     opts)
+vim.keymap.set("n", "<S-TAB>",   "<Cmd>BufferPrevious<CR>", opts)
+vim.keymap.set("n", "<leader>p", "<Cmd>BufferPin<CR>",      opts)
+vim.keymap.set("n", "<leader>w", "<Cmd>BufferClose<CR>",    opts)

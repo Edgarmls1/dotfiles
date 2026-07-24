@@ -45,6 +45,7 @@ hl.monitor({
 --- MY PROGRAMS ---
 -------------------
 
+local menu        = "anyrun"
 local terminal    = "kitty"
 local tuiFileMgr  = "kitty yazi"
 local guiFileMgr  = "nemo"
@@ -54,9 +55,10 @@ local guiFileMgr  = "nemo"
 -----------------
 
 hl.on("hyprland.start", function ()
+    hl.exec_cmd("dunst")
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("dunst")
 	hl.exec_cmd("hyprpaper")
+    hl.exec_cmd("navidrome")
 	hl.exec_cmd("hyprpm reload -n")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
@@ -88,10 +90,10 @@ hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencop
 
 hl.config({
 	general = {
-		gaps_in  = 0,
-		gaps_out = 0,
+		gaps_in  = 5,
+		gaps_out = 10,
 
-		border_size = 2,
+		border_size = 0,
 
 		col = {
 			active_border   = "rgba(ffffffff)",
@@ -109,7 +111,7 @@ hl.config({
 		rounding = 0,
 
 		active_opacity   = 1.0,
-		inactive_opacity = 1.0,
+		inactive_opacity = 0.8,
 
 		shadow = {
 			enabled      = false,
@@ -216,7 +218,7 @@ local exec = hl.dsp.exec_cmd
 hl.bind(super .. " + Q",         exec(terminal))
 hl.bind(super .. " + E",         exec(tuiFileMgr))
 hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
-hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/bemenu-run.sh")) 
+hl.bind(super .. " + SPACE",     exec(menu)) 
 
 hl.bind(super .. " + N", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
 hl.bind(super .. " + P", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
@@ -283,3 +285,25 @@ hl.bind("XF86AudioNext",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-mon
 hl.bind("XF86AudioPause", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPlay",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPrev",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"), { locked = true })
+
+-- hyprmon: managed monitor profile include
+require("hyprmon")
+
+------------------------------
+--- WINDOWS AND WORKSPACES ---
+------------------------------
+
+-- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+-- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
+-- hl.window_rule({
+--     name  = "no-gaps-wtv1",
+--     match = { float = false, workspace = "w[tv1]" },
+--     border_size = 1,
+--     rounding    = 0,
+-- })
+-- hl.window_rule({
+--     name  = "no-gaps-f1",
+--     match = { float = false, workspace = "f[1]" },
+--     border_size = 1,
+--     rounding    = 0,
+-- })
