@@ -31,9 +31,8 @@
     "git.untrackedChanges": "hidden",
     "window.commandCenter": false,
     "window.menuBarVisibility": "compact",
-    "workbench.activityBar.location": "hidden",
     "workbench.browser.showInTitleBar": false,
-    "workbench.colorTheme": "monochrome",
+    "workbench.colorTheme": "Ghost Pastel",
     "workbench.editor.showTabs": "single",
     "workbench.iconTheme": "onedark-zed-icons",
     "workbench.startupEditor": "none",
@@ -44,5 +43,7 @@
     "workbench.tree.renderIndentGuides": "none",
     "zenMode.showTabs": "single",
     "zenMode.centerLayout": true,
-    "zenMode.hideLineNumbers": true
+    "zenMode.hideLineNumbers": true,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "chat.disableAIFeatures": true
 }
