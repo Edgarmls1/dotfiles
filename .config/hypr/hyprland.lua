@@ -12,24 +12,24 @@
 --- MONITORS ---
 ----------------
 
-hl.monitor({
-	output   = "eDP-1",
-	mode     = "1920x1080",
-	position = "0x0",
-	scale    = "1",
-})
+-- hl.monitor({
+-- 	output   = "eDP-1",
+-- 	mode     = "1920x1080",
+-- 	position = "0x0",
+-- 	scale    = "1",
+-- })
 
 hl.monitor({
 	output   = "HDMI-A-2",
 	mode     = "1920x1080",
-	position = "1921x0",
+	position = "0x1081",
 	scale    = "1",
 })
 
 hl.monitor({
 	output   = "DP-1",
 	mode     = "1920x1080",
-	position = "1921x1081",
+	position = "0x0",
 	scale    = "1",
 })
 
@@ -60,7 +60,6 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("hyprpaper")
     hl.exec_cmd("navidrome")
 	hl.exec_cmd("hyprpm reload -n")
-	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/battery.sh monitor")
 
@@ -120,13 +119,15 @@ hl.config({
 			color        = 0x1a1a1aee,
 		},
 
-		blur = {
-			enabled        = true,
-			size           = 8,
-			passes         = 2,
-			vibrancy       = 0.1696,
-			ignore_opacity = true,
-		},
+        blur = {
+            enabled           = true,
+            size              = 8,
+            passes            = 2,
+            vibrancy          = 0.1696,
+            ignore_opacity    = true,
+            new_optimizations = true,
+            xray              = true,
+        },
 	},
 
 	animations = {
@@ -201,9 +202,8 @@ hl.config({
 })
 
 local smw = hl.plugin.split_monitor_workspaces
-smw.monitor_priority({ "HDMI-A-2", "DP-1", "eDP-1" })
+smw.monitor_priority({ "DP-1", "HDMI-A-2" })
 
-smw.max_workspaces({ monitor = "eDP-1",    max = 10 })
 smw.max_workspaces({ monitor = "HDMI-A-2", max = 10 })
 smw.max_workspaces({ monitor = "DP-1",     max = 10 })
 
@@ -285,9 +285,6 @@ hl.bind("XF86AudioNext",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-mon
 hl.bind("XF86AudioPause", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPlay",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPrev",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"), { locked = true })
-
--- hyprmon: managed monitor profile include
-require("hyprmon")
 
 ------------------------------
 --- WINDOWS AND WORKSPACES ---
