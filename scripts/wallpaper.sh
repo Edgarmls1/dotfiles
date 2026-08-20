@@ -2,14 +2,14 @@
 
 HYPRPAPER=$HOME/.config/hypr/hyprpaper.conf
 
-WALLPAPERS=("wave" "centiped" "eyes")
+WALLPAPERS=("dark" "light")
 WALLPAPER_FILE=$HOME/.cache/current_wallpaper
 
 get_current_wallpaper() {
 	if [ -f "$WALLPAPER_FILE" ]; then
 		cat "$WALLPAPER_FILE"
 	else
-		echo "wave"
+		echo "dark"
 	fi
 }
 
@@ -32,20 +32,14 @@ apply_wallpaper_block() {
 	sed -i "/$tag:$wallpaper/{ $pattern_uncomment }" "$file"
 }
 
-apply_wave() {
-	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "wave" "hash"
+apply_dark() {
+	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "dark" "hash"
 	pkill hyprpaper 
     hyprpaper &
 }
 
-apply_centiped() {
-	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "centiped" "hash"
-	pkill hyprpaper 
-    hyprpaper &
-}
-
-apply_eyes() {
-	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "eyes" "hash"
+apply_light() {
+	apply_wallpaper_block "$HYPRPAPER" "wallpaper" "light" "hash"
 	pkill hyprpaper 
     hyprpaper &
 }
@@ -53,15 +47,12 @@ apply_eyes() {
 toggle_wallpaper() {
 	local current=$(get_current_wallpaper)
 
-	if [ "$current" = "wave" ]; then
-		apply_centiped
-		set_wallpaper "centiped"
-	elif [ "$current" = "centiped" ]; then
-		apply_eyes
-		set_wallpaper "eyes"
+	if [ "$current" = "dark" ]; then
+		apply_light
+		set_wallpaper "light"
 	else
-		apply_wave
-		set_wallpaper "wave"
+		apply_dark
+		set_wallpaper "dark"
 	fi
 }
 

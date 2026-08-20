@@ -1,8 +1,8 @@
-vim.lsp.config("gopls", {})
-vim.lsp.config("jdtls", {})
-vim.lsp.config("clangd", {})
-vim.lsp.config("pyright", {})
-vim.lsp.config("rust-analyzer", {})
+vim.lsp.config("gopls",                {})
+vim.lsp.config("jdtls",                {})
+vim.lsp.config("clangd",               {})
+vim.lsp.config("pyright",              {})
+vim.lsp.config("rust-analyzer",        {})
 vim.lsp.config("bash-language-server", {})
 
 vim.cmd("lsp enable gopls")
@@ -24,9 +24,9 @@ vim.diagnostic.config({
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "✘",
-            [vim.diagnostic.severity.WARN] = "▲",
-            [vim.diagnostic.severity.HINT] = "⚑",
-            [vim.diagnostic.severity.INFO] = "»",
+            [vim.diagnostic.severity.WARN]  = "▲",
+            [vim.diagnostic.severity.HINT]  = "⚑",
+            [vim.diagnostic.severity.INFO]  = "»",
 		},
 	},
 })

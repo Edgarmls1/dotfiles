@@ -6,21 +6,21 @@ DP_CONNECTED=$(hyprctl monitors | grep -c "DP-1")
 # transform = 3 ou 0 -> monitor vertical
 
 if [ $HDMI_CONNECTED -gt 0 ] && [ $DP_CONNECTED -gt 0 ]; then
-	hyprctl eval "hl.monitor({ output = 'eDP-1', disabled = true })"
-	hyprctl eval "hl.monitor({ output = 'HDMI-A-2', mode = '1920x1080', position = '0x1080', scale = '1', })"
-	hyprctl eval "hl.monitor({ output = 'DP-1', mode = '1920x1080', position = '0x0', scale = '1', })"
+	hyprctl eval "hl.monitor({ output = 'eDP-1',    disabled = true })"
+	hyprctl eval "hl.monitor({ output = 'HDMI-A-2', mode = '1920x1080', position = '0x1440', scale = '1',    })"
+	hyprctl eval "hl.monitor({ output = 'DP-1',     mode = '1920x1080', position = '0x0',    scale = '0.75', })"
 elif [ $HDMI_CONNECTED -eq 0 ] && [ $DP_CONNECTED -gt 0 ]; then
-	hyprctl eval "hl.monitor({ output = 'eDP-1', mode = '1920x1080', position = '0x0', scale = '1', })"
-	hyprctl eval "hl.monitor({ output = 'HDMI-A-2', mode = disabled = true })"
-	hyprctl eval "hl.monitor({ output = 'DP-1', mode = '1920x1080', position = '1920x0', scale = '1', })"
-elif [ $HDMI_CONNECTED -gt 0 ] && [ $DP_CONNECTED -eq 0 ]; then
-	hyprctl eval "hl.monitor({ output = 'eDP-1', '1920x1080', position = '0x0', scale = '1', })"
-	hyprctl eval "hl.monitor({ output = 'HDMI-A-2', mode = '1920x1080', position = '1920x0', scale = '1', })"
-	hyprctl eval "hl.monitor({ output = 'DP-1', disabled = true })"
-else
-	hyprctl eval "hl.monitor({ output = 'eDP-1', mode = '1920x1080', position = '0x0', scale = '1', })"
+	hyprctl eval "hl.monitor({ output = 'eDP-1',    mode = '1920x1080', position = '0x0',    scale = '1', })"
 	hyprctl eval "hl.monitor({ output = 'HDMI-A-2', disabled = true })"
-	hyprctl eval "hl.monitor({ output = 'DP-1', disabled = true })"
+	hyprctl eval "hl.monitor({ output = 'DP-1',     mode = '1920x1080', position = '1920x0', scale = '1', })"
+elif [ $HDMI_CONNECTED -gt 0 ] && [ $DP_CONNECTED -eq 0 ]; then
+	hyprctl eval "hl.monitor({ output = 'eDP-1',    mode = '1920x1080', position = '0x0',    scale = '1', })"
+	hyprctl eval "hl.monitor({ output = 'HDMI-A-2', mode = '1920x1080', position = '1920x0', scale = '1', })"
+	hyprctl eval "hl.monitor({ output = 'DP-1',     disabled = true })"
+else
+	hyprctl eval "hl.monitor({ output = 'eDP-1',    mode = '1920x1080', position = '0x0', scale = '1', })"
+	hyprctl eval "hl.monitor({ output = 'HDMI-A-2', disabled = true })"
+	hyprctl eval "hl.monitor({ output = 'DP-1',     disabled = true })"
 fi
 
 pkill waybar && waybar &

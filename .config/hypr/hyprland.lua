@@ -22,7 +22,7 @@
 hl.monitor({
 	output   = "HDMI-A-2",
 	mode     = "1920x1080",
-	position = "0x1081",
+	position = "0x1441",
 	scale    = "1",
 })
 
@@ -30,7 +30,7 @@ hl.monitor({
 	output   = "DP-1",
 	mode     = "1920x1080",
 	position = "0x0",
-	scale    = "1",
+	scale    = "0.75",
 })
 
 -- mobile pc
@@ -45,9 +45,9 @@ hl.monitor({
 --- MY PROGRAMS ---
 -------------------
 
-local menu        = "anyrun"
-local terminal    = "kitty"
-local tuiFileMgr  = "kitty yazi"
+local menu        = "vicinae toggle"
+local terminal    = "alacritty"
+local tuiFileMgr  = "ghostty -e yazi"
 local guiFileMgr  = "nemo"
 
 -----------------
@@ -58,7 +58,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("dunst")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("navidrome")
+    hl.exec_cmd("vicinae server")
 	hl.exec_cmd("hyprpm reload -n")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/battery.sh monitor")
@@ -92,10 +92,10 @@ hl.config({
 		gaps_in  = 5,
 		gaps_out = 10,
 
-		border_size = 0,
+		border_size = 2,
 
 		col = {
-			active_border   = "rgba(ffffffff)",
+			active_border   = "rgba(dad0cfff)",
 			inactive_border = "rgba(595959aa)",
 		},
 
@@ -110,7 +110,7 @@ hl.config({
 		rounding = 0,
 
 		active_opacity   = 1.0,
-		inactive_opacity = 0.8,
+		inactive_opacity = 1.0,
 
 		shadow = {
 			enabled      = false,
@@ -150,11 +150,11 @@ hl.config({
 
 hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 
-hl.animation({ leaf = "border",     enabled = true, speed = 10,  bezier = "default" })
-hl.animation({ leaf = "windows",    enabled = true, speed = 7,   bezier = "myBezier" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 7,   bezier = "default", style = "popin 80%" })
-hl.animation({ leaf = "fade",       enabled = true, speed = 7,   bezier = "default" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 6,   bezier = "default" })
+hl.animation({ leaf = "border",     enabled = true, speed = 3, bezier = "default" })
+hl.animation({ leaf = "windows",    enabled = true, speed = 3, bezier = "myBezier" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "default", style = "popin 80%" })
+hl.animation({ leaf = "fade",       enabled = true, speed = 3, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default" })
 
 -------------
 --- INPUT ---
@@ -285,22 +285,3 @@ hl.bind("XF86AudioNext",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-mon
 hl.bind("XF86AudioPause", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPlay",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPrev",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"), { locked = true })
-
-------------------------------
---- WINDOWS AND WORKSPACES ---
-------------------------------
-
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 1,
---     rounding    = 0,
--- })
--- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 1,
---     rounding    = 0,
--- })

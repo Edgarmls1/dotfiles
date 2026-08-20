@@ -79,11 +79,6 @@
 		"folders": "/"
 	},
 	{
-		"type": "battery",
-		"key": "{icon} Battery  ",
-		"format": "{capacity} {time-formatted}"
-	},
-	{
 		"type": "media",
 		"key": " Song     ",
 		"format": "{combined} - {artist}"

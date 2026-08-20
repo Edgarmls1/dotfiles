@@ -15,20 +15,19 @@ vim.keymap.set("n", "<leader>u", function()
 	require("undotree").open()
 end)
 
-vim.keymap.set("n", "<leader>e", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>f", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>e", "<Cmd>Telescope find_files<CR>")
 
-vim.keymap.set("n", "<leader>x", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>f", "<Cmd>FZF<CR>")
+
+vim.keymap.set("n", "<leader>a", "<Cmd>lua require('harpoon.mark').add_file()<CR>")
+vim.keymap.set("n", "<leader>x", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
+vim.keymap.set("n", "<TAB>",     "<Cmd>lua require('harpoon.ui').nav_next()<CR>")
+vim.keymap.set("n", "<S-TAB>",   "<Cmd>lua require('harpoon.ui').nav_prev()<CR>")
 
 vim.keymap.set("t", "<ESC>",     "<C-\\><C-n>",   opts)
-vim.keymap.set("n", "<leader>t", ":terminal<CR>", opts)
+vim.keymap.set("n", "<leader>t", "<Cmd>terminal<CR>", opts)
 
 vim.keymap.set("n", ":", "<Cmd>FineCmdline<CR>", { noremap = true })
 
 vim.keymap.set("n", "/",     "<Cmd>SearchBoxMatchAll title=Match<CR>")
 vim.keymap.set("n", "<S-R>", "<Cmd>SearchBoxReplace title='Replace Patern' confirm=menu<CR>")
-
-vim.keymap.set("n", "<TAB>",     "<Cmd>BufferNext<CR>",     opts)
-vim.keymap.set("n", "<S-TAB>",   "<Cmd>BufferPrevious<CR>", opts)
-vim.keymap.set("n", "<leader>p", "<Cmd>BufferPin<CR>",      opts)
-vim.keymap.set("n", "<leader>w", "<Cmd>BufferClose<CR>",    opts)

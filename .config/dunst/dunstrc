@@ -34,7 +34,7 @@
     # notification_limit).
     indicate_hidden = yes
 
-    transparency = 0
+    transparency = 0.8
 
     separator_height = 2
     padding = 6
@@ -42,7 +42,7 @@
     text_icon_padding = 6
 
     frame_width = 2
-    frame_color = "#ffffff"
+    frame_color = "#e2dfe4"
 
 
     gap_size = 2
@@ -131,13 +131,13 @@
 
 
 [urgency_low]
-   background = "#000000"
+   background = "#201e20"
    foreground = "#888888"
     timeout = 10
     default_icon = dialog-information
 
 [urgency_normal]
-   background = "#000000"
+   background = "#201e20"
    foreground = "#888888"
     timeout = 10
     override_pause_level = 30

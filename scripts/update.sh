@@ -19,10 +19,6 @@ if ! command -v yay &> /dev/null; then
     rm -rf yay
 fi
 
-if ! command -v paccache &> /dev/null; then
-    sudo pacman -S pacman-contrib --noconfirm
-fi
-
 #--------------------#
 
 #-------funçoes-------#
@@ -76,21 +72,12 @@ check() {
     fi
 }
 
-clean() {
-    sudo paccache -r -k0
-    sudo pacman -Rns $(pacman -Qdtq)
-    yay -Sc --noconfirm
-    sudo rm -rf /tmp/* /var/tmp/*
-    sudo journatctl --vacuum-time=2weeks
-}
-
 #---------------------#
 
 #-------execuçao-------#
 
 case $1 in
-    -cu) check  ;;
-    -cl) clean  ;;
-      *) update ;;
+    -c) check  ;;
+     *) update ;;
 esac
 #----------------------#

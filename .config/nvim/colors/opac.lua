@@ -77,8 +77,8 @@ hl(0, "CursorColumn",  { bg = c.bg3 })
 hl(0, "Visual",        { bg = c.dim })
 hl(0, "VisualNOS",     { bg = c.dim })
 
-hl(0, "LineNr",        { fg = c.bright })
-hl(0, "CursorLineNr",  { fg = c.bright, bold = true })
+hl(0, "LineNr",        { fg = c.mid })
+hl(0, "CursorLineNr",  { fg = c.mid, bold = true })
 
 hl(0, "StatusLineNC",  { fg = c.fg4,    bg = c.bg2 })
 

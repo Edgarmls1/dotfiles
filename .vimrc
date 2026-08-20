@@ -36,8 +36,8 @@ endfunction
 
 call s:ensure('LunarWatcher/auto-pairs')
 call s:ensure('WolfgangMehner/bash-support')
-call s:ensure('fxn/vim-monochrome')
 call s:ensure('Bakudankun/qline.vim')
+call s:ensure('catppuccin/vim')
 call s:ensure('vim-airline/vim-airline')
 call s:ensure('vim-airline/vim-airline-themes')
 call s:ensure('junegunn/fzf')
@@ -50,7 +50,7 @@ let g:fzf_vim = {}
 
 set termguicolors
 set hidden
-colorscheme monochrome
+colorscheme catppuccin_mocha
 
 let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)
@@ -63,7 +63,6 @@ let lspServers = [
       \ ]
 
 autocmd User LspSetup call LspAddServer(lspServers)
-
 
 nnoremap <leader>e :Ex<CR>
 nnoremap <leader>t :terminal<CR>
@@ -78,7 +77,6 @@ nnoremap <leader>nd :LspDiag next \| LspDiag current<CR>
 nnoremap <leader>pd :LspDiag prev \| LspDiag current<CR>
 inoremap <silent> <C-Space> <C-x><C-o>
 
-" Set omnifunc for completion
 autocmd FileType php setlocal omnifunc=lsp#complete
 
 autocmd User LspSetup call LspOptionsSet(#{
