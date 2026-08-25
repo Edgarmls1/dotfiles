@@ -61,6 +61,16 @@ function f
     nvim (fzf --style full --preview "bat --color=always {}")
 end
 
+function wallpaper
+    set -l hypr_path "$HOME/.config/hypr/hyprpaper.conf"
+    set -l paper $argv[1]
+
+    sed -i -E "s|wallpapers/.*|wallpapers/$paper|g" "$hypr_path"
+    pkill hyprpaper
+    hyprpaper &
+    disown
+end
+
 set -gx EDITOR nvim
 fish_add_path /home/edgar/.spicetify /home/edgar/.local/bin
 

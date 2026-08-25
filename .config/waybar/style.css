@@ -1,19 +1,19 @@
-@define-color bg #201e20;
+@define-color bg #000000;
 
-@define-color ws_off #201e20;
+@define-color ws_off #000000;
 @define-color ws_on  #e0d0d1;
 
 @define-color clock #e0d0d1;
 
 @define-color assets #999999;
 
-@define-color tm          #201e20;
+@define-color tm          #000000;
 @define-color tm_border   #e0d0d1;
 @define-color tm_item     #e0d0d1;
 @define-color tm_hover    #e0d0d1;
 @define-color tm_hover_bg #2d2e2f;
 
-@define-color tooltip_bg  #201e20;
+@define-color tooltip_bg  #000000;
 @define-color tooltip_txt #e0d0d1;
 
 /*----------------*/
@@ -27,7 +27,7 @@
 }
 
 #waybar {
-  background-color: alpha(@bg, 0.7);
+  background-color: @bg
 }
 
 /*--------------------*/

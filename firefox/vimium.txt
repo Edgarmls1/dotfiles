@@ -1,0 +1,34 @@
+# Keymaping
+map down scrollDown
+map up scrollUp
+map shiftLeft goBack
+map shiftRight goForward
+unmap n
+map n LinkHints.activateModeToOpenInNewTab
+map cw removeTab
+unmap u
+map u restoreTab
+map <s-down> nextTab
+map <s-up> previousTab
+unmap b
+unmap B
+
+# CSS
+div > .vimiumHintMarker {
+/* linkhint boxes */
+background: White;
+border: 1px solid Black;
+}
+
+div > .vimiumHintMarker span {
+/* linkhint text */
+color: Black;
+font-weight: bold;
+font-size: 12px;
+text-shadow: none;
+}
+
+div > .vimiumHintMarker > .matchingCharacter {
+/* linkhint text match */
+color: Black;
+}

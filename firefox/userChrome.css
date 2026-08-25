@@ -13,6 +13,54 @@
   }
 
   .titlebar-buttonbox {
-	  display: none !important;
+   display: none !important;
+  }
+
+  #back-button, #forward-button {
+      display: none !important;
+  }
+
+  #urlbar-container:not(:hover):not(:focus-within) #tracking-protection-icon-container:not([open]) {
+      visibility: collapse !important;
+  }
+
+  #urlbar-container:not(:hover):not(:focus-within) #identity-box:not([open]) {
+      visibility: collapse !important;
+  }
+
+  #urlbar-container:not(:hover):not(:focus-within) #urlbar-zoom-button {
+      visibility: collapse !important;
+  }
+
+  #urlbar-container:not(:hover):not(:focus-within) #page-action-buttons .urlbar-page-action:not([open]) {
+      visibility: collapse !important;
+  }
+
+  #urlbar-container:not(:hover):not(:focus-within) #star-button:not([open]) {
+      visibility: collapse !important;
+  }
+
+  #tracking-protection-icon-container,
+  #identity-box,
+  #urlbar-zoom-button,
+  #page-action-buttons .urlbar-page-action,
+  #star-button {
+      transition: opacity 200ms ease-in-out !important;
+  }
+  
+  tab-item.discarded tab-favicon {
+      filter: grayscale(100%) brightness(0.25) !important;
+      opacity: 0.35 !important;
+      transition: filter 200ms ease, opacity 200ms ease !important;
+  }
+
+  tab-item.discarded .label-content,
+  tab-item.discarded tab-label {
+      opacity: 0.3 !important;
+  }
+
+  tab-item:not(.discarded) tab-favicon {
+      filter: none !important;
+      opacity: 1 !important;
   }
 }

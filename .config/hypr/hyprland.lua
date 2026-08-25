@@ -22,7 +22,7 @@
 hl.monitor({
 	output   = "HDMI-A-2",
 	mode     = "1920x1080",
-	position = "0x1441",
+	position = "0x1081",
 	scale    = "1",
 })
 
@@ -30,7 +30,8 @@ hl.monitor({
 	output   = "DP-1",
 	mode     = "1920x1080",
 	position = "0x0",
-	scale    = "0.75",
+	scale    = "1",
+    -- scale    = "0.75",
 })
 
 -- mobile pc
@@ -46,8 +47,8 @@ hl.monitor({
 -------------------
 
 local menu        = "vicinae toggle"
-local terminal    = "alacritty"
-local tuiFileMgr  = "ghostty -e yazi"
+local terminal    = "kitty"
+local tuiFileMgr  = "kitty yazi"
 local guiFileMgr  = "nemo"
 
 -----------------
@@ -224,7 +225,6 @@ hl.bind(super .. " + N", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-moni
 hl.bind(super .. " + P", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
 
 hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
-hl.bind(super .. " + T",        exec(os.getenv("HOME") .. "/dotfiles/scripts/wallpaper.sh"))
 hl.bind(super .. " + CTRL + B", exec(os.getenv("HOME") .. "/dotfiles/scripts/battery.sh notify"))
 hl.bind(super .. " + CTRL + W", exec(os.getenv("HOME") .. "/dotfiles/scripts/weather.sh notify"))
 

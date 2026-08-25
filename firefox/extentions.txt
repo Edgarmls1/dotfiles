@@ -1,7 +1,7 @@
 adaptative tab bar color
 arc like copy link
 dark reader
-Live editor for CSS -> * { border-radius: 0px !important; }
+Live editor for CSS -> * { border-radius: 0px !important; font-family: "Hack Nerd Font" !important; }
 ublock origin
 youtube no translation
 yt tweaks -> yt-tweaks.json

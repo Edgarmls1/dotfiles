@@ -6,7 +6,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- vim.opt.wrap = false
+vim.opt.wrap = false
 vim.opt.autoindent = false
 vim.opt.smartindent = true
 vim.opt.inccommand = "split"
@@ -36,6 +36,7 @@ vim.cmd("colorscheme opac")
 
 vim.opt.textwidth = 79
 vim.opt.colorcolumn = "+1" 
+vim.opt.formatoptions:remove({ "t", "a" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()

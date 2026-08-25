@@ -83,9 +83,9 @@ install () {
 	echo "=== Instaling ==="
 	echo ""
 
-    local pkg_list="7zip alacritty bash-language-server bat bluetui btop cava chhsich-nerd-font cmatrix \
-       dunst fastfetch firefox fish flatpak fzf gazelle-tui ghostty gopls gnome-disk-utility gnome-tweaks \
-       htop hyprland hyprlock hyprmon-bin hyprpaper hyprshot hyprsunset jdtls lsd mpc mpd mpv mpvpaper \
+    local pkg_list="7zip bash-language-server bat bluetui btop cava chhsich-nerd-font cmatrix \
+       dunst fastfetch firefox fish flatpak fzf gazelle-tui gopls gnome-disk-utility gnome-tweaks \
+       htop hyprland hyprlock hyprmon-bin hyprpaper hyprshot hyprsunset jdtls kitty lsd mpc mpd mpv mpvpaper \
        nemo neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget power-profiles-daemon pyright \
        qimgv qt5-wayland qt6ct qt6-wayland qutebrowser rmpc rust-analyzer stow ttf-hack-nerd unrar unzip vicinae \
        xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wget wleave zathura zathura-pdf-mupdf zellij"
