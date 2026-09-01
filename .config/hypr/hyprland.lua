@@ -46,10 +46,10 @@ hl.monitor({
 --- MY PROGRAMS ---
 -------------------
 
-local menu        = "vicinae toggle"
+local menu        = "wox"
 local terminal    = "kitty"
 local tuiFileMgr  = "kitty yazi"
-local guiFileMgr  = "nemo"
+local guiFileMgr  = "dolphin"
 
 -----------------
 --- AUTOSTART ---
@@ -59,7 +59,6 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("dunst")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("vicinae server")
 	hl.exec_cmd("hyprpm reload -n")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/battery.sh monitor")
@@ -217,8 +216,8 @@ local super = "SUPER"
 local exec = hl.dsp.exec_cmd
 
 hl.bind(super .. " + Q",         exec(terminal))
-hl.bind(super .. " + E",         exec(tuiFileMgr))
-hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
+hl.bind(super .. " + E",         exec(guiFileMgr))
+hl.bind(super .. " + SHIFT + E", exec(tuiFileMgr))
 hl.bind(super .. " + SPACE",     exec(menu)) 
 
 hl.bind(super .. " + N", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
@@ -228,9 +227,8 @@ hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/mon
 hl.bind(super .. " + CTRL + B", exec(os.getenv("HOME") .. "/dotfiles/scripts/battery.sh notify"))
 hl.bind(super .. " + CTRL + W", exec(os.getenv("HOME") .. "/dotfiles/scripts/weather.sh notify"))
 
-hl.bind(super .. " + Escape",    exec("killall waybar || waybar"))
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
-hl.bind(super .. " + W",         exec("wleave"))
+hl.bind(super .. " + Escape",    exec("wleave"))
 hl.bind(super .. " + L",         exec("hyprlock"))
 
 hl.bind("Print",         exec("hyprshot -m region -m active -o ~/Pictures/"))

@@ -143,7 +143,7 @@ dev() {
 	case $agree in
 		[Yy]*)
 			echo ""
-			yay -S --noconfirm neovim bitwarden visual-studio-code-bin zed
+			yay -S --noconfirm neovim visual-studio-code-bin zed
 
 			read -p "Do you want to install java? (y/N)" java
 

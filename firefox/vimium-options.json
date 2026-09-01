@@ -1,0 +1,15 @@
+{
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.netflix.com/*"
+    }
+  ],
+  "keyMappings": "map down scrollDown\nmap up scrollUp\nmap shiftLeft goBack\nmap shiftRight goForward\nunmap n\nmap n LinkHints.activateModeToOpenInNewTab\nmap cw removeTab\nunmap u\nmap u restoreTab\nmap <s-down> nextTab\nmap <s-up> previousTab\nunmap b\nunmap B",
+  "settingsVersion": "2.4.2",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: White;\nborder: 1px solid Black;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: Black;\nfont-weight: bold;\nfont-size: 12px;\ntext-shadow: none;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n/* linkhint text match */\ncolor: Black;\n}"
+}

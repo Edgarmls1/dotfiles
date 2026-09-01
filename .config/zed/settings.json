@@ -105,7 +105,7 @@
   "icon_theme": "Monospace Icon Theme - Dark",
   "ui_font_size": 16.0,
   "buffer_font_size": 12.0,
-  "theme": "Catppuccin Espresso (Blur) [Heavy]",
+  "theme": "Ayu Dark",
   "theme_overrides": {
     "Quasi Monochrome Dark": {
       "border.variant": "#000000",

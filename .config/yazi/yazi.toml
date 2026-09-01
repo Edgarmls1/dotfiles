@@ -45,16 +45,16 @@ play = [
 	{ run = 'mpv "$@"', orphan = true }
 ]
 pdf = [
-	{ run = 'zathura "$@"', orphan = true }
+	{ run = 'zathura --fork "$@"', orphan = true }
 ]
 image = [
 	{ run = 'qimgv "$@"', orphan = true }
 ]
 jupyter = [
-	{ run = 'code "$@"', orphan = false }
+	{ run = 'code "$@"', orphan = true }
 ]
 wine = [
-    { run = 'wine "$@"', orphan = false }
+    { run = 'wine "$@"', orphan = true }
 ]
 
 [open]
