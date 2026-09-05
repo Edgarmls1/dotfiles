@@ -31,6 +31,7 @@
     "git.untrackedChanges": "hidden",
     "window.commandCenter": false,
     "window.menuBarVisibility": "compact",
+    "window.showTitleBarControls": false,
     "workbench.browser.showInTitleBar": false,
     "workbench.colorTheme": "Ghost Pastel",
     "workbench.editor.showTabs": "single",

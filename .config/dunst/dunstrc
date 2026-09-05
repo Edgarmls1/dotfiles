@@ -42,7 +42,7 @@
     text_icon_padding = 6
 
     frame_width = 2
-    frame_color = "#e2dfe4"
+    frame_color = "#ffffff"
 
 
     gap_size = 2
@@ -131,13 +131,13 @@
 
 
 [urgency_low]
-   background = "#201e20"
+   background = "#000000"
    foreground = "#888888"
     timeout = 10
     default_icon = dialog-information
 
 [urgency_normal]
-   background = "#201e20"
+   background = "#000000"
    foreground = "#888888"
     timeout = 10
     override_pause_level = 30

@@ -14,5 +14,7 @@ phrase_list=(
     "Ih patrão, quando eu cheguei já tava assim"
     "Ginga e fala gíria, gíria não, dialéto"
     "Falar gíria bem até papagaio aprende"
+    "Traz o gordo e o cabeçudo"
+    "seco seco seco"
     ""
 )

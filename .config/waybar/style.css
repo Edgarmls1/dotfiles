@@ -1,20 +1,12 @@
 @define-color bg #000000;
 
-@define-color ws_off #000000;
-@define-color ws_on  #e0d0d1;
-
-@define-color clock #e0d0d1;
-
-@define-color assets #999999;
+@define-color fg #e0d0d1;
 
 @define-color tm          #000000;
 @define-color tm_border   #e0d0d1;
 @define-color tm_item     #e0d0d1;
 @define-color tm_hover    #e0d0d1;
 @define-color tm_hover_bg #2d2e2f;
-
-@define-color tooltip_bg  #000000;
-@define-color tooltip_txt #e0d0d1;
 
 /*----------------*/
 /*-----GLOBAL-----*/
@@ -23,7 +15,7 @@
 * {
   font-family: "Hack Nerd Font";
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #waybar {
@@ -40,43 +32,20 @@
 }
  
 #workspaces button {
-  color: @ws_on;
-  background: alpha(@ws_off, 0.0);
-  border-radius: 0px;
- 
-  min-width: 20px;
-  min-height: 6px;
-  margin: 0px 0px;
-  padding: 0px 0px;
- 
-  border: none;
-  box-shadow: none;
-  text-shadow: none;
- 
-  transition: all 0.3s ease;
+  all: initial;
+  transition: all 90ms ease-in-out;  
+  padding: 0 6px;
+  margin-left:  0px;
+  min-width: 2px;
 }
- 
+
 #workspaces button.active {
-  color: @bg;
-  background-color: @ws_on;
-  border-radius: 0px;
- 
-  min-width: 20px;
-  padding: 0px 0px;
- 
-  transition: all 0.3s ease;
+  border-top: 1px solid @fg;
+  margin-bottom: 2px;
 }
- 
-#workspaces button:hover {
-  color: transparent;
-  background-color: alpha(@ws_on, 0.5);
-  border-radius: 0px;
- 
-  box-shadow: none;
-  text-shadow: none;
-  border-color: @ws_on;
- 
-  transition: all 0.3s ease;
+
+#workspaces button.empty {
+  opacity: 0.5;
 }
 
 #tray menu {
@@ -94,36 +63,8 @@
   background-color: @tm_hover_bg;
 }
 
-/*---------------*/
-/*-----CLOCK-----*/
-/*---------------*/
-
-#clock {
-  color: @clock;
-
-  margin-right: 12px;
-
-  transition: all 0.3s ease;
-}
-
-/*-----------------*/
-/*-----NETWORK-----*/
-/*-----------------*/
-
-#network, #pulseaudio, #bluetooth, #cpu, #memory {
-  color: @assets;
+#network, #pulseaudio, #bluetooth, #cpu, #memory, #clock {
+  color: @fg;
   padding: 2px;
   transition: all 0.3s ease;
-}
-
-/*-----------------*/
-/*-----TOOLTIP-----*/
-/*-----------------*/
-
-tooltip {
-  background-color: @tooltip_bg;
-}
-
-tooltip label {
-  color: @tooltip_text;
 }

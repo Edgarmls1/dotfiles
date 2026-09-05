@@ -1,113 +1,100 @@
 {
-  "position": "bottom",
-  "spacing": 0,
-  "reload_style_on_change": true,
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [],
-  "modules-right": [
-    "tray",
-    "custom/sep",
-    "network",
-    "custom/sep",
-    "pulseaudio",
-    "custom/sep",
-    "bluetooth",
-    "custom/sep",
-    "cpu",
-    "custom/sep",
-    "memory",
-    "custom/sep",
-    "clock"
-  ],
-  "hyprland/workspaces": {
-      "format": "{icon}",
-      "format-icons": {
-          "1":  "一",
-          "2":  "二",
-          "3":  "三",
-          "4":  "四",
-          "5":  "五",
-          "6":  "六",
-          "7":  "七",
-          "8":  "八",
-          "9":  "九",
-          "11": "一",
-          "12": "二",
-          "13": "三",
-          "14": "四",
-          "15": "五",
-          "16": "六",
-          "17": "七",
-          "18": "八",
-          "19": "九",
-          "21": "一",
-          "22": "二",
-          "23": "三",
-          "24": "四",
-          "25": "五",
-          "26": "六",
-          "27": "七",
-          "28": "八",
-          "29": "九"
-      }
-  },
-  "clock": {
-    "format": " {:%H:%M}",
-    "format-alt": " {:%d/%m/%y}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "mode": "mounth",
-      "format": {
-        "mounth": "<span><b>{}</b></span>",
-        "weekdays": "<span><b>{}</b></span>",
-        "days": "<span><b>{}</b></span>",
-        "today": "<span color='#dd0700'><b><u>{}</u></b></span>"
-      }
+    "position": "bottom",
+    "spacing": 0,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "custom/sep",
+        "network",
+        "pulseaudio",
+        "bluetooth",
+        "cpu",
+        "memory",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1":  "一",
+            "2":  "二",
+            "3":  "三",
+            "4":  "四",
+            "5":  "五",
+            "6":  "六",
+            "7":  "七",
+            "8":  "八",
+            "9":  "九",
+            "11": "一",
+            "12": "二",
+            "13": "三",
+            "14": "四",
+            "15": "五",
+            "16": "六",
+            "17": "七",
+            "18": "八",
+            "19": "九",
+            "21": "一",
+            "22": "二",
+            "23": "三",
+            "24": "四",
+            "25": "五",
+            "26": "六",
+            "27": "七",
+            "28": "八",
+            "29": "九"
+        }
+    },
+
+    "clock": {
+        "format": "[{:%H:%M}]",
+        "format-alt": "[{:%d|%m|%y}]",
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "[VOL {volume}%]",
+        "format-muted": "[MUTED]",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-" 
+    },
+
+    "bluetooth": {
+        "format": "[]",
+        "format-disabled": "",
+        "format-connected": "[{num_connections}]",
+        "on-click": "kitty bluetui"
+    },
+
+    "custom/sep": {
+        "format": " "
+    },
+
+    "network": {
+        "format-disconnected": "[NO LAN]",
+        "format-ethernet": "[WIRED]",
+        "format-linked": "{ifname} (No IP)",
+        "format-wifi": "[WIFI]",
+        "tooltip-format": "{essid}",
+        "on-click": "kitty gazelle"
+    },
+
+    "cpu": {
+        "format": "[CPU {usage}%]",
+        "interval": 1,
+        "on-click": "kitty btop"
+    },
+
+    "memory": {
+        "format": "[MEM {percentage}%]",
+        "interval": 1,
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
+        "on-click": "kitty btop"
     }
-  },
-  "pulseaudio": {
-      "format": "{icon} {volume}%",
-      "format-muted": "muted",
-      "format-icons": {
-          "default": ["", ""]
-      },
-      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-      "on-click-right": "pavucontrol",
-      "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.0",
-      "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-" 
-  },
-  "bluetooth": {
-    "format": "",
-    "format-disabled": "",
-    "format-connected": "{num_connections}",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "kitty bluetui"
-  },
-  "custom/sep": {
-    "format": " "
-  },
-  "network": {
-    "format-disconnected": "disconnected ",
-    "format-ethernet": " ",
-    "format-linked": "{ifname} (No IP)",
-    "format-wifi": "  {essid} ",
-    "tooltip-format": "Connected to {essid} {ifname} via {gwaddr}",
-    "on-click": "kitty gazelle"
-  },
-  "cpu": {
-    "format": " {usage}%",
-    "interval": 1,
-    "on-click": "kitty btop"
-  },
-  "memory": {
-    "format": " {percentage}%",
-    "interval": 1,
-    "tooltip": true,
-    "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
-    "on-click": "kitty btop"
-  }
 }

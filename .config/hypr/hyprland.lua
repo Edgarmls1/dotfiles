@@ -56,6 +56,7 @@ local guiFileMgr  = "dolphin"
 -----------------
 
 hl.on("hyprland.start", function ()
+    hl.exec_cmd("wox")
     hl.exec_cmd("dunst")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprpaper")
@@ -228,11 +229,12 @@ hl.bind(super .. " + CTRL + B", exec(os.getenv("HOME") .. "/dotfiles/scripts/bat
 hl.bind(super .. " + CTRL + W", exec(os.getenv("HOME") .. "/dotfiles/scripts/weather.sh notify"))
 
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
+hl.bind(super .. " + W",         exec("killall waybar || waybar"))
 hl.bind(super .. " + Escape",    exec("wleave"))
 hl.bind(super .. " + L",         exec("hyprlock"))
 
-hl.bind("Print",         exec("hyprshot -m region -m active -o ~/Pictures/"))
-hl.bind("SHIFT + Print", exec("hyprshot -m region -m output -o ~/Pictures/"))
+hl.bind("Print",         exec("hyprshot -m region -m active -o ~/Pictures/Screenshots/"))
+hl.bind("SHIFT + Print", exec("hyprshot -m region -m output -o ~/Pictures/Screenshots/"))
 
 local closeWindowBind = hl.bind(super .. " + C",         hl.dsp.window.close())
 hl.bind(super .. " + V",         hl.dsp.window.float({ action = "toggle" }))
