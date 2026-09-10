@@ -16,5 +16,6 @@ phrase_list=(
     "Falar gíria bem até papagaio aprende"
     "Traz o gordo e o cabeçudo"
     "seco seco seco"
+    "Tem que seguir o rato pra achar o queijo"
     ""
 )

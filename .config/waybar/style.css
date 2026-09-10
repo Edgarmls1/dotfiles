@@ -63,7 +63,7 @@
   background-color: @tm_hover_bg;
 }
 
-#network, #pulseaudio, #bluetooth, #cpu, #memory, #clock {
+#network, #pulseaudio, #bluetooth, #cpu, #memory, #clock, #power-profiles-daemon {
   color: @fg;
   padding: 2px;
   transition: all 0.3s ease;

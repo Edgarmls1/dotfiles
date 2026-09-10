@@ -228,6 +228,8 @@ hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/mon
 hl.bind(super .. " + CTRL + B", exec(os.getenv("HOME") .. "/dotfiles/scripts/battery.sh notify"))
 hl.bind(super .. " + CTRL + W", exec(os.getenv("HOME") .. "/dotfiles/scripts/weather.sh notify"))
 
+hl.bind(super .. " + Z", exec("mpv --no-video --really-quiet ~/Downloads/caps.mp3 &"))
+
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
 hl.bind(super .. " + W",         exec("killall waybar || waybar"))
 hl.bind(super .. " + Escape",    exec("wleave"))

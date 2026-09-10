@@ -7,15 +7,18 @@
     ],
     "modules-center": [],
     "modules-right": [
+        "custom/bracl",
         "tray",
-        "custom/sep",
+        "custom/bracr",
         "network",
         "pulseaudio",
         "bluetooth",
         "cpu",
         "memory",
+        "power-profiles-daemon",
         "clock"
     ],
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
@@ -36,16 +39,7 @@
             "16": "六",
             "17": "七",
             "18": "八",
-            "19": "九",
-            "21": "一",
-            "22": "二",
-            "23": "三",
-            "24": "四",
-            "25": "五",
-            "26": "六",
-            "27": "七",
-            "28": "八",
-            "29": "九"
+            "19": "九"
         }
     },
 
@@ -53,6 +47,18 @@
         "format": "[{:%H:%M}]",
         "format-alt": "[{:%d|%m|%y}]",
         "tooltip": false
+    },
+
+    "power-profiles-daemon": {
+        "format": "[{icon}]",
+        "tooltip": true,
+        "tooltip-format": "{profile}",
+        "format-icons": {
+            "default": "POW",
+            "performance": "MAX",
+            "balanced": "MID",
+            "power-saver": "LOW"
+        }
     },
 
     "pulseaudio": {
@@ -73,6 +79,14 @@
 
     "custom/sep": {
         "format": " "
+    },
+
+    "custom/bracl": {
+        "format": "["
+    },
+
+    "custom/bracr": {
+        "format": "]"
     },
 
     "network": {

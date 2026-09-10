@@ -56,6 +56,15 @@ enable_ly() {
 	esac
 }
 
+virtualization() {
+    yay -S qemu-full libvirt virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat edk2-ovmf swtpm
+
+    sudo systemctl enable libvirtd.service
+    sudo systemctl enable virtlogd.service
+
+    sudo usermod -aG libvirt,kvm $USER
+}
+
 themes() {
 	echo "Instaling Orchis theme..."
 	cd
@@ -92,6 +101,7 @@ install () {
 
 	aur
 	yay -S --noconfirm $pkg_list
+    virtualization
 	enable_ly
 	themes
 	dark_mode
