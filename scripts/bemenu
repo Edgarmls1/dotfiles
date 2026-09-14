@@ -1,0 +1,12 @@
+#!/bin/bash
+
+bemenu-run -b -p ">" -H 23 \
+ --tb "#000000" --tf "#ffffff" \
+ --fb "#000000" --ff "#ffffff" \
+ --cb "#000000" --cf "#ffffff" \
+ --nb "#000000" --nf "#777777" \
+ --hb "#000000" --hf "#ffffff" \
+ --fbb "#000000" --fbf "#777777" \
+ --sb "#000000" --sf "#ffffff" \
+ --ab "#000000" --af "#777777" \
+ --scb "#000000" --scf "#ffffff"

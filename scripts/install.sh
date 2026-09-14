@@ -2,7 +2,7 @@
 
 #
 # install.sh - install dotfiles configs
-# 
+#
 # Author: edgar - github.com/Edgarmls1
 #-------variables-------#
 
@@ -20,7 +20,7 @@ aur() {
 		cd yay
 		makepkg -si --noconfirm
 		cd ..
-		rm -rf yay	
+		rm -rf yay
 	fi
 }
 
@@ -47,10 +47,6 @@ enable_ly() {
 
 			echo "Enabling ly.service..."
 			sudo systemctl enable ly@tty2 2> /dev/null
-			cd $DOTFILES_DIR/ly/
-			sudo cp blackhole-smooth-240x67.dur /etc/ly/
-			sudo rm /etc/ly/config.ini
-			sudo cp config.ini /etc/ly/
 			cd ~ || exit
 			;;
 	esac
@@ -74,7 +70,7 @@ themes() {
 	cd ..
 	rm -rf Orchis-theme
 
-	papirus-folders -C black --theme Papirus-Dark 2> /dev/null
+	papirus-folders -C yaru --theme Papirus-Dark 2> /dev/null
 }
 
 dark_mode() {
@@ -92,12 +88,13 @@ install () {
 	echo "=== Instaling ==="
 	echo ""
 
-    local pkg_list="7zip bash-language-server bat bluetui btop cava chhsich-nerd-font cmatrix \
+    local pkg_list="7zip bash-language-server bat bc bemenu bemenu-wayland bluetui btop cava chhsich-nerd-font cmatrix \
        dolphin dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-disk-utility gnome-tweaks \
        htop hyprland hyprlock hyprmon-bin hyprpaper hyprshot hyprsunset jdtls kitty lsd mpc mpd mpv mpvpaper \
        neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget power-profiles-daemon pyright \
-       qimgv qt5-wayland qt6ct qt6-wayland qutebrowser rmpc rust-analyzer stow ttf-hack-nerd unrar unzip \
-       xdg-desktop-portal-gtk xdg-desktop-portal-hyprland yazi waybar wget wleave wox-bin zathura zathura-pdf-mupdf zellij zsh"
+       qimgv qt5-graphicaleffects qt5-quickcontrols2 qt5-wayland qt6ct qt6-declarative qt6-svg qt6-wayland qutebrowser \
+       ranger rmpc rust-analyzer stow ttf-hack-nerd unrar unzip \
+       xdg-desktop-portal-gtk xdg-desktop-portal-hyprland waybar wget wleave zathura zathura-pdf-mupdf zellij zsh"
 
 	aur
 	yay -S --noconfirm $pkg_list

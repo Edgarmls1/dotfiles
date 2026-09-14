@@ -37,6 +37,7 @@ autoload -U colors && colors
 setopt PROMPT_SUBST
 zmodload zsh/datetime
 
+SUDO=""
 PROMPT_COLOR="green"
 CMD_DURATION=""
 
@@ -75,11 +76,13 @@ f() {
 }
 
 wallpaper() {
-    hypr_path="$HOME/.config/hypr/hyprpaper.conf"
+    local hypr_path="$HOME/.config/hypr/hyprpaper.conf"
+    local wall_dir="$HOME/dotfiles/wallpapers"
 
-    echo $(ls ~/dotfiles/wallpapers/)
-    printf "-> "
-    read paper
+    local paper
+    paper=$(ls "$wall_dir" | fzf --preview "kitty +kitten icat '$wall_dir/{}'" --preview-window=right:90%)
+
+    [[ -z "$paper" ]] && return 1
 
     sed -i -E "s|wallpapers/.*|wallpapers/$paper|g" "$hypr_path"
     pkill hyprpaper
@@ -101,6 +104,14 @@ move() {
     mv -r $input $output | pv --size $(du -s $input | awk '{print $1}') > /dev/null
 }
 
+super() {
+    if [[ $PWD != $HOME/* && $PWD != $HOME ]]; then
+        SUDO="🔒 "
+    else
+        SUDO=""
+    fi
+}
+
 # --- XXXXXXXXX --- #
 
 # --- EXPORTS, SOURCES & ALIASES --- #
@@ -120,10 +131,12 @@ alias zed="zeditor"
 alias up="~/dotfiles/scripts/update.sh"
 alias cup="~/dotfiles/scripts/update.sh -c"
 alias extract="~/dotfiles/scripts/extract.sh"
+alias calc="~/dotfiles/scripts/calc.sh"
 
 alias py="~/pyenv/bin/python"
 
 alias hyprc="nvim ~/.config/hypr/hyprland.lua"
+alias mangoc="nvim ~/.config/mango/config.conf"
 
 alias weather="curl wttr.in"
 alias sonin="shutdown +60"
@@ -151,9 +164,18 @@ emulate bash -c "source ~/pyenv/bin/activate"
 
 # --- PS1 & EXEC --- #
 
-PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}$USER@$HOST > %f'
+# if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
+#     tmux kill-session -t main
+#     tmux new-session -A -s main
+# fi
 
-date
+chpwd_functions+=(super)
+
+super
+
+PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}${SUDO}> %f'
+
+~/dotfiles/scripts/phrase.sh
 ~/dotfiles/scripts/pokemon.sh
 
 # --- XXXXXXXXXX --- #

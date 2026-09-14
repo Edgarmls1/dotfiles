@@ -41,7 +41,7 @@
     horizontal_padding = 6
     text_icon_padding = 6
 
-    frame_width = 2
+    frame_width = 1
     frame_color = "#ffffff"
 
 
