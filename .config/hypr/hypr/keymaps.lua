@@ -4,7 +4,7 @@
 
 local terminal    = "kitty"
 local tuiFileMgr  = "kitty ranger"
-local guiFileMgr  = "dolphin"
+local guiFileMgr  = "nautilus"
 
 -------------------
 --- KEYBINDINGS ---

@@ -9,10 +9,6 @@ hl.config({
             link_monitors                = 0,
             -- enable_hy3                = 1,
         },
-        gloview = {
-            switch_animation = 0,
-            move_animation   = 0,
-        },
     },
 })
 

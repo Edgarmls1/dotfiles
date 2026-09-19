@@ -20,17 +20,15 @@ phrase_list=(
     "Ai não tem persa que aguente"
     "eu sou um diabo necessario"
     "Eu não quero saber de quem é o velorio, eu só quero chorar"
-    "Teu pai é um covarde, tu mãe é uma piranha"
+    "Teu pai é um covarde, tua mãe é uma piranha"
     "Na proxima, vou-me embora para Pasárgada"
     "Jabor Sabora"
     "Prossiga com o plano 9"
     "Se passarinho mamasse não aprendia a voar"
     "Esse ai até quem é cego ouviu direitinho"
-    "Com quantos anos você nasceu?"
     "Se raspou de um lado tem que raspar do outro"
-    ""
+    "Isso muda tudo"
+    "Isso porque tu não viu o urso"
 )
 
-phrase=$(( $RANDOM % ${#phrase_list[@]} ))
-
-echo "${phrase_list[phrase]}"
+echo "${phrase_list[$RANDOM % ${#phrase_list[@]}]}"

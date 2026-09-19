@@ -84,7 +84,7 @@ clean() {
 				0) " "                           ;;
 				*) "invalid option"              ;;
 			esac
-            yay -S --noconfirm spotify
+            yay -S --noconfirm spotify spicetify-cli
 	esac
     ask_to_continue
 }

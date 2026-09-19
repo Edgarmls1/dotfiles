@@ -135,9 +135,6 @@ alias calc="~/dotfiles/scripts/calc.sh"
 
 alias py="~/pyenv/bin/python"
 
-alias hyprc="nvim ~/.config/hypr/hyprland.lua"
-alias mangoc="nvim ~/.config/mango/config.conf"
-
 alias weather="curl wttr.in"
 alias sonin="shutdown +60"
 
@@ -151,7 +148,7 @@ alias pd="cd ~/dev/ ; git pull"
 
 alias -g fastfetchc="~/.config/fastfetch/"
 alias -g nvimc="~/.config/nvim/"
-alias -g hyprconf="~/.config/hypr/"
+alias -g hyprc="~/.config/hypr/hypr/"
 alias -g kittyc="~/.config/kitty/"
 alias -g waybarc="~/.config/waybar/"
 alias -g scripts="~/dotfiles/scripts/"
