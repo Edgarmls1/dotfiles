@@ -1,13 +1,13 @@
 vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
-vim.g.colors_name = "opac"
+vim.g.colors_name = "classic"
 vim.opt.background = "dark"
 
 local hl = vim.api.nvim_set_hl
-local transparent = true
+local transparent = false
 
 local c = {
-    bg       = "#0D0D0D",
+    bg       = "#000000",
     bg2      = "#141414",
     bg3      = "#1C1C1C",
     bg4      = "#242424",
@@ -23,23 +23,23 @@ local c = {
     muted    = "#606060",
     cursor   = "#D0D0D0",
 
-    error    = "#B06868",
-    warn     = "#C9A670",
-    info     = "#7096B0",
-    hint     = "#6F9898",
+    error    = "#FF5C5C",
+    warn     = "#FFC163",
+    info     = "#61AFEF",
+    hint     = "#56C2C2",
 
-    comment  = "#5A6A78",
-    string   = "#8AAB8A",
-    number   = "#C2A878",
-    bool     = "#C08A70",
-    type     = "#7FB0B0",
-    keyword  = "#A97BA0",
-    func     = "#7C98C4",
-    variable = "#C0C0C0",
-    operator = "#888888",
-    special  = "#B98AB0",
-    imports  = "#8F8FC0",
-    constant = "#CBB488",
+    comment  = "#6A7A90",
+    string   = "#6BCB77",
+    number   = "#FFB86C",
+    bool     = "#FF9E64",
+    type     = "#56C2C2",
+    keyword  = "#C678DD",
+    func     = "#61AFEF",
+    variable = "#D0D0D0",
+    operator = "#9A9A9A",
+    special  = "#FF79C6",
+    imports  = "#8888FF",
+    constant = "#FFD866",
 
     diff_add = "#1A2A1A",
     diff_chg = "#1A1A2A",
@@ -114,12 +114,12 @@ hl(0, "DiffChange",    { bg = c.diff_chg })
 hl(0, "DiffDelete",    { bg = c.diff_del, fg = c.error })
 hl(0, "DiffText",      { bg = c.diff_txt })
 
-hl(0, "Comment",       { fg = c.comment,  italic = true })
+hl(0, "Comment",       { fg = c.comment })
 hl(0, "Constant",      { fg = c.constant })
 hl(0, "String",        { fg = c.string })
 hl(0, "Character",     { fg = c.string })
 hl(0, "Number",        { fg = c.number })
-hl(0, "Boolean",       { fg = c.bool,     italic = true, bold = true })
+hl(0, "Boolean",       { fg = c.bool,     bold = true })
 hl(0, "Float",         { fg = c.number })
 
 hl(0, "Identifier",    { fg = c.variable })

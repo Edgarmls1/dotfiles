@@ -1,41 +1,57 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
+local opt = vim.opt
+local cmd = vim.cmd
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.wrap = false
+opt.scrolloff = 10
+opt.sidescrolloff = 10
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.autoindent = false
+opt.smartindent = true
+opt.inccommand = "split"
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.incsearch = true
+opt.signcolumn = "yes"
+opt.colorcolumn = "100"
+opt.showmatch = true
+opt.cmdheight = 0
+opt.termguicolors = true
+opt.completeopt = "menuone,noinsert,noselect"
+opt.showmode = false
+opt.clipboard = "unnamedplus"
+opt.isfname:append("@-@")
+opt.mouse = "a"
+opt.background = "dark"
 
-vim.opt.wrap = true
-vim.opt.autoindent = false
-vim.opt.smartindent = true
-vim.opt.inccommand = "split"
-
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = vim.fn.stdpath("data") .. "/undudir"
-vim.opt.undofile = true
-
-vim.opt.clipboard = "unnamedplus"
-vim.opt.isfname:append("@-@")
-vim.opt.scrolloff = 10
-
-vim.opt.signcolumn = "yes:1"
-vim.opt.cmdheight = 0
-vim.opt.showmode = false
-vim.opt.termguicolors = true
-
-vim.opt.cursorline = true
-vim.opt.mouse = "a"
-vim.opt.background = "dark"
-
-vim.cmd("colorscheme opac")
+cmd.colorscheme("classic")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.hl.on_yank()
     end,
 })
+
+local undodir = vim.fn.expand("~/.vim/undodir")
+if 
+    vim.fn.isdirectory(undodir) == 0 
+then
+    vim.fn.mkdir(undodir, "p")
+end
+
+opt.swapfile = false
+opt.writebackup = false
+opt.backup = false
+opt.undofile = true
+opt.undodir = undodir
+opt.updatetime = 300
+opt.timeoutlen = 500
+opt.ttimeoutlen = 0
+opt.autoread = true
+opt.autowrite = false

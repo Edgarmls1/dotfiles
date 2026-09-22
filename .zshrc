@@ -116,6 +116,15 @@ super() {
 
 # --- EXPORTS, SOURCES & ALIASES --- #
 
+. "/home/edgar/.deno/env"
+
+# fnm
+FNM_PATH="/home/edgar/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
+
 export EDITOR="nvim"
 
 export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
@@ -176,4 +185,3 @@ PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}${SUDO}> 
 ~/dotfiles/scripts/pokemon.sh
 
 # --- XXXXXXXXXX --- #
-

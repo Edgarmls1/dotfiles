@@ -3,7 +3,7 @@
 -------------------
 
 local terminal    = "kitty"
-local tuiFileMgr  = "kitty ranger"
+local tuiFileMgr  = "kitty yazi"
 local guiFileMgr  = "nautilus"
 
 -------------------
@@ -14,7 +14,7 @@ local super = "SUPER"
 
 local exec = hl.dsp.exec_cmd
 
-local overview = hl.plugin.gloview
+-- local overview = hl.plugin.gloview
 local smw = hl.plugin.split_monitor_workspaces
 
 hl.bind(super .. " + Q",         exec(terminal))
@@ -24,6 +24,7 @@ hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/be
 
 hl.bind(super .. " + SHIFT + PERIOD", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
 hl.bind(super .. " + SHIFT + COMMA",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
+hl.bind(super .. " + SHIFT + SPACE",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"))
 
 hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
 
@@ -32,7 +33,7 @@ hl.bind(super .. " + W",         exec("killall waybar || waybar"))
 hl.bind(super .. " + Escape",    exec("wleave"))
 hl.bind(super .. " + L",         exec("hyprlock"))
 
-hl.bind(super .. " + O", overview.toggle)
+-- hl.bind(super .. " + O", overview.toggle)
 
 hl.bind("Print",         exec("hyprshot -m region -m active -o ~/Pictures/Screenshots/"))
 hl.bind("SHIFT + Print", exec("hyprshot -m region -m output -o ~/Pictures/Screenshots/"))
