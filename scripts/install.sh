@@ -53,7 +53,7 @@ EOF
 }
 
 install () {
-    local pkg_list="7zip bash-language-server bat bc bemenu bemenu-wayland bluetui btop cava chhsich-nerd-font cmatrix \
+    local pkg_list="7zip alacritty bash-language-server bat bc bemenu bemenu-wayland bluetui btop cava chhsich-nerd-font cmatrix \
        dolphin dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-disk-utility \
        htop hyprland hyprlock hyprmon-bin hyprpaper hyprshot hyprsunset j4-dmenu-desktop jdtls kitty lsd lxappearance ly mpc mpd mpv mpvpaper \
        neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget power-profiles-daemon pyright \
@@ -69,7 +69,7 @@ install () {
 
     sudo systemctl enable ly@tty2 2> /dev/null
 
-    if "$HOST" == "arch"; then
+    if ! "$HOST" == "mobile-pc"; then
         hyprpm add https://github.com/zjeffer/split-monitor-workspaces
         hyprpm enable split-monitor-workspaces
     fi

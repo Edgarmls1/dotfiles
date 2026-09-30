@@ -40,7 +40,7 @@ EOF
     flatpak update -y
 
     if plugin=$(cat "$UPDATES_FILE" | grep "hyprland" 2> /dev/null); then
-        if "$HOST" == "arch"; then
+        if ! "$HOST" == "mobile-pc"; then
             hyprpm update
         fi
     fi
