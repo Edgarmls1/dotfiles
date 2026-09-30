@@ -58,7 +58,7 @@ install () {
        htop hyprland hyprlock hyprmon-bin hyprpaper hyprshot hyprsunset j4-dmenu-desktop jdtls kitty lsd lxappearance ly mpc mpd mpv mpvpaper \
        neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget power-profiles-daemon pyright \
        qimgv qt5-graphicaleffects qt5-quickcontrols2 qt5-wayland qt6ct qt6-declarative qt6-svg qt6-wayland qutebrowser \
-       ranger rmpc rust-analyzer stow ttf-hack-nerd unrar unzip \
+       ranger rust-analyzer stow ttf-hack-nerd unrar unzip \
        xdg-desktop-portal-gtk xdg-desktop-portal-hyprland waybar wget wleave zathura zathura-pdf-mupdf zellij zsh"
 
 	aur
@@ -69,10 +69,10 @@ install () {
 
     sudo systemctl enable ly@tty2 2> /dev/null
 
-    hyprpm add https://github.com/fedsfarm/gloview
-    hyprpm add https://github.com/zjeffer/split-monitor-workspaces
-    hyprpm enable split-monitor-workspaces
-    hyprpm enable gloview
+    if "$HOST" == "arch"; then
+        hyprpm add https://github.com/zjeffer/split-monitor-workspaces
+        hyprpm enable split-monitor-workspaces
+    fi
 
 	if [ ! "$(echo $SHELL)" == "/bin/zsh" ]; then
     	chsh -s /bin/zsh

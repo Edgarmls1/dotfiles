@@ -150,6 +150,7 @@ alias sonin="shutdown +60"
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/notes/"
 
+alias pull-dots="cd ~/dotfiles/ ; git pull"
 alias update-notes="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
 alias update-dev="cd ~/dev/ ; git add . ; git commit -m 'projects update' ; git push ; cd -"
 alias pull-notes="cd ~/notes/ ; git pull"
