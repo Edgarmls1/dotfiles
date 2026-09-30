@@ -12,8 +12,6 @@ phrase_list=(
     "se ela fosse a mulher do tempo quando vc assiste a TV e voce fosse assistir e sem saber, tivesse que voltar, mas por 1 milhão de reais voce deixaria usar ou ia embora?"
     "Só sobrou cabelo e dente"
     "Ih patrão! quando eu cheguei já tava assim!"
-    "Ginga e fala gíria, gíria não, dialéto"
-    "Falar gíria bem até papagaio aprende"
     "Traz o gordo e o cabeçudo"
     "Tem que seguir o rato pra achar o queijo"
     "Sou puta e quero dar"

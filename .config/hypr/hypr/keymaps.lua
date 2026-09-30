@@ -2,8 +2,8 @@
 --- MY PROGRAMS ---
 -------------------
 
-local terminal    = "kitty"
-local tuiFileMgr  = "kitty yazi"
+local terminal    = "alacritty"
+local tuiFileMgr  = "alacritty -e yazi"
 local guiFileMgr  = "nautilus"
 
 -------------------
@@ -20,7 +20,7 @@ local smw = hl.plugin.split_monitor_workspaces
 hl.bind(super .. " + Q",         exec(terminal))
 hl.bind(super .. " + E",         exec(tuiFileMgr))
 hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
-hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/bemenu"))
+hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh"))
 
 hl.bind(super .. " + SHIFT + PERIOD", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
 hl.bind(super .. " + SHIFT + COMMA",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))

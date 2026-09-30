@@ -62,6 +62,10 @@ check() {
     if available=$(cat "$UPDATES_FILE" 2> /dev/null); then
         echo "$available"
         echo " "
+        if grep -qE '^linux(-[a-z]+)? ' "$UPDATES_FILE"; then
+            echo "Kernel update. Upgrade recommended"
+            echo " "
+        fi
         read -p "Do you want to upgrade now? [y/N] " choice
         case $choice in
             [Yy]*) update ;;

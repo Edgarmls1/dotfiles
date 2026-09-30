@@ -25,10 +25,9 @@ keymap("n", "<leader>pa", function()
 end)
 
 keymap("n", "<leader>e", "<Cmd>Telescope find_files<CR>")
+keymap("n", "<leader>f", "<Cmd>Telescope grep_string<CR>")
 
-keymap("n", "<leader>f", "<Cmd>NvimTreeFocus<CR>")
 keymap("n", "<leader>s", "<Cmd>NvimTreeToggle<CR>")
-keymap("n", "<leader>c", "<Cmd>NvimTreeCollapse<CR>")
 
 keymap("n", "<leader>a", "<Cmd>lua require('harpoon.mark').add_file()<CR>")
 keymap("n", "<leader>x", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")

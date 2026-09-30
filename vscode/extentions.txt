@@ -2,8 +2,8 @@ code runner
 custom vscode ui css
 java pack
 jupyter pack
-simojanhunen.monochrome-color-theme
-onedark zed -> usar somente os icons
+min darker theme
 prettier
 python pack
 rainbow csv
+symbols

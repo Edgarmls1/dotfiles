@@ -24,6 +24,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+setopt autocd
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -75,6 +76,20 @@ f() {
 	nvim "$(fzf --style full --preview "bat --color=always {}")"
 }
 
+copy() {
+    input=$1
+    output=$2
+
+    cp -r $input $output | pv > /dev/null
+}
+
+move() {
+    input=$1
+    output=$2
+
+    mv -r $input $output | pv --size $(du -s $input | awk '{print $1}') > /dev/null
+}
+
 wallpaper() {
     local hypr_path="$HOME/.config/hypr/hyprpaper.conf"
     local wall_dir="$HOME/dotfiles/wallpapers"
@@ -88,20 +103,6 @@ wallpaper() {
     pkill hyprpaper
     hyprpaper &
     disown
-}
-
-copy() {
-    input=$1
-    output=$2
-
-    cp -r $input $output | pv > /dev/null
-}
-
-move() {
-    input=$1
-    output=$2
-
-    mv -r $input $output | pv --size $(du -s $input | awk '{print $1}') > /dev/null
 }
 
 super() {
@@ -135,10 +136,9 @@ alias :q="exit"
 alias :wq="exit"
 alias hist="history -100 | grep --color=auto"
 alias grep="grep --color=auto"
-alias zed="zeditor"
 
-alias up="~/dotfiles/scripts/update.sh"
-alias cup="~/dotfiles/scripts/update.sh -c"
+alias update="~/dotfiles/scripts/update.sh"
+alias check-updates="~/dotfiles/scripts/update.sh -c"
 alias extract="~/dotfiles/scripts/extract.sh"
 alias calc="~/dotfiles/scripts/calc.sh"
 
@@ -150,10 +150,10 @@ alias sonin="shutdown +60"
 alias faci="cd ~/dev/faci/"
 alias notes="nvim ~/notes/"
 
-alias un="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
-alias ud="cd ~/dev/ ; git add . ; git commit -m 'projects update' ; git push ; cd -"
-alias pn="cd ~/notes/ ; git pull"
-alias pd="cd ~/dev/ ; git pull"
+alias update-notes="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
+alias update-dev="cd ~/dev/ ; git add . ; git commit -m 'projects update' ; git push ; cd -"
+alias pull-notes="cd ~/notes/ ; git pull"
+alias pull-dev="cd ~/dev/ ; git pull"
 
 alias -g fastfetchc="~/.config/fastfetch/"
 alias -g nvimc="~/.config/nvim/"

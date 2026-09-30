@@ -37,7 +37,7 @@ endfunction
 call s:ensure('LunarWatcher/auto-pairs')
 call s:ensure('WolfgangMehner/bash-support')
 call s:ensure('Bakudankun/qline.vim')
-call s:ensure('catppuccin/vim')
+call s:ensure('Edgarmls1/classic-vim')
 call s:ensure('vim-airline/vim-airline')
 call s:ensure('vim-airline/vim-airline-themes')
 call s:ensure('junegunn/fzf')
@@ -50,7 +50,7 @@ let g:fzf_vim = {}
 
 set termguicolors
 set hidden
-colorscheme catppuccin_mocha
+colorscheme classic
 
 let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)

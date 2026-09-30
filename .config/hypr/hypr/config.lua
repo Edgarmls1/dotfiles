@@ -4,8 +4,8 @@
 
 hl.config({
 	general = {
-		gaps_in  = 0,
-		gaps_out = 0,
+		gaps_in  = 5,
+		gaps_out = 15,
 
 		border_size = 2,
 
@@ -49,9 +49,10 @@ hl.config({
 		enabled = false,
 	},
 
-	dwindle = {
-		preserve_split = true,
-	},
+	-- dwindle = {
+	-- 	preserve_split = true,
+	--        force_split    = 2,
+	-- },
 
 	master = {
 		new_status = "master",
