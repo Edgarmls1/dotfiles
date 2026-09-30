@@ -55,7 +55,7 @@ EOF
 install () {
     local pkg_list="7zip alacritty bash-language-server bat bc bemenu bemenu-wayland bluetui btop cava chhsich-nerd-font cmatrix \
        dolphin dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-disk-utility \
-       htop hyprland hyprlock hyprmon-bin hyprpaper hyprshot hyprsunset j4-dmenu-desktop jdtls kitty lsd lxappearance ly mpc mpd mpv mpvpaper \
+       htop hyprland hyprlock hyprpaper hyprshot hyprsunset j4-dmenu-desktop jdtls kitty lsd lxappearance ly mpc mpd mpv mpvpaper \
        neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget power-profiles-daemon pyright \
        qimgv qt5-graphicaleffects qt5-quickcontrols2 qt5-wayland qt6ct qt6-declarative qt6-svg qt6-wayland qutebrowser \
        ranger rust-analyzer stow ttf-hack-nerd unrar unzip \

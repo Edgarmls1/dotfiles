@@ -117,8 +117,6 @@ super() {
 
 # --- EXPORTS, SOURCES & ALIASES --- #
 
-. "/home/edgar/.deno/env"
-
 # fnm
 FNM_PATH="/home/edgar/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
