@@ -5,6 +5,13 @@
     }
 }
 
+@-moz-document domain("com.br") {
+    * { 
+        border-radius: 0px !important; 
+        font-family: "Hack Nerd Font" !important; 
+    }
+}
+
 @-moz-document domain("app") {
     * { 
         border-radius: 0px !important; 
@@ -19,14 +26,21 @@
     }
 }
 
-@-moz-document domain("gov") {
+@-moz-document domain("gov.br") {
     * { 
         border-radius: 0px !important; 
         font-family: "Hack Nerd Font" !important; 
     }
 }
 
-@-moz-document domain("com") {
+@-moz-document domain("io") {
+    * { 
+        border-radius: 0px !important; 
+        font-family: "Hack Nerd Font" !important; 
+    }
+}
+
+@-moz-document domain("me") {
     * { 
         border-radius: 0px !important; 
         font-family: "Hack Nerd Font" !important; 
@@ -43,7 +57,7 @@
 @-moz-document domain("ai") {
     * { 
         border-radius: 0px !important; 
-        font-family: "Hack Nerd Font" !important; 
+        /* font-family: "Hack Nerd Font" !important;  */
     }
 }
 

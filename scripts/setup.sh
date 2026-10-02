@@ -55,8 +55,9 @@ clean() {
 	echo ""
     echo "+------------------------------------------+"
 	echo "| This option will install in your system: |"
-	echo "| a web browser                            |"
-	echo "| spotify                                  |"
+	echo "| - a web browser                          |"
+	echo "| - spotify                                |"
+	echo "| - spicetify                              |"
     echo "+------------------------------------------+"
 	echo ""
 	read -p "Do you want to continue? [y/N] " agree
@@ -74,11 +75,11 @@ clean() {
 
 			case $choice in 
 				1) yay -S --noconfirm zen-browser-bin ;;
-				2) yay -S --noconfirm google-chrome   ;;
+				2) yay -S --noconfirm chromium        ;;
 				3) yay -S --noconfirm firefox         ;;
 				4) 
 					yay -S --noconfirm zen-browser-bin \
-					   	google-chrome \
+					   	chromium \
 					   	firefox
 					;;
 				0) " "                           ;;
@@ -104,6 +105,7 @@ games() {
 	echo "| - hydra                                  |"
 	echo "| - faugus                                 |"
 	echo "| - trinity launcher (minecraft)           |"
+	echo "| - sober (roblox)                         |"
     echo "+------------------------------------------+"
 	echo ""
 	read -p "Do you want to continue? [y/N] " agree
@@ -131,8 +133,7 @@ dev() {
     echo "+------------------------------------------+"
 	echo "| This option will install in your system: |"
 	echo "| - neovim                                 |"
-	echo "| - obsidian                               |"
-	echo "| - bitwarden                              |"
+	echo "| - opencode                               |"
 	echo "| - vscode                                 |"
 	echo "| - zed                                    |"
 	echo "| - java                                   |"
@@ -143,7 +144,7 @@ dev() {
 	case $agree in
 		[Yy]*)
 			echo ""
-			yay -S --noconfirm neovim visual-studio-code-bin zed
+			yay -S --noconfirm neovim visual-studio-code-bin zed opencode
 
 			read -p "Do you want to install java? (y/N)" java
 

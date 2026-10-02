@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-local undodir = vim.fn.expand("~/.vim/undodir")
+local undodir = vim.fn.expand("~/.vim/nvim/undodir")
 if 
     vim.fn.isdirectory(undodir) == 0 
 then

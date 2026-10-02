@@ -2,6 +2,9 @@ adaptative tab bar color
 arc like copy link
 dark reader
 Live editor for CSS -> * { border-radius: 0px !important; font-family: "Hack Nerd Font" !important; }
+load progress bar
+proton pass
 ublock origin
+workspaces
 youtube no translation
 yt tweaks -> yt-tweaks.json

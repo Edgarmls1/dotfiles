@@ -76,6 +76,10 @@
       "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
+    "nvim-bufbar": {
+      "rev": "15cbde2e06dd44ce3c4af44affd631a07ff45560",
+      "src": "https://github.com/ojroques/nvim-bufbar"
+    },
     "nvim-cmp": {
       "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
       "src": "https://github.com/hrsh7th/nvim-cmp"

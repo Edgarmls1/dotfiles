@@ -18,7 +18,7 @@ syntax on
 
 let mapleader = " "
 
-let s:plugin_dir = expand('~/vim/plugins')
+let s:plugin_dir = expand('~/.vim/vim/plugins')
 
 function! s:ensure(repo)
     let name = split(a:repo, '/')[-1]
@@ -45,7 +45,7 @@ call s:ensure('junegunn/fzf.vim')
 call s:ensure('ap/vim-buftabline')
 call s:ensure('yegappan/lsp')
 
-let g:loaded_airline = 1
+let g:loaded_airline = 0
 let g:fzf_vim = {}
 
 set termguicolors

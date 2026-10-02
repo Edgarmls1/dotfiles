@@ -29,10 +29,9 @@ keymap("n", "<leader>f", "<Cmd>Telescope grep_string<CR>")
 
 keymap("n", "<leader>s", "<Cmd>NvimTreeToggle<CR>")
 
-keymap("n", "<leader>a", "<Cmd>lua require('harpoon.mark').add_file()<CR>")
-keymap("n", "<leader>x", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
-keymap("n", "<TAB>",     "<Cmd>lua require('harpoon.ui').nav_next()<CR>")
-keymap("n", "<S-TAB>",   "<Cmd>lua require('harpoon.ui').nav_prev()<CR>")
+keymap("n", "<leader>x", "<Cmd>Buffers<CR>")
+keymap("n", "<TAB>",     "<Cmd>bnext<CR>")
+keymap("n", "<S-TAB>",   "<Cmd>bprevious<CR>")
 
 keymap("t", "<ESC>",     "<C-\\><C-n>",   opts)
 keymap("n", "<leader>t", "<Cmd>terminal<CR>", opts)
