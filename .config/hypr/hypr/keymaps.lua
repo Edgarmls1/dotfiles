@@ -2,8 +2,8 @@
 --- MY PROGRAMS ---
 -------------------
 
-local terminal    = "alacritty"
-local tuiFileMgr  = "alacritty -e yazi"
+local terminal    = "wezterm"
+local tuiFileMgr  = "wezterm -e yazi"
 local guiFileMgr  = "nautilus"
 
 -------------------
@@ -20,17 +20,17 @@ local smw = hl.plugin.split_monitor_workspaces
 hl.bind(super .. " + Q",         exec(terminal))
 hl.bind(super .. " + E",         exec(tuiFileMgr))
 hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
-hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh"))
+hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh app"))
 
 hl.bind(super .. " + SHIFT + PERIOD", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
 hl.bind(super .. " + SHIFT + COMMA",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
 hl.bind(super .. " + SHIFT + SPACE",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"))
 
-hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
+-- hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
 
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
-hl.bind(super .. " + W",         exec("killall waybar || waybar"))
-hl.bind(super .. " + Escape",    exec("wleave"))
+hl.bind(super .. " + W",         exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh wall"))
+hl.bind(super .. " + Escape",    exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh sys"))
 hl.bind(super .. " + L",         exec("hyprlock"))
 
 -- hl.bind(super .. " + O", overview.toggle)
@@ -86,4 +86,4 @@ hl.bind("XF86MonBrightnessDown", exec("brightnessctl s 10%-"), { locked = true, 
 hl.bind("XF86AudioNext",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"), { locked = true })
 hl.bind("XF86AudioPause", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
 hl.bind("XF86AudioPlay",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })
-hl.bind("XF86AudioPrev",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"), { locked = true })
+hl.bind("XF86AudioPrev",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"), { locked = true })

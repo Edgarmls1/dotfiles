@@ -25,18 +25,34 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 setopt autocd
+setopt correct
 
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
 
-# --- XXXXXXX --- #
-
-# --- FUNCTIONS --- #
-
 autoload -U colors && colors
 setopt PROMPT_SUBST
 zmodload zsh/datetime
+
+export EDITOR="nvim"
+export TERM="alacritty"
+export TERMINAL="alacritty"
+
+export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
+export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
+export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview" # separate opts for history widget
+
+# fnm
+FNM_PATH="/home/edgar/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi
+
+source <(fzf --zsh)
+
+emulate bash -c "source ~/pyenv/bin/activate"
 
 SUDO=""
 PROMPT_COLOR="green"
@@ -72,37 +88,16 @@ precmd() {
     fi
 }
 
+troca() {
+    isso=$1
+    por=$2
+    onde=$3
+
+    sed -i -E "s|$isso|$por|g" "$onde"
+}
+
 f() {
-	nvim "$(fzf --style full --preview "bat --color=always {}")"
-}
-
-copy() {
-    input=$1
-    output=$2
-
-    cp -r $input $output | pv > /dev/null
-}
-
-move() {
-    input=$1
-    output=$2
-
-    mv -r $input $output | pv --size $(du -s $input | awk '{print $1}') > /dev/null
-}
-
-wallpaper() {
-    local hypr_path="$HOME/.config/hypr/hyprpaper.conf"
-    local wall_dir="$HOME/dotfiles/wallpapers"
-
-    local paper
-    paper=$(ls "$wall_dir" | fzf --preview "kitty +kitten icat '$wall_dir/{}'" --preview-window=right:90%)
-
-    [[ -z "$paper" ]] && return 1
-
-    sed -i -E "s|wallpapers/.*|wallpapers/$paper|g" "$hypr_path"
-    pkill hyprpaper
-    hyprpaper &
-    disown
+    nvim $(fzf)
 }
 
 super() {
@@ -113,61 +108,76 @@ super() {
     fi
 }
 
-# --- XXXXXXXXX --- #
+command_not_found_handler() {
+  local cmd=$1
+  local pkg="" desc="" 
+  local -a install_cmd
 
-# --- EXPORTS, SOURCES & ALIASES --- #
+  # fora de terminal interativo, só avisa e sai
+  if [[ ! -t 0 || ! -t 1 ]]; then
+    print -u2 "zsh: comando não encontrado: $cmd"
+    return 127
+  fi
 
-# fnm
-FNM_PATH="/home/edgar/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "$(fnm env --shell zsh)"
-fi
 
-export EDITOR="nvim"
 
-export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
+  pkg=$(yay -Fq -- "usr/bin/$cmd" 2>/dev/null | head -n1)
+  if [[ -n $pkg ]]; then
+      desc=$(yay -Si -- "$pkg" 2>/dev/null | awk -F' *: *' '/^Description/{print $2; exit}')
+      pkg=${pkg#*/}
+      install_cmd=(yay -S -- "$pkg")
+  fi
 
-alias ls="lsd"
-alias ..="cd .."
-alias :q="exit"
-alias :wq="exit"
-alias hist="history -100 | grep --color=auto"
-alias grep="grep --color=auto"
+  if [[ -z $pkg ]]; then
+    print -u2 "zsh: comando não encontrado: $cmd"
+    return 127
+  fi
 
-alias update="~/dotfiles/scripts/update.sh"
-alias check-updates="~/dotfiles/scripts/update.sh -c"
-alias extract="~/dotfiles/scripts/extract.sh"
-alias calc="~/dotfiles/scripts/calc.sh"
+  print -P "%F{yellow}'$cmd' não está instalado.%f"
+  print -P "%F{blue}Pacote:%f $pkg"
+  [[ -n $desc ]] && print -P "%F{blue}O que faz:%f $desc"
 
-alias py="~/pyenv/bin/python"
+  if read -q "REPLY?Deseja instalar? [s/N] "; then
+    print
+    if "${install_cmd[@]}"; then
+      rehash
+      (( $+commands[$cmd] )) && "$@"
+    fi
+  else
+    print
+    return 127
+  fi
+}
 
-alias weather="curl wttr.in"
-alias sonin="shutdown +60"
-
-alias faci="cd ~/dev/faci/"
-alias notes="nvim ~/notes/"
-
-alias pull-dots="cd ~/dotfiles/ ; git pull"
-alias update-notes="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -"
-alias update-dev="cd ~/dev/ ; git add . ; git commit -m 'projects update' ; git push ; cd -"
-alias pull-notes="cd ~/notes/ ; git pull"
-alias pull-dev="cd ~/dev/ ; git pull"
-
-alias -g fastfetchc="~/.config/fastfetch/"
-alias -g nvimc="~/.config/nvim/"
-alias -g hyprc="~/.config/hypr/hypr/"
-alias -g kittyc="~/.config/kitty/"
-alias -g waybarc="~/.config/waybar/"
-alias -g scripts="~/dotfiles/scripts/"
-
-eval "$(fzf --zsh)"
-
-emulate bash -c "source ~/pyenv/bin/activate"
-
-# --- XXXXXXXXXXXXXXXXXXXXXXXXXX --- #
-
-# --- PS1 & EXEC --- #
+alias \
+\
+ls="lsd --group-directories-first" \
+lsl="lsd -lh --group-directories-first" \
+lsa="lsd -lah --group-directories-first" \
+mv="mv -iv" \
+rm="rm -Iv" \
+man="batman" \
+fuck="sudo !!" \
+..="cd .." \
+-="cd -" \
+:q="exit" \
+:wq="exit" \
+hist="history -100 | grep --color=auto" \
+grep="grep --color=auto" \
+cat="bat -l conf -p" \
+du="du -sh" \
+free="free -h | bat -l conf -p" \
+update="~/dotfiles/scripts/update.sh" \
+check-updates="~/dotfiles/scripts/update.sh -c" \
+extract="~/dotfiles/scripts/extract.sh" \
+calc="~/dotfiles/scripts/calc.sh" \
+py="~/pyenv/bin/python" \
+weather="curl wttr.in" \
+sonin="shutdown +60" \
+update-notes="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -" \
+update-dev="cd ~/dev/ ; git add . ; git commit -m 'projects update' ; git push ; cd -" \
+pull-notes="cd ~/notes/ ; git pull" \
+pull-dev="cd ~/dev/ ; git pull"
 
 # if [[ -o interactive ]] && [[ -z "$TMUX" ]]; then
 #     tmux kill-session -t main
@@ -182,5 +192,3 @@ PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}${SUDO}> 
 
 ~/dotfiles/scripts/phrase.sh
 ~/dotfiles/scripts/pokemon.sh
-
-# --- XXXXXXXXXX --- #

@@ -59,7 +59,7 @@ wine = [
 
 [open]
 rules = [
-	{ mime = "text/{.json,.jsonc,*}", use = [ "edit", "reveal" ] },
+	{ mime = "text/{.json,.jsonc,*}", use = "edit" },
 	{ url = "*.pdf", use = "pdf" },
 	{ url = "*.exe", use = "wine" },
 	{ url = "*.ipynb", use = "jupyter" },

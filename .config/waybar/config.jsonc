@@ -74,7 +74,7 @@
         "format": "[]",
         "format-disabled": "",
         "format-connected": "[{num_connections}]",
-        "on-click": "alacritty -e bluetui"
+        "on-click": "kitty bluetui"
     },
 
     "custom/sep": {
@@ -95,13 +95,13 @@
         "format-linked": "{ifname} (No IP)",
         "format-wifi": "[WIFI]",
         "tooltip-format": "{essid}",
-        "on-click": "alacritty -e gazelle"
+        "on-click": "kitty gazelle"
     },
 
     "cpu": {
         "format": "[CPU {usage}%]",
         "interval": 1,
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty btop"
     },
 
     "memory": {
@@ -109,6 +109,6 @@
         "interval": 1,
         "tooltip": true,
         "tooltip-format": "{used:0.1f}GB/{total:0.1f}GB",
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty btop"
     }
 }

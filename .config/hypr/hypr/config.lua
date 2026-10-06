@@ -7,7 +7,7 @@ hl.config({
 		gaps_in  = 5,
 		gaps_out = 15,
 
-		border_size = 2,
+		border_size = 0,
 
 		col = {
 			active_border   = "rgba(999999ff)",
@@ -25,7 +25,7 @@ hl.config({
 		rounding = 0,
 
 		active_opacity   = 1.0,
-		inactive_opacity = 1.0,
+		inactive_opacity = 0.8,
 
 		shadow = {
 			enabled      = false,

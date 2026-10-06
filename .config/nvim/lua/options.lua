@@ -29,6 +29,7 @@ opt.clipboard = "unnamedplus"
 opt.isfname:append("@-@")
 opt.mouse = "a"
 opt.background = "dark"
+opt.shortmess:append("I")
 
 cmd.colorscheme("classic")
 

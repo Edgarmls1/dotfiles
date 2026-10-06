@@ -14,7 +14,6 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
 vim.pack.add({
   -- UI
-  "https://github.com/goolord/alpha-nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/ojroques/nvim-bufbar",
   "https://github.com/nvim-tree/nvim-tree.lua",
@@ -54,7 +53,6 @@ require("nvim-tree").setup()
 require("telescope").setup()
 require("smear_cursor").setup({ opts = {} })
 require("nvim-autopairs").setup({ event = "InsertEnter" })
-require("alpha").setup(require("alpha.themes.theta").config)
 require("nvim-highlight-colors").setup({ render = "virtual" })
 require("mini.cmdline").setup({ autocorrect = { enable = false } })
 

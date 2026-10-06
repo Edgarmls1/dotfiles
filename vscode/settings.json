@@ -7,6 +7,7 @@
     "editor.fontFamily": "Hack Nerd Font",
     "editor.guides.indentation": false,
     "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.vertical": "hidden",
     "editor.showFoldingControls": "never",
@@ -27,14 +28,10 @@
     "git.blame.editorDecoration.enabled": false,
     "git.decorations.enabled": false,
     "git.untrackedChanges": "hidden",
-    "window.commandCenter": false,
-    "window.menuBarVisibility": "toggle",
     "window.showTitleBarControls": false,
-    "workbench.browser.showInTitleBar": false,
+    "workbench.browser.showInTitleBar": true,
     "workbench.editor.showTabs": "single",
     "workbench.startupEditor": "none",
-    "workbench.statusBar.visible": true,
-    "workbench.layoutControl.enabled": false,
     "workbench.tree.enableStickyScroll": false,
     "workbench.tree.indent": 12,
     "workbench.tree.renderIndentGuides": "none",
@@ -49,5 +46,23 @@
     "js/ts.experimental.useTsgo": true,
     "workbench.iconTheme": "symbols",
     "workbench.colorTheme": "Min Darker Theme (by GmsGarcia)",
-    "window.titleBarStyle": "native"
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "neovim-statusline.enabled": true,
+    "neovim-statusline.variables": {
+        "--nvim-normal-primary": "#9e9e9e",
+        "--nvim-insert-primary": "#75df82",
+        "--nvim-visual-primary": "#bc9af8",
+        "--nvim-replace-primary": "#f7768e",
+        "--nvim-command-primary": "#e4e4e4"
+    },
+    "custom-ui-style.external.imports": [
+        "file:///home/edgar/dotfiles/vscode/vscode.css",
+        "file:///home/edgar/.config/Code/User/globalStorage/why-trv.neovim-statusline/statusline.css",
+        "file:///home/edgar/.vscode/extensions/why-trv.neovim-statusline-0.2.1/assets/statusline.min.js"
+    ],
+    "workbench.layoutControl.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    "window.commandCenter": false
 }

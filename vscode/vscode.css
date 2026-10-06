@@ -1,0 +1,8 @@
+* {
+    border-radius: 0px !important;
+    font-family: "Hack Nerd Font" !important;
+}
+
+.titlebar-buttonbox {
+    display: none !important;
+}
