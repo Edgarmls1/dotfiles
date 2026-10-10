@@ -9,7 +9,12 @@ config.exit_behavior = "CloseOnCleanExit"
 config.exit_behavior_messaging = "None"
 config.window_close_confirmation = "NeverPrompt"
 
--- config.color_scheme = "3024 Night"
+config.window_padding = {
+    left   = 5,
+    right  = 5,
+    top    = 5,
+    bottom = 0,
+}
 
 config.colors = {
     background    = "#171717",

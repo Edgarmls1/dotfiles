@@ -27,6 +27,7 @@ hl.bind(super .. " + SHIFT + COMMA",  exec(os.getenv("HOME") .. "/dotfiles/scrip
 hl.bind(super .. " + SHIFT + SPACE",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"))
 
 -- hl.bind(super .. " + M",        exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh"))
+hl.bind(super .. " + SHIFT + R",   exec(os.getenv("HOME") .. "/dotfiles/scripts/reload.sh"))
 
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
 hl.bind(super .. " + W",         exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh wall"))
@@ -75,9 +76,9 @@ end
 hl.bind(super .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(super .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind("XF86AudioRaiseVolume", exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && notify-send \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        exec("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true })
+hl.bind("XF86AudioRaiseVolume", exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", exec("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        exec("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""), { locked = true })
 hl.bind("XF86AudioMicMute",     exec("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
 
 hl.bind("XF86MonBrightnessUp",   exec("brightnessctl s 10%+"), { locked = true, repeating = true })

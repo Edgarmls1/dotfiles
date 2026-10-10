@@ -3,7 +3,7 @@
 WALL_CONF="~/.config/hypr/hyprpaper.conf"
 WALL_DIR="$HOME/dotfiles/wallpapers"
 WALL_LIST=("$WALL_DIR"/*)
-INTERVAL=360
+INTERVAL=$(( 3600 / ${#WALL_LIST[@]} ))
 
 # evita múltiplas instâncias
 exec 9>"/tmp/dwall.lock"

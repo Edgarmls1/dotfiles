@@ -57,9 +57,9 @@ install () {
        dunst fastfetch firefox flatpak fzf gazelle-tui gopls gnome-disk-utility gnome-tweaks \
        htop hyprland hyprlock hyprpaper hyprshot hyprsunset j4-dmenu-desktop jdtls lsd lxappearance ly mpc mpd mpv mpvpaper \
        nautilus neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget power-profiles-daemon pyright \
-       qimgv qt5-graphicaleffects qt5-quickcontrols2 qt5-wayland qt6ct qt6-declarative qt6-svg qt6-wayland qutebrowser \
+       qimgv qt5-graphicaleffects qt5-quickcontrols2 qt5-wayland qt6ct qt6-declarative qt6-svg qt6-wayland quickshell qutebrowser \
        ranger rustup rust-analyzer stow ttf-hack-nerd unrar unzip \
-       xdg-desktop-portal-gtk xdg-desktop-portal-hyprland waybar wezterm wget zathura zathura-pdf-mupdf zellij zsh"
+       xdg-desktop-portal-gtk xdg-desktop-portal-hyprland wezterm wget zathura zathura-pdf-mupdf zellij zsh"
 
 	aur
 	yay -S --noconfirm $pkg_list

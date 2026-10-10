@@ -4,7 +4,7 @@ vim.g.colors_name = "classic"
 vim.opt.background = "dark"
 
 local hl = vim.api.nvim_set_hl
-local transparent = false
+local transparent = true
 
 local c = {
     bg       = "#000000",

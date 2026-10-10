@@ -36,10 +36,8 @@ setopt PROMPT_SUBST
 zmodload zsh/datetime
 
 export EDITOR="nvim"
-export TERM="alacritty"
-export TERMINAL="alacritty"
 
-export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin
+export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin:/home/edgar/.config/emacs/bin
 export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
 export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview" # separate opts for history widget
 
@@ -157,7 +155,7 @@ lsa="lsd -lah --group-directories-first" \
 mv="mv -iv" \
 rm="rm -Iv" \
 man="batman" \
-fuck="sudo !!" \
+f="sudo !!" \
 ..="cd .." \
 -="cd -" \
 :q="exit" \
@@ -191,4 +189,5 @@ super
 PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}${SUDO}> %f'
 
 ~/dotfiles/scripts/phrase.sh
+echo ""
 ~/dotfiles/scripts/pokemon.sh
