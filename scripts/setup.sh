@@ -104,8 +104,6 @@ games() {
 	echo "| - discord                                |"
 	echo "| - hydra                                  |"
 	echo "| - faugus                                 |"
-	echo "| - trinity launcher (minecraft)           |"
-	echo "| - sober (roblox)                         |"
     echo "+------------------------------------------+"
 	echo ""
 	read -p "Do you want to continue? [y/N] " agree
@@ -114,10 +112,6 @@ games() {
 		[Yy]*)
 			echo ""
 			yay -S faugus-launcher hydra-launcher-bin steam retroarch discord
-			flatpak remote-delete trinity
-			flatpak remote-add trinity https://github.com/Trinity-LA/Trinity-Launcher/releases/download/flatpak/com.trench.trinity.launcher.flatpakrepo
-			flatpak install com.trench.trinity.launcher
-            flatpak install org.vinegarhq.Sober
 	esac
 
     ask_to_continue
@@ -137,6 +131,7 @@ dev() {
 	echo "| - vscode                                 |"
 	echo "| - zed                                    |"
 	echo "| - java                                   |"
+	echo "| - opencode                               |"
     echo "+------------------------------------------+"
 	echo ""
 	read -p "Do you want to continue? [y/N] " agree

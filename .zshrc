@@ -149,6 +149,7 @@ command_not_found_handler() {
 
 alias \
 \
+hypr="start-hyprland" \
 ls="lsd --group-directories-first" \
 lsl="lsd -lh --group-directories-first" \
 lsa="lsd -lah --group-directories-first" \

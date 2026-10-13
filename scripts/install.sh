@@ -59,7 +59,7 @@ install () {
        nautilus neovim npm noto-fonts-emoji os-prober papirus-folders-git papirus-icon-theme pavucontrol pokeget power-profiles-daemon pyright \
        qimgv qt5-graphicaleffects qt5-quickcontrols2 qt5-wayland qt6ct qt6-declarative qt6-svg qt6-wayland quickshell qutebrowser \
        ranger rustup rust-analyzer stow ttf-hack-nerd unrar unzip \
-       xdg-desktop-portal-gtk xdg-desktop-portal-hyprland wezterm wget zathura zathura-pdf-mupdf zellij zsh"
+       xdg-desktop-portal-gtk xdg-desktop-portal-hyprland wezterm wget zathura zathura-pdf-mupdf zellij zip zsh"
 
 	aur
 	yay -S --noconfirm $pkg_list

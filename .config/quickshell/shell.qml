@@ -290,45 +290,6 @@ ShellRoot {
                         }
                         spacing: 0
 
-                        // [ tray ]
-                        BarText { text: "[" }
-                        Repeater {
-                            model: SystemTray.items
-                            delegate: MouseArea {
-                                id: trayItem
-                                required property var modelData
-                                Layout.preferredWidth: 18
-                                Layout.preferredHeight: 18
-                                Layout.alignment: Qt.AlignVCenter
-                                acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
-
-                                onClicked: ev => {
-                                    if (ev.button === Qt.LeftButton) {
-                                        if (modelData.onlyMenu && modelData.hasMenu) menu.open();
-                                        else modelData.activate();
-                                    } else if (ev.button === Qt.MiddleButton) {
-                                        modelData.secondaryActivate();
-                                    } else if (modelData.hasMenu) {
-                                        menu.open();
-                                    }
-                                }
-
-                                IconImage {
-                                    anchors.fill: parent
-                                    source: trayItem.modelData.icon
-                                }
-
-                                QsMenuAnchor {
-                                    id: menu
-                                    menu: trayItem.modelData.menu
-                                    anchor.item: trayItem
-                                    anchor.edges: Edges.Top
-                                    anchor.gravity: Edges.Top
-                                }
-                            }
-                        }
-                        BarText { text: "]" }
-
                         // network
                         BarText {
                             text: root.netState === "wired" ? "[WIRED]"

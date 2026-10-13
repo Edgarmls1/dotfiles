@@ -36,4 +36,15 @@ case $1 in
         pkill hyprpaper
         setsid hyprpaper >/dev/null 2>&1 &
         ;;
+    proc)
+        n=$(nproc)
+        sel=$(LC_ALL=C top -bn2 -d 0.5 -w 512 | awk -v n="$n" '
+            /^top -/ {iter++}
+            iter==2 && $1 ~ /^[0-9]+$/ && $12 != "top" {c[$12] += $9 / n}
+            END {for (k in c) printf "%5.1f%%  %s\n", c[k], k}' \
+            | sort -rn | head -n 10 | menu)
+        [ -z "$sel" ] && exit 1
+        name=$(awk '{print $2}' <<< "$sel")
+        pkill -x "$name"
+        ;;
 esac

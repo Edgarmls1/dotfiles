@@ -20,7 +20,11 @@ local smw = hl.plugin.split_monitor_workspaces
 hl.bind(super .. " + Q",         exec(terminal))
 hl.bind(super .. " + E",         exec(tuiFileMgr))
 hl.bind(super .. " + SHIFT + E", exec(guiFileMgr))
+
 hl.bind(super .. " + SPACE",     exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh app"))
+hl.bind(super .. " + Escape",    exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh sys"))
+hl.bind(super .. " + W",         exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh wall"))
+hl.bind(super .. " + P",         exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh proc"))
 
 hl.bind(super .. " + SHIFT + PERIOD", exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh next"))
 hl.bind(super .. " + SHIFT + COMMA",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh prev"))
@@ -30,8 +34,6 @@ hl.bind(super .. " + SHIFT + SPACE",  exec(os.getenv("HOME") .. "/dotfiles/scrip
 hl.bind(super .. " + SHIFT + R",   exec(os.getenv("HOME") .. "/dotfiles/scripts/reload.sh"))
 
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
-hl.bind(super .. " + W",         exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh wall"))
-hl.bind(super .. " + Escape",    exec(os.getenv("HOME") .. "/dotfiles/scripts/menu.sh sys"))
 hl.bind(super .. " + L",         exec("hyprlock"))
 
 -- hl.bind(super .. " + O", overview.toggle)
