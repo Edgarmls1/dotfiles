@@ -9,6 +9,12 @@ config.exit_behavior = "CloseOnCleanExit"
 config.exit_behavior_messaging = "None"
 config.window_close_confirmation = "NeverPrompt"
 
+-- config.font = wezterm.font_with_fallback {
+--   'Hack Nerd Font',
+--   'Noto Sans CJK JP',
+--   'Noto Sans Symbols 2',
+-- }
+
 config.window_padding = {
     left   = 5,
     right  = 5,
@@ -17,13 +23,13 @@ config.window_padding = {
 }
 
 config.colors = {
-    background    = "#171717",
-    foreground    = "#ffffff",
-    cursor_bg     = "#ffffff",
+    background    = "#181818",
+    foreground    = "#999999",
+    cursor_bg     = "#999999",
     cursor_fg     = "#000000",
-    cursor_border = "#ffffff",
+    cursor_border = "#999999",
     selection_fg  = "#181818",
-    selection_bg  = "#ffffff",
+    selection_bg  = "#999999",
 
     ansi = {
         "#282828",

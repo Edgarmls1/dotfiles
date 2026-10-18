@@ -1,5 +1,3 @@
-# --- PLUGINS --- #
-
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [[ ! -d "$ZINIT_HOME" ]]; then
@@ -41,7 +39,6 @@ export PATH=$PATH:/home/edgar/.spicetify:/home/edgar/.local/bin:/home/edgar/.con
 export FZF_DEFAULT_OPTS="--style minimal --color 16 --layout=reverse --height 30% --preview='bat -p --color=always {}'"
 export FZF_CTRL_R_OPTS="--style minimal --color 16 --info inline --no-sort --no-preview" # separate opts for history widget
 
-# fnm
 FNM_PATH="/home/edgar/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
@@ -56,9 +53,7 @@ SUDO=""
 PROMPT_COLOR="green"
 CMD_DURATION=""
 
-preexec() {
-    CMD_START=$EPOCHREALTIME
-}
+preexec() { CMD_START=$EPOCHREALTIME }
 
 precmd() {
     local exit_code=$?
@@ -94,9 +89,9 @@ troca() {
     sed -i -E "s|$isso|$por|g" "$onde"
 }
 
-f() {
-    nvim $(fzf)
-}
+fuck() { sudo ${(z)$(fc -ln -1)} }
+
+f() { nvim $(fzf) }
 
 super() {
     if [[ $PWD != $HOME/* && $PWD != $HOME ]]; then
@@ -106,57 +101,13 @@ super() {
     fi
 }
 
-command_not_found_handler() {
-  local cmd=$1
-  local pkg="" desc="" 
-  local -a install_cmd
-
-  # fora de terminal interativo, só avisa e sai
-  if [[ ! -t 0 || ! -t 1 ]]; then
-    print -u2 "zsh: comando não encontrado: $cmd"
-    return 127
-  fi
-
-
-
-  pkg=$(yay -Fq -- "usr/bin/$cmd" 2>/dev/null | head -n1)
-  if [[ -n $pkg ]]; then
-      desc=$(yay -Si -- "$pkg" 2>/dev/null | awk -F' *: *' '/^Description/{print $2; exit}')
-      pkg=${pkg#*/}
-      install_cmd=(yay -S -- "$pkg")
-  fi
-
-  if [[ -z $pkg ]]; then
-    print -u2 "zsh: comando não encontrado: $cmd"
-    return 127
-  fi
-
-  print -P "%F{yellow}'$cmd' não está instalado.%f"
-  print -P "%F{blue}Pacote:%f $pkg"
-  [[ -n $desc ]] && print -P "%F{blue}O que faz:%f $desc"
-
-  if read -q "REPLY?Deseja instalar? [s/N] "; then
-    print
-    if "${install_cmd[@]}"; then
-      rehash
-      (( $+commands[$cmd] )) && "$@"
-    fi
-  else
-    print
-    return 127
-  fi
-}
-
 alias \
 \
-hypr="start-hyprland" \
-ls="lsd --group-directories-first" \
-lsl="lsd -lh --group-directories-first" \
-lsa="lsd -lah --group-directories-first" \
+ls="lsd -lah --group-directories-first" \
 mv="mv -iv" \
 rm="rm -Iv" \
 man="batman" \
-f="sudo !!" \
+y="yazi" \
 ..="cd .." \
 -="cd -" \
 :q="exit" \
@@ -170,7 +121,7 @@ update="~/dotfiles/scripts/update.sh" \
 check-updates="~/dotfiles/scripts/update.sh -c" \
 extract="~/dotfiles/scripts/extract.sh" \
 calc="~/dotfiles/scripts/calc.sh" \
-py="~/pyenv/bin/python" \
+python="~/pyenv/bin/python" \
 weather="curl wttr.in" \
 sonin="shutdown +60" \
 update-notes="cd ~/notes/ ; git add . ; git commit -m 'notes update' ; git push ; cd -" \

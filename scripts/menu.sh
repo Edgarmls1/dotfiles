@@ -4,6 +4,7 @@ WALL_CONF="$HOME/.config/hypr/hyprpaper.conf"
 WALL_DIR="$HOME/dotfiles/wallpapers"
 
 BEMENU_OPTS=(-i -c -l 5 -W 0.2 -p ">" -H 23
+    --fn "Hack Nerd Font 10"
     --tb "#000000" --tf "#ffffff"
     --fb "#000000" --ff "#ffffff"
     --cb "#000000" --cf "#ffffff"

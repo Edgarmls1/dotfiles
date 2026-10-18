@@ -2,7 +2,7 @@
     monitor = 1
 
     follow = mouse
-    width = (0, 600)
+    width = (300, 600)
     height = (0, 300)
 
     origin = top-right
@@ -40,7 +40,7 @@
     text_icon_padding = 6
 
     frame_width = 2
-    frame_color = "#ffffff"
+    frame_color = "#999999"
 
 
     gap_size = 2
@@ -129,14 +129,14 @@
 
 
 [urgency_low]
-   background = "#000000"
-   foreground = "#888888"
+   background = "#181818"
+   foreground = "#999999"
     timeout = 10
     default_icon = dialog-information
 
 [urgency_normal]
-   background = "#000000"
-   foreground = "#888888"
+   background = "#181818"
+   foreground = "#999999"
     timeout = 10
     override_pause_level = 30
     default_icon = dialog-information

@@ -1,0 +1,124 @@
+# ---------------- core ----------------
+[core."base"]
+default = true
+packages = ["7zip", "bat", "bat-extras", "bc", "btop", "fastfetch", "fzf", "htop", "lsd", "unrar", "unzip", "wget", "zip"]
+
+[core."hyprland tools"]
+default = true
+packages = ["hyprland", "hyprlock", "hyprpaper", "hyprshot", "hyprsunset", "xdg-desktop-portal-gtk", "xdg-desktop-portal-hyprland"]
+actions = ["hyprpm_plugins"]
+
+[core."login manager"]
+default = true
+packages = ["ly"]
+services = ["ly@tty2"]
+
+[core."launcher & ui"]
+default = true
+packages = ["bemenu", "bemenu-wayland", "j4-dmenu-desktop", "dunst", "quickshell"]
+
+[core."shell & terminal"]
+default = true
+packages = ["zsh", "wezterm", "zellij", "cmatrix", "pokeget"]
+actions = ["chsh_zsh"]
+
+[core."dev tools"]
+default = true
+packages = ["bash-language-server", "gopls", "jdtls", "neovim", "npm", "pyright", "rustup", "rust-analyzer"]
+
+[core."qt"]
+default = true
+packages = ["qt5-graphicaleffects", "qt5-quickcontrols2", "qt5-wayland", "qt6ct", "qt6-declarative", "qt6-svg", "qt6-wayland"]
+
+[core."fonts"]
+default = true
+packages = ["chhsich-nerd-font", "ttf-hack-nerd", "noto-fonts-emoji"]
+
+[core."system"]
+default = true
+packages = ["bluetui", "gazelle-tui", "power-profiles-daemon", "os-prober", "gnome-disk-utility", "flatpak"]
+
+[core."dotfiles (stow)"]
+default = true
+packages = ["stow"]
+actions = ["stow_dotfiles"]
+
+# ---------------- virtualization ----------------
+[virtualization."qemu / libvirt"]
+packages = ["qemu-full", "libvirt", "virt-manager", "virt-viewer", "dnsmasq", "vde2", "bridge-utils", "openbsd-netcat", "edk2-ovmf", "swtpm"]
+services = ["libvirtd.service", "virtlogd.service"]
+user_groups = ["libvirt", "kvm"]
+
+# ---------------- theme ----------------
+[theme."gtk / icons"]
+packages = ["lxappearance", "gnome-tweaks", "papirus-icon-theme", "papirus-folders-git"]
+actions = ["orchis_theme"]
+
+# ---------------- dark mode ----------------
+["dark mode"."hyprland portal"]
+actions = ["dark_mode"]
+
+# ---------------- python ----------------
+["python environment"."venv ~/pyenv"]
+packages = ["python"]
+actions = ["pyenv"]
+
+# ---------------- swap ----------------
+[swap."swapfile"]
+actions = ["swap"]
+
+# ---------------- apps ----------------
+[apps."browser"."firefox"]
+default = true
+packages = ["firefox"]
+
+[apps."browser"."chromium"]
+packages = ["chromium"]
+
+[apps."browser"."qutebrowser"]
+packages = ["qutebrowser"]
+
+[apps."browser"."zen browser"]
+packages = ["zen-browser-bin"]
+
+[apps."browser"."helium"]
+packages = ["helium-browser-bin"]
+
+[apps."file manager"]
+default = true
+packages = ["nautilus", "yazi"]
+
+[apps."media"]
+default = true
+packages = ["mpc", "mpd", "mpv", "mpvpaper", "cava", "pavucontrol", "qimgv", "spotify", "spicetify-cli"]
+
+[apps."documents"]
+default = true
+packages = ["zathura", "zathura-pdf-mupdf"]
+
+[apps."dev"."vscode"]
+packages = ["visual-studio-code-bin"]
+
+[apps."dev"."zed"]
+packages = ["zed"]
+
+[apps."dev"."opencode"]
+packages = ["opencode"]
+
+[apps."games"."steam"]
+packages = ["steam"]
+
+[apps."games"."hydra"]
+packages = ["hydra-launcher-bin"]
+
+[apps."games"."faugus"]
+packages = ["faugus-launcher"]
+
+[apps."games"."retroarch"]
+packages = ["retroarch"]
+
+[apps."games"."minecraft / trinity"]
+actions = ["minecraft"]
+
+[apps."games"."roblox / sober"]
+packages = ["auto_sober"]

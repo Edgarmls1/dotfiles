@@ -1,0 +1,16 @@
+singleton Theme Theme.qml
+singleton UiState UiState.qml
+singleton Stats Stats.qml
+singleton Audio Audio.qml
+singleton Media Media.qml
+BarText BarText.qml
+PText PText.qml
+Ctl Ctl.qml
+Workspaces Workspaces.qml
+ExpandGroup ExpandGroup.qml
+VolumeModule VolumeModule.qml
+ClockModule ClockModule.qml
+MediaPopup MediaPopup.qml
+Bar Bar.qml
+Notifications Notifications.qml
+CalendarPopup CalendarPopup.qml
