@@ -12,5 +12,4 @@ VolumeModule VolumeModule.qml
 ClockModule ClockModule.qml
 MediaPopup MediaPopup.qml
 Bar Bar.qml
-Notifications Notifications.qml
 CalendarPopup CalendarPopup.qml

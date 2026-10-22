@@ -24,5 +24,6 @@ Singleton {
 
     // resto da shell
     readonly property string term: "wezterm"
+    readonly property int barHeight: 24
     readonly property int popupMargin: 20
 }

@@ -6,13 +6,11 @@ import QtQuick.Layouts
 PopupWindow {
     id: popup
 
-    // janela da barra à qual o popup é ancorado
     required property var barWindow
 
-    // mês exibido (independente do mês atual, para navegar)
     property int viewYear: 0
     property int viewMonth: 0
-    readonly property int firstWeekday: new Date(viewYear, viewMonth, 1).getDay()   // 0 = domingo
+    readonly property int firstWeekday: new Date(viewYear, viewMonth, 1).getDay()
 
     readonly property var monthNames: [
         "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -37,14 +35,12 @@ PopupWindow {
     implicitWidth: 278
     implicitHeight: 284
 
-    // flutuando: 20px acima da barra e 20px da lateral direita da tela
     anchor.window: barWindow
     anchor.rect.x: barWindow.width - Theme.popupMargin
     anchor.rect.y: -Theme.popupMargin
     anchor.edges: Edges.Top | Edges.Left
     anchor.gravity: Edges.Top | Edges.Left
 
-    // clicar fora fecha
     HyprlandFocusGrab {
         windows: [popup]
         active: popup.visible
@@ -67,7 +63,6 @@ PopupWindow {
             anchors.margins: 14
             spacing: 10
 
-            // cabeçalho: < Mês Ano >   (clique no título volta para hoje)
             RowLayout {
                 Layout.fillWidth: true
                 Ctl {
@@ -92,7 +87,6 @@ PopupWindow {
                 }
             }
 
-            // dias da semana
             Grid {
                 columns: 7
                 spacing: 2
@@ -113,7 +107,6 @@ PopupWindow {
                 }
             }
 
-            // dias do mês (6 semanas)
             Grid {
                 columns: 7
                 spacing: 2

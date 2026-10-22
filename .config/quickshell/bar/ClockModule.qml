@@ -1,8 +1,6 @@
 import Quickshell
 import QtQuick
 
-// clique esquerdo alterna hora / data
-// clique direito abre o calendário
 BarText {
     signal calendarRequested
 

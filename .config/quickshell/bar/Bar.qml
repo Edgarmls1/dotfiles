@@ -9,10 +9,8 @@ PanelWindow {
     required property var modelData
     screen: modelData
 
-    // monitor do Hyprland correspondente a esta barra
     readonly property var monitor: Hyprland.monitorFor(modelData)
 
-    // grupo expansível (rede, bluetooth, cpu/mem, música)
     property bool expanded: false
     onExpandedChanged: {
         if (!expanded)
@@ -27,7 +25,6 @@ PanelWindow {
     implicitHeight: 24
     color: Theme.bg
 
-    // ===== ESQUERDA: workspaces =====
     Workspaces {
         monitor: bar.monitor
         anchors {
@@ -37,7 +34,6 @@ PanelWindow {
         }
     }
 
-    // ===== DIREITA: módulos =====
     RowLayout {
         anchors {
             right: parent.right
@@ -51,7 +47,6 @@ PanelWindow {
             onMediaClicked: mediaPopup.visible = !mediaPopup.visible
         }
 
-        // botão que expande/recolhe o grupo
         BarText {
             text: bar.expanded ? "[>]" : "[<]"
             MouseArea {
@@ -66,13 +61,11 @@ PanelWindow {
         }
     }
 
-    // ===== POPUP: Media Player =====
     MediaPopup {
         id: mediaPopup
         barWindow: bar
     }
 
-    // ===== POPUP: Calendário =====
     CalendarPopup {
         id: calendarPopup
         barWindow: bar

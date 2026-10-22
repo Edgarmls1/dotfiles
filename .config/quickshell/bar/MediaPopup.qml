@@ -6,7 +6,6 @@ import QtQuick.Layouts
 PopupWindow {
     id: popup
 
-    // janela da barra à qual o popup é ancorado
     required property var barWindow
 
     visible: false
@@ -14,21 +13,18 @@ PopupWindow {
     implicitWidth: 230
     implicitHeight: 400
 
-    // flutuando: 20px acima da barra e 20px da lateral direita da tela
     anchor.window: barWindow
     anchor.rect.x: barWindow.width - Theme.popupMargin
     anchor.rect.y: -Theme.popupMargin
     anchor.edges: Edges.Top | Edges.Left
     anchor.gravity: Edges.Top | Edges.Left
 
-    // clicar fora fecha
     HyprlandFocusGrab {
         windows: [popup]
         active: popup.visible
         onCleared: popup.visible = false
     }
 
-    // a posição só atualiza se mandarmos o sinal
     Timer {
         running: popup.visible && (Media.player?.isPlaying ?? false)
         interval: 500
@@ -61,7 +57,6 @@ PopupWindow {
                 }
             }
 
-            // capa
             RowLayout {
                 spacing: 14
 
@@ -90,7 +85,6 @@ PopupWindow {
                 }
             }
 
-            // título / artista
             RowLayout {
                 Layout.fillWidth: true
                 spacing: 4
@@ -114,7 +108,6 @@ PopupWindow {
                 }
             }
 
-            // barra de progresso
             RowLayout {
                 spacing: 8
                 PText {
@@ -154,7 +147,6 @@ PopupWindow {
                 }
             }
 
-            // controles
             RowLayout {
                 Layout.alignment: Qt.AlignHCenter
                 spacing: 26

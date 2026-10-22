@@ -12,11 +12,12 @@ from pathlib import Path
 from textual.app import App, ComposeResult
 from textual.binding import Binding
 from textual.containers import Horizontal
-from textual.widgets import Footer, Header, Label, ListItem, ListView, SelectionList, Static
+from textual.widgets import Footer, Header, Label, ListItem, ListView, Static, Tree
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DOTFILES_DIR = SCRIPT_DIR.parent
 DRY = False
+SEP = " › "
 
 
 # ======================================================================
@@ -97,13 +98,15 @@ def swap():
     run(["sudo", "swapon", "/swapfile"])
     run(["sudo", "tee", "-a", "/etc/fstab"], input="/swapfile none swap defaults 0 0\n")
 
+
 def minecraft():
-    run(["flatpak", "remote-delete", "trinity"])
+    run(["flatpak", "remote-delete", "trinity"], check=False)
     run(["flatpak", "remote-add", "trinity", "https://github.com/Trinity-LA/Trinity-Launcher/releases/download/flatpak/com.trench.trinity.launcher.flatpakrepo"])
     run(["flatpak", "install", "com.trench.trinity.launcher"])
 
+
 ACTIONS = {f.__name__: f for f in (
-    hyprpm_plugins, chsh_zsh, stow_dotfiles, orchis_theme, dark_mode, pyenv, swap,
+    hyprpm_plugins, chsh_zsh, stow_dotfiles, orchis_theme, dark_mode, pyenv, swap, minecraft,
 )}
 
 
@@ -122,7 +125,7 @@ def flatten(data: dict) -> dict:
                 out[cat][g] = info  # grupo normal
             else:  # só tem subgrupos
                 for sub, sub_info in info.items():
-                    out[cat][f"{g} › {sub}"] = sub_info
+                    out[cat][f"{g}{SEP}{sub}"] = sub_info
     return out
 
 
@@ -137,6 +140,7 @@ class Installer(App):
     Header { background: black; color: white; text-style: bold; }
     #cats    { width: 28; border-right: solid $primary-darken-2; background: black; }
     #groups  { width: 34; border: none; border-right: solid $primary-darken-2; background: black; }
+    #groups > .tree--cursor { background: $accent 30%; color: hotpink; text-style: bold; }
     #preview { width: 1fr; padding: 0 2; background: black; }
     ListView > ListItem { background: black; }
     ListView > ListItem.--highlight { color: hotpink; text-style: bold; }
@@ -170,11 +174,12 @@ class Installer(App):
                 self.labels[c] = lbl
                 items.append(ListItem(lbl, name=c))
             yield ListView(*items, id="cats")
-            yield SelectionList[str](id="groups")
+            yield Tree("groups", id="groups")
             yield Static("", id="preview")
         yield Footer()
 
     def on_mount(self) -> None:
+        self.query_one("#groups", Tree).show_root = False
         self.query_one("#cats", ListView).focus()
         self.load_groups(self.current)
 
@@ -182,10 +187,24 @@ class Installer(App):
         n = len(self.state[cat])
         return f"{cat} [{n}]" if n else cat
 
+    def _leaf_label(self, cat: str, g: str, text: str) -> str:
+        # não usar "[x]": o Rich interpreta colchetes como markup
+        return f"{'☑' if g in self.state[cat] else '☐'} {text}"
+
     def load_groups(self, cat: str) -> None:
-        sl = self.query_one("#groups", SelectionList)
-        sl.clear_options()
-        sl.add_options([(g, g, g in self.state[cat]) for g in self.data[cat]])
+        tree = self.query_one("#groups", Tree)
+        tree.clear()
+        branches = {}
+        for g in self.data[cat]:
+            if SEP in g:
+                parent, sub = g.split(SEP, 1)
+                if parent not in branches:
+                    branches[parent] = tree.root.add(parent, expand=True)
+                branches[parent].add_leaf(self._leaf_label(cat, g, sub), data=g)
+            else:
+                tree.root.add_leaf(self._leaf_label(cat, g, g), data=g)
+        tree.root.expand()
+        tree.cursor_line = 0
         self.show_group(cat, next(iter(self.data[cat]), None))
 
     def show_group(self, cat: str, group: str | None) -> None:
@@ -212,11 +231,23 @@ class Installer(App):
         self.current = event.item.name
         self.load_groups(self.current)
 
-    def on_selection_list_selection_highlighted(self, event: SelectionList.SelectionHighlighted) -> None:
-        self.show_group(self.current, event.selection.value)
+    def on_tree_node_highlighted(self, event: Tree.NodeHighlighted) -> None:
+        node = event.node
+        if node.data is not None:  # folha
+            self.show_group(self.current, node.data)
+        elif node.children:  # submenu
+            preview = self.query_one("#preview", Static)
+            lines = [f"[hotpink]{node.label}[/]", ""]
+            lines += [f"- {str(c.label)[2:]}" for c in node.children]
+            preview.update("\n".join(lines))
 
-    def on_selection_list_selection_toggled(self, event: SelectionList.SelectionToggled) -> None:
-        self.state[self.current] = set(event.selection_list.selected)
+    def on_tree_node_selected(self, event: Tree.NodeSelected) -> None:
+        g = event.node.data
+        if g is None:  # submenu: o próprio Tree expande/recolhe
+            return
+        self.state[self.current] ^= {g}
+        text = g.split(SEP, 1)[-1]
+        event.node.set_label(self._leaf_label(self.current, g, text))
         self.labels[self.current].update(self._cat_text(self.current))
 
     def action_focus_groups(self) -> None:

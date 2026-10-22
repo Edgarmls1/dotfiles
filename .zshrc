@@ -101,12 +101,16 @@ super() {
     fi
 }
 
+man() {
+    nvim <(batman $1)
+}
+
 alias \
 \
-ls="lsd -lah --group-directories-first" \
+ls="lsd -lh --group-directories-first" \
+la="lsd -lah --group-directories-first" \
 mv="mv -iv" \
 rm="rm -Iv" \
-man="batman" \
 y="yazi" \
 ..="cd .." \
 -="cd -" \

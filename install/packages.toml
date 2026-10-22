@@ -5,7 +5,7 @@ packages = ["7zip", "bat", "bat-extras", "bc", "btop", "fastfetch", "fzf", "htop
 
 [core."hyprland tools"]
 default = true
-packages = ["hyprland", "hyprlock", "hyprpaper", "hyprshot", "hyprsunset", "xdg-desktop-portal-gtk", "xdg-desktop-portal-hyprland"]
+packages = ["hyprland", "hyprlock", "hyprpaper", "hyprshot", "hyprsunset", "hyprpm", "xdg-desktop-portal-gtk", "xdg-desktop-portal-hyprland"]
 actions = ["hyprpm_plugins"]
 
 [core."login manager"]

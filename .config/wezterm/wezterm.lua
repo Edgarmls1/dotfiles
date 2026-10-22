@@ -24,6 +24,7 @@ config.window_padding = {
 
 config.colors = {
     background    = "#181818",
+    -- background    = "#000000",
     foreground    = "#999999",
     cursor_bg     = "#999999",
     cursor_fg     = "#000000",

@@ -9,7 +9,6 @@ Singleton {
     readonly property var sink: Pipewire.defaultAudioSink
     readonly property var audio: sink?.audio ?? null
 
-    // emitido quando o volume/mute muda por qualquer meio (teclas, pavucontrol, scroll...)
     signal volumeTouched
     property bool volReady: false
 
