@@ -4,7 +4,7 @@ vim.g.colors_name = "classic"
 vim.opt.background = "dark"
 
 local hl = vim.api.nvim_set_hl
-local transparent = false
+local transparent = true
 
 local c = {
     bg       = "#000000",
@@ -53,11 +53,11 @@ if transparent then
     hl(0, "NormalNC",    { fg = c.fg3,     bg = "NONE" })
     hl(0, "NormalFloat", { fg = c.fg,      bg = "NONE" })
     hl(0, "SignColumn",  clear)
-    hl(0, "FoldColumn",  clear)
+    hl(0, "FoldColumn",  { fg = c.fg,      bg = "NONE"   })
     hl(0, "Folded",      { fg = c.fg4,     bg = "NONE" })
     hl(0, "StatusLine",  { fg = c.mid,     bg = "NONE" })
     hl(0, "TabLineFill", clear)
-    hl(0, "CursorLine",  clear)
+    hl(0, "CursorLine",  { bg = c.bg3 })
     hl(0, "WinBar",      { fg = c.fg,      bg = "NONE" })
 else
     hl(0, "Normal",      { fg = c.fg,      bg = c.bg  })

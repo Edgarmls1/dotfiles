@@ -33,16 +33,6 @@ def run(cmd, check=True, cwd=None, input=None):
             raise SystemExit(f"\nFalhou ({r.returncode}): {' '.join(str(c) for c in cmd)}")
         print(f"  aviso: comando falhou ({r.returncode}), continuando")
 
-
-def ensure_yay():
-    if shutil.which("yay"):
-        return
-    run(["sudo", "pacman", "-S", "--needed", "--noconfirm", "git", "base-devel"])
-    with tempfile.TemporaryDirectory() as tmp:
-        run(["git", "clone", "https://aur.archlinux.org/yay.git", f"{tmp}/yay"])
-        run(["makepkg", "-si", "--noconfirm"], cwd=f"{tmp}/yay")
-
-
 # ======================================================================
 #  Ações de pós-instalação (referenciadas por nome no packages.toml)
 # ======================================================================

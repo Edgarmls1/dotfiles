@@ -24,7 +24,7 @@ actions = ["chsh_zsh"]
 
 [core."dev tools"]
 default = true
-packages = ["bash-language-server", "gopls", "jdtls", "neovim", "npm", "pyright", "rustup", "rust-analyzer"]
+packages = ["bash-language-server", "gopls", "jdk25-openjdk", "jdtls", "neovim", "npm", "pyright", "rustup", "rust-analyzer", "docker", "docker-compose"]
 
 [core."qt"]
 default = true

@@ -61,11 +61,6 @@ PanelWindow {
         }
     }
 
-    MediaPopup {
-        id: mediaPopup
-        barWindow: bar
-    }
-
     CalendarPopup {
         id: calendarPopup
         barWindow: bar

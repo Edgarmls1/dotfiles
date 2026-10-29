@@ -30,6 +30,8 @@ hl.bind(super .. " + SHIFT + COMMA",  exec(os.getenv("HOME") .. "/dotfiles/scrip
 hl.bind(super .. " + SHIFT + SPACE",  exec(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh play"))
 
 hl.bind(super .. " + SHIFT + R",   exec(os.getenv("HOME") .. "/dotfiles/scripts/reload.sh"))
+hl.bind(super .. " + SHIFT + M",   exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh disable"))
+hl.bind(super .. " + M",           exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh enable"))
 
 hl.bind(super .. " + SHIFT + X", exec("killall qs || qs"))
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))

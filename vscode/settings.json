@@ -7,7 +7,6 @@
     "editor.fontFamily": "Hack Nerd Font",
     "editor.guides.indentation": false,
     "editor.minimap.enabled": false,
-    "editor.lineNumbers": "relative",
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.vertical": "hidden",
     "editor.showFoldingControls": "never",
@@ -30,7 +29,6 @@
     "git.untrackedChanges": "hidden",
     "window.showTitleBarControls": false,
     "workbench.browser.showInTitleBar": true,
-    "workbench.editor.showTabs": "single",
     "workbench.startupEditor": "none",
     "workbench.tree.enableStickyScroll": false,
     "workbench.tree.indent": 12,
@@ -45,7 +43,6 @@
     "liveServer.settings.donotShowInfoMsg": true,
     "js/ts.experimental.useTsgo": true,
     "workbench.iconTheme": "symbols",
-    "workbench.colorTheme": "Min Darker Theme (by GmsGarcia)",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
@@ -64,5 +61,10 @@
     ],
     "workbench.layoutControl.enabled": false,
     "window.menuBarVisibility": "toggle",
-    "window.commandCenter": false
+    "window.commandCenter": false,
+    "redhat.telemetry.enabled": true,
+    "workbench.colorTheme": "Min Dark",
+    "files.autoSave": "afterDelay",
+    "workbench.productIconTheme": "bongocat",
+    "pokechi.position": "explorer"
 }

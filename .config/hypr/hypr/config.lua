@@ -49,10 +49,10 @@ hl.config({
 		enabled = false,
 	},
 
-	-- dwindle = {
-	-- 	preserve_split = true,
-	--        force_split    = 2,
-	-- },
+	dwindle = {
+		preserve_split = true,
+	       force_split    = 2,
+	},
 
 	master = {
 		new_status = "master",

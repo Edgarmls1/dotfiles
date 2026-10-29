@@ -68,15 +68,5 @@ Item {
                 }
             }
         }
-
-        // media
-        BarText {
-            text: "[MUS]"
-            opacity: Media.player ? 1 : 0.5
-            MouseArea {
-                anchors.fill: parent
-                onClicked: group.mediaClicked()
-            }
-        }
     }
 }
