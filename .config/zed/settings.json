@@ -1,4 +1,11 @@
 {
+  "agent": {
+    "threads_sidebar": {
+      "position": "left"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "active_pane_modifiers": {
     "border_size": 0.0,
   },
@@ -33,16 +40,13 @@
     "button": false,
   },
   "diagnostics": {
-    "button": true,
+    "button": false,
   },
   "terminal": {
     "button": true,
   },
   "status_bar": {
-    "show_active_file": false,
-    "line_endings_button": false,
-    "cursor_position_button": true,
-    "active_language_button": true,
+     "exeperimental.show": false
   },
   "scrollbar": {
     "show": "never",
@@ -65,7 +69,7 @@
   },
   "minimap": {
     "current_line_highlight": "line",
-    "show": "always",
+    "show": "never",
   },
   "gutter": {
     "bookmarks": false,
@@ -107,11 +111,11 @@
   "buffer_font_size": 12.0,
   "theme": "Min Dark (Blurred)",
   "theme_overrides": {
-    "Quasi Monochrome Dark": {
-      "border.variant": "#000000",
-      "border": "#000000",
-      "title_bar.background": "#000000",
-      "panel.background": "#000000",
+    "Min Dark (Blurred)": {
+      "border.variant": "#1a1a1a",
+      "border": "#1a1a1a",
+      "title_bar.background": "#1a1a1a",
+      "panel.background": "#1a1a1a",
       "players": [
         {
           "cursor": "#ffffff",

@@ -112,6 +112,7 @@ la="lsd -lah --group-directories-first" \
 mv="mv -iv" \
 rm="rm -Iv" \
 y="yazi" \
+zed="zeditor" \
 ..="cd .." \
 -="cd -" \
 :q="exit" \

@@ -32,7 +32,7 @@ packages = ["qt5-graphicaleffects", "qt5-quickcontrols2", "qt5-wayland", "qt6ct"
 
 [core."fonts"]
 default = true
-packages = ["chhsich-nerd-font", "ttf-hack-nerd", "noto-fonts-emoji"]
+packages = ["chhsich-nerd-font", "ttf-monocraft", "ttf-hack-nerd", "noto-fonts-emoji"]
 
 [core."system"]
 default = true

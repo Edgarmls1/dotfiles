@@ -33,9 +33,9 @@ hl.bind(super .. " + SHIFT + R",   exec(os.getenv("HOME") .. "/dotfiles/scripts/
 hl.bind(super .. " + SHIFT + M",   exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh disable"))
 hl.bind(super .. " + M",           exec(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh enable"))
 
-hl.bind(super .. " + SHIFT + X", exec("killall qs || qs"))
+hl.bind(super .. " + SHIFT + X", exec(os.getenv("HOME") .. "/dotfiles/scripts/focus.sh"))
 hl.bind(super .. " + SHIFT + S", exec("killall hyprsunset || hyprsunset"))
-hl.bind(super .. " + L",         exec("hyprlock"))
+hl.bind(super .. " + SHIFT + L", exec("hyprlock"))
 
 hl.bind("Print",         exec("hyprshot -m region -m active -o ~/Pictures/Screenshots/"))
 hl.bind("SHIFT + Print", exec("hyprshot -m region -m output -o ~/Pictures/Screenshots/"))
@@ -45,20 +45,24 @@ hl.bind(super .. " + S",         hl.dsp.layout("togglesplit"))
 hl.bind(super .. " + F",         hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(super .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 
-hl.bind(super .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(super .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(super .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(super .. " + down",  hl.dsp.focus({ direction = "down" }))
+local dirs = {
+  { keys = { "left",  "H" }, dir = "left",  resize = { x = -10, y = 0 } },
+  { keys = { "right", "L" }, dir = "right", resize = { x = 10,  y = 0 } },
+  { keys = { "up",    "K" }, dir = "up",    resize = { x = 0,   y = -10 } },
+  { keys = { "down",  "J" }, dir = "down",  resize = { x = 0,   y = 10 } },
+}
 
-hl.bind(super .. " + SHIFT + left",  function() hl.dispatch(hl.dsp.window.resize({ x = -10, y = 0, relative = true })) end)
-hl.bind(super .. " + SHIFT + right", function() hl.dispatch(hl.dsp.window.resize({ x = 10, y = 0, relative = true })) end)
-hl.bind(super .. " + SHIFT + up",    function() hl.dispatch(hl.dsp.window.resize({ x = -0, y = -10, relative = true })) end)
-hl.bind(super .. " + SHIFT + down",  function() hl.dispatch(hl.dsp.window.resize({ x = -0, y = 10, relative = true })) end)
+for _, d in ipairs(dirs) do
+  for _, key in ipairs(d.keys) do
+    hl.bind(super .. " + " .. key, hl.dsp.focus({ direction = d.dir }))
 
-hl.bind(super .. " + CTRL + left",  hl.dsp.window.swap({ direction = "left" }))
-hl.bind(super .. " + CTRL + right", hl.dsp.window.swap({ direction = "right" }))
-hl.bind(super .. " + CTRL + up",    hl.dsp.window.swap({ direction = "up" }))
-hl.bind(super .. " + CTRL + down",  hl.dsp.window.swap({ direction = "down" }))
+    hl.bind(super .. " + SHIFT + " .. key, function()
+      hl.dispatch(hl.dsp.window.resize({ x = d.resize.x, y = d.resize.y, relative = true }))
+    end)
+
+    hl.bind(super .. " + CTRL + " .. key, hl.dsp.window.swap({ direction = d.dir }))
+  end
+end
 
 for i = 1, 9 do
     local key = tostring(i)
