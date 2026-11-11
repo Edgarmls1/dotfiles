@@ -12,9 +12,9 @@ local guiFileMgr  = "nautilus"
 
 local super = "SUPER"
 local exec  = hl.dsp.exec_cmd
-local smw   = hl.plugin.split_monitor_workspaces
+local smw = require("hypr.plugins.split-monitor-workspaces")
 
-local closeWindowBind = hl.bind(super .. " + C",         hl.dsp.window.close())
+local closeWindowBind = hl.bind(super .. " + C", hl.dsp.window.close())
 
 hl.bind(super .. " + Q",         exec(terminal))
 hl.bind(super .. " + E",         exec(tuiFileMgr))
@@ -64,10 +64,10 @@ for _, d in ipairs(dirs) do
   end
 end
 
-for i = 1, 9 do
-    local key = tostring(i)
-    hl.bind(super .. " + " .. key,         function() return smw.workspace(i) end)
-    hl.bind(super .. " + SHIFT + " .. key, function() return smw.move_to_workspace(i) end)
+for i = 1, smw.get_amount_of_workspaces() do
+    local key = (i == 10) and "0" or tostring(i)
+    hl.bind(super .. " + " .. key,         smw.workspace(tostring(i)))
+    hl.bind(super .. " + SHIFT + " .. key, smw.move_to_workspace(tostring(i)))
 end
 
 -- mobile pc

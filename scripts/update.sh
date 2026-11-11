@@ -38,12 +38,6 @@ EOF
     yay -Syu --noconfirm
     yay -Sc --noconfirm
     flatpak update -y
-
-    if plugin=$(cat "$UPDATES_FILE" | grep "hyprland" 2> /dev/null); then
-        if ! "$(cat /etc/hostname)" == "sinooh"; then
-            hyprpm update
-        fi
-    fi
 }
 
 check() {

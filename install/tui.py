@@ -36,13 +36,6 @@ def run(cmd, check=True, cwd=None, input=None):
 # ======================================================================
 #  Ações de pós-instalação (referenciadas por nome no packages.toml)
 # ======================================================================
-def hyprpm_plugins():
-    # mantém a exceção do seu script antigo: não instala no mobile-pc
-    if socket.gethostname() != "mobile-pc":
-        run(["hyprpm", "add", "https://github.com/zjeffer/split-monitor-workspaces"], check=False)
-        run(["hyprpm", "enable", "split-monitor-workspaces"], check=False)
-
-
 def chsh_zsh():
     if os.environ.get("SHELL") != "/bin/zsh":
         run(["chsh", "-s", "/bin/zsh"])
