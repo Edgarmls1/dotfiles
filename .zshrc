@@ -95,7 +95,7 @@ f() { nvim $(fzf) }
 
 super() {
     if [[ $PWD != $HOME/* && $PWD != $HOME ]]; then
-        SUDO="🔒 "
+        SUDO=$'\uf023 '
     else
         SUDO=""
     fi
@@ -143,7 +143,7 @@ chpwd_functions+=(super)
 
 super
 
-PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}${SUDO}> %f'
+PS1=$'\n%F{$PROMPT_COLOR}%~%f%F{blue}$CMD_DURATION%f\n%F{$PROMPT_COLOR}${SUDO}$USER@$HOST > %f'
 
 ~/dotfiles/scripts/phrase.sh
 echo ""

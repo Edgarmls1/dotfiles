@@ -6,10 +6,10 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("qs")
     hl.exec_cmd("dunst")
 	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd("hyprpm reload")
 
 	hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/music-monitor.sh")
-	-- hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/dwall.sh")
+	-- hl.exec_cmd(os.getenv("HOME") .. "/dotfiles/scripts/monitors.sh")
 
     hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'Orchis-Dark'")
     hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")

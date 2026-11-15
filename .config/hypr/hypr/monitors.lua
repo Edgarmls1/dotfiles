@@ -5,12 +5,11 @@ hl.monitor({
 	scale    = "1",
 })
 
-hl.monitor({
-	output   = "eDP-1",
-	mode     = "1920x1080",
-	position = "-1921x0",
-	scale    = "1",
-    -- transform = 2,
+hl.monitor({ 
+    output = 'HDMI-A-2', 
+    mode = '1920x1200@60', 
+    position = '0x1080', 
+    scale = "1", 
 })
 
 -- mobile pc

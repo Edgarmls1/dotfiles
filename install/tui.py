@@ -89,7 +89,7 @@ def minecraft():
 
 
 ACTIONS = {f.__name__: f for f in (
-    hyprpm_plugins, chsh_zsh, stow_dotfiles, orchis_theme, dark_mode, pyenv, swap, minecraft,
+    chsh_zsh, stow_dotfiles, orchis_theme, dark_mode, pyenv, swap, minecraft,
 )}
 
 
@@ -123,11 +123,11 @@ class Installer(App):
     Header { background: black; color: white; text-style: bold; }
     #cats    { width: 28; border-right: solid $primary-darken-2; background: black; }
     #groups  { width: 34; border: none; border-right: solid $primary-darken-2; background: black; }
-    #groups > .tree--cursor { background: $accent 30%; color: hotpink; text-style: bold; }
+    #groups > .tree--cursor { background: $accent 30%; color: slateblue; text-style: bold; }
     #preview { width: 1fr; padding: 0 2; background: black; }
     ListView > ListItem { background: black; }
-    ListView > ListItem.--highlight { color: hotpink; text-style: bold; }
-    ListView:focus > ListItem.--highlight { background: $accent 30%; color: hotpink; }
+    ListView > ListItem.--highlight { color: slateblue; text-style: bold; }
+    ListView:focus > ListItem.--highlight { background: $accent 30%; color: slateblue; }
     """
 
     BINDINGS = [
@@ -196,7 +196,7 @@ class Installer(App):
             preview.update("")
             return
         info = self.data[cat][group]
-        lines = [f"[hotpink]{group}[/]", ""]
+        lines = [f"[slateblue]{group}[/]", ""]
         lines += [f"- {p}" for p in info.get("packages", [])]
         extra = []
         if info.get("services"):
@@ -220,7 +220,7 @@ class Installer(App):
             self.show_group(self.current, node.data)
         elif node.children:  # submenu
             preview = self.query_one("#preview", Static)
-            lines = [f"[hotpink]{node.label}[/]", ""]
+            lines = [f"[slateblue]{node.label}[/]", ""]
             lines += [f"- {str(c.label)[2:]}" for c in node.children]
             preview.update("\n".join(lines))
 
@@ -275,12 +275,11 @@ def main() -> None:
         print(f"  - {name}")
     print(f"\n{len(packages)} pacotes: {' '.join(packages)}")
 
-    if input("\nContinuar? [s/N] ").strip().lower() not in ("s", "y"):
+    if input("\nContinuar? [y/N] ").strip().lower() not in ("s", "y"):
         print("Cancelado.")
         return
 
     if packages:
-        ensure_yay()
         run(["yay", "-S", "--needed", "--noconfirm", *packages])
 
     for name, i in infos:

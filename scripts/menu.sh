@@ -3,7 +3,14 @@
 WALL_CONF="$HOME/.config/hypr/hyprpaper.conf"
 WALL_DIR="$HOME/dotfiles/wallpapers"
 
-BEMENU_OPTS=(-i -c -l 5 -W 0.2 -p ">" -H 23
+case $1 in
+    app)  icon=$'\uf04b' ;;
+    sys)  icon=$'\uf011' ;;
+    wall) icon=$'\uf03e' ;;
+    proc) icon="💀"      ;;
+esac
+
+BEMENU_OPTS=(-i -c -l 5 -W 0.2 -p "$icon" -H 23
     --fn "Hack Nerd Font 10"
     --tb "#000000" --tf "#ffffff"
     --fb "#000000" --ff "#ffffff"
