@@ -40,9 +40,17 @@ case $1 in
     wall)
         paper=$(find "$WALL_DIR" -maxdepth 1 -type f -printf '%f\n' | sort | menu)
         [ -z "$paper" ] && exit 1
-        sed -i -E "s|wallpapers/.*|wallpapers/$paper|g" "$WALL_CONF"
-        pkill hyprpaper
-        setsid hyprpaper >/dev/null 2>&1 &
+        pkill mpvpaper
+        if [[ $paper == *.mp4 ]]; then
+            sed -i -E "s|wallpapers/.*|wallpapers/blank.png|g" "$WALL_CONF"
+            pkill hyprpaper
+            setsid hyprpaper >/dev/null 2>&1 &
+            setsid mpvpaper -o "no-audio loop" ALL "$WALL_DIR/$paper" >/dev/null 2>&1 &
+        else
+            sed -i -E "s|wallpapers/.*|wallpapers/$paper|g" "$WALL_CONF"
+            pkill hyprpaper
+            setsid hyprpaper >/dev/null 2>&1 &
+        fi
         ;;
     proc)
         n=$(nproc)

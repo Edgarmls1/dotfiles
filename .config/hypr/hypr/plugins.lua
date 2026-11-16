@@ -1,3 +1,4 @@
+package.path = package.path .. ";./?.lua;./?/init.lua"
 local smw = require("hypr.plugins.split-monitor-workspaces")
 smw.setup({
     workspace_count              = 10,
