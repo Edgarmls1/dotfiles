@@ -87,9 +87,12 @@ def minecraft():
     run(["flatpak", "remote-add", "trinity", "https://github.com/Trinity-LA/Trinity-Launcher/releases/download/flatpak/com.trench.trinity.launcher.flatpakrepo"])
     run(["flatpak", "install", "com.trench.trinity.launcher"])
 
+def hypr_plugin():
+    run(["rm", "-r", "./.config/hypr/hypr/plugins/split-monitor-worspaces"], cwd=DOTFILES_DIR)
+    run(["git", "clone", "https://github.com/zjeffer/split-monitor-workspaces", "./.config/hypr/hypr/plugins/split-monitor-worspaces"], cwd=DOTFILES_DIR)
 
 ACTIONS = {f.__name__: f for f in (
-    chsh_zsh, stow_dotfiles, orchis_theme, dark_mode, pyenv, swap, minecraft,
+    chsh_zsh, stow_dotfiles, orchis_theme, dark_mode, pyenv, swap, minecraft, hypr_plugin
 )}
 
 

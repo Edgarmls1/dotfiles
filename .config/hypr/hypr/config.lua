@@ -84,6 +84,10 @@ hl.config({
 			natural_scroll = true,
 		},
 	},
+
+    cursor = {
+        no_hardware_cursors = true,
+    },
 })
 
 hl.device({
